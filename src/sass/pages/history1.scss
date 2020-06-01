@@ -1,0 +1,141 @@
+.history-container {
+  // display: grid;
+  // grid-template-columns: auto;
+  margin-top: 10rem;
+}
+.tab-label {
+  width: 14rem;
+  color: $main-black;
+  // margin-left: 15rem;
+  font-size: 2.2rem;
+  display: inline-block;
+  background-color: $Ivory-white;
+  padding: 0.5rem 2rem;
+  border-radius: 1rem 1rem 0rem 0rem;
+  text-align: center;
+  border: 0.1rem solid $primary-alpine;
+  border-bottom: none;
+  &--s {
+    width: 8rem;
+  }
+  // &:hover {
+  //   background-color: $main-black;
+  //   color: $Ivory-white;
+  // }
+}
+.history-tabs {
+  margin-left: 15rem;
+  // display: flex;
+  // flex-wrap: unset;
+}
+.pick-date {
+  margin-left: 30%;
+  margin-right: 2rem;
+
+  > i {
+    margin-left: 1rem;
+    color: $primary-alpine;
+  }
+}
+.tabs-line {
+  width: 100%;
+  height: 0.2rem;
+  background-color: $primary-alpine;
+}
+.active-tab {
+  background-color: $main-black;
+  color: $Ivory-white;
+}
+.date-container {
+  border: 0.1rem solid $primary-alpine;
+  border-radius: 2.2rem;
+  margin: 3rem 12rem 0rem -3rem;
+  // padding: 1rem 3rem;
+  padding: 1rem 3rem 1rem 1rem;
+  // padding-left: 3rem;
+  // padding-right: 1rem;
+  width: 18%;
+  text-align: right;
+  &--company {
+    width: 10%;
+    padding: 0rem 1rem 0rem 1rem;
+  }
+  img {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50px;
+  }
+}
+.history-cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 40%);
+  // grid-template-columns: auto auto;
+  justify-content: center;
+  justify-items: center;
+  // justify-self: center;
+  // align-items: center;
+  margin: 5rem auto;
+  &--user {
+    margin: 0 auto;
+  }
+}
+// .img-text {
+//   @include row-center();
+// }
+.product-card-container {
+  // width: 100%;
+  // margin: 0 auto;
+}
+
+.h {
+  // margin-top: -3rem;
+}
+.status-container {
+  width: 95%;
+  border: 0.1rem solid $primary-alpine;
+  border-radius: 20rem;
+  height: 3rem;
+  margin: 0rem auto;
+  padding: 0rem 0.8rem;
+  @include flex(row, space-between, center);
+  &--user {
+    width: 100%;
+    margin: 1rem auto;
+  }
+}
+.status-current {
+  @include flex(row, center, center);
+  &__circle {
+    margin-right: 0.5rem;
+    // background-color: black;
+  }
+  &--details {
+    @include flex(row, left, center);
+    margin: 2rem 0;
+    font-size: 2rem;
+  }
+}
+.show-more {
+  &__link {
+    color: $primary-alpine;
+  }
+  // margin-top: 1.5rem;
+
+  text-align-last: right;
+  font-weight: bold;
+  font-size: 1.2rem;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.wrapping {
+  @include flex(row, space-between, center);
+  margin: 0 2rem;
+}
+.mr {
+  margin-left: 90%;
+}
+// .g {
+//   width: 0%;
+//   margin: 0 auto;
+// }

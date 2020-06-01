@@ -1,0 +1,30 @@
+.productLabel {
+  display: inline-block;
+  background-color: $main-black;
+  margin-left: 15rem;
+  color: $Ivory-white;
+  padding: .7rem 2.5rem;
+  border-radius: 1rem 1rem 0rem 0rem;
+  font-size: 2rem;
+  
+  &__product {
+    display: inline;
+    text-align: center;
+    border-radius: 30px;
+    margin-left: 0;
+    border: 2px solid $primary-alpine;
+    padding: 2rem;
+  }
+  &__totalPrice {
+    padding: 0.8rem;
+    text-align: center;
+  }
+  &__price {
+    background-color: $Ivory-white;
+    border: 2px solid $primary-alpine;
+    border-radius: 25px;
+    color: $lighter-black;
+    margin: 0rem 5rem;
+    padding: 0rem;
+  }
+}

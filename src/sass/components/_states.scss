@@ -1,0 +1,78 @@
+.states-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.circle {
+    width: 10rem;
+    height: 10rem;
+    display: table;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 5rem;
+
+    &--s {
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+        font-size: 3.5rem;
+    }
+
+    &--active {
+        border: 0.2rem solid $primary-alpine;
+        background-color: $main-white;
+        color: $gray;
+    }
+
+    &--notTouched {
+        border: 0.2rem solid $gray;
+        background-color: $main-white;
+        color: $gray;
+    }
+
+    &--finished {
+        border: 0.2rem solid $primary-alpine;
+        background-color: $primary-alpine;
+        color: $main-white;
+
+    }
+}
+
+.circle span {
+    display: table-cell;
+    vertical-align: middle;
+    height: 10rem;
+    width: 10rem;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.circle--s span {
+    width: 7rem;
+    height: 7rem;
+}
+
+.pipe {
+    width: 18rem;
+    height: 1rem;
+    align-self: center;
+
+    &--s {
+        width: 10rem;
+        height: 1rem;
+    }
+
+    &--notTouched {
+        border-bottom: 0.1rem solid $gray;
+        border-top: 0.1rem solid $gray;
+        background-color: $main-white;
+    }
+
+    &--finished {
+        border-bottom: 0.1rem solid $lighter-alpine;
+        border-top: 0.1rem solid $lighter-alpine;
+        background-color: $primary-alpine;
+    }
+}

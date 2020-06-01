@@ -1,0 +1,35 @@
+.input-sm {
+    width: 15rem;
+    height: 2.5rem;
+    box-sizing: border-box;
+    border-radius: 4rem;
+    border: 0.2rem solid $primary-alpine;
+    padding-left: 4rem;
+    font-size: 1rem;
+    color: $lighter-black;
+    &--mwh {
+      width: 80%;
+      height: 4.5rem;
+    }
+    &--m {
+      height: 4rem;
+      font-size: 1.6rem;
+      padding-left: 2rem;
+    }
+    &--shadow {
+      box-shadow: 2px 4px 5px 1px rgba(0, 0, 0, 0.2);
+    }
+    &--s {
+      width: 30rem;
+      height: 4rem;
+      border-radius: 15px;
+      border: 0.1rem solid $primary-alpine;
+    }
+  }
+  
+  .input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+  }
+  

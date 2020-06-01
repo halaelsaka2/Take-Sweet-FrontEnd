@@ -1,0 +1,74 @@
+.login-container {
+    display: flex;
+    flex-direction: row;
+    // display: grid;
+    // grid-template-columns: auto auto;
+}
+
+.login-img {
+    width: 50%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    // background: url(../../assets/images/tart.jpg) no-repeat 400px center;
+    // background-image: url('../../../go-between-sass/assets/images/tart.jpg');
+    // background-repeat: no-repeat;
+    // background-attachment: fixed;
+    // background-size: cover;
+
+    // overflow: hidden;
+    // width: 50%;
+    // background-image: url("../../../go-between-sass/assets/images/tart.jpg");
+    // background-size: 300rem;
+}
+
+.img-login {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+// .image {
+//     width: 100%;
+//     // height: 100%;
+//     opacity: 90%;
+
+// }
+
+// .card-overlay {
+//     background: rgba(0, 0, 0, 0.8);
+// }
+
+.login-form-container {
+    width: 50%;
+    margin: auto;
+}
+
+.login-form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.form-header {
+    margin-bottom: 8rem;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.login-form>input {
+    margin-bottom: 2em;
+}
+
+.login-form>button {
+    margin: 1rem 0rem 2rem 0rem;
+    font-weight: bold;
+}
+
+.login-form>a {
+    margin-top: 6rem;
+    cursor: pointer;
+    font-weight: bold;
+}

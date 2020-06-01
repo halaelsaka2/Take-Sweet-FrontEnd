@@ -1,0 +1,118 @@
+.about-us {
+    width: 100%;
+    text-align: center;
+    margin: 15rem 0rem 0rem 0rem;
+
+    &__header {
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 3rem;
+    }
+
+    &__about-us-container {
+        display: grid;
+        grid-template-columns: auto 0.2rem auto;
+        justify-content: center;
+        align-items: center;
+        margin: 8rem auto 0rem auto;
+
+        &__middle-line {
+            background-color: $primary-alpine;
+            width: 0.2rem;
+            height: 40rem;
+
+            &__bottom {
+                background-color: $primary-alpine;
+                width: 0.2rem;
+                height: 60rem;
+            }
+
+            &__circle {
+                width: 1.5rem;
+                height: 1.5rem;
+                border: 0.2rem solid $primary-alpine;
+                border-radius: 50%;
+                margin-left: -0.7rem;
+            }
+
+        }
+
+
+        &__left-img-container {
+            width: 40rem;
+            height: 30rem;
+            justify-self: right;
+            align-self: center;
+            // margin-right: 1rem;
+
+            &__left-img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &__right-contant-container {
+            justify-self: left;
+            align-self: center;
+            margin-left: 3rem;
+
+
+            &__right-header {
+                font-weight: bolder;
+                font-size: 2rem;
+                color: $primary-alpine;
+                text-align: left;
+                text-transform: uppercase;
+                margin-bottom: 3rem;
+            }
+
+
+            &__right-body {
+                width: 35rem;
+                word-wrap: break-word;
+                text-align: left;
+                line-height: 2.5rem;
+            }
+        }
+
+        &__right-img-container {
+            width: 40rem;
+            height: 30rem;
+            justify-self: left;
+            align-self: start;
+            margin-top: 5rem;
+
+            &__right-img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &__left-contant-container {
+            justify-self: right;
+            align-self: start;
+            margin-right: 3rem;
+            margin-top: 8rem;
+
+            &__left-header {
+                font-weight: bolder;
+                font-size: 2rem;
+                color: $primary-alpine;
+                text-align: right;
+                text-transform: uppercase;
+                margin-bottom: 3rem;
+            }
+
+
+            &__left-body {
+                width: 35rem;
+                word-wrap: break-word;
+                text-align: right;
+                line-height: 2.5rem;
+            }
+        }
+    }
+
+
+}

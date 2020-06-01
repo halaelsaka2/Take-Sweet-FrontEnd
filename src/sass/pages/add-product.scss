@@ -1,0 +1,41 @@
+.addProductContainer {
+  // margin: 15rem 0rem;
+}
+
+.ProductContainer {
+  display: flex;
+  border-top: solid $primary-alpine 0.1rem;
+}
+
+.productDetailsContainer {
+  margin-top: 5rem;
+  margin-left: 15rem;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.countContainer {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin: 7rem 0rem;
+}
+
+.paymentsContianer {
+  margin-bottom: 7rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.categoryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 5.5rem;
+  margin-bottom: 7rem;
+}
+
+.btnContainer {
+  margin-left: 25rem;
+}

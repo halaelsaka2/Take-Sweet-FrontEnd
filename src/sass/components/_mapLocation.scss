@@ -1,0 +1,10 @@
+.mapLocation {
+  width: 50%;
+  height: 24rem;
+  background-color: teal;
+  &__btn {
+    position: relative;
+    top: 80%;
+    left: 45%;
+  }
+}

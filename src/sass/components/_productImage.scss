@@ -1,0 +1,28 @@
+.productImageContainer {
+    // display: flex;
+    // flex-direction: column;
+    width: 25%;
+    margin: 5rem;
+    &__image {
+      position: relative;
+       z-index: 5;
+        width:100%;
+      margin: 0rem;
+    }
+    &__label {
+      width: 100%;
+      background-color: $main-black;
+      color: $Ivory-white;
+      text-align: center;
+      padding: 0.5rem 2rem;
+      border-radius: 0rem 0rem 1rem 1rem;
+    }
+    &__background{
+        z-index: 2;
+        // order: 1;
+        position: relative;
+        height: 22rem;
+        border: 2px solid $primary-alpine;
+        transform: translateY(-23rem) rotate(30deg);
+    }
+  }

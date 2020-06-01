@@ -1,0 +1,18 @@
+.countItem{
+//     display: flex;
+// flex-direction: column;
+&__info{
+    margin-left: -1rem;
+    margin-bottom: 2rem;
+}
+margin: 2rem;
+    &__input{
+        // width: 50%;
+        // margin-right: ;
+        width: 20rem;
+        height: 3rem;
+        border: solid $primary-alpine 0.2rem ;
+        border-radius: 1rem;
+        margin-right: 2rem;
+    }
+}

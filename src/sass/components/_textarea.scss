@@ -1,0 +1,12 @@
+.detailsContainer {
+  margin: 5rem;
+  &__info {
+    margin-left: -5rem;
+    margin-bottom: 2rem;
+  }
+  &__input {
+    margin-left: 1rem;
+    border: solid $primary-alpine 0.2rem;
+    border-radius: 1rem;
+  }
+}

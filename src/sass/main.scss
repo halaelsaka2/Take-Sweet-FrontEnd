@@ -1,0 +1,60 @@
+@import url("../../node_modules/@fortawesome/fontawesome-free/css/all.min.css");
+//absratcts
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/functions";
+
+//vendorss
+
+//base
+@import "base/reset";
+@import "base/typography";
+
+//layout
+@import "layout/header";
+@import "layout/footer";
+@import "layout/navigation";
+@import "layout/projectContainer";
+
+//components
+@import "components/productLabel";
+@import "components/productImage.scss";
+@import "components/textarea";
+@import "components/countItem";
+@import "components/paymentItem";
+@import "components/categoryItem";
+@import "components/personalInformation";
+@import "components/branchCard";
+@import "components/profileLabel";
+@import "components/card";
+
+@import "components/states";
+@import "components/input";
+@import "components/button";
+@import "components/registerDropdown";
+@import "components/mapLocation";
+
+@import "components/productListing";
+@import "components/paging";
+@import "components/modal.scss";
+@import "components/product-card.scss";
+@import "components/bestItems";
+@import "components/historyUser";
+@import "components/review-card";
+@import "components/tableDetails";
+
+//pages
+@import "pages/add-product.scss";
+@import "pages/login.scss";
+@import "pages/register.scss";
+@import "pages/editProduct.scss";
+@import "pages/history1.scss";
+@import "components/modal";
+@import "components/product-card";
+@import "components/reviewSlider";
+//pages
+@import "pages/add-product";
+@import "pages/login";
+@import "pages/register";
+@import "pages/history.scss";
+@import "pages/aboutus.scss";

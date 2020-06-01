@@ -1,0 +1,40 @@
+.reviewCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__title {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    &__text {
+        width: 90rem;
+        margin: 1rem;
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    &__inputs {
+        width: 45rem;
+        height: 5rem;
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    &__reviews {
+        padding: 1.5rem;
+        margin: 1.5rem;
+        width: 92rem;
+    }
+}
+
+.inputReview {
+    border: 1px solid $gray;
+    color: $main-black;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    align-items: center;
+}

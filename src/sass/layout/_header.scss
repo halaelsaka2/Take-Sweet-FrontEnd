@@ -1,0 +1,23 @@
+.header {
+    height: 5.5rem;
+    width: 100%;
+    color: $primary-alpine;
+    display: flex;
+    // background-color: $light-black;
+    background-color: $main-white;
+    // border: 1px solid $gray;
+    font-weight: 700;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+
+    &__logo {
+        width: 10rem;
+
+        &__icon {
+            width: 100%;
+        }
+    }
+}

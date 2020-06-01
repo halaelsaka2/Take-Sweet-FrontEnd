@@ -1,0 +1,12 @@
+.profileLabel {
+  margin-left: 7rem;
+  display: inline-block;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: solid $primary-alpine 0.1rem;
+  font-size: 20px;
+  color: $main-gray;
+  &--left {
+    margin-left: 2rem;
+  }
+}

@@ -1,0 +1,229 @@
+.history {
+    width: 100%;
+    // border: 1px solid $primary-alpine;
+    color: $primary-alpine;
+    // margin: 1rem;
+    padding: 1rem;
+
+    &__title {
+        // color: $primary-alpine;
+        font-weight: 700;
+        margin: 3rem;
+        text-align: center;
+    }
+
+    &__btnContainer {
+        width: 40%;
+        margin-left: 5rem;
+        display: flex;
+        flex-flow: row;
+
+        &__btn {
+            // padding: 0.5%;
+            color: $main-black;
+            margin-left: 1rem;
+            padding: 0.5rem 2rem;
+            width: auto;
+            text-align: center;
+            border: 1px solid $primary-alpine;
+            border-bottom: 0px;
+            border-radius: 1rem 1rem 0rem 0rem;
+
+            // &:hover {
+            //     background-color: $main-black;
+            //     color: $main-white;
+            //     transition: all 0.3;
+            // }
+        }
+    }
+
+    &__line {
+        height: 2px;
+        width: 100%;
+        border-width: 0;
+        color: $primary-alpine;
+        background-color: $primary-alpine;
+    }
+
+    &__date {
+        margin: 3rem 0rem;
+        width: 15%;
+        border: 1.5px solid $primary-alpine;
+        border-left: 0px;
+        border-radius: 0 50% 50% 0%;
+        color: $main-black;
+        text-align: right;
+        padding: 0.5rem 4.5rem;
+    }
+
+    &__status {
+        margin: auto;
+        height: 85%;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+
+        &__img {
+            // border: 1px solid red;
+            width: 50%;
+            position: relative;
+            // margin-bottom: 30%;
+            margin: 1%;
+
+            &__rotated {
+                width: 275px;
+                height: 265px;
+                transform: rotate(40deg);
+                border: 1px solid $primary-alpine;
+            }
+
+            &__normal {
+                width: 70%;
+                height: 70%;
+                // border: 1px solid blue;
+            }
+        }
+
+        &__details {
+            // border: 1px solid red;
+            width: 60%;
+            // margin-left: 5%;
+            display: flex;
+            flex-direction: column;
+            // align-items: center;
+
+            &__btn {
+                width: 20%;
+                background-color: $main-black;
+                color: $main-white;
+                margin-bottom: 3%;
+                margin-left: 40%;
+                font-size: 1.7rem;
+
+
+            }
+        }
+    }
+}
+
+.box {
+    position: absolute;
+    top: 25%;
+    left: 20%;
+}
+
+.order {
+    width: 100%;
+    height: 46rem;
+    padding: 1rem;
+    border: 1px solid $primary-alpine;
+    border-radius: 3rem;
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    &__grid {
+        // border: 1px solid yellow;
+        text-align: center;
+        width: 40rem;
+        height: 20rem;
+    }
+}
+
+.line {
+    margin-top: 2%;
+}
+
+.link {
+    margin-top: 1.5%;
+    margin-left: 93%;
+    color: $primary-alpine;
+
+    &:hover {
+        text-decoration: none;
+        color: $gray;
+    }
+}
+
+
+// table,
+// th,
+// td {
+
+// }
+
+.tab {
+    border: 1px solid $primary-alpine;
+    margin-left: 25%;
+    width: 25rem;
+    height: 20rem;
+    // border: 1px solid black;
+    color: $main-black;
+}
+
+.item3 {
+    // width: 45rem;
+    width: 40rem;
+    height: 20rem;
+    padding: 1rem;
+    color: $main-black;
+    text-align: justify;
+    border: 1px solid $primary-alpine;
+    // margin: 1rem;
+    margin-left: 10%;
+}
+
+.item2 {
+    // width: 50rem;
+    display: flex;
+    flex-direction: column;
+    color: $main-black;
+    align-items: center;
+
+    &__div1 {
+        border: 1px solid $primary-alpine;
+        text-align: center;
+        width: 20rem;
+        height: 8rem;
+        margin: 1rem;
+        padding: 0.5rem;
+    }
+
+    &__div2 {
+        padding: 0.5rem;
+        border: 1px solid $primary-alpine;
+        width: 20rem;
+        height: 4rem;
+        margin: 0.5rem;
+    }
+}
+
+.item4 {
+    // width: 50rem;
+    width: 25rem;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $primary-alpine;
+    padding: 0.5rem;
+    // color: yellow;
+    margin-left: 18%;
+    margin-top: 10%;
+
+}
+
+.txt {
+    color: $primary-alpine;
+    font-weight: 400;
+}
+
+.shared {
+    padding: 5px;
+    border: 1px solid $primary-alpine;
+    align-items: center;
+    text-align: center;
+}
+
+.activeBtn {
+    background-color: $main-black;
+    color: $main-white;
+}
