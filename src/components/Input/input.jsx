@@ -3,7 +3,7 @@ const Input = (props) => {
   const {
     name,
     label,
-    style,
+    className,
     type,
     value,
     error,
@@ -14,10 +14,10 @@ const Input = (props) => {
     <React.Fragment>
       <label htmlFor={name}>{label}</label>
       <input
-        autoFocus
+        // autoFocus
         value={value}
         onChange={onChange}
-        className={style}
+        className={className}
         type={type}
         id={name}
         name={name}
