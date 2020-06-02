@@ -116,14 +116,19 @@
   }
 }
 .show-more {
+  display: grid;
+  // grid-columns: auto ;
+  >div {
+    justify-self: end;
+  }
   &__link {
     color: $primary-alpine;
   }
   // margin-top: 1.5rem;
 
-  text-align-last: right;
+  // text-align-last: right;
   font-weight: bold;
-  font-size: 1.2rem;
+  // font-size: 1.2rem;
   &:hover {
     cursor: pointer;
   }
