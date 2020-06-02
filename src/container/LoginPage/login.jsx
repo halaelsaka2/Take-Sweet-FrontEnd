@@ -1,8 +1,8 @@
 import React from "react";
-import Input from "../components/Input/input";
-import Button from "../components/Button/button";
+import Input from "../../components/Input/input";
+import Button from "../../components/Button/button";
 
-const Login = props => {
+const Login = (props) => {
   return (
     <div className="login-container">
       <div className="login-img">

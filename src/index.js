@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./app";
 
-
 import "./sass/main.scss";
 // ReactDOM.render(
 //   <React.StrictMode>
@@ -11,7 +10,7 @@ import "./sass/main.scss";
 //   document.getElementById("root")
 // );
 
-ReactDOM.render( < App / > , document.querySelector('#root'));
+ReactDOM.render(<App />, document.querySelector("#root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
