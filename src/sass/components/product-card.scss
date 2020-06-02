@@ -4,7 +4,7 @@
   height: 18rem;
   border: 0.2rem solid $primary-alpine;
   border-radius: 1.2rem;
-  margin: 3% auto;
+  margin: 3rem auto;
 
   @include flex(row, space-evenly, center, wrap);
   &--large {
@@ -14,7 +14,9 @@
     @include flex(row, space-between, center, wrap);
     height: 22rem;
     padding: 0rem 3rem 2rem 0rem;
-    width: 77%;
+    width: auto;
+    height: auto;
+    
   }
   &__img {
     border-radius: 50%;
@@ -24,6 +26,10 @@
     &--user {
       width: 16rem;
       height: 16rem;
+    }
+    @media (max-width: 1220px) {
+      width: 12rem;
+    height: 12rem;
     }
     &--large {
       // width: 17rem;
@@ -48,8 +54,15 @@
   }
   &__text {
     width: 40%;
-    height: 10rem;
+    // height: 10rem;
     // @include flex(column, center, space-around);
+    &--user {
+      width: 50%;
+      height: auto;
+    }
+    @media (max-width: 1220px) {
+      width: 30%;
+    }
     &__header {
       text-transform: capitalize;
       text-align: center;
@@ -60,6 +73,15 @@
       height: 0.1px;
       width: 80%;
       margin: 0.2rem auto;
+    }
+    &__cancelBtn {
+      margin-left: 8rem;
+      margin-top: 1rem;
+      width: 100%;
+      &--user {
+        @include flex(row,right,center);
+        margin-left: 0;
+      }
     }
     &__content {
       @include flex(row, space-around, center);

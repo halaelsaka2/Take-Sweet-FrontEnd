@@ -1,0 +1,32 @@
+.order-card {
+    border: solid $primary-alpine 0.1rem;
+    border-radius: 2rem;
+    padding: 1rem;
+    margin:  2rem ;
+    height: max-content;
+    &__header {
+        width: 30%;
+        @include flex(row,space-around,center);
+        img {
+            border-radius: 5rem;
+            width: 5rem;
+            height: 5rem;
+        }
+    }
+    &__content {
+        &__buttons {
+        @include flex(row,space-between,center);
+            margin: 0 3rem;
+        }
+    }
+    
+}
+
+.order-container {
+    display: grid;
+    grid-template-columns: auto auto ;
+    @media (max-width: 1233px) {
+        grid-template-columns: auto;
+      }
+}
+
