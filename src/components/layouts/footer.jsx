@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="footerContainer__col">
           <img
             className="footerContainer__col__logo"
-            src="../../images/GoBetween.png"
+            src="assets/images/GoBetween.png"
             alt="logo"
           />
           <p className="footerContainer__col__text">
@@ -37,28 +37,28 @@ const Footer = () => {
           <h4 className="container__col__title">NEWS</h4>
           <ul className="container__col__menu grid">
             <li className="container__col__menu item">
-              <img src="../../images/1.jpeg" alt="img1" className="imgs" />
+              <img src="assets/images/1.jpeg" alt="img1" className="imgs" />
               <span>
                 Breads <br />
                 July 18,2020
               </span>
             </li>
             <li className="container__col__menu item">
-              <img src="../../images/2.jpeg" alt="img2" className="imgs" />
+              <img src="assets/images/2.jpeg" alt="img2" className="imgs" />
               <span>
                 Bluerry pie <br />
                 July 18,2020
               </span>
             </li>
             <li className="container__col__menu item">
-              <img src="../../images/3.jpeg" alt="img3" className="imgs" />
+              <img src="assets/images/3.jpeg" alt="img3" className="imgs" />
               <span>
                 Apple pie <br />
                 July 18,2020
               </span>
             </li>
             <li className="container__col__menu item">
-              <img src="../../images/4.jpeg" alt="img4" className="imgs" />
+              <img src="assets/images/4.jpeg" alt="img4" className="imgs" />
               <span>
                 Pancake <br />
                 July 18,2020
