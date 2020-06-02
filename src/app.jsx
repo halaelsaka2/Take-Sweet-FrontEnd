@@ -6,17 +6,25 @@ import Button from "./components/Button/button";
 import ProductCardModal from "./container/ProductCardModalPage/ProductCardModal";
 import Footer from "./components/layouts/footer";
 import Header from "./components/layouts/header";
+import ProductCard from "./components/product-card/productCard";
 class App extends Component {
   render() {
     return (
       <React.Fragment>
         {/* <Login /> */}
-        {/* <ProductCard /> */}
+        {/* <ProductCard
+          productName="caramel"
+          productAmount="50"
+          totalPrice="1500"
+          status={false}
+          modalCart={true}
+          className="product-card product-card--large"
+        /> */}
         <ProductCardModal />
         <Header />
         <Header check="t" />
         <br /> <br /> <br />
-        <Footer />
+        <Footer /> */}
       </React.Fragment>
     );
   }
