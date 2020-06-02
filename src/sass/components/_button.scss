@@ -29,7 +29,14 @@
     font-weight: 500;
     cursor: pointer;
   }
-
+  &--xs {
+    width: 8rem;
+    height: 3.4rem;
+    background-color: $main-red;
+    color: white;
+    border: none;
+    font-size: 1.6rem;
+  }
   &--danger {
     background-color: $main-red;
     color: white;
