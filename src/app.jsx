@@ -14,6 +14,7 @@ class App extends Component {
         {/* <ProductCard /> */}
         <ProductCardModal />
         <Header />
+        <Header check="t" />
         <br /> <br /> <br />
         <Footer />
       </React.Fragment>
