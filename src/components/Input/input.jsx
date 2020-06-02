@@ -1,5 +1,5 @@
 import React from "react";
-const Input = props => {
+const Input = (props) => {
   const {
     name,
     label,
@@ -8,7 +8,7 @@ const Input = props => {
     value,
     error,
     onChange,
-    placeholder
+    placeholder,
   } = props;
   return (
     <React.Fragment>
