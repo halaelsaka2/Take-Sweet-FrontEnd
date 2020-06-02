@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <React.Fragment>
         {/* <Login /> */}
-        <Header />
+        <Header check="t" />
         <br /> <br /> <br />
         <Footer />
       </React.Fragment>

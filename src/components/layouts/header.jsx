@@ -1,6 +1,8 @@
 import React from "react";
 
-const Header = () => {
+const Header = (props) => {
+  let { check } = props;
+  let x = check !== "" ? true : false;
   return (
     <header className="header">
       <div className="header__logo">
@@ -37,11 +39,13 @@ const Header = () => {
               Contact
             </a>
           </li>
-          <li className="nav__menu__item">
-            <a className="nav__menu__link" href="#">
-              Products
-            </a>
-          </li>
+          {x && (
+            <li className="nav__menu__item">
+              <a className="nav__menu__link" href="#">
+                Products
+              </a>
+            </li>
+          )}
         </ul>
       </nav>
       <div>
