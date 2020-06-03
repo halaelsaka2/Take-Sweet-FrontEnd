@@ -10,12 +10,12 @@ import Textarea from "./components/Textarea/textarea";
 import RegisterAcceptanceInfo from "./container/RegisterPage/registerAcceptanceInfo";
 
 import ReviewCard from "./components/ReviewCard/reviewCard";
-import ProductItem from '../src/components/ProductItem'
-import Slideshow from '../src/components/SlideShow' 
+import ProductItem from "../src/components/ProductItem";
+import Slideshow from "../src/components/SlideShow";
 
 import DescriptionSection from "./components/DescriptionScetion/descriptionSection";
 import HistoryStates from "./components/HistoryStates";
-
+import States from "./components/States";
 
 class App extends Component {
   render() {
@@ -44,10 +44,19 @@ class App extends Component {
         deserve all waiting time.It is the most crowded place on the street,I
         totally recommend this bakery, their desserts are delicious."
         /> */}
-        <ReviewCard />
-      {/* history tab component */}
+        {/* <ReviewCard /> */}
+        {/* history tab component */}
         {/* <HistoryStates tabs={["all", "waiting"]} isActive={true} index={1} /> */}
-<Slideshow></Slideshow>
+        {/* <Slideshow></Slideshow> */}
+        <States
+          circles={[1, 2, 3]}
+          cirleClassNames={[
+            "circle--finished",
+            "circle--finished",
+            "circle--finished"
+          ]}
+          pipeClassNames={["pipe--finished", "pipe--finished"]}
+        />
       </React.Fragment>
     );
   }
