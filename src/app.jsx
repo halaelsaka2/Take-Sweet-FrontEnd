@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
-import Login from "./container/LoginPage/login";
-
+import Login from "./container/LoginPage";
 
 import ProductCardModal from "./container/ProductCardModalPage/ProductCardModal";
 
@@ -25,8 +24,8 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Search />
-        {/* <Login /> */}
+        {/* <Search /> */}
+        <Login />
 
         {/* <ProductCardModal /> */}
         {/* <ProductCard cardType="historyCard" className="product-card--large" /> */}
@@ -55,7 +54,12 @@ class App extends Component {
         /> */}
         {/* <ReviewCard /> */}
         {/* history tab component */}
-        {/* <HistoryStates tabs={["all", "waiting"]} isActive={true} index={1} isPickdate={true} /> */}
+        {/* <HistoryStates
+          tabs={["all", "waiting"]}
+          isActive={true}
+          index={0}
+          isPickDate={true}
+        /> */}
         {/* <Slideshow></Slideshow> */}
 
         {/* <States
@@ -70,7 +74,6 @@ class App extends Component {
           pipeClassNames={["pipe--finished", "pipe--finished"]}
 
         /> */}
-
       </React.Fragment>
     );
   }
