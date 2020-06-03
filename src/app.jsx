@@ -20,12 +20,16 @@ import Search from "./components/Search";
 
 import States from "./components/States";
 
+// import Paging from "./components/paging";
+
 class App extends Component {
   render() {
     return (
       <React.Fragment>
         {/* <Search /> */}
         <Login />
+
+        {/* <Paging /> */}
 
         {/* <ProductCardModal /> */}
         {/* <ProductCard cardType="historyCard" className="product-card--large" /> */}

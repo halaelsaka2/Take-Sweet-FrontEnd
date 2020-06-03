@@ -131,6 +131,11 @@ a {
   }
 }
 
+.gridAdded {
+  display: grid;
+  grid-template-columns: 95% 5%;
+}
+
 .tabs-containera {
   margin: 2rem 10rem;
   display: grid;
@@ -140,6 +145,18 @@ a {
   color: $main-black;
   z-index: 5;
   justify-content: center;
+}
+
+.plus {
+  width: 4rem;
+  height: 4rem;
+  margin-top: 5rem;
+  border-radius: 50%;
+  padding: 0.8rem 0 0 0.8rem;
+  border: 0.2rem solid #bb9230;
+  color: #bb9230;
+  font-size: 20px;
+  margin-left: -11rem;
 }
 
 ///////////////////////item/////////////////////////
