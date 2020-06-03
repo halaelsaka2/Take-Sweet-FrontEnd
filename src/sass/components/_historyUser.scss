@@ -1,11 +1,15 @@
 .userHistoryFilter {
+  // position: relative;
   margin-top: 2rem;
   display: grid;
   grid-template-columns: auto;
   width: 100%;
-  >div{
+  > div {
     width: 30%;
   }
+}
+.search {
+  position: relative;
 }
 .company-logo {
   @include flex(row, space-between, center);
@@ -15,4 +19,14 @@
   border-radius: 20px;
   margin-right: 5rem;
   padding: 2rem;
+}
+.search-icon-Container {
+  position: absolute;
+  top: 29%;
+  width: fit-content;
+  display: inline-block;
+  left: 85%;
+  &__icon {
+    color: $primary-alpine;
+  }
 }
