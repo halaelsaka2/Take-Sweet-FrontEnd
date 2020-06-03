@@ -1,8 +1,8 @@
 import React from "react";
 import DescriptionSection from "./../DescriptionScetion/descriptionSection";
-import Input from "./../Input/input";
+import Input from "../Input";
 import Textarea from "./../Textarea/textarea";
-import Button from "./../Button/button";
+import Button from "../Button";
 const ReviewCard = () => {
   return (
     <div class="reviewCard">

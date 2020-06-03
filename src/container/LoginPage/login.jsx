@@ -1,6 +1,6 @@
 import React from "react";
-import Input from "../../components/Input/input";
-import Button from "../../components/Button/button";
+import Input from "../../components/Input";
+import Button from "../../components/Button";
 
 const Login = (props) => {
   return (
