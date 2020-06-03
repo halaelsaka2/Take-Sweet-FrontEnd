@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Login from "./container/LoginPage/login";
 
-import ProductCardModal from "./container/ProductCardModalPage/productCardModal";
+// import ProductCardModal from "./container/ProductCardModalPage/productCardModal";
 import RegisterGeneralInfo from "./container/RegisterPage/registerGeneralInfo";
 import Footer from "./components/layouts/footer";
 import Header from "./components/layouts/header";
@@ -18,14 +18,13 @@ import HistoryStates from "./components/HistoryStates";
 
 import States from "./components/States";
 
-
 class App extends Component {
   render() {
     return (
       <React.Fragment>
         {/* <Login /> */}
 
-        <ProductCardModal />
+        {/* <ProductCardModal /> */}
         {/* <ProductCard cardType="statusCard" className="product-card--large" /> */}
         {/* <ProductCardModal /> */}
         {/* <RegisterAcceptanceInfo /> */}
@@ -52,9 +51,9 @@ class App extends Component {
 
         {/* <ReviewCard /> */}
         {/* history tab component */}
-        {/* <HistoryStates tabs={["all", "waiting"]} isActive={true} index={1} /> */}
+        {/* <HistoryStates tabs={["all", "waiting"]} isActive={true} index={1} isPickdate={true} /> */}
         {/* <Slideshow></Slideshow> */}
-        <States
+        {/* <States
           circles={[1, 2, 3]}
           cirleClassNames={[
             "circle--finished",
@@ -62,8 +61,7 @@ class App extends Component {
             "circle--finished"
           ]}
           pipeClassNames={["pipe--finished", "pipe--finished"]}
-        />
-
+        /> */}
       </React.Fragment>
     );
   }
