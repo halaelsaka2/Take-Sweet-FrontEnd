@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 
 import Login from "./container/LoginPage/login";
+
 import ProductCardModal from "./container/ProductCardModalPage/ProductCardModal";
 import RegisterGeneralInfo from "./container/RegisterPage/registerGeneralInfo";
 import Footer from "./components/layouts/footer";
 import Header from "./components/layouts/header";
 import Textarea from "./components/Textarea/textarea";
 import RegisterAcceptanceInfo from "./container/RegisterPage/registerAcceptanceInfo";
-
+import DescriptionSection from "./components/DescriptionScetion/descriptionSection";
+import ReviewCard from "./components/ReviewCard/reviewCard";
 import ProductItem from '../src/components/ProductItem'
-
 import Slideshow from '../src/components/SlideShow' 
 
 import DescriptionSection from "./components/DescriptionScetion/descriptionSection";
 import HistoryStates from "./components/HistoryStates";
+
 
 class App extends Component {
   render() {
@@ -32,9 +34,8 @@ class App extends Component {
         ></Textarea> */}
         {/* <Footer /> */}
 
-        <Slideshow></Slideshow>
+        {/* 
         <DescriptionSection
-
           titleClassName="about-us__about-us-container__right-contant-container__right-header"
           title="our companies"
           textClassName="about-us__about-us-container__right-contant-container__right-body"
@@ -43,11 +44,10 @@ class App extends Component {
         deserve all waiting time.It is the most crowded place on the street,I
         totally recommend this bakery, their desserts are delicious."
         /> */}
-
-
-
-{/* history tab component */}
+        <ReviewCard />
+      {/* history tab component */}
         {/* <HistoryStates tabs={["all", "waiting"]} isActive={true} index={1} /> */}
+<Slideshow></Slideshow>
       </React.Fragment>
     );
   }
