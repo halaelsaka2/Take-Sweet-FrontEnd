@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 
 import Login from "./container/LoginPage/login";
-
 import ProductCardModal from "./container/ProductCardModalPage/ProductCardModal";
 import RegisterGeneralInfo from "./container/RegisterPage/registerGeneralInfo";
 import Footer from "./components/layouts/footer";
 import Header from "./components/layouts/header";
 import Textarea from "./components/Textarea/textarea";
 import RegisterAcceptanceInfo from "./container/RegisterPage/registerAcceptanceInfo";
+
+import ProductItem from '../src/components/ProductItem'
+
 import DescriptionSection from "./components/DescriptionScetion/descriptionSection";
+
 
 class App extends Component {
   render() {
@@ -16,7 +19,7 @@ class App extends Component {
       <React.Fragment>
         {/* <Login /> */}
         {/* <ProductCardModal /> */}
-        <RegisterAcceptanceInfo />
+        {/* <RegisterAcceptanceInfo /> */}
         {/* <RegisterGeneralInfo /> */}
         {/* <Header check="t" /> */}
         {/* <br /> <br /> <br /> */}
