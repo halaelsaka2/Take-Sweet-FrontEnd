@@ -1,6 +1,6 @@
 import React from "react";
 import Input from "./../../components/Input";
-import Button from "../../components/Button/button";
+import Button from "../../components/Button";
 import States from "../../components/States";
 
 const RegisterAcceptanceInfo = (props) => {
