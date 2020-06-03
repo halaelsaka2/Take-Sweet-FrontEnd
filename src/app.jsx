@@ -17,6 +17,9 @@ import Slideshow from "../src/components/SlideShow";
 import HistoryStates from "./components/HistoryStates";
 import Search from "./components/Search";
 
+import States from "./components/States";
+
+
 class App extends Component {
   render() {
     return (
@@ -51,6 +54,16 @@ class App extends Component {
         {/* history tab component */}
         {/* <HistoryStates tabs={["all", "waiting"]} isActive={true} index={1} /> */}
         {/* <Slideshow></Slideshow> */}
+
+        <States
+          circles={[1, 2, 3]}
+          cirleClassNames={[
+            "circle--finished",
+            "circle--finished",
+            "circle--finished"
+          ]}
+          pipeClassNames={["pipe--finished", "pipe--finished"]}
+        />
       </React.Fragment>
     );
   }
