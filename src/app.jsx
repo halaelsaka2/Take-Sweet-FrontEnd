@@ -8,6 +8,7 @@ import Header from "./components/layouts/header";
 import Textarea from "./components/Textarea/textarea";
 import RegisterAcceptanceInfo from "./container/RegisterPage/registerAcceptanceInfo";
 import ProductItem from '../src/components/ProductItem'
+import Slideshow from '../src/components/SlideShow' 
 class App extends Component {
   render() {
     return (
@@ -24,6 +25,7 @@ class App extends Component {
           placeholder="your message"
         ></Textarea> */}
         {/* <Footer /> */}
+        <Slideshow></Slideshow>
       </React.Fragment>
     );
   }
