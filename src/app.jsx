@@ -16,6 +16,9 @@ import Slideshow from "../src/components/SlideShow";
 
 import HistoryStates from "./components/HistoryStates";
 
+import States from "./components/States";
+
+
 class App extends Component {
   render() {
     return (
@@ -46,10 +49,21 @@ class App extends Component {
         deserve all waiting time.It is the most crowded place on the street,I
         totally recommend this bakery, their desserts are delicious."
         /> */}
-        <ReviewCard />
+
+        {/* <ReviewCard /> */}
         {/* history tab component */}
         {/* <HistoryStates tabs={["all", "waiting"]} isActive={true} index={1} /> */}
-        <Slideshow></Slideshow>
+        {/* <Slideshow></Slideshow> */}
+        <States
+          circles={[1, 2, 3]}
+          cirleClassNames={[
+            "circle--finished",
+            "circle--finished",
+            "circle--finished"
+          ]}
+          pipeClassNames={["pipe--finished", "pipe--finished"]}
+        />
+
       </React.Fragment>
     );
   }
