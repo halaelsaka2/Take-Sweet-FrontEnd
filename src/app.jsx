@@ -2,7 +2,9 @@ import React, { Component } from "react";
 
 import Login from "./container/LoginPage/login";
 
+
 import ProductCardModal from "./container/ProductCardModalPage/ProductCardModal";
+
 import RegisterGeneralInfo from "./container/RegisterPage/registerGeneralInfo";
 import Footer from "./components/layouts/footer";
 import Header from "./components/layouts/header";
@@ -19,15 +21,16 @@ import Search from "./components/Search";
 
 import States from "./components/States";
 
-
 class App extends Component {
   render() {
     return (
       <React.Fragment>
         <Search />
         {/* <Login /> */}
+
         {/* <ProductCardModal /> */}
         {/* <ProductCard cardType="historyCard" className="product-card--large" /> */}
+
         {/* <ProductCardModal /> */}
         {/* <RegisterAcceptanceInfo /> */}
         {/* <RegisterGeneralInfo /> */}
@@ -52,10 +55,12 @@ class App extends Component {
         /> */}
         {/* <ReviewCard /> */}
         {/* history tab component */}
-        {/* <HistoryStates tabs={["all", "waiting"]} isActive={true} index={1} /> */}
+        {/* <HistoryStates tabs={["all", "waiting"]} isActive={true} index={1} isPickdate={true} /> */}
         {/* <Slideshow></Slideshow> */}
 
-        <States
+        {/* <States
+
+
           circles={[1, 2, 3]}
           cirleClassNames={[
             "circle--finished",
@@ -63,7 +68,9 @@ class App extends Component {
             "circle--finished"
           ]}
           pipeClassNames={["pipe--finished", "pipe--finished"]}
-        />
+
+        /> */}
+
       </React.Fragment>
     );
   }
