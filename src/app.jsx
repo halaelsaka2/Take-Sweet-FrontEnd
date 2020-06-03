@@ -10,8 +10,9 @@ import RegisterAcceptanceInfo from "./container/RegisterPage/registerAcceptanceI
 
 import ProductItem from '../src/components/ProductItem'
 
-import DescriptionSection from "./components/DescriptionScetion/descriptionSection";
+import Slideshow from '../src/components/SlideShow' 
 
+import DescriptionSection from "./components/DescriptionScetion/descriptionSection";
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
           placeholder="your message"
         ></Textarea> */}
         {/* <Footer /> */}
+        <Slideshow></Slideshow>
         <DescriptionSection
           titleClassName="about-us__about-us-container__right-contant-container__right-header"
           title="our companies"
