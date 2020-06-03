@@ -8,7 +8,7 @@ import Footer from "./components/layouts/footer";
 import Header from "./components/layouts/header";
 import Textarea from "./components/Textarea/textarea";
 import RegisterAcceptanceInfo from "./container/RegisterPage/registerAcceptanceInfo";
-import DescriptionSection from "./components/DescriptionScetion/descriptionSection";
+
 import ReviewCard from "./components/ReviewCard/reviewCard";
 import ProductItem from "../src/components/ProductItem";
 import Slideshow from "../src/components/SlideShow";
