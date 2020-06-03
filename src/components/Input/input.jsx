@@ -9,6 +9,7 @@ const Input = (props) => {
     error,
     onChange,
     placeholder,
+    id,
   } = props;
   return (
     <React.Fragment>
