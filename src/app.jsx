@@ -10,6 +10,12 @@ import Textarea from "./components/Textarea/textarea";
 import RegisterAcceptanceInfo from "./container/RegisterPage/registerAcceptanceInfo";
 import DescriptionSection from "./components/DescriptionScetion/descriptionSection";
 import ReviewCard from "./components/ReviewCard/reviewCard";
+import ProductItem from '../src/components/ProductItem'
+import Slideshow from '../src/components/SlideShow' 
+
+import DescriptionSection from "./components/DescriptionScetion/descriptionSection";
+import HistoryStates from "./components/HistoryStates";
+
 
 class App extends Component {
   render() {
@@ -27,7 +33,9 @@ class App extends Component {
           placeholder="your message"
         ></Textarea> */}
         {/* <Footer /> */}
-        {/* <DescriptionSection
+
+        {/* 
+        <DescriptionSection
           titleClassName="about-us__about-us-container__right-contant-container__right-header"
           title="our companies"
           textClassName="about-us__about-us-container__right-contant-container__right-body"
@@ -37,6 +45,9 @@ class App extends Component {
         totally recommend this bakery, their desserts are delicious."
         /> */}
         <ReviewCard />
+      {/* history tab component */}
+        {/* <HistoryStates tabs={["all", "waiting"]} isActive={true} index={1} /> */}
+<Slideshow></Slideshow>
       </React.Fragment>
     );
   }
