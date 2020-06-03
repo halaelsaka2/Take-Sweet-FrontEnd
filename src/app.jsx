@@ -2,12 +2,13 @@ import React, { Component } from "react";
 
 import Login from "./container/LoginPage/login";
 
-import ProductCardModal from "./container/ProductCardModalPage/ProductCardModal";
+import ProductCardModal from "./container/ProductCardModalPage/productCardModal";
 import RegisterGeneralInfo from "./container/RegisterPage/registerGeneralInfo";
 import Footer from "./components/layouts/footer";
 import Header from "./components/layouts/header";
 import Textarea from "./components/Textarea/textarea";
 import RegisterAcceptanceInfo from "./container/RegisterPage/registerAcceptanceInfo";
+import ProductCard from "./components/productCard/productCard";
 
 import ReviewCard from "./components/ReviewCard/reviewCard";
 import ProductItem from "../src/components/ProductItem";
@@ -20,6 +21,9 @@ class App extends Component {
     return (
       <React.Fragment>
         {/* <Login /> */}
+
+        <ProductCardModal />
+        {/* <ProductCard cardType="statusCard" className="product-card--large" /> */}
         {/* <ProductCardModal /> */}
         {/* <RegisterAcceptanceInfo /> */}
         {/* <RegisterGeneralInfo /> */}

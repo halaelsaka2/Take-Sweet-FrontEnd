@@ -1,39 +1,16 @@
-import React from "react";
-import ProductCard from "../../components/product-card/productCard";
+import React, { Component } from "react";
+import ProductCardsContainer from "../../components/ProductCardsContainer/index";
+class ProductCardModal extends Component {
+  state = {
+    productCards: [
+      { name: "carmel", amount: "ttt", totalPrice: 55, image: "" },
+      { name: "", amount: "", totalPrice: "", image: "" },
+    ],
+  };
+  render() {
+    const { productCards } = this.state;
+    return <ProductCardsContainer productCards={productCards} />;
+  }
+}
 
-const ProductCardModal = () => {
-  return (
-    <React.Fragment>
-      <div class="myModal myModal--product active-modal" onclick="clicked()">
-        <div class="myModal__modalContent myModal__modalContent--product">
-          <i class="myModal__modalContent__closeIcon fas fa-times"></i>
-          <ProductCard
-            productName="caramel"
-            productAmount="50"
-            totalPrice="1500"
-            status={false}
-            modalCart={true}
-            className="product-card "
-          />
-          <ProductCard
-            productName="caramel"
-            productAmount="50"
-            totalPrice="1500"
-            status={false}
-            modalCart={true}
-            className="product-card "
-          />
-          <ProductCard
-            productName="caramel"
-            productAmount="50"
-            totalPrice="1500"
-            className="product-card "
-            status={false}
-            modalCart={true}
-          />
-        </div>
-      </div>
-    </React.Fragment>
-  );
-};
 export default ProductCardModal;
