@@ -1,9 +1,9 @@
 import React from "react";
-import Input from "../../components/Input/input";
+import Input from "./../../components/Input";
 import Button from "../../components/Button/button";
-import States from "../../components/States/states";
+import States from "../../components/States";
 
-const RegisterAcceptanceInfo = props => {
+const RegisterAcceptanceInfo = (props) => {
   return (
     <React.Fragment>
       <div class="register-container">
