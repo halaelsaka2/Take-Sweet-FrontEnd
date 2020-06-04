@@ -1,4 +1,13 @@
 import React from "react";
+
+{
+  /* <Textarea
+          classname="inputReview reviewCard__reviews"
+          columsNo="100"
+          placeholder="your message"
+        ></Textarea> */
+}
+
 const Textarea = (props) => {
   const { classname, columsNo, placeholder } = props;
   return (

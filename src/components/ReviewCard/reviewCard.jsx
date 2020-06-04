@@ -3,6 +3,11 @@ import DescriptionSection from "./../DescriptionScetion/descriptionSection";
 import Input from "../Input";
 import Textarea from "./../Textarea/textarea";
 import Button from "../Button";
+
+{
+  /* <ReviewCard /> */
+}
+
 const ReviewCard = () => {
   return (
     <div class="reviewCard">

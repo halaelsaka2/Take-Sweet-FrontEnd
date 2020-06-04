@@ -1,5 +1,7 @@
 import React from "react";
-
+{
+  /* <Header check="t" /> */
+}
 const Header = (props) => {
   let { check } = props;
   let x = check !== "" ? true : false;
