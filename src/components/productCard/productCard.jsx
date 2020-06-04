@@ -1,5 +1,5 @@
 import React from "react";
-import Input from "../Input/input";
+import Input from "../Input";
 
 const ProductCard = (props) => {
   const {
@@ -8,6 +8,7 @@ const ProductCard = (props) => {
     productAmount,
     totalPrice,
     cardType,
+    cafeName,
     className,
     cardNo,
   } = props;
@@ -24,6 +25,9 @@ const ProductCard = (props) => {
           <div className="product-card__text__line"></div>
           <div className="product-card__text__content">
             <div className="product-card__text__content__info">
+              {cardType === "statusCard" ? (
+                <div className="amount">To</div>
+              ) : null}
               <div className="amount">Amount</div>
               <div className="amount">Total</div>
             </div>
@@ -31,6 +35,9 @@ const ProductCard = (props) => {
             <div className="product-card__text__content__prices">
               <div className="amount">{productAmount}</div>
               <div className="amount">{totalPrice}</div>
+              {cardType === "statusCard" ? (
+                <div className="amount">{cafeName}</div>
+              ) : null}
             </div>
           </div>
           {cardType === "historyCard" ? (

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 
-import Login from "./container/LoginPage/login";
+import Login from "./container/LoginPage";
 
 import ProductCardModal from "./container/ProductCardModalPage/ProductCardModal";
+
+
 import RegisterGeneralInfo from "./container/RegisterPage/registerGeneralInfo";
 import Footer from "./components/layouts/footer";
 import Header from "./components/layouts/header";
@@ -15,13 +17,16 @@ import ProductItem from "../src/components/ProductItem";
 import Slideshow from "../src/components/SlideShow";
 
 import HistoryStates from "./components/HistoryStates";
+
 import Dropdown from "./components/Dropdown";
 import Test from "./components/Test";
+
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
+
         {/* <Login /> */}
         {/* <Dropdown
           dropdownHeader="Category"
@@ -30,6 +35,7 @@ class App extends Component {
         /> */}
         {/* <ProductCardModal /> */}
         {/* <ProductCard cardType="statusCard" className="product-card--large" /> */}
+
         {/* <ProductCardModal /> */}
         {/* <RegisterAcceptanceInfo /> */}
         {/* <RegisterGeneralInfo /> */}
@@ -54,8 +60,26 @@ class App extends Component {
         /> */}
         {/* <ReviewCard /> */}
         {/* history tab component */}
-        {/* <HistoryStates tabs={["all", "waiting"]} isActive={true} index={1} /> */}
+        {/* <HistoryStates
+          tabs={["all", "waiting"]}
+          isActive={true}
+          index={0}
+          isPickDate={true}
+        /> */}
         {/* <Slideshow></Slideshow> */}
+
+        {/* <States
+
+
+          circles={[1, 2, 3]}
+          cirleClassNames={[
+            "circle--finished",
+            "circle--finished",
+            "circle--finished"
+          ]}
+          pipeClassNames={["pipe--finished", "pipe--finished"]}
+
+        /> */}
       </React.Fragment>
     );
   }

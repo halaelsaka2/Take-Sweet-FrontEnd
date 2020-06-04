@@ -134,6 +134,7 @@ a {
 .gridAdded {
   display: grid;
   grid-template-columns: 95% 5%;
+  margin: -10rem 0 5rem 0;
 }
 
 .tabs-containera {
@@ -151,6 +152,7 @@ a {
   &--brands {
     top: 0;
   }
+
   &--edit {
     grid-template-columns: 15% 15% 15% 15%;
   }
@@ -158,7 +160,19 @@ a {
 .listing-dropdown-container {
   position: relative;
 }
+
+
+
+
 .plus {
+  display: grid;
+  position: relative;
+  top: 7rem;
+  grid-template-columns: 25% 25% 25%;
+  column-gap: 5rem;
+  color: #000000;
+  z-index: 5;
+
   width: 4rem;
   height: 4rem;
   margin-top: 5rem;
