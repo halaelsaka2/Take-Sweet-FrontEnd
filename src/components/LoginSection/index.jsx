@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-const LoginContainer = props => {
+const LoginSection = ({
+  emailType,
+  emailPlaceholder,
+  emailValue,
+  PasswordType,
+  PasswordPlaceholder,
+  PasswordValue,
+  onChange,
+  onClick
+}) => {
   return (
     <div className="login-container">
       <div className="login-img">
@@ -12,21 +21,26 @@ const LoginContainer = props => {
           <div className="form-header">Login</div>
           <Input
             className="input input--shadow"
-            type="email"
-            placeholder="Email"
+            type={emailType}
+            placeholder={emailPlaceholder}
             id="email"
             name="email"
+            onChange={onChange}
+            value={emailValue}
           />
           <Input
             className="input input--shadow"
-            type="password"
-            placeholder="Password"
+            type={PasswordType}
+            placeholder={PasswordPlaceholder}
             id="Password"
             name="Password"
+            onChange={onChange}
+            value={PasswordValue}
           />
           <Button
             className="button--rounded button--rounded--s button--rounded--shadow"
             name="Login"
+            onClick={onClick}
           />
           <a>Register Now</a>
         </div>
@@ -35,4 +49,4 @@ const LoginContainer = props => {
   );
 };
 
-export default LoginContainer;
+export default LoginSection;
