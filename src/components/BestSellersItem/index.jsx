@@ -7,7 +7,7 @@ const Bestsellersitem = props => {
       <div
         class="item-medium__image image"
         style={{
-          backgroundImage: url(product.src),
+          backgroundImage: "url(" + product.src + ")",
           "background-size": "cover",
           "background-repeat": "no-repeat",
           "background-position": "center"
