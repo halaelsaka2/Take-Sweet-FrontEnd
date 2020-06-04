@@ -4,6 +4,7 @@ import Login from "./container/LoginPage";
 
 import ProductCardModal from "./container/ProductCardModalPage/ProductCardModal";
 
+
 import RegisterGeneralInfo from "./container/RegisterPage/registerGeneralInfo";
 import Footer from "./components/layouts/footer";
 import Header from "./components/layouts/header";
@@ -16,23 +17,24 @@ import ProductItem from "../src/components/ProductItem";
 import Slideshow from "../src/components/SlideShow";
 
 import HistoryStates from "./components/HistoryStates";
-import Search from "./components/Search";
 
-import States from "./components/States";
+import Dropdown from "./components/Dropdown";
+import Test from "./components/Test";
 
-// import Paging from "./components/paging";
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
-        {/* <Search /> */}
-        <Login />
 
-        {/* <Paging /> */}
-
+        {/* <Login /> */}
+        {/* <Dropdown
+          dropdownHeader="Category"
+          dropdownListItems={["a", "b", "c", "d"]}
+          isOpened={true}
+        /> */}
         {/* <ProductCardModal /> */}
-        {/* <ProductCard cardType="historyCard" className="product-card--large" /> */}
+        {/* <ProductCard cardType="statusCard" className="product-card--large" /> */}
 
         {/* <ProductCardModal /> */}
         {/* <RegisterAcceptanceInfo /> */}
