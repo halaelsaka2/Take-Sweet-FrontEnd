@@ -7,7 +7,8 @@ const Input = ({
   type,
   value,
   onChange,
-  placeholder
+  placeholder,
+  id
 }) => {
   return (
     <React.Fragment>
@@ -17,7 +18,7 @@ const Input = ({
         onChange={onChange}
         className={className}
         type={type}
-        id={name}
+        id={id}
         name={name}
         placeholder={placeholder}
       />
