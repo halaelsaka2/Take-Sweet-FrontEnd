@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
-import Login from "./container/LoginPage/login";
+import Login from "./container/LoginPage";
 
-import ProductCardModal from "./container/ProductCardModalPage/productCardModal";
+import ProductCardModal from "./container/ProductCardModalPage/ProductCardModal";
+
 import RegisterGeneralInfo from "./container/RegisterPage/registerGeneralInfo";
 import Footer from "./components/layouts/footer";
 import Header from "./components/layouts/header";
@@ -15,15 +16,24 @@ import ProductItem from "../src/components/ProductItem";
 import Slideshow from "../src/components/SlideShow";
 
 import HistoryStates from "./components/HistoryStates";
+import Search from "./components/Search";
+
+import States from "./components/States";
+
+// import Paging from "./components/paging";
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
-        {/* <Login /> */}
+        {/* <Search /> */}
+        <Login />
 
-        <ProductCardModal />
-        {/* <ProductCard cardType="statusCard" className="product-card--large" /> */}
+        {/* <Paging /> */}
+
+        {/* <ProductCardModal /> */}
+        {/* <ProductCard cardType="historyCard" className="product-card--large" /> */}
+
         {/* <ProductCardModal /> */}
         {/* <RegisterAcceptanceInfo /> */}
         {/* <RegisterGeneralInfo /> */}
@@ -46,10 +56,28 @@ class App extends Component {
         deserve all waiting time.It is the most crowded place on the street,I
         totally recommend this bakery, their desserts are delicious."
         /> */}
-        <ReviewCard />
+        {/* <ReviewCard /> */}
         {/* history tab component */}
-        {/* <HistoryStates tabs={["all", "waiting"]} isActive={true} index={1} /> */}
-        <Slideshow></Slideshow>
+        {/* <HistoryStates
+          tabs={["all", "waiting"]}
+          isActive={true}
+          index={0}
+          isPickDate={true}
+        /> */}
+        {/* <Slideshow></Slideshow> */}
+
+        {/* <States
+
+
+          circles={[1, 2, 3]}
+          cirleClassNames={[
+            "circle--finished",
+            "circle--finished",
+            "circle--finished"
+          ]}
+          pipeClassNames={["pipe--finished", "pipe--finished"]}
+
+        /> */}
       </React.Fragment>
     );
   }

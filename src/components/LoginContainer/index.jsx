@@ -1,8 +1,7 @@
-import React from "react";
-import Input from "../../components/Input/input";
-import Button from "../../components/Button/button";
-
-const Login = (props) => {
+import React, { Component } from "react";
+import Input from "../../components/Input";
+import Button from "../../components/Button";
+const LoginContainer = props => {
   return (
     <div className="login-container">
       <div className="login-img">
@@ -35,4 +34,5 @@ const Login = (props) => {
     </div>
   );
 };
-export default Login;
+
+export default LoginContainer;

@@ -160,6 +160,13 @@
   &--sort {
     justify-self: center;
   }
+  &--search {
+    width: 50%;
+  }
+
+  &--onlySearch {
+    width: 22%;
+  }
 }
 
 .dropdownArrow {
@@ -178,6 +185,22 @@
 
   &--3 {
     left: 5%;
+    // @media (max-width: 1315px) {
+    //   left:2%
+    // }
+    // @media (max-width: 1323px) {
+    //   left:1%
+    // }
+    // @media (max-width: 1270px) {
+    //   left:-1%
+    // }
+    // @media (max-width: 1285px) {
+    //   left:-2%
+    // }
+    // @media (min-width: 1243px) {
+    //   left:-6%
+    // }
+    
   }
 }
 
