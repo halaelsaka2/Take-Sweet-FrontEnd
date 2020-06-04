@@ -1,5 +1,6 @@
 import React from "react";
 import Input from "../Input";
+import Button from "./../Button/index";
 
 const ProductCard = (props) => {
   const {
@@ -7,6 +8,8 @@ const ProductCard = (props) => {
     productName,
     productAmount,
     totalPrice,
+    handleDelete,
+    handleReorder,
     cardType,
     cafeName,
     className,
@@ -25,9 +28,7 @@ const ProductCard = (props) => {
           <div className="product-card__text__line"></div>
           <div className="product-card__text__content">
             <div className="product-card__text__content__info">
-              {cardType === "statusCard" ? (
-                <div className="amount">To</div>
-              ) : null}
+              {cardType === "statusCard" && <div className="amount">To</div>}
               <div className="amount">Amount</div>
               <div className="amount">Total</div>
             </div>
@@ -35,30 +36,36 @@ const ProductCard = (props) => {
             <div className="product-card__text__content__prices">
               <div className="amount">{productAmount}</div>
               <div className="amount">{totalPrice}</div>
-              {cardType === "statusCard" ? (
+              {cardType === "statusCard" && (
                 <div className="amount">{cafeName}</div>
-              ) : null}
+              )}
             </div>
           </div>
-          {cardType === "historyCard" ? (
-            <div class="product-card__text__cancelBtn product-card__text__cancelBtn--user">
-              <button class="button--rounded button--rounded--s button--rounded--danger">
-                Cancel
-              </button>
-              <button class="button--rounded button--rounded--s">
-                Reorder
-              </button>
+          {cardType === "historyCard" && (
+            <div className="product-card__text__cancelBtn product-card__text__cancelBtn--user">
+              <Button
+                name="Reorder"
+                onClick={handleReorder}
+                className="button--rounded button--rounded--s"
+              />
+              <Button
+                name="Cancel"
+                onClick={handleDelete}
+                className="button--rounded button--rounded--s button--rounded--danger"
+              />
             </div>
-          ) : null}
-          {cardType === "modalCard" ? (
+          )}
+          {cardType === "modalCard" && (
             <div className="product-card__text__cancelBtn">
-              <button className="button--rounded button--rounded--xs">
-                cancel
-              </button>
+              <Button
+                name="Cancel"
+                onClick={handleDelete}
+                className="button--rounded button--rounded--xs"
+              />
             </div>
-          ) : null}
+          )}
         </div>
-        {cardType === "statusCard" ? (
+        {cardType === "statusCard" && (
           <div className="status-container">
             <div className="status-text">status:</div>
             <div className="status-current">
@@ -94,7 +101,7 @@ const ProductCard = (props) => {
               </div>
             </div>
           </div>
-        ) : null}
+        )}
       </div>
     </React.Fragment>
   );

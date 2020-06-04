@@ -5,10 +5,19 @@ class ProductCardModal extends Component {
   state = {
     productCards: [],
   };
-
+  handleDelete = (id) => {};
   render() {
+    const {
+      handleDelete,
+      state: { productCards },
+    } = this;
     const { productCards } = this.state;
-    return <ProductCardsSection productCards={productCards} />;
+    return (
+      <ProductCardsSection
+        handleDelete={handleDelete}
+        productCards={productCards}
+      />
+    );
   }
 }
 

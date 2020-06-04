@@ -1,11 +1,14 @@
 import React from "react";
 import ProductCardList from "../productCardList/index";
 
-const ProductCardsSection = ({ productCards }) => (
+const ProductCardsSection = ({ productCards, handleDelete }) => (
   <div class="myModal myModal--product active-modal">
     <div class="myModal__modalContent myModal__modalContent--product">
       <i class="myModal__modalContent__closeIcon fas fa-times"></i>
-      <ProductCardList productCards={productCards} />
+      <ProductCardList
+        handleDelete={handleDelete}
+        productCards={productCards}
+      />
     </div>
   </div>
 );
