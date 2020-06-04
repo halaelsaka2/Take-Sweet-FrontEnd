@@ -1,22 +1,18 @@
 import React from "react";
 
-const Input = props => {
-  const {
-    name,
-    label,
-    className,
-    type,
-    value,
-    error,
-    onChange,
-    placeholder,
-    id
-  } = props;
+const Input = ({
+  name,
+  label,
+  className,
+  type,
+  value,
+  onChange,
+  placeholder
+}) => {
   return (
     <React.Fragment>
       <label htmlFor={name}>{label}</label>
       <input
-        // autoFocus
         value={value}
         onChange={onChange}
         className={className}
@@ -25,7 +21,6 @@ const Input = props => {
         name={name}
         placeholder={placeholder}
       />
-      {/* {error && <div className="alert alert-danger">{error}</div>} */}
     </React.Fragment>
   );
 };
