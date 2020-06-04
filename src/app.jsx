@@ -23,7 +23,6 @@ class App extends Component {
     return (
       <React.Fragment>
         {/* <Login /> */}
-        <Test />
         {/* <Dropdown
           dropdownHeader="Category"
           dropdownListItems={["a", "b", "c", "d"]}
