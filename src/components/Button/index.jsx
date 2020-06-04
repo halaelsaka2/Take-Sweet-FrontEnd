@@ -1,8 +1,9 @@
 import React from "react";
 
-const Button = props => {
-  const { name, className , id} = props;
-  return <button className={className} id={id}>{name}</button>;
-};
+const Button = ({ name, className, onClick }) => (
+  <button className={className} id={name} onClick={onClick}>
+    {name}
+  </button>
+);
 
 export default Button;
