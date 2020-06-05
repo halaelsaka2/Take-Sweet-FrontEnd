@@ -1,6 +1,6 @@
 import React from "react";
 
-const ShoppingCart = (props) => (
+const ShoppingCart = () => (
   <div className="shoppingCar">
     <i className="fas fa-cart-plus"></i>
   </div>

@@ -22,13 +22,8 @@ const ReviewCard = () => {
       />
       <div>
         <Input
-          name=""
-          label=""
           className="inputReview reviewCard__inputs"
           type="name"
-          value=""
-          error=""
-          onChange=""
           placeholder="Name"
         />
         <Input

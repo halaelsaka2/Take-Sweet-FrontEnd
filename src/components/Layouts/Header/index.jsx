@@ -2,8 +2,7 @@ import React from "react";
 {
   /* <Header check="t" /> */
 }
-const Header = (props) => {
-  let { check } = props;
+const Header = ({ check }) => {
   let x = check !== "" ? true : false;
   return (
     <header className="header">

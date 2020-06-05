@@ -8,8 +8,7 @@ import React from "react";
         ></Textarea> */
 }
 
-const Textarea = (props) => {
-  const { classname, columsNo, placeholder } = props;
+const Textarea = ({ classname, columsNo, placeholder }) => {
   return (
     <textarea
       name="textarea"
