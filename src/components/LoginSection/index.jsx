@@ -5,11 +5,11 @@ const LoginSection = ({
   emailType,
   emailPlaceholder,
   emailValue,
-  PasswordType,
-  PasswordPlaceholder,
-  PasswordValue,
+  passwordType,
+  passwordPlaceholder,
+  passwordValue,
   onChange,
-  onClick
+  loginButtonHandle
 }) => {
   return (
     <div className="login-container">
@@ -30,17 +30,17 @@ const LoginSection = ({
           />
           <Input
             className="input input--shadow"
-            type={PasswordType}
-            placeholder={PasswordPlaceholder}
+            type={passwordType}
+            placeholder={passwordPlaceholder}
             id="Password"
             name="Password"
             onChange={onChange}
-            value={PasswordValue}
+            value={passwordValue}
           />
           <Button
             className="button--rounded button--rounded--s button--rounded--shadow"
             name="Login"
-            onClick={onClick}
+            onClick={loginButtonHandle}
           />
           <a>Register Now</a>
         </div>

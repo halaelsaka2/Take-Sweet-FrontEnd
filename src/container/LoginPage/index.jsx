@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import LoginSection from "../../components/LoginSection";
 
-class Login extends Component {
+class LoginPage extends Component {
   state = {
     userAccountInfo: {
       email: "",
@@ -10,7 +10,7 @@ class Login extends Component {
     emailType: "email",
     emailPlaceholder: "Email",
     PasswordType: "password",
-    PasswordPlaceholder: "Password"
+    passwordPlaceholder: "Password"
   };
   onChange = event => {
     let userAccountInfo = { ...this.state.userAccountInfo };
@@ -18,18 +18,18 @@ class Login extends Component {
     this.setState({ userAccountInfo });
   };
 
-  onClick = event => console.log(this.state);
+  loginButtonHandle = event => console.log(this.state);
 
   render() {
     const {
       onChange,
-      onClick,
+      loginButtonHandle,
       state: {
         emailType,
         emailPlaceholder,
-        PasswordType,
-        PasswordPlaceholder,
-        userAccountInfo: { email, Password }
+        passwordType,
+        passwordPlaceholder,
+        userAccountInfo: { email, password }
       }
     } = this;
     return (
@@ -37,14 +37,14 @@ class Login extends Component {
         emailType={emailType}
         emailPlaceholder={emailPlaceholder}
         emailValue={email}
-        PasswordType={PasswordType}
-        PasswordPlaceholder={PasswordPlaceholder}
-        PasswordValue={Password}
+        passwordType={passwordType}
+        passwordPlaceholder={passwordPlaceholder}
+        passwordValue={password}
         onChange={onChange}
-        onClick={onClick}
+        loginButtonHandle={loginButtonHandle}
       />
     );
   }
 }
 
-export default Login;
+export default LoginPage;
