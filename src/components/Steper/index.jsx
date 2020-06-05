@@ -20,7 +20,7 @@ const Steper = props => {
   return (
     <div className="states-container">
       {steps.map((step, currentIndex) => (
-        <React.Fragment>
+        <React.Fragment key={step}>
           <div className={` circle circle--s ${stepClassNames[currentIndex]}`}>
             <span>{step}</span>
           </div>

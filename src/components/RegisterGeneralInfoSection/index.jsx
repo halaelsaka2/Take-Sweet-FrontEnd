@@ -1,61 +1,84 @@
 import React from "react";
 import Input from "../Input";
 import Button from "../Button/index";
-import States from "./../../components/States";
+import Steper from "../Steper";
 
-const RegisterGeneralInfoComponent = props => {
+const RegisterGeneralInfoSection = ({
+  emailType,
+  emailPlaceholder,
+  emailValue,
+  passwordType,
+  passwordPlaceholder,
+  passwordValue,
+  confirmPasswordType,
+  confirmPasswordPlaceholder,
+  confirmPasswordValue,
+  onChange,
+  nextButtonHandle
+}) => {
   return (
     <React.Fragment>
-      <div class="register-container">
-        <div class="register-form-container">
-          <div class="register-form">
-            <div class="register-header">Register</div>
+      <div className="register-container">
+        <div className="register-form-container">
+          <div className="register-form">
+            <div className="register-header">Register</div>
 
-            <States
-              classNameC1="circle circle--s circle--active"
-              classNameP1="pipe pipe--s pipe--notTouched"
-              classNameC2="circle circle--s circle--notTouched"
-              classNameP2="pipe pipe--s pipe--notTouched"
-              classNameC3="circle circle--s circle--notTouched"
+            <Steper
+              steps={[1, 2, 3]}
+              stepClassNames={[
+                "circle--active",
+                "circle--notTouched",
+                "circle--notTouched"
+              ]}
+              pipeClassNames={["pipe--notTouched", "pipe--notTouched"]}
             />
 
             <Input
               className="input input--shadow"
-              type="email"
-              placeholder="Email"
+              type={emailType}
+              placeholder={emailPlaceholder}
               id="email"
               name="email"
-              value={}
-              
+              onChange={onChange}
+              value={emailValue}
             />
             <Input
               className="input input--shadow"
-              type="password"
-              placeholder="Password"
+              type={passwordType}
+              placeholder={passwordPlaceholder}
               id="password"
               name="password"
+              onChange={onChange}
+              value={passwordValue}
             />
 
             <Input
               className="input input--shadow"
-              type="password"
-              placeholder="Confirm Password"
+              type={confirmPasswordType}
+              placeholder={confirmPasswordPlaceholder}
               id="confirmPassword"
               name="confirmPassword"
+              onChange={onChange}
+              value={confirmPasswordValue}
             />
             <Button
               className="button--rounded button--rounded--s button--rounded--shadow"
-              name="Register"
+              name="Next"
+              onClick={nextButtonHandle}
             />
             <a>Already Have An Account</a>
           </div>
         </div>
 
-        <div class="register-img card-overlay">
-          <img class="img-register" src="assets/images/cake6x6.jpg" />
+        <div className="register-img card-overlay">
+          <img
+            className="img-register"
+            src="assets/images/cake6x6.jpg"
+            alt=""
+          />
         </div>
       </div>
     </React.Fragment>
   );
 };
-export default RegisterGeneralInfoComponent;
+export default RegisterGeneralInfoSection;

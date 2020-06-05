@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const HistoryStates = ({ tabs, isPickDate, currentTabe, handleTabChange }) => (
   <React.Fragment>
     <div className="history-tabs">
@@ -27,4 +28,20 @@ const HistoryStates = ({ tabs, isPickDate, currentTabe, handleTabChange }) => (
   </React.Fragment>
 );
 
+/**SCHEMA
+ *
+  <HistoryStates
+          tabs={["all", "waiting", "and so on"]}
+          isActive={true} //optional theres is a default value
+          index={1} //optional theres is a default value
+          isPickDate={true}
+        />
+
+ */
+
+
+HistoryStates.defaultProps = {
+  index: 0,
+  isActive: true
+};
 export default HistoryStates;
