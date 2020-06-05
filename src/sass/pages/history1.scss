@@ -5,16 +5,19 @@
 }
 .tab-label {
   width: 14rem;
-  color: $main-black;
-  // margin-left: 15rem;
+  color: #000000;
   font-size: 2.2rem;
   display: inline-block;
-  background-color: $Ivory-white;
-  padding: 0.5rem 2rem;
+  background-color: #fffff4;
+  padding: 0.2rem 0rem;
   border-radius: 1rem 1rem 0rem 0rem;
   text-align: center;
-  border: 0.1rem solid $primary-alpine;
+  border: 0.1rem solid #bb9230;
   border-bottom: none;
+  margin-right: 0.4rem;
+  &:hover {
+    cursor: pointer;
+  }
   &--s {
     width: 8rem;
   }
@@ -118,7 +121,7 @@
 .show-more {
   display: grid;
   // grid-columns: auto ;
-  >div {
+  > div {
     justify-self: end;
   }
   &__link {
