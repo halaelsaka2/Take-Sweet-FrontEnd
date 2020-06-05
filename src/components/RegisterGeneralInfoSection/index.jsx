@@ -1,9 +1,9 @@
 import React from "react";
-import Input from "../../components/Input";
-import Button from "../../components/Button/index";
+import Input from "../Input";
+import Button from "../Button/index";
 import States from "./../../components/States";
 
-const RegisterGeneralInfo = props => {
+const RegisterGeneralInfoComponent = props => {
   return (
     <React.Fragment>
       <div class="register-container">
@@ -25,6 +25,8 @@ const RegisterGeneralInfo = props => {
               placeholder="Email"
               id="email"
               name="email"
+              value={}
+              
             />
             <Input
               className="input input--shadow"
@@ -56,4 +58,4 @@ const RegisterGeneralInfo = props => {
     </React.Fragment>
   );
 };
-export default RegisterGeneralInfo;
+export default RegisterGeneralInfoComponent;

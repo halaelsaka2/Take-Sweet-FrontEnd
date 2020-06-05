@@ -1,26 +1,34 @@
 import React from "react";
-import Input from "./../../components/Input";
-import Button from "../../components/Button/index";
-import States from "../../components/States";
+import Input from "../Input";
+import Button from "../Button";
+import Steper from "../Steper";
 
-const RegisterAcceptanceInfo = props => {
+const RegisterAcceptanceSection = ({
+  inputType,
+  inputId,
+  checkHandle,
+  backButtonHandle,
+  registerButtonHandle
+}) => {
   return (
     <React.Fragment>
-      <div class="register-container">
-        <div class="register-form-container">
-          <div class="register-form">
-            <div class="register-header">Register</div>
-            <States
-              classNameC1="circle circle--s circle--finished"
-              classNameP1="pipe pipe--s pipe--finished"
-              classNameC2="circle circle--s circle--finished"
-              classNameP2="pipe pipe--s pipe--finished"
-              classNameC3="circle circle--s circle--finished"
+      <div className="register-container">
+        <div className="register-form-container">
+          <div className="register-form">
+            <div className="register-header">Register</div>
+            <Steper 
+              steps={[1, 2, 3]}
+              stepClassNames={[
+                "circle--finished",
+                "circle--finished",
+                "circle--finished"
+              ]}
+              pipeClassNames={["pipe--finished", "pipe--finished"]}
             />
 
-            <div class="terms-container">
-              <span class="block-span">you have finished all the steps</span>
-              <span class="block-span">now please read the terms</span>
+            <div className="terms-container">
+              <span className="block-span">you have finished all the steps</span>
+              <span className="block-span">now please read the terms</span>
               <div>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
@@ -34,30 +42,37 @@ const RegisterAcceptanceInfo = props => {
                 Lorem Ipsum.
               </div>
               <div>
-                <Input type="checkbox" name="checkbox" id="checkbox" />
+                <Input
+                  type={inputType}
+                  name="checkbox"
+                  id={inputId}
+                  onChange={checkHandle}
+                />
                 <span>Accept All Terms</span>
               </div>
             </div>
-            <div class="button-container">
-              <div class="flex-buttons-container">
+            <div className="button-container">
+              <div className="flex-buttons-container">
                 <Button
                   className="button--rounded button--rounded--s button--rounded--shadow"
                   name="Back"
+                  onClick={backButtonHandle}
                 />
                 {/* <!-- button--rounded--disabled --> */}
                 <Button
                   className="button--rounded button--rounded--s button--rounded--shadow"
                   name="Register"
+                  onClick={registerButtonHandle}
                 />
               </div>
             </div>
           </div>
         </div>
-        <div class="register-img card-overlay">
-          <img class="img-register" src="assets/images/cake6x6.jpg" />
+        <div className="register-img card-overlay">
+          <img className="img-register" src="assets/images/cake6x6.jpg" alt="" />
         </div>
       </div>
     </React.Fragment>
   );
 };
-export default RegisterAcceptanceInfo;
+export default RegisterAcceptanceSection;
