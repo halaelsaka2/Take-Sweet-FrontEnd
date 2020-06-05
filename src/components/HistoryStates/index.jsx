@@ -1,4 +1,16 @@
 import React from "react";
+
+/**SCHEMA
+ *
+  <HistoryStates
+          tabs={["all", "waiting", "and so on"]}
+          isActive={true} //optional theres is a default value
+          index={1} //optional theres is a default value
+          isPickDate={true}
+        />
+
+ */
+
 const HistoryStates = props => {
   let { tabs, isActive, index, isPickDate } = props;
   return (
@@ -6,12 +18,11 @@ const HistoryStates = props => {
       <div className="history-tabs">
         {tabs.map((tab, currentIndex) => (
           <span
-            Key={currentIndex}
+            key={currentIndex}
             className={`tab-label ${index === currentIndex &&
               isActive &&
               "active-tab"}`}
           >
-            {" "}
             {tab}
           </span>
         ))}
@@ -26,4 +37,8 @@ const HistoryStates = props => {
   );
 };
 
+HistoryStates.defaultProps = {
+  index: 0,
+  isActive: true
+};
 export default HistoryStates;
