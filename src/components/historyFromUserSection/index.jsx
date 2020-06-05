@@ -8,6 +8,7 @@ import ProductCardList from "../productCardList/index";
 import Footer from "../Layouts/Footer/index";
 import OrderDate from "./../OrderDate/index";
 import Paging from "./../paging/index";
+import CompanyLogo from "./../CompanyLogo/index";
 
 const HistoryFromUserSection = ({
   productCards,
@@ -15,6 +16,7 @@ const HistoryFromUserSection = ({
   statusTabs,
   currentTabe,
   handleTabChange,
+  companyLogoImgSrc,
 }) => {
   return (
     <React.Fragment>
@@ -32,6 +34,7 @@ const HistoryFromUserSection = ({
         handleTabChange={handleTabChange}
       />
       <OrderDate date={date} />
+      <CompanyLogo imgSrc={companyLogoImgSrc} />
       <div className="project-container project-container--h">
         <div className="history-cards-container history-cards-container--user project-container project-container--h">
           <ProductCardList productCards={productCards} />

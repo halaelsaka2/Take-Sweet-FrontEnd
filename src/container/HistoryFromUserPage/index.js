@@ -2,17 +2,18 @@ import React, { Component } from "react";
 import HistoryFromUserSection from "../../components/historyFromUserSection/index";
 class HistoryFromUser extends Component {
   state = {
-    productCards: [1, 2, 3, 4],
-    date: "20/5/2019",
+    productCards: [],
+    date: "",
     statusTabs: ["All", "Waiting", "Arrived", "Cancelled"],
     currentTabe: 0,
+    companyLogoImgSrc: "",
   };
   handleTabChange = (currentTabe) => {
     this.setState({ currentTabe });
   };
   render() {
     const {
-      state: { productCards, date, statusTabs, currentTabe },
+      state: { productCards, date, statusTabs, currentTabe, companyLogoImgSrc },
       handleTabChange,
     } = this;
     return (
@@ -22,6 +23,7 @@ class HistoryFromUser extends Component {
         statusTabs={statusTabs}
         currentTabe={currentTabe}
         handleTabChange={handleTabChange}
+        companyLogoImgSrc={companyLogoImgSrc}
       />
     );
   }
