@@ -15,6 +15,8 @@ const HistoryFromUserSection = ({
   date,
   statusTabs,
   currentTabe,
+  currentPage,
+  handlePaging,
   handleTabChange,
   companyLogoImgSrc,
 }) => {
@@ -41,7 +43,12 @@ const HistoryFromUserSection = ({
         </div>
       </div>
       <Container>
-        <Paging />
+        <Paging
+          count={productCards.length}
+          pagesize={3}
+          current={currentPage}
+          handlePageChange={handlePaging}
+        />
       </Container>
       <Footer />
     </React.Fragment>
