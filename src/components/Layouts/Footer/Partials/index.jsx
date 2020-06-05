@@ -5,6 +5,7 @@ const NewsList = ({ newsList }) => {
     <ul className="container__col__menu grid">
       {newsList.map((item) => (
         <NewsItem
+          key={item.id}
           src={item.src}
           alt={item.alt}
           text={item.text}

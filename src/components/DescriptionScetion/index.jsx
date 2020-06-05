@@ -9,8 +9,7 @@ import React from "react";
           text=" It is easy to find it on the street."
         /> */
 }
-const DescriptionSection = (props) => {
-  const { titleClassName, textClassName, title, text } = props;
+const DescriptionSection = ({ titleClassName, textClassName, title, text }) => {
   return (
     <React.Fragment>
       <h2 className={titleClassName}>{title}</h2>
