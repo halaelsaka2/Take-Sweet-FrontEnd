@@ -1,26 +1,26 @@
 import React from "react";
 import Input from "../Input";
 import Button from "../Button";
-import Steper from "../Steper";
+import Stepper from "../Stepper";
 
 const RegisterAcceptanceSection = ({
   inputType,
   inputId,
   checkHandle,
   backButtonHandle,
-  registerButtonHandle,
+  registerButtonHandle
 }) => {
   return (
     <div className="register-container">
       <div className="register-form-container">
         <div className="register-form">
           <div className="register-header">Register</div>
-          <Steper
+          <Stepper
             steps={[1, 2, 3]}
             stepClassNames={[
               "circle--finished",
               "circle--finished",
-              "circle--finished",
+              "circle--finished"
             ]}
             pipeClassNames={["pipe--finished", "pipe--finished"]}
           />
