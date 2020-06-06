@@ -1,10 +1,10 @@
-import React from "./node_modules/react";
+import React from "react";
 
 const Pagination = ({
   productsPerPage,
   totalProducts,
   currentPage,
-  paginate
+  paginate,
 }) => {
   const pageNumbers = [];
 
@@ -21,7 +21,7 @@ const Pagination = ({
           onClick={() => paginate(currentPage - 1)}
         ></i>
       </div>
-      {pageNumbers.map(page => (
+      {pageNumbers.map((page) => (
         <div
           key={page}
           className={

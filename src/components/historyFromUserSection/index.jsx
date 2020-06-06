@@ -7,7 +7,7 @@ import HistoryStates from "../HistoryStates/index";
 import ProductCardList from "../productCardList/index";
 import Footer from "../Layouts/Footer/index";
 import OrderDate from "./../OrderDate/index";
-import Pagination from "./../pagination/index";
+import Pagination from "./../Pagination/index";
 import CompanyLogo from "./../CompanyLogo/index";
 import ProductCard from "../productCard/productCard";
 
@@ -21,7 +21,7 @@ const HistoryFromUserSection = ({
   paginate,
   currentPage,
   handleTabChange,
-  companyLogoImgSrc
+  companyLogoImgSrc,
 }) => {
   return (
     <React.Fragment>

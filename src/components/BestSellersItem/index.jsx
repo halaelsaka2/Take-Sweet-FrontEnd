@@ -1,7 +1,6 @@
 import React from "react";
 
 const Bestsellersitem = ({ product }) => {
-  console.log(product.src);
   return (
     <div class="item-medium">
       <div
