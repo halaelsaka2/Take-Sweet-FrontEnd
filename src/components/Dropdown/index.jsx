@@ -5,7 +5,7 @@ const Dropdown = ({
   dropdownListItems,
   isOpened,
   dropdownIsOpenHandle,
-  selectCityHandle,
+  selectionHandle,
   additionalStyle
 }) => (
   <div className="drop-container">
@@ -21,7 +21,7 @@ const Dropdown = ({
       <ul className="dropdown__list">
         {dropdownListItems.map((item, index) => (
           <li
-            onClick={selectCityHandle}
+            onClick={selectionHandle}
             key={index}
             className="dropdown__list__item"
           >
