@@ -36,7 +36,7 @@ const RegisterPersonalInfoSection = ({
               dropdownListItems={["Brand", "Cafe and Resturant"]}
               isOpened={dropdownIsOpen}
               dropdownIsOpenHandle={dropdownIsOpenHandle}
-              selectCityHandle={selectAccountTypeHandle}
+              selectionHandle={selectAccountTypeHandle}
             />
           </div>
           <div className="info">
