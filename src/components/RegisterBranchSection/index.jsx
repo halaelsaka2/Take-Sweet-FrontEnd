@@ -51,7 +51,7 @@ const RegisterBranchSection = ({
                   ]}
                   isOpened={dropdownIsOpen}
                   dropdownIsOpenHandle={dropdownIsOpenHandle}
-                  selectCityHandle={selectCityHandle}
+                  selectionHandle={selectCityHandle}
                 />
               </div>
               <div id="location">
