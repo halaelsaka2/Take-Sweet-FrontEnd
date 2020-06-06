@@ -1,7 +1,12 @@
 import React from "react";
 import Bestsellers from "../../components/BestSellers/index";
+<<<<<<< Updated upstream
 import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
+=======
+import Header from "../../components/Layouts/Header/index";
+import Footer from "../../components/Layouts/Footer/index";
+>>>>>>> Stashed changes
 
 const Profile = () => {
   return (
