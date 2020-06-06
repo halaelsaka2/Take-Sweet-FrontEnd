@@ -1,5 +1,5 @@
 import React from "react";
-import Steper from "../Steper";
+import Stepper from "../Stepper";
 import Dropdown from "../Dropdown";
 import Button from "../Button";
 import Input from "../Input";
@@ -25,7 +25,7 @@ const RegisterBranchSection = ({
       <div className="register-form-container">
         <div className="register-form">
           <div className="register-header">Register</div>
-          <Steper
+          <Stepper
             steps={[1, 2, 3]}
             stepClassNames={[
               "circle--finished",
