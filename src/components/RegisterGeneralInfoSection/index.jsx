@@ -1,6 +1,6 @@
 import React from "react";
 import Input from "../Input";
-import Button from "../Button/index";
+import Button from "../Button";
 import Stepper from "../Stepper";
 
 const RegisterGeneralInfoSection = ({

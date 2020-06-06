@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
-import AboutUsSection from "../../components/AboutUsSection/index";
-import Slideshow from "../../components/SlideShow/index";
-import BestSection from "../../components/BestSection/index";
-import ReviewCard from "../../components/ReviewCard/index";
+import AboutUsSection from "../../components/AboutUsSection";
+import Slideshow from "../../components/SlideShow";
+import BestSection from "../../components/BestSection";
+import ReviewCard from "../../components/ReviewCard";
 
 class Home extends Component {
   state = {

@@ -1,5 +1,5 @@
 import React from "react";
-import Bestsellersitem from "../BestSellersItem/index";
+import Bestsellersitem from "../BestSellersItem";
 
 const Bestsellers = ({ products }) => {
   // console.log(products);

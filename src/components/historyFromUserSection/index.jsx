@@ -1,15 +1,14 @@
 import React from "react";
-import Header from "../Layouts/Header/index";
-import Search from "../Search/index";
+import Header from "../Layouts/Header";
+import Search from "../Search";
 
 import { Container } from "reactstrap";
-import HistoryStates from "../HistoryStates/index";
-import ProductCardList from "../ProductCardList/index";
-import Footer from "../Layouts/Footer/index";
-import OrderDate from "./../OrderDate/index";
-import Pagination from "./../Pagination/index";
-import CompanyLogo from "./../CompanyLogo/index";
-// import ProductCard from "../productCard/productCard";
+import HistoryStates from "../HistoryStates";
+import ProductCardList from "../ProductCardList";
+import Footer from "../Layouts/Footer";
+import OrderDate from "./../OrderDate";
+import Pagination from "./../Pagination";
+import CompanyLogo from "./../CompanyLogo";
 
 const HistoryFromUserSection = ({
   productCards,
