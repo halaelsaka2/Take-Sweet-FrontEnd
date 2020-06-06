@@ -5,7 +5,8 @@ const Dropdown = ({
   dropdownListItems,
   isOpened,
   dropdownIsOpenHandle,
-  selectCityHandle
+  selectCityHandle,
+  additionalStyle
 }) => (
   <div className="drop-container">
     <div
@@ -16,7 +17,7 @@ const Dropdown = ({
       <span className="dropdown-head__text">{dropdownHeader}</span>
       <i className="fas fa-chevron-circle-down dropdown-head__arrow"></i>
     </div>
-    <div className={`dropdown ${isOpened && `dropdown-open`}`}>
+    <div className={`dropdown ${isOpened && `dropdown-open`} ${additionalStyle}`}>
       <ul className="dropdown__list">
         {dropdownListItems.map((item, index) => (
           <li
@@ -33,3 +34,7 @@ const Dropdown = ({
 );
 
 export default Dropdown;
+
+Dropdown.defaultProps = {
+  additionalStyle: ""
+};
