@@ -1,6 +1,7 @@
 .dropdown-head {
   width: 100%;
   position: relative;
+
   &__arrow {
     color: $primary-alpine;
     font-size: 2rem;
@@ -22,6 +23,8 @@
 }
 
 .dropdown {
+  max-height: 21rem;
+  overflow-y: auto;
   display: none;
   border: 0.1rem solid $primary-alpine;
   border-top: none;
@@ -30,8 +33,10 @@
   top: 2rem;
   padding: 1rem;
   width: 100%;
+
   &__list {
     list-style: none;
+
     &__item {
       padding-top: 2.5rem;
       padding-bottom: 1.5rem;
@@ -49,6 +54,7 @@
       }
     }
   }
+
   &--listing {
     width: 10rem;
   }
@@ -69,4 +75,5 @@
   position: absolute;
   width: 100%;
   z-index: 11;
+  top: 22rem;
 }
