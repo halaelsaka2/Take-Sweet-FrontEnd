@@ -4,13 +4,14 @@ import ShoppingOrderList from "./Partails/shopingOrderList";
 
 {
   /*<ShoppingOrderContainer
-shoppingOrderList={this.state.shoppingOrderList}
-/>*/
+    shoppingOrderList={this.state.shoppingOrderList}
+     number={3}
+  />*/
 }
-const ShoppingOrderContainer = ({ shoppingOrderList }) => {
+const ShoppingOrderContainer = ({ shoppingOrderList, number }) => {
   return (
     <React.Fragment>
-      <ShoppingCart />
+      <ShoppingCart number={number} />
       <div className="shoppingCart">
         <div className="shoppingCart__title">
           <h4>Shopping Bag</h4>
