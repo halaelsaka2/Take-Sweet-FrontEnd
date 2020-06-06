@@ -1,9 +1,12 @@
 import React from "react";
 import Bestsellers from "../../components/BestSellers/index";
+import Header from "../../components/Layouts/Header";
+import Footer from "../../components/Layouts/Footer";
 
 const Profile = () => {
   return (
     <React.Fragment>
+      <Header />
       <Bestsellers
         products={[
           {
@@ -28,6 +31,7 @@ const Profile = () => {
           },
         ]}
       />
+      <Footer />
     </React.Fragment>
   );
 };
