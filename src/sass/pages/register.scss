@@ -91,12 +91,12 @@
   font-weight: bold;
 }
 
-.dropdown-container {
-  width: 100%;
-  margin-top: 2rem;
+// .dropdown-container {
+//   width: 100%;
+//   margin-top: 2rem;
 
-  height: 30rem;
-}
+//   height: 30rem;
+// }
 
 .terms-container {
   width: 100%;
@@ -107,7 +107,7 @@
 }
 
 .terms-container>div {
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 .block-span {
@@ -127,8 +127,8 @@
 
 .branches-div {
   width: 100%;
-  height: 30rem;
-  @include flex(column, flex-end, center);
+  height: 28rem;
+  @include flex(column, space-around, center);
   border-radius: 1.2rem;
   border: 0.1rem solid $primary-alpine;
   margin: 0 auto;
@@ -142,7 +142,7 @@
 #location {
   width: 100%;
   @include flex(column, space-evenly, center);
-  height: 22rem;
+  height: 17rem;
   // margin-top: 5rem;
 }
 
@@ -151,10 +151,18 @@
   width: 85%;
 }
 
+.add-branch {
+  margin-top: 1rem;
+}
+
+.add-branch>button {
+  font-weight: bold;
+}
+
 .info {
   width: 100%;
-  height: 28rem;
-  margin-top: 6rem;
+  height: 30rem;
+  margin-top: 5rem;
   @include flex(column, space-evenly, left);
 
   &__photo {
@@ -165,6 +173,17 @@
   }
 }
 
+.info__photo {
+  text-align: center;
+  display: table;
+}
+
+.img-logo {
+  display: table-cell;
+  vertical-align: middle;
+  color: $gray;
+}
+
 .map-icon {
   color: $main-red;
   align-self: center;
@@ -173,5 +192,19 @@
 .cancel-branch {
   position: sticky;
   // display:inline-block;
-  margin-left: 11rem
+  margin-left: 11rem;
+}
+
+.reg-dropdown-container {
+  position: relative;
+  width: 100%;
+
+  &--reg2 {
+    height: 30rem;
+    margin-top: 2rem;
+  }
+
+  &--reg4 {
+    width: 80%;
+  }
 }

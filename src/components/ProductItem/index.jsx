@@ -1,6 +1,8 @@
 import React from "react";
 
+
 const ProductItem = ({ src, amount, pagetype, name }) => {
+
   return (
     <div calssName="itemm">
       <div calssName="itemm__image" style={{ backgroundImage: `url(${src})` }}>
@@ -12,6 +14,7 @@ const ProductItem = ({ src, amount, pagetype, name }) => {
           )}
         </div>
       </div>
+
       <h4>{name}</h4>
       <div calssName="itemm__data__amount">
         {pagetype === "buyerPage" ? (
@@ -35,6 +38,7 @@ const ProductItem = ({ src, amount, pagetype, name }) => {
             </a>
           </div>
         )}
+
       </div>
     </div>
   );

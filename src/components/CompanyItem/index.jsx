@@ -1,12 +1,12 @@
 import React from "react";
 
-const CompanyItem = (props) => {
+const CompanyItem = ({ src }) => {
   return (
-    <div className="item-medium" >
+    <div className="item-medium">
       <div
         className="item-medium__image image"
         style={{
-          backgroundImage: `url(${props.src})`,
+          backgroundImage: `url(${src})`,
           backgroundPosition: " center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "20rem 20rem",
@@ -18,6 +18,6 @@ const CompanyItem = (props) => {
       </div>
     </div>
   );
-}
+};
 
 export default CompanyItem;

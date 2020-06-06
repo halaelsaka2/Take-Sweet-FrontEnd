@@ -1,8 +1,9 @@
 import React from "react";
 
-const ShoppingCart = (props) => (
+const ShoppingCart = ({ number }) => (
   <div className="shoppingCar">
-    <i className="fas fa-cart-plus"></i>
+    <i className="fa fa-shopping-cart fa-2x"></i>
+    <span className="CartCount"> {number} </span>
   </div>
 );
 

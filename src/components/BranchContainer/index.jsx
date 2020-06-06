@@ -1,9 +1,10 @@
 import React from "react";
 import BranchList from "./BranchList";
+import ProfileLabel from "../ProfileLabel";
 
-const BranchContiner = (props) => (
+const BranchContiner = ({ branchList }) => (
   <React.Fragment>
-    <div className="profileLabel">Branches</div>
+    <ProfileLabel className="profileLabel" content="Branches"/>
     <div className="branchContainer">
       <div className="branchContainer__content">
         <div className="branchContainer__edit">
@@ -12,7 +13,7 @@ const BranchContiner = (props) => (
           </div>
         </div>
         <div class="branchContainer__branches">
-          <BranchList branchList={props.branchList}></BranchList>;
+          <BranchList branchList={branchList}></BranchList>;
         </div>
       </div>
     </div>

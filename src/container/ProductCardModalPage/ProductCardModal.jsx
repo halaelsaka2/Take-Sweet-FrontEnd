@@ -1,21 +1,23 @@
 import React, { Component } from "react";
-import ProductCardsContainer from "../../components/ProductCardsContainer/index";
+import ProductCardsSection from "../../components/ProductCardsSection/index";
 
 class ProductCardModal extends Component {
   state = {
-    productCards: [
-      {
-        name: "carmel",
-        amount: "ttt",
-        totalPrice: 55,
-        image: "assets/images/Product-2.jpg",
-      },
-      { name: "", amount: "", totalPrice: "", image: "" },
-    ],
+    productCards: [],
   };
+  handleDelete = (id) => {};
   render() {
+    const {
+      handleDelete,
+      state: { productCards },
+    } = this;
     const { productCards } = this.state;
-    return <ProductCardsContainer productCards={productCards} />;
+    return (
+      <ProductCardsSection
+        handleDelete={handleDelete}
+        productCards={productCards}
+      />
+    );
   }
 }
 

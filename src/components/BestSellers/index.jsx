@@ -1,19 +1,17 @@
 import React from "react";
-import Bestsellersitem from "./components/BestSellersItem/index";
+import Bestsellersitem from "../BestSellersItem/index";
 
-const Bestsellers = () => {
-  const { products } = props;
+const Bestsellers = ({ products }) => {
+  // console.log(products);
   return (
-    <React.Fragment>
-      <div class="bestContainer">
-        <div class="bestContainer__header">Best Seller</div>
-        <div class="list-container list-container--grid">
-          {products.map(prod => (
-            <Bestsellersitem product={prod} />
-          ))}
-        </div>
+    <div class="bestContainer">
+      <div class="bestContainer__header">Best Seller</div>
+      <div class="list-container list-container--grid">
+        {products.map((product) => (
+          <Bestsellersitem product={product} />
+        ))}
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 

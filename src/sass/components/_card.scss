@@ -1,16 +1,16 @@
 .shoppingCar {
   width: 6rem;
-  height: 3rem;
+  height: 5rem;
   color: $primary-alpine;
   border: 1px solid $primary-alpine;
   // margin-top: 20%;
   padding: 0.5% 0% 0% 1.2%;
-  border-radius: 3rem 0 0 3rem;
+  border-radius: 4rem 0 0 4rem;
   position: fixed;
   top: 30%;
   bottom: 0%;
   right: 0%;
-  left: 97.1%;
+  left: 96.1%;
 }
 
 .shoppingCart {
@@ -85,4 +85,15 @@
   border-width: 0;
   color: $primary-alpine;
   background-color: $primary-alpine;
+}
+
+.CartCount {
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: $primary-alpine;
+  color: $main-white;
+  padding: 0.3rem;
+  vertical-align: top;
+  margin-left: -2.2rem;
+  border-radius: 1rem;
 }

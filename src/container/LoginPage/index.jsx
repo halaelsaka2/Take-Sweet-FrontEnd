@@ -1,11 +1,50 @@
 import React, { Component } from "react";
-import LoginContainer from "../../components/LoginContainer";
+import LoginSection from "../../components/LoginSection";
 
-class Login extends Component {
-  state = {};
+class LoginPage extends Component {
+  state = {
+    userAccountInfo: {
+      email: "",
+      Password: ""
+    },
+    emailType: "email",
+    emailPlaceholder: "Email",
+    PasswordType: "password",
+    passwordPlaceholder: "Password"
+  };
+  onChange = event => {
+    let userAccountInfo = { ...this.state.userAccountInfo };
+    userAccountInfo[event.target.name] = event.target.value;
+    this.setState({ userAccountInfo });
+  };
+
+  loginButtonHandle = event => console.log(this.state);
+
   render() {
-    return <LoginContainer />;
+    const {
+      onChange,
+      loginButtonHandle,
+      state: {
+        emailType,
+        emailPlaceholder,
+        passwordType,
+        passwordPlaceholder,
+        userAccountInfo: { email, password }
+      }
+    } = this;
+    return (
+      <LoginSection
+        emailType={emailType}
+        emailPlaceholder={emailPlaceholder}
+        emailValue={email}
+        passwordType={passwordType}
+        passwordPlaceholder={passwordPlaceholder}
+        passwordValue={password}
+        onChange={onChange}
+        loginButtonHandle={loginButtonHandle}
+      />
+    );
   }
 }
 
-export default Login;
+export default LoginPage;

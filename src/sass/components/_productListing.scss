@@ -152,7 +152,17 @@ a {
   &--brands {
     top: 0;
   }
+
+  &--edit {
+    grid-template-columns: 15% 15% 15% 15%;
+  }
 }
+.listing-dropdown-container {
+  position: relative;
+}
+
+
+
 
 .plus {
   display: grid;
@@ -162,6 +172,7 @@ a {
   column-gap: 5rem;
   color: #000000;
   z-index: 5;
+
   width: 4rem;
   height: 4rem;
   margin-top: 5rem;
