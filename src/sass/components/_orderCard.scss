@@ -46,9 +46,18 @@
 .color-circle {
   border-radius: 5rem;
   border: 0.1rem solid #bb9230;
-  background-color: blue;
   width: 1rem;
   height: 1rem;
   margin: 0 0.5rem;
   box-sizing: content-box;
+  &--wating {
+    background-color: blue;
+  }
+  &--arrived {
+    background-color: green;
+  }
+  &--canceled {
+    background-color: red;
+
+  }
 }
