@@ -6,14 +6,16 @@ export default class ProductsPage extends Component {
     products: [],
     sortbyList: [],
     categoryList: [],
+    pagetype: this.props.pagetype,
   };
 
   render() {
     return (
       <ProductsSection
-      products={this.products}
-      sortbyList={this.state.sortbyList}
-      categoryList={this.state.categoryList}
+        products={this.products}
+        sortbyList={this.state.sortbyList}
+        categoryList={this.state.categoryList}
+        pagetype={this.state.pagetype}
       ></ProductsSection>
     );
   }
