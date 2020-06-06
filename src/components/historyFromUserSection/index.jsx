@@ -9,7 +9,7 @@ import Footer from "../Layouts/Footer/index";
 import OrderDate from "./../OrderDate/index";
 import Pagination from "./../Pagination/index";
 import CompanyLogo from "./../CompanyLogo/index";
-import ProductCard from "../productCard/productCard";
+// import ProductCard from "../productCard/productCard";
 
 const HistoryFromUserSection = ({
   productCards,

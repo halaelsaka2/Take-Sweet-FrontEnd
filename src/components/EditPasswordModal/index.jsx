@@ -1,10 +1,8 @@
 import React from "react";
 import Input from "../Input";
 import Button from "../Button";
-const EditPasswordModal = (props) => {
-  const { onChange } = props;
+const EditPasswordModal = ({ onChange }) => {
   return (
-
     <div class="myModal__modalContent__body">
       <div>
         <Input
@@ -49,7 +47,6 @@ const EditPasswordModal = (props) => {
         />
       </div>
     </div>
-
   );
 };
 

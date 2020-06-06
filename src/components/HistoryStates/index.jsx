@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const HistoryStates = ({ tabs, isPickDate, currentTabe, handleTabChange }) => (
   <React.Fragment>
     <div className="history-tabs">
@@ -27,7 +26,6 @@ const HistoryStates = ({ tabs, isPickDate, currentTabe, handleTabChange }) => (
     <div className="tabs-line"></div>
   </React.Fragment>
 );
-
 /**SCHEMA
  *
   <HistoryStates
@@ -38,10 +36,8 @@ const HistoryStates = ({ tabs, isPickDate, currentTabe, handleTabChange }) => (
         />
 
  */
-
-
 HistoryStates.defaultProps = {
   index: 0,
-  isActive: true
+  isActive: true,
 };
 export default HistoryStates;

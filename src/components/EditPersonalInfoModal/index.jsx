@@ -2,8 +2,13 @@ import React from "react";
 import ImageCard from "../ImageCard";
 import Input from "../Input";
 import Button from "../Button";
-const EditPersonalInfoModal = (props) => {
-  const { isClicked, userName, email, discription, onChange } = props;
+const EditPersonalInfoModal = ({
+  isClicked,
+  userName,
+  email,
+  discription,
+  onChange,
+}) => {
   return (
     <div className="infoContainer infoContainer--modal">
       <div className="infoContainer__content">

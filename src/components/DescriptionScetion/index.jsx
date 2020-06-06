@@ -13,7 +13,7 @@ const DescriptionSection = ({ titleClassName, textClassName, title, text }) => {
   return (
     <React.Fragment>
       <h2 className={titleClassName}>{title}</h2>
-      <p className={textClassName}>{text}</p>
+      <div className={textClassName}>{text}</div>
     </React.Fragment>
   );
 };

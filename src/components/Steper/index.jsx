@@ -15,8 +15,7 @@ import React from "react";
         />
  */
 
-const Steper = props => {
-  let { steps, stepClassNames, pipeClassNames } = props;
+const Steper = ({ steps, stepClassNames, pipeClassNames }) => {
   return (
     <div className="states-container">
       {steps.map((step, currentIndex) => (

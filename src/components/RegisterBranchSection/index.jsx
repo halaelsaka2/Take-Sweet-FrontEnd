@@ -18,7 +18,7 @@ const RegisterBranchSection = ({
   nextButtonHandle,
   dropdownIsOpen,
   dropdownIsOpenHandle,
-  selectCityHandle
+  selectCityHandle,
 }) => {
   return (
     <div className="register-container">
@@ -30,7 +30,7 @@ const RegisterBranchSection = ({
             stepClassNames={[
               "circle--finished",
               "circle--finished",
-              "circle--active"
+              "circle--active",
             ]}
             pipeClassNames={["pipe--finished", "pipe--finished"]}
           />
@@ -46,7 +46,7 @@ const RegisterBranchSection = ({
                     "Alexandria",
                     "Ismailia",
                     "Portsaid",
-                    "Suez"
+                    "Suez",
                   ]}
                   isOpened={dropdownIsOpen}
                   dropdownIsOpenHandle={dropdownIsOpenHandle}

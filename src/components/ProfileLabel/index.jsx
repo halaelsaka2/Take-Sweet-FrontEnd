@@ -1,6 +1,5 @@
 import React from "react";
-const ProfileLabel = (props) => {
-  const { className, content } = props;
+const ProfileLabel = ({ className, content }) => {
   return <div className={className}>{content}</div>;
 };
 

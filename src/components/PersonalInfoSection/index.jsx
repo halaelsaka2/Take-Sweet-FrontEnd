@@ -3,8 +3,7 @@ import React from "react";
 import ImageCard from "../ImageCard";
 import ProfileLabel from "../ProfileLabel";
 
-const PersonalInfoCard = (props) => {
-  const { email, userName, discription, imageUrl } = props;
+const PersonalInfoCard = ({ email, userName, discription, imageUrl }) => {
   return (
     <React.Fragment>
       <ProfileLabel className="profileLabel" content="Personal Information" />
