@@ -1,7 +1,7 @@
 import React from "react";
 import Input from "../Input";
 import Button from "../Button";
-const EditPasswordModal = ({ onChange }) => {
+const EditPasswordModal = ({ onChange ,value,onSave,onCancel}) => {
   return (
     <div class="myModal__modalContent__body">
       <div>
@@ -12,6 +12,7 @@ const EditPasswordModal = ({ onChange }) => {
           type="password"
           className="input input--s"
           placeholder=" Old password"
+          value={value}
         />
       </div>
       <div>
@@ -22,6 +23,7 @@ const EditPasswordModal = ({ onChange }) => {
           type="password"
           className="input input--s"
           placeholder="New password"
+          value={value}
         />
       </div>
       <div>
@@ -32,6 +34,7 @@ const EditPasswordModal = ({ onChange }) => {
           type="password"
           className="input input--s"
           placeholder="Confirm password"
+          value={value}
         />
       </div>
       <div class="lastContent__buttons">
@@ -39,15 +42,16 @@ const EditPasswordModal = ({ onChange }) => {
           className="button--rounded button--rounded--s"
           name="Save"
           id="savePassword"
+          onClick={onSave}
         />
         <Button
           className="button--rounded button--rounded--s button--rounded--danger"
           name="Cancel"
           id="closepassword"
+          onClick={onCancel}
         />
       </div>
     </div>
   );
 };
-
 export default EditPasswordModal;
