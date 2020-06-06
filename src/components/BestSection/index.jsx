@@ -1,6 +1,6 @@
 import React from "react";
 import Bestsellers from "../BestSellers";
-import Bestcompanies from "../Bestcompanies/Bestcompanies";
+import Bestcompanies from "../Bestcompanies";
 
 const BestSection = ({ products, companies }) => {
   return (

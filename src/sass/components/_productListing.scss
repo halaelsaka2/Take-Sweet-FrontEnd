@@ -1,6 +1,7 @@
 a {
   text-decoration: none;
   color: $main-black;
+
   &:hover {
     text-decoration: underline;
   }
@@ -18,14 +19,17 @@ a {
   // grid-column-start: 1;
   // grid-column-end: 12;
   color: $main-black;
+
   &--4 {
     grid-template-columns: auto auto auto auto;
   }
+
   &--grid {
     grid-template-columns: auto auto auto auto;
     column-gap: 0;
   }
 }
+
 .item-medium {
   padding: 1.5rem;
   margin: 3rem;
@@ -78,6 +82,7 @@ a {
       z-index: 3;
       // text-align: center;
     }
+
     .item-medium__image {
       &::after {
         content: "";
@@ -92,6 +97,7 @@ a {
       }
     }
   }
+
   &__crud-actions {
     position: absolute;
     top: 90%;
@@ -110,6 +116,7 @@ a {
   text-align: center;
   margin: 2rem 30rem;
   margin-top: 5rem;
+
   &-h3 {
     color: $primary-alpine;
   }
@@ -122,6 +129,7 @@ a {
   background-color: white;
   border: 2px $primary-alpine solid;
   font-size: 24px;
+
   &:hover {
     background-color: $primary-alpine;
     border: 2px $primary-alpine solid;
@@ -149,6 +157,7 @@ a {
   color: $main-black;
   z-index: 5;
   justify-content: center;
+
   &--brands {
     top: 0;
   }
@@ -157,12 +166,10 @@ a {
     grid-template-columns: 15% 15% 15% 15%;
   }
 }
+
 .listing-dropdown-container {
   position: relative;
 }
-
-
-
 
 .plus {
   display: grid;
@@ -170,7 +177,7 @@ a {
   top: 7rem;
   grid-template-columns: 25% 25% 25%;
   column-gap: 5rem;
-  color: #000000;
+  color: $main-black;
   z-index: 5;
 
   width: 4rem;
@@ -178,8 +185,8 @@ a {
   margin-top: 5rem;
   border-radius: 50%;
   padding: 0.8rem 0 0 0.8rem;
-  border: 0.2rem solid #bb9230;
-  color: #bb9230;
+  border: 0.2rem solid $primary-alpine;
+  color: $primary-alpine;
   font-size: 20px;
   margin-left: -11rem;
 }
@@ -201,6 +208,7 @@ a {
     background-repeat: no-repeat;
     background-position: center;
   }
+
   &__data {
     padding: 1rem 0 1rem 1rem;
     background-color: $main-white;
@@ -214,10 +222,12 @@ a {
       color: $main-black;
       display: flex;
       flex-direction: row;
+
       &__controls {
         cursor: pointer;
         border-radius: 45%;
         padding: 0.5rem;
+
         // transition: all 0.2s;
         &:hover {
           background-color: $primary-alpine;
@@ -225,12 +235,14 @@ a {
           opacity: 80%;
         }
       }
+
       &__number {
         margin: 0 1rem;
         padding: 0.5rem;
       }
     }
   }
+
   &__btn {
     position: absolute;
     top: -40rem;
@@ -246,7 +258,9 @@ a {
     opacity: 0;
     transition: all 0.5s;
   }
+
   &:hover {
+
     // .itemm__data {
     //   top: -7rem;
     // }
@@ -255,6 +269,7 @@ a {
       opacity: 1;
       z-index: 3;
     }
+
     .itemm__image {
       &::after {
         content: "";

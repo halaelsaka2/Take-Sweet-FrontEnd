@@ -2,10 +2,10 @@ import React from "react";
 import { Zoom } from "react-slideshow-image";
 
 const images = [
-  "assets/images/1.jpeg",
-  "assets/images/2.jpeg",
-  "assets/images/3.jpeg",
-  "assets/images/4.jpeg",
+  "assets/images/slider1.jpg",
+  "assets/images/slider2.jpg",
+  "assets/images/slider3.jpg",
+  "assets/images/slider4.jpg",
 ];
 
 const zoomOutProperties = {
