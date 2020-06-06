@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ProductCardsSection from "../../components/ProductCardsSection/index";
+import ProductCardsSection from "../../components/ProductCardsSection";
 
 class ProductCardModal extends Component {
   state = {
