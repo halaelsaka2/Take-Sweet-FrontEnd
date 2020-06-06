@@ -2,19 +2,16 @@ import React from "react";
 
 {
   /* <Textarea
-          classname="inputReview reviewCard__reviews"
-          columsNo="100"
+          classname="textarea (textarea--reviewCard or textarea--orderdetails)"
           placeholder="your message"
         ></Textarea> */
 }
 
-const Textarea = ({ classname, columsNo, placeholder }) => {
+const Textarea = ({ classname, placeholder }) => {
   return (
     <textarea
       name="textarea"
       className={classname}
-      cols={columsNo}
-      rows="10"
       placeholder={placeholder}
     ></textarea>
   );
