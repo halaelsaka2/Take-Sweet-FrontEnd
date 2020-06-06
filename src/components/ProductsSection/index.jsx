@@ -5,12 +5,14 @@ import Search from "../../components/Search";
 import ProductItem from "../../components/ProductItem";
 import DropDown from "../../components/Dropdown";
 import DescriptionSection from "../../components/DescriptionScetion";
-const ProductsSection = ({ products, sortbyList, categoryList }) => {
+import BrandItem from "../BrandItem";
+
+const ProductsSection = ({ products, sortbyList, categoryList, pageType }) => {
   return (
     <React.Fragment>
       <Header></Header>
       <div className="project-container project-container--h">
-        {this.props.pageType === "buyerPage" && (
+        {pageType === ("buyerPage" || "brandsPage") && (
           <DescriptionSection
             titleClassName={"text-container-h3"}
             title={"Our Products"}
@@ -36,19 +38,26 @@ const ProductsSection = ({ products, sortbyList, categoryList }) => {
               dropdownHeader={"Category"}
             ></DropDown>
           </div>
-
           <Search></Search>
         </div>
-        <div className="list-container">
-          {products.map((item) => (
-            <ProductItem
-              name={item.name}
-              src={item.src}
-              amount={item.amount}
-              pageType={this.props.pageType}
-            ></ProductItem>
-          ))}
-        </div>
+        {pageType === "buyerPage" ? (
+          <div className="list-container">
+            {products.map((item) => (
+              <ProductItem
+                name={item.name}
+                src={item.src}
+                amount={item.amount}
+                pageType={pageType}
+              ></ProductItem>
+            ))}
+          </div>
+        ) : (
+          <div class="list-container list-container--4">
+            {products.map((item) => (
+              <BrandItem src={item.src}></BrandItem>
+            ))}
+          </div>
+        )}
       </div>
       <Footer></Footer>
     </React.Fragment>
