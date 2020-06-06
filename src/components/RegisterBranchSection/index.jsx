@@ -41,8 +41,8 @@ const RegisterBranchSection = ({
               <div className="reg-dropdown-container reg-dropdown-container--reg4">
                 <Dropdown
                   additionalStyle={"dropdown--br1"}
-                  dropdownHeader={cityValue}
-                  dropdownListItems={[
+                  Header={cityValue}
+                  ListItems={[
                     "Cairo",
                     "Alexandria",
                     "Ismailia",
@@ -50,7 +50,7 @@ const RegisterBranchSection = ({
                     "Suez"
                   ]}
                   isOpened={dropdownIsOpen}
-                  dropdownIsOpenHandle={dropdownIsOpenHandle}
+                  IsOpenHandle={dropdownIsOpenHandle}
                   selectionHandle={selectCityHandle}
                 />
               </div>
