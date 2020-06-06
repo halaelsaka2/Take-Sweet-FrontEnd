@@ -24,16 +24,16 @@ const ProductsSection = ({ products, sortbyList, categoryList }) => {
         <div className="tabs-containera">
           <div style={{ position: "relative" }}>
             <DropDown
-              dropdownListItems={sortbyList}
+              ListItems={sortbyList}
               isOpened={true}
-              dropdownHeader={"sortBy"}
+              Header={"sortBy"}
             ></DropDown>
           </div>
           <div style={{ position: "relative" }}>
             <DropDown
-              dropdownListItems={categoryList}
+              ListItems={categoryList}
               isOpened={false}
-              dropdownHeader={"Category"}
+              Header={"Category"}
             ></DropDown>
           </div>
 

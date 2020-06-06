@@ -32,10 +32,10 @@ const RegisterPersonalInfoSection = ({
 
           <div className="reg-dropdown-container reg-dropdown-container--regTop">
             <Dropdown
-              dropdownHeader={accountType}
-              dropdownListItems={["Brand", "Cafe and Resturant"]}
+              Header={accountType}
+              ListItems={["Brand", "Cafe and Resturant"]}
               isOpened={dropdownIsOpen}
-              dropdownIsOpenHandle={dropdownIsOpenHandle}
+              IsOpenHandle={dropdownIsOpenHandle}
               selectionHandle={selectAccountTypeHandle}
             />
           </div>
