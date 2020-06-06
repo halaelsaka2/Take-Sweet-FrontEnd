@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import HistoryFromUserSection from "../../components/historyFromUserSection";
+import HistoryFromUser from "../HistoryFromUserPage";
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <HistoryFromUserSection />
+        <HistoryFromUser />
       </React.Fragment>
     );
   }

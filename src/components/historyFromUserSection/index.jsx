@@ -4,12 +4,11 @@ import Search from "../Search";
 
 import { Container } from "reactstrap";
 import HistoryStates from "../HistoryStates";
-import ProductCardList from "../productCardList";
+import ProductCardList from "../ProductCardList";
 import Footer from "../Layouts/Footer";
 import OrderDate from "./../OrderDate";
-import Pagination from "./../pagination";
+import Pagination from "./../Pagination";
 import CompanyLogo from "./../CompanyLogo";
-// import ProductCard from "../productCard/productCard";
 
 const HistoryFromUserSection = ({
   productCards,
