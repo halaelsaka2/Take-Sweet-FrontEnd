@@ -30,13 +30,15 @@ const RegisterPersonalInfoSection = ({
             pipeClassNames={["pipe--finished", "pipe--notTouched"]}
           />
 
-          <Dropdown
-            dropdownHeader={accountType}
-            dropdownListItems={["Brand", "Cafe and Resturant"]}
-            isOpened={dropdownIsOpen}
-            dropdownIsOpenHandle={dropdownIsOpenHandle}
-            selectCityHandle={selectAccountTypeHandle}
-          />
+          <div className="reg-dropdown-container reg-dropdown-container--regTop">
+            <Dropdown
+              dropdownHeader={accountType}
+              dropdownListItems={["Brand", "Cafe and Resturant"]}
+              isOpened={dropdownIsOpen}
+              dropdownIsOpenHandle={dropdownIsOpenHandle}
+              selectCityHandle={selectAccountTypeHandle}
+            />
+          </div>
           <div className="info">
             <Input
               className="input input--mwh"
