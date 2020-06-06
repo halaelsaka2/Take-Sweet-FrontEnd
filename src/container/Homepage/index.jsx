@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
-import BestSection from "../../components/BestSection";
+import AboutUsSection from "../../components/AboutUsSection/index";
+import Slideshow from "../../components/SlideShow/index";
+import BestSection from "../../components/BestSection/index";
+import ReviewCard from "../../components/ReviewCard/index";
 
 class Home extends Component {
   state = {
@@ -36,7 +39,10 @@ class Home extends Component {
       <React.Fragment>
         <Header />
         <div className="project-container project-container--h">
+          <AboutUsSection />
+          <Slideshow />
           <BestSection companies={companies} />
+          <ReviewCard />
         </div>
         <Footer />
       </React.Fragment>
