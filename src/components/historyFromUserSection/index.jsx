@@ -6,9 +6,9 @@ import { Container } from "reactstrap";
 import HistoryStates from "../HistoryStates";
 import ProductCardList from "../ProductCardList";
 import Footer from "../Layouts/Footer";
-import OrderDate from "./../OrderDate";
-import Pagination from "./../Pagination";
-import CompanyLogo from "./../CompanyLogo";
+import OrderDate from "../OrderDate";
+import Pagination from "../Pagination";
+import CompanyLogo from "../CompanyLogo";
 
 const HistoryFromUserSection = ({
   productCards,

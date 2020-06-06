@@ -1,7 +1,7 @@
 import React from "react";
-import DescriptionSection from "./../DescriptionScetion/index";
+import DescriptionSection from "./../DescriptionScetion";
 import Input from "../Input";
-import Textarea from "./../Textarea/index";
+import Textarea from "./../Textarea";
 import Button from "../Button";
 
 {
