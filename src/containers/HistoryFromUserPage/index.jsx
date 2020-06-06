@@ -29,7 +29,7 @@ class HistoryFromUser extends Component {
   handleTabChange = (currentTabe) => {
     const currentStatus = this.state.statusTabs[currentTabe];
     let statusProducts = this.state.productCards;
-    let currentPage = 1;
+    const currentPage = 1;
     if (currentTabe != 0) {
       statusProducts = this.state.productCards.filter(
         (products) => products.status == currentStatus
