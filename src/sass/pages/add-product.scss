@@ -4,13 +4,15 @@
 
 .ProductContainer {
   display: flex;
-  border-top: solid $primary-alpine 0.1rem;
+
+  justify-content: space-around;
+  justify-items: center;
+  margin-top: 10rem;
+  // border-top: solid $primary-alpine 0.1rem;
 }
 
 .productDetailsContainer {
-  margin-top: 5rem;
-  margin-left: 15rem;
-  width: 50%;
+  width: 53%;
   display: flex;
   flex-direction: column;
 }

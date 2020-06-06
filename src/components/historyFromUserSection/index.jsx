@@ -4,7 +4,7 @@ import Search from "../Search/index";
 
 import { Container } from "reactstrap";
 import HistoryStates from "../HistoryStates/index";
-import ProductCardList from "../productCardList/index";
+import ProductCardList from "../ProductCardList/index";
 import Footer from "../Layouts/Footer/index";
 import OrderDate from "./../OrderDate/index";
 import Pagination from "./../Pagination/index";
