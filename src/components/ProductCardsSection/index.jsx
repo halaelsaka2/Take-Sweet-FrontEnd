@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCardList from "../ProductCardList/index";
+import ProductCardList from "../productCardList";
 
 const ProductCardsSection = ({ productCards, handleDelete }) => (
   <div class="myModal myModal--product active-modal">

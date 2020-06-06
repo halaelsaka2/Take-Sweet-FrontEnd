@@ -9,7 +9,6 @@ import Footer from "../Layouts/Footer";
 import OrderDate from "./../OrderDate";
 import Pagination from "./../pagination";
 import CompanyLogo from "./../CompanyLogo";
-// import ProductCard from "../productCard/productCard";
 
 const HistoryFromUserSection = ({
   productCards,
