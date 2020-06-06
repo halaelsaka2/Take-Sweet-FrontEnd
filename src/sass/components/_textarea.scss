@@ -12,3 +12,25 @@
     border-radius: 1rem;
   }
 }
+
+.textarea {
+  width: 80%;
+  height: 20rem;
+  
+  resize: none;
+  outline: none;
+  border: solid #bb9230 0.1rem;
+  border-radius: 15px;
+  padding: 1rem;
+  margin-top: 1rem;
+  box-shadow: 5px 7px 5px 1px rgba(0, 0, 0, 0.2);
+  
+  &--orderdetails {
+    width: 40%;
+    height: 22rem;
+  }
+  
+  &--reviewCard {
+    width: 50%;
+  }
+  }
