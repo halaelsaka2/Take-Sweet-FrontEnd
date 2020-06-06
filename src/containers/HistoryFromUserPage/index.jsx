@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import HistoryFromUserSection from "../../components/historyFromUserSection/index";
+import HistoryFromUserSection from "../../components/HistoryFromUserSection";
 class HistoryFromUser extends Component {
   state = {
     productCards: [
@@ -10,7 +10,7 @@ class HistoryFromUser extends Component {
       { Num: 5, status: "Arrived" },
       { Num: 6, status: "Waiting" },
       { Num: 7, status: "Waiting" },
-      { Num: 8, status: "Arrived" }
+      { Num: 8, status: "Arrived" },
     ],
     date: "",
     statusTabs: ["All", "Waiting", "Arrived", "Cancelled"],
@@ -18,7 +18,7 @@ class HistoryFromUser extends Component {
     companyLogoImgSrc: "",
     productsPerPage: 3,
     currentPage: 1,
-    statusProducts: []
+    statusProducts: [],
   };
 
   componentDidMount() {
@@ -26,18 +26,19 @@ class HistoryFromUser extends Component {
     this.setState({ statusProducts });
   }
 
-  handleTabChange = currentTabe => {
+  handleTabChange = (currentTabe) => {
     const currentStatus = this.state.statusTabs[currentTabe];
     let statusProducts = this.state.productCards;
+    let currentPage = 1;
     if (currentTabe != 0) {
       statusProducts = this.state.productCards.filter(
-        products => products.status == currentStatus
+        (products) => products.status == currentStatus
       );
     }
-    this.setState({ currentTabe, statusProducts });
+    this.setState({ currentTabe, statusProducts, currentPage });
   };
 
-  paginate = currentPage => {
+  paginate = (currentPage) => {
     if (
       0 < currentPage &&
       currentPage <=
@@ -56,10 +57,10 @@ class HistoryFromUser extends Component {
         companyLogoImgSrc,
         productsPerPage,
         currentPage,
-        statusProducts
+        statusProducts,
       },
       handleTabChange,
-      paginate
+      paginate,
     } = this;
     const firstIndex = (currentPage - 1) * productsPerPage;
     const lastIndex = firstIndex + productsPerPage;
