@@ -1,5 +1,5 @@
 import React from "react";
-import Steper from "../Steper";
+import Stepper from "../Stepper";
 import Dropdown from "../Dropdown";
 import Button from "../Button";
 import Input from "../Input";
@@ -18,19 +18,19 @@ const RegisterBranchSection = ({
   nextButtonHandle,
   dropdownIsOpen,
   dropdownIsOpenHandle,
-  selectCityHandle,
+  selectCityHandle
 }) => {
   return (
     <div className="register-container">
       <div className="register-form-container">
         <div className="register-form">
           <div className="register-header">Register</div>
-          <Steper
+          <Stepper
             steps={[1, 2, 3]}
             stepClassNames={[
               "circle--finished",
               "circle--finished",
-              "circle--active",
+              "circle--active"
             ]}
             pipeClassNames={["pipe--finished", "pipe--finished"]}
           />
@@ -40,17 +40,18 @@ const RegisterBranchSection = ({
             <div className="branches-div">
               <div className="reg-dropdown-container reg-dropdown-container--reg4">
                 <Dropdown
-                  dropdownHeader={cityValue}
-                  dropdownListItems={[
+                  additionalStyle={"dropdown--br1"}
+                  Header={cityValue}
+                  ListItems={[
                     "Cairo",
                     "Alexandria",
                     "Ismailia",
                     "Portsaid",
-                    "Suez",
+                    "Suez"
                   ]}
                   isOpened={dropdownIsOpen}
-                  dropdownIsOpenHandle={dropdownIsOpenHandle}
-                  selectCityHandle={selectCityHandle}
+                  IsOpenHandle={dropdownIsOpenHandle}
+                  selectionHandle={selectCityHandle}
                 />
               </div>
               <div id="location">

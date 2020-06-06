@@ -1,7 +1,7 @@
 import React from "react";
-import DescriptionSection from "./../DescriptionScetion/descriptionSection";
+import DescriptionSection from "./../DescriptionScetion/index";
 import Input from "../Input";
-import Textarea from "./../Textarea/textarea";
+import Textarea from "./../Textarea/index";
 import Button from "../Button";
 
 {
@@ -20,7 +20,7 @@ const ReviewCard = () => {
         deserve all waiting time.It is the most crowded place on the street,I
         totally recommend this bakery, their desserts are delicious."
       />
-      <div>
+      <div className="reviewCard__inputContainer">
         <Input
           className="inputReview reviewCard__inputs"
           type="name"
@@ -33,8 +33,7 @@ const ReviewCard = () => {
         />
       </div>
       <Textarea
-        classname="inputReview reviewCard__reviews"
-        columsNo="100"
+        classname="textarea textarea--reviewCard"
         placeholder="your message"
       />
       <Button

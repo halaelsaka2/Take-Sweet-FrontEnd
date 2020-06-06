@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Button";
-import Steper from "../Steper";
+import Stepper from "../Stepper";
 import Dropdown from "../Dropdown";
 import Input from "../Input";
 const RegisterPersonalInfoSection = ({
@@ -20,7 +20,7 @@ const RegisterPersonalInfoSection = ({
       <div className="register-form-container">
         <div className="register-form">
           <div className="register-header">Register</div>
-          <Steper
+          <Stepper
             steps={[1, 2, 3]}
             stepClassNames={[
               "circle--finished",
@@ -30,13 +30,15 @@ const RegisterPersonalInfoSection = ({
             pipeClassNames={["pipe--finished", "pipe--notTouched"]}
           />
 
-          <Dropdown
-            dropdownHeader={accountType}
-            dropdownListItems={["Brand", "Cafe and Resturant"]}
-            isOpened={dropdownIsOpen}
-            dropdownIsOpenHandle={dropdownIsOpenHandle}
-            selectCityHandle={selectAccountTypeHandle}
-          />
+          <div className="reg-dropdown-container reg-dropdown-container--regTop">
+            <Dropdown
+              Header={accountType}
+              ListItems={["Brand", "Cafe and Resturant"]}
+              isOpened={dropdownIsOpen}
+              IsOpenHandle={dropdownIsOpenHandle}
+              selectionHandle={selectAccountTypeHandle}
+            />
+          </div>
           <div className="info">
             <Input
               className="input input--mwh"

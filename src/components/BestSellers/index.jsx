@@ -2,6 +2,7 @@ import React from "react";
 import Bestsellersitem from "../BestSellersItem/index";
 
 const Bestsellers = ({ products }) => {
+  // console.log(products);
   return (
     <div class="bestContainer">
       <div class="bestContainer__header">Best Seller</div>
