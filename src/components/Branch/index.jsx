@@ -1,8 +1,8 @@
 import React from "react";
-import BranchList from "./BranchList";
+import BranchList from "./partials/BranchList";
 import ProfileLabel from "../ProfileLabel";
 
-const BranchContiner = ({ branchList, isEditBranch }) => (
+const Branch = ({ branchList, isEditBranch }) => (
   <React.Fragment>
     <ProfileLabel className="profileLabel" content="Branches" />
     <div className="branchContainer">
@@ -23,4 +23,4 @@ const BranchContiner = ({ branchList, isEditBranch }) => (
   </React.Fragment>
 );
 
-export default BranchContiner;
+export default Branch;

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
-import RegisterBranchPage from "../container/RegisterBranchPage";
-import RegisterPersonalInfoPage from "../container/RegisterPersonalInfoPage";
-import RegisterGeneralInfoPage from "../container/RegisterGeneralInfoPage";
-import RegisterAcceptancePage from "../container/RegisterAcceptancePage";
+import RegisterBranchPage from "../containers/RegisterBranchPage";
+import RegisterPersonalInfoPage from "../containers/RegisterPersonalInfoPage";
+import RegisterGeneralInfoPage from "../containers/RegisterGeneralInfoPage";
+import RegisterAcceptancePage from "../containers/RegisterAcceptancePage";
 import RegisterGeneralInfoSection from "../components/RegisterGeneralInfoSection";
-
+import Branch from '../components/Branch'
 class App extends Component {
   render() {
     return (
@@ -16,6 +16,7 @@ class App extends Component {
 
         <RegisterBranchPage />
         <RegisterAcceptancePage/>
+        <Branch branchList={[]} isEditBranch={true}></Branch>
       </React.Fragment>
     );
   }
