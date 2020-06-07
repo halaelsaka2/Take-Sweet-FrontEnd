@@ -39,7 +39,7 @@ const OrderCard = ({
           onClick={onReorder}
         />
 
-        {status === "wating" && (
+        {status === "Waiting" && (
           <Button
             className="button--rounded button--rounded--s button--rounded--danger"
             name="Cancel"
