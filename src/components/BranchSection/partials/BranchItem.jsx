@@ -23,7 +23,7 @@ const BranchItem = ({
     </span>
     <span className="branchContainer__branches__location__phone">
       {phoneNumber}
-    </span>
+    </span> 
   </div>
 );
 

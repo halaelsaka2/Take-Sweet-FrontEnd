@@ -24,7 +24,7 @@ const BranchSection = ({
               <i className="fas fa-pencil-alt"></i>
             </div>
           </div>
-        )}
+        )} 
 
         <BranchList
           branchList={branchList}

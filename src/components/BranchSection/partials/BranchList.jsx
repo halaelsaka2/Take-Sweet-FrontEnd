@@ -10,7 +10,7 @@ const BranchList = ({
   <div className={`branchContainer__branches ${ListAdditionalStyle}`}>
     {branchList.map((item, index) => (
       <BranchItem
-        key={index}
+        key={index} 
         cityName={item.cityName}
         address={item.address}
         phoneNumber={item.phoneNumber}
