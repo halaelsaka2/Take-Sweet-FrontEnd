@@ -6,7 +6,10 @@ import BranchSection from "../BranchSection";
 const RegisterBranchesDetailsSection = ({
   branchList,
   backButtonHandle,
-  cancelButtonHandle
+  cancelButtonHandle,
+  isEditBranch,
+  isBranchTab,
+  cancelIcon
 }) => {
   return (
     <div className="register-container">
@@ -26,10 +29,10 @@ const RegisterBranchesDetailsSection = ({
           <BranchSection
             branchStyle={"branchContainer--register"}
             branchList={branchList}
-            isEditBranch={false}
-            isBranchTab={false}
+            isEditBranch={isEditBranch}
+            isBranchTab={isBranchTab}
             ListAdditionalStyle={"branchContainer__branches--2branches"}
-            cancelIcon={true}
+            cancelIcon={cancelIcon}
             cancelButtonHandle={cancelButtonHandle}
           />
 

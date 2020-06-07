@@ -40,6 +40,9 @@ class RegisterBrachesDetailsPage extends Component {
         branchList={branchList}
         backButtonHandle={backButtonHandle}
         cancelButtonHandle={cancelButtonHandle}
+        isEditBranch={false}
+        isBranchTab={false}
+        cancelIcon={true}
       />
     );
   }

@@ -2,7 +2,6 @@ import React from "react";
 import BranchList from "./partials/BranchList";
 import ProfileLabel from "../ProfileLabel";
 
-
 const BranchSection = ({
   branchList,
   isEditBranch,
@@ -18,7 +17,6 @@ const BranchSection = ({
     )}
 
     <div className={`branchContainer ${branchStyle}`}>
-
       <div className="branchContainer__content">
         {isEditBranch && (
           <div className="branchContainer__edit">
@@ -26,8 +24,7 @@ const BranchSection = ({
               <i className="fas fa-pencil-alt"></i>
             </div>
           </div>
-
-        )} 
+        )}
 
         <BranchList
           branchList={branchList}
@@ -35,10 +32,14 @@ const BranchSection = ({
           ListAdditionalStyle={ListAdditionalStyle}
           cancelButtonHandle={cancelButtonHandle}
         ></BranchList>
-
       </div>
     </div>
   </React.Fragment>
 );
 
 export default BranchSection;
+
+BranchSection.defaultProps = {
+  isEditBranch: true,
+  isBranchTab: true
+};
