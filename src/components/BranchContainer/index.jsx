@@ -1,11 +1,11 @@
 import React from "react";
-import BranchList from "./BranchList";
+import BranchList from "./partials/BranchList";
 import ProfileLabel from "../ProfileLabel";
 
-const BranchContiner = ({ branchList, isEditBranch }) => (
+const BranchContiner = ({ branchList, isEditBranch, branchStyle }) => (
   <React.Fragment>
     <ProfileLabel className="profileLabel" content="Branches" />
-    <div className="branchContainer">
+    <div className={`branchContainer${branchStyle}`}>
       <div className="branchContainer__content">
         {isEditBranch && (
           <div className="branchContainer__edit">
