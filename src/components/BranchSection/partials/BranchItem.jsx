@@ -5,13 +5,19 @@ const BranchItem = ({
   address,
   phoneNumber,
   cancelIcon,
-  itemStyle,
+  cancelButtonHandle,
+  index
 }) => (
   <div className={`"branchContainer__branches__location"${cancelIcon}`}>
     <span className="branchContainer__branches__location__header">
       {cityName}
     </span>
-    {cancelIcon && <i class="fas fa-times cancel-branch"></i>}
+    {cancelIcon && (
+      <i
+        onClick={() => cancelButtonHandle(index)}
+        className="fas fa-times cancel-branch"
+      ></i>
+    )}
     <span className="branchContainer__branches__location__address">
       {address}
     </span>
