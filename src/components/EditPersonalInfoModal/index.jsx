@@ -18,7 +18,7 @@ const EditPersonalInfoModal = ({
             imageUrl="./assets/images/user.jpg"
             isClicked={isClicked}
           >
-            <i class="fas fa-pencil-alt Pencil"></i>
+            <i className="fas fa-pencil-alt Pencil"></i>
           </ImageCard>
 
           <div className="infoContainer__content__left__data">

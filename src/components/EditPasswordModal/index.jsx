@@ -1,9 +1,9 @@
 import React from "react";
 import Input from "../Input";
 import Button from "../Button";
-const EditPasswordModal = ({ onChange ,value,onSave,onCancel}) => {
+const EditPasswordModal = ({ onChange, value, onSave, onCancel }) => {
   return (
-    <div class="myModal__modalContent__body">
+    <div className="myModal__modalContent__body">
       <div>
         <Input
           onChange={onChange}
@@ -37,7 +37,7 @@ const EditPasswordModal = ({ onChange ,value,onSave,onCancel}) => {
           value={value}
         />
       </div>
-      <div class="lastContent__buttons">
+      <div className="lastContent__buttons">
         <Button
           className="button--rounded button--rounded--s"
           name="Save"

@@ -1,13 +1,13 @@
 import React from "./node_modules/react";
 const ImageSection = ({ imgSrc }) => {
   return (
-    <div class="productImageContainer">
+    <div className="productImageContainer">
       <img
         src="assets/images/productImg.jpeg"
         // src={imgSrc}
-        class="productImageContainer__image"
+        className="productImageContainer__image"
       />
-      <div class="productImageContainer__label">Product Image</div>
+      <div className="productImageContainer__label">Product Image</div>
     </div>
   );
 };

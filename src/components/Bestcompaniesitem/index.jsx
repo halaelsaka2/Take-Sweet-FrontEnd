@@ -2,9 +2,9 @@ import React from "react";
 
 const Bestcompaniesitem = ({ company }) => {
   return (
-    <div class="item-medium">
+    <div className="item-medium">
       <div
-        class="item-medium__image image"
+        className="item-medium__image image"
         style={{
           backgroundImage: "url('" + company.src + "')",
           "background-position": "center",
