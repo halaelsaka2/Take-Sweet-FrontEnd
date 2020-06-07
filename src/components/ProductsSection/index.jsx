@@ -52,7 +52,7 @@ const ProductsSection = ({ products, sortbyList, categoryList, pageType }) => {
             ))}
           </div>
         ) : (
-          <div class="list-container list-container--4">
+          <div className="list-container list-container--4">
             {products.map((item) => (
               <BrandItem src={item.src}></BrandItem>
             ))}

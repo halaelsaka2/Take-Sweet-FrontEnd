@@ -2,9 +2,9 @@ import React from "react";
 
 const Bestsellersitem = ({ product }) => {
   return (
-    <div class="item-medium">
+    <div className="item-medium">
       <div
-        class="item-medium__image image"
+        className="item-medium__image image"
         style={{
           backgroundImage: "url('" + product.src + "')",
           "background-size": "cover",
@@ -15,12 +15,12 @@ const Bestsellersitem = ({ product }) => {
       <a href="#">
         <h4>{product.name}</h4>
       </a>
-      <div class="item-medium__crud-actions">
+      <div className="item-medium__crud-actions">
         <a href="#">
-          <i class="fas fa-edit"></i>
+          <i className="fas fa-edit"></i>
         </a>
         <a href="#">
-          <i class="fas fa-trash-alt"></i>
+          <i className="fas fa-trash-alt"></i>
         </a>
       </div>
     </div>

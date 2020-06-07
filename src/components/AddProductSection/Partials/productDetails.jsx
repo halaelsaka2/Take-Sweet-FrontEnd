@@ -7,110 +7,110 @@ const ProductDetails = ({
   ],
 }) => {
   return (
-    <div class="productDetailsContainer">
+    <div className="productDetailsContainer">
       <div>product Name</div>
       <br />
-      <input class="input" type="text" placeholder="product name" />
+      <input className="input" type="text" placeholder="product name" />
 
-      {/* <div class="countContainer">
-        <div class="countItem">
-          <div class="countItem__info">Avalialbe amount</div>
-          <input class="countItem__input" type="number" />
-          <label class="countItem__info">pieces</label>
+      {/* <div className="countContainer">
+        <div className="countItem">
+          <div className="countItem__info">Avalialbe amount</div>
+          <input className="countItem__input" type="number" />
+          <label className="countItem__info">pieces</label>
         </div>
-        <div class="countItem">
-          <div class="countItem__info">pieces for trade</div>
-          <input class="countItem__input" type="number" />
-          <label class="countItem__info">pieces</label>
+        <div className="countItem">
+          <div className="countItem__info">pieces for trade</div>
+          <input className="countItem__input" type="number" />
+          <label className="countItem__info">pieces</label>
         </div>
-        <div class="countItem">
-          <div class="countItem__info">price</div>
-          <input class="countItem__input" type="number" />
-          <label class="countItem__info">EGP</label>
+        <div className="countItem">
+          <div className="countItem__info">price</div>
+          <input className="countItem__input" type="number" />
+          <label className="countItem__info">EGP</label>
         </div>
       </div> */}
       {/* [{name,unit}]*/}
-      <div class="countContainer">
+      <div className="countContainer">
         {countItems.map((countItem) => (
-          <div class="countItem">
-            <div class="countItem__info">{countItem.name}</div>
-            <input class="countItem__input" type="number" />
-            <label class="countItem__info">{countItem.unit}</label>
+          <div className="countItem">
+            <div className="countItem__info">{countItem.name}</div>
+            <input className="countItem__input" type="number" />
+            <label className="countItem__info">{countItem.unit}</label>
           </div>
         ))}
       </div>
       <label>paymentTypes</label>
       <br />
-      <div class="paymentsContianer">
+      <div className="paymentsContianer">
         <br />
-        <div class="paymentItem">
-          <input type="checkbox" class="paymentItem__input" />
-          <lable class="paymentItem__name">cash</lable>
+        <div className="paymentItem">
+          <input type="checkbox" className="paymentItem__input" />
+          <lable className="paymentItem__name">cash</lable>
         </div>
-        <div class="paymentItem">
-          <input type="checkbox" class="paymentItem__input" />
-          <lable class="paymentItem__name">credit card</lable>
+        <div className="paymentItem">
+          <input type="checkbox" className="paymentItem__input" />
+          <lable className="paymentItem__name">credit card</lable>
         </div>
-        <div class="paymentItem">
-          <input type="checkbox" class="paymentItem__input" />
-          <lable class="paymentItem__name">VISA</lable>
+        <div className="paymentItem">
+          <input type="checkbox" className="paymentItem__input" />
+          <lable className="paymentItem__name">VISA</lable>
         </div>
-        <div class="paymentItem">
-          <input type="checkbox" class="paymentItem__input" />
-          <lable class="paymentItem__name">MOBILE PAYMENT</lable>
+        <div className="paymentItem">
+          <input type="checkbox" className="paymentItem__input" />
+          <lable className="paymentItem__name">MOBILE PAYMENT</lable>
         </div>
-        <div class="paymentItem">
-          <input type="checkbox" class="paymentItem__input" />
-          <lable class="paymentItem__name">BANK TRANSFER</lable>
+        <div className="paymentItem">
+          <input type="checkbox" className="paymentItem__input" />
+          <lable className="paymentItem__name">BANK TRANSFER</lable>
         </div>
-        <div class="paymentItem">
-          <input type="checkbox" class="paymentItem__input" />
-          <lable class="paymentItem__name">E-WALLET</lable>
+        <div className="paymentItem">
+          <input type="checkbox" className="paymentItem__input" />
+          <lable className="paymentItem__name">E-WALLET</lable>
         </div>
       </div>
       <br />
       <label>Categories</label>
       <br />
-      <div class="categoryContainer">
-        <div class="categoryItem">
+      <div className="categoryContainer">
+        <div className="categoryItem">
           <input
             type="radio"
-            class="categoryItem__input"
+            className="categoryItem__input"
             name="category"
             value="Back"
           />
-          <label class="categoryItem__name">Back Goods</label>
+          <label className="categoryItem__name">Back Goods</label>
         </div>
-        <div class="categoryItem">
+        <div className="categoryItem">
           <input
             type="radio"
-            class="categoryItem__input"
+            className="categoryItem__input"
             name="category"
             value="Coffe"
           />
-          <label class="categoryItem__name">Coffee</label>
+          <label className="categoryItem__name">Coffee</label>
         </div>
-        <div class="categoryItem">
+        <div className="categoryItem">
           <input
             type="radio"
-            class="categoryItem__input"
+            className="categoryItem__input"
             name="category"
             value="Pastery"
           />
-          <label class="categoryItem__name">Pastery</label>
+          <label className="categoryItem__name">Pastery</label>
         </div>
       </div>
-      <div class="detailsContainer">
-        <div class="detailsContainer__info">More details</div>
+      <div className="detailsContainer">
+        <div className="detailsContainer__info">More details</div>
         <textarea
-          class="detailsContainer__input"
+          className="detailsContainer__input"
           rows="10"
           cols="60"
         ></textarea>
       </div>
-      <div class="btnContainer">
-        <button class="button--rounded--s">Add</button>
-        <button class="button--rounded--s">Cancel</button>
+      <div className="btnContainer">
+        <button className="button--rounded--s">Add</button>
+        <button className="button--rounded--s">Cancel</button>
       </div>
     </div>
   );
