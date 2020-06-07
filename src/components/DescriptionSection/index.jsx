@@ -1,14 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-{
-  /* 
-        <DescriptionSection
-          titleClassName="about-us__about-us-container__right-contant-container__right-header"
-          title="our companies"
-          textClassName="about-us__about-us-container__right-contant-container__right-body"
-          text=" It is easy to find it on the street."
-        /> */
-}
 const DescriptionSection = ({ titleClassName, textClassName, title, text }) => {
   return (
     <React.Fragment>
@@ -18,3 +10,10 @@ const DescriptionSection = ({ titleClassName, textClassName, title, text }) => {
   );
 };
 export default DescriptionSection;
+
+DescriptionSection.propTypes = {
+  titleClassName: PropTypes.string,
+  textClassName: PropTypes.string,
+  title: PropTypes.string,
+  text: PropTypes.string,
+};

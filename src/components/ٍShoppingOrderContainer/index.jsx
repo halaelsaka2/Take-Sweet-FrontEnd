@@ -1,8 +1,8 @@
 import React from "react";
 import ShoppingCart from "../ShoppingCart";
-// import ShoppingOrderList from "./Partails/shopingOrderList";
 import { ShoppingOrderList } from "./Partails";
 import PropTypes from "prop-types";
+
 const ShoppingOrderContainer = ({ shoppingOrderList, number }) => {
   return (
     <React.Fragment>

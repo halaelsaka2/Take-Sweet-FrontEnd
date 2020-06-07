@@ -1,7 +1,6 @@
 import React from "react";
 
 const Header = ({ check }) => {
-  check !== "" ? true : false;
   return (
     <header className="header">
       <div className="header__logo">
