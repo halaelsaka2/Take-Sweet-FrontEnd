@@ -1,11 +1,11 @@
 import React from "react";
-const Icons = () => {
+import Icon from "./footerIcon";
+const Icons = ({ icons }) => {
   return (
     <div className="footer__bottom__icons">
-      <i className="fab fa-facebook-f footer__bottom__icons"></i>
-      <i className="fab fa-twitter-square footer__bottom__icons"></i>
-      <i className="fab fa-linkedin footer__bottom__icons"></i>
-      <i className="fab fa-youtube"></i>
+      {icons.map((item) => (
+        <Icon key={item.id} className={item.className} />
+      ))}
     </div>
   );
 };

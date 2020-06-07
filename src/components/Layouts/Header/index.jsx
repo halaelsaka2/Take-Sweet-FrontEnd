@@ -1,9 +1,7 @@
 import React from "react";
-{
-  /* <Header check="t" /> */
-}
+
 const Header = ({ check }) => {
-  let x = check !== "" ? true : false;
+  check !== "" ? true : false;
   return (
     <header className="header">
       <div className="header__logo">
@@ -40,7 +38,7 @@ const Header = ({ check }) => {
               Contact
             </a>
           </li>
-          {x && (
+          {check && (
             <li className="nav__menu__item">
               <a className="nav__menu__link" href="#">
                 Products

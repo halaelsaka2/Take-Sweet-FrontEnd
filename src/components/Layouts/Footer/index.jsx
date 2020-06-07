@@ -6,6 +6,8 @@ import {
   Copyright,
   BriefSummary,
   newsList,
+  icons,
+  usefulLinks,
 } from "./Partials";
 
 const Footer = () => {
@@ -16,14 +18,14 @@ const Footer = () => {
           <BriefSummary />
         </div>
         <div className="footerContainer__col">
-          <UsefulLinks />
+          <UsefulLinks usefulLinks={usefulLinks} />
         </div>
         <div className="footerContainer__col">
           <NewsItemList newsList={newsList} />
         </div>
       </div>
       <div className="footer__bottom">
-        <Icons />
+        <Icons icons={icons} />
         <Copyright />
       </div>
     </footer>
