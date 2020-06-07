@@ -1,19 +1,5 @@
-import React from "react";
-import NewsItem from "./newsItem";
-const NewsList = ({ newsList }) => {
-  return (
-    <ul className="container__col__menu grid">
-      {newsList.map((item) => (
-        <NewsItem
-          key={item.id}
-          src={item.src}
-          alt={item.alt}
-          text={item.text}
-          date={item.date}
-        />
-      ))}
-    </ul>
-  );
-};
+import UsefulLinks from "./usefulLinks";
+import Icons from "./footerIcons";
+import NewsItemList from "./newsItemList";
 
-export default NewsList;
+export { NewsItemList, UsefulLinks, Icons };

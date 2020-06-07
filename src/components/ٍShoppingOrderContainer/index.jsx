@@ -1,13 +1,8 @@
 import React from "react";
 import ShoppingCart from "../ShoppingCart";
-import ShoppingOrderList from "./Partails/shopingOrderList";
-
-{
-  /*<ShoppingOrderContainer
-    shoppingOrderList={this.state.shoppingOrderList}
-     number={3}
-  />*/
-}
+// import ShoppingOrderList from "./Partails/shopingOrderList";
+import { ShoppingOrderList } from "./Partails";
+import PropTypes from "prop-types";
 const ShoppingOrderContainer = ({ shoppingOrderList, number }) => {
   return (
     <React.Fragment>
@@ -27,3 +22,14 @@ const ShoppingOrderContainer = ({ shoppingOrderList, number }) => {
 };
 
 export default ShoppingOrderContainer;
+
+ShoppingOrderContainer.propTypes = {
+  shoppingOrderList: PropTypes.arrayOf(
+    PropTypes.objectOf({
+      id: PropTypes.number,
+      src: PropTypes.string, //img
+      quantity: PropTypes.string,
+      totalPrice: PropTypes.number,
+    })
+  ),
+};

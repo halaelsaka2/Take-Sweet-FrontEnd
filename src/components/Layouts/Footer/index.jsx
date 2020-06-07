@@ -1,7 +1,5 @@
 import React from "react";
-import NewsList from "./Partials";
-import UsefulLinks from "./Partials/usefulLinks";
-import Icons from "./Partials/footerIcons";
+import { NewsItemList, UsefulLinks, Icons } from "./Partials";
 {
   /* <Footer /> */
 }
@@ -56,13 +54,13 @@ const Footer = () => {
         </div>
         <div className="footerContainer__col">
           <h4 className="container__col__title">NEWS</h4>
-          <NewsList newsList={newsList} />
+          <NewsItemList newsList={newsList} />
         </div>
       </div>
       <div className="footer__bottom">
         <Icons />
         <div className="footer__bottom__text">
-          All copyrights resreved Copyright&COPY; 2020
+          All copyrights resreved Copyright &copy; 2020
         </div>
       </div>
     </footer>
