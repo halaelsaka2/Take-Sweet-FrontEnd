@@ -26,16 +26,16 @@ const BranchSection = ({
               <i className="fas fa-pencil-alt"></i>
             </div>
           </div>
-        )}
 
-        <div className="branchContainer__branches">
-          <BranchList
-            branchList={branchList}
-            cancelIcon={cancelIcon}
-            ListAdditionalStyle={ListAdditionalStyle}
-            cancelButtonHandle={cancelButtonHandle}
-          ></BranchList>
-        </div>
+        )} 
+
+        <BranchList
+          branchList={branchList}
+          cancelIcon={cancelIcon}
+          ListAdditionalStyle={ListAdditionalStyle}
+          cancelButtonHandle={cancelButtonHandle}
+        ></BranchList>
+
       </div>
     </div>
   </React.Fragment>
