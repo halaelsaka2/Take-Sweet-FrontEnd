@@ -1,5 +1,7 @@
 import UsefulLinks from "./usefulLinks";
 import Icons from "./footerIcons";
 import NewsItemList from "./newsItemList";
-
-export { NewsItemList, UsefulLinks, Icons };
+import newsList from "./constants";
+import Copyright from "./copyright";
+import BriefSummary from "./briefSummary";
+export { NewsItemList, UsefulLinks, Icons, Copyright, BriefSummary, newsList };
