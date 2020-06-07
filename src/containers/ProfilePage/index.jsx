@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import Header from "../../components/Layouts/Header/index";
-import Footer from "../../components/Layouts/Footer/index";
+import Header from "../../components/Layouts/Header";
+import Footer from "../../components/Layouts/Footer";
 import BestSection from "../../components/BestSection";
 
 class Profile extends Component {

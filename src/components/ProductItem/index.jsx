@@ -1,14 +1,12 @@
 import React from "react";
 
-
 const ProductItem = ({ src, amount, pagetype, name }) => {
-
   return (
-    <div calssName="itemm">
-      <div calssName="itemm__image" style={{ backgroundImage: `url(${src})` }}>
-        <div calssName="itemm__data">
+    <div className="itemm">
+      <div className="itemm__image" style={{ backgroundImage: `url(${src})` }}>
+        <div className="itemm__data">
           {pagetype === "buyerPage" ? (
-            <button calssName="itemm__btn">Order Now</button>
+            <button className="itemm__btn">Order Now</button>
           ) : (
             {}
           )}
@@ -16,29 +14,28 @@ const ProductItem = ({ src, amount, pagetype, name }) => {
       </div>
 
       <h4>{name}</h4>
-      <div calssName="itemm__data__amount">
+      <div className="itemm__data__amount">
         {pagetype === "buyerPage" ? (
-          <div calssName="itemm__data__amount">
-            <i calssName="fas fa-minus itemm__data__amount__controls"></i>
-            <div calssName="itemm__data__amount__number">{amount}</div>
-            <i calssName="fas fa-plus itemm__data__amount__controls"></i>
+          <div className="itemm__data__amount">
+            <i className="fas fa-minus itemm__data__amount__controls"></i>
+            <div className="itemm__data__amount__number">{amount}</div>
+            <i className="fas fa-plus itemm__data__amount__controls"></i>
           </div>
         ) : (
-          <div class="item-medium__crud-actions">
-            <div class="flex-row">
+          <div className="item-medium__crud-actions">
+            <div className="flex-row">
               <div>
-                <span class="lable"> 10 pieces</span>
+                <span className="lable"> 10 pieces</span>
               </div>
             </div>
             <a href="#">
-              <i class="fas fa-edit"></i>
+              <i className="fas fa-edit"></i>
             </a>
             <a href="#">
-              <i class="fas fa-trash-alt"></i>
+              <i className="fas fa-trash-alt"></i>
             </a>
           </div>
         )}
-
       </div>
     </div>
   );

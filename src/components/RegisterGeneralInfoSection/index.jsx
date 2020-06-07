@@ -1,7 +1,7 @@
 import React from "react";
 import Input from "../Input";
-import Button from "../Button/index";
-import Steper from "../Steper";
+import Button from "../Button";
+import Stepper from "../Stepper";
 
 const RegisterGeneralInfoSection = ({
   emailType,
@@ -22,7 +22,7 @@ const RegisterGeneralInfoSection = ({
         <div className="register-form">
           <div className="register-header">Register</div>
 
-          <Steper
+          <Stepper
             steps={[1, 2, 3]}
             stepClassNames={[
               "circle--active",

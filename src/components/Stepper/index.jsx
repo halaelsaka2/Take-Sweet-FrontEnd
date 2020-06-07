@@ -15,7 +15,7 @@ import React from "react";
         />
  */
 
-const Steper = ({ steps, stepClassNames, pipeClassNames }) => {
+const Stepper = ({ steps, stepClassNames, pipeClassNames }) => {
   return (
     <div className="states-container">
       {steps.map((step, currentIndex) => (
@@ -34,4 +34,4 @@ const Steper = ({ steps, stepClassNames, pipeClassNames }) => {
   );
 };
 
-export default Steper;
+export default Stepper;

@@ -1,5 +1,5 @@
 import React from "react";
-import Table from "./../Table/index";
+import Table from "./../Table";
 {
   /* <TableContainer rows={this.state.row5} className="details-table" /> */
 }

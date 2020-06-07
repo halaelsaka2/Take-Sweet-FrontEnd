@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCard from "../productCard/productCard";
+import ProductCard from "../ProductCard";
 
 const ProductCardList = ({ productCards, handleDelete }) =>
   productCards.map((product) => (

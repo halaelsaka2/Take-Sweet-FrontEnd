@@ -1,11 +1,24 @@
 import React from "react";
-import BranchList from "./BranchList";
+import BranchList from "./partials/BranchList";
 import ProfileLabel from "../ProfileLabel";
 
-const BranchContiner = ({ branchList, isEditBranch }) => (
+
+const BranchContiner = ({
+  branchList,
+  isEditBranch,
+  branchStyle,
+  isBranchTab,
+  cancelIcon,
+  ListAdditionalStyle,
+  cancelButtonHandle
+}) => (
   <React.Fragment>
-    <ProfileLabel className="profileLabel" content="Branches" />
-    <div className="branchContainer">
+    {isBranchTab && (
+      <ProfileLabel className="profileLabel" content="Branches" />
+    )}
+
+    <div className={`branchContainer ${branchStyle}`}>
+
       <div className="branchContainer__content">
         {isEditBranch && (
           <div className="branchContainer__edit">
@@ -15,8 +28,13 @@ const BranchContiner = ({ branchList, isEditBranch }) => (
           </div>
         )}
 
-        <div class="branchContainer__branches">
-          <BranchList branchList={branchList}></BranchList>;
+        <div className="branchContainer__branches">
+          <BranchList
+            branchList={branchList}
+            cancelIcon={cancelIcon}
+            ListAdditionalStyle={ListAdditionalStyle}
+            cancelButtonHandle={cancelButtonHandle}
+          ></BranchList>
         </div>
       </div>
     </div>
