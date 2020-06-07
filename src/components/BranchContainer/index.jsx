@@ -2,10 +2,11 @@ import React from "react";
 import BranchList from "./partials/BranchList";
 import ProfileLabel from "../ProfileLabel";
 
+
 const BranchContiner = ({
   branchList,
   isEditBranch,
-  additionalStyle,
+  branchStyle,
   isBranchTab,
   cancelIcon,
   ListAdditionalStyle,
@@ -16,7 +17,8 @@ const BranchContiner = ({
       <ProfileLabel className="profileLabel" content="Branches" />
     )}
 
-    <div className={`branchContainer ${additionalStyle}`}>
+    <div className={`branchContainer ${branchStyle}`}>
+
       <div className="branchContainer__content">
         {isEditBranch && (
           <div className="branchContainer__edit">

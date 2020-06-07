@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import HistoryFromUserSection from "../../components/HistoryFromUserSection";
+import constents from "./constents";
+
 class HistoryFromUser extends Component {
   state = {
     productCards: [
@@ -73,7 +75,7 @@ class HistoryFromUser extends Component {
         productCards={statusProducts}
         currentProducts={currentProducts}
         date={date}
-        statusTabs={statusTabs}
+        statusTabs={constents.statusTabs}
         currentTabe={currentTabe}
         handleTabChange={handleTabChange}
         productsPerPage={productsPerPage}
