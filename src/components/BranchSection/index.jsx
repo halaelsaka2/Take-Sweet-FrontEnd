@@ -3,7 +3,7 @@ import BranchList from "./partials/BranchList";
 import ProfileLabel from "../ProfileLabel";
 
 
-const BranchContiner = ({
+const BranchSection = ({
   branchList,
   isEditBranch,
   branchStyle,
@@ -41,4 +41,4 @@ const BranchContiner = ({
   </React.Fragment>
 );
 
-export default BranchContiner;
+export default BranchSection;
