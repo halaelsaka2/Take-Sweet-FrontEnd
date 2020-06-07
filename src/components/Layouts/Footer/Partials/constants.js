@@ -1,4 +1,4 @@
-const newsList = [
+export const newsList = [
   {
     id: "1",
     src: "assets/images/1.jpeg",
@@ -28,4 +28,15 @@ const newsList = [
     date: "Oct 18,2020",
   },
 ];
-export default newsList;
+export const icons = [
+  { id: "1", className: "fab fa-facebook-f footer__bottom__icons" },
+  { id: "2", className: "fab fa-twitter-square footer__bottom__icons" },
+  { id: "3", className: "fab fa-linkedin footer__bottom__icons" },
+  { id: "4", className: "fab fa-youtube" },
+];
+
+export const usefulLinks = [
+  { id: "1", className: "fas fa-map-marker-alt pad", text: "Locations" },
+  { id: "2", className: "fas fa-phone-alt pad", text: "Call us 0999 5000" },
+  { id: "3", className: "far fa-envelope pad", text: "GoBetween@gmail.com" },
+];

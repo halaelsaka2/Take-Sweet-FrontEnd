@@ -1,7 +1,7 @@
 import React from "react";
 const BriefSummary = () => {
   return (
-    <React.Profiler>
+    <React.Fragment>
       <img
         className="footerContainer__col__logo"
         src="assets/images/GoBetween.png"
@@ -11,7 +11,7 @@ const BriefSummary = () => {
         Here you can use rows and columns to organize your footer content here
         you can use rows and columns to organize your footer content.
       </p>
-    </React.Profiler>
+    </React.Fragment>
   );
 };
 
