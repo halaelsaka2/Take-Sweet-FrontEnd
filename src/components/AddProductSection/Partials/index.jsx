@@ -1,4 +1,4 @@
-import ProductDetails from "./productDetails";
+import ProductDetails from "./ProductDetails";
 import ProductImage from "./ProductImage";
-export { default as ProductDetails } from "./productDetails";
+export { default as ProductDetails } from "./ProductDetails";
 export { default as ProductImage } from "./ProductImage";
