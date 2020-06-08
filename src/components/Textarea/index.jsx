@@ -1,15 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Textarea = ({ classname, placeholder }) => {
-  return (
-    <textarea
-      name="textarea"
-      className={classname}
-      placeholder={placeholder}
-    ></textarea>
-  );
-};
+const Textarea = ({ classname, placeholder }) => (
+  <textarea
+    name="textarea"
+    className={classname}
+    placeholder={placeholder}
+  ></textarea>
+);
 
 export default Textarea;
 
