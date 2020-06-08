@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+import BrandItem from "../../BrandItem";
 
 const BranchItem = ({
   cityName,
@@ -6,7 +8,7 @@ const BranchItem = ({
   phoneNumber,
   cancelIcon,
   cancelButtonHandle,
-  index
+  index,
 }) => (
   <div className="branchContainer__branches__location">
     <span className="branchContainer__branches__location__header">
@@ -26,5 +28,14 @@ const BranchItem = ({
     </span>
   </div>
 );
+
+BrandItem.protoTypes = {
+  cityName: PropTypes.string,
+  address: PropTypes.string,
+  phoneNumber: PropTypes.number,
+  cancelIcon: PropTypes.string,
+  cancelButtonHandle: PropTypes.func,
+  index: PropTypes.number,
+};
 
 export default BranchItem;

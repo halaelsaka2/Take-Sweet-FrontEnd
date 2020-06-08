@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const ProductItem = ({ src, amount, pagetype, name }) => {
   return (
@@ -7,12 +8,9 @@ const ProductItem = ({ src, amount, pagetype, name }) => {
         <div className="itemm__data">
           {pagetype === "buyerPage" ? (
             <button className="itemm__btn">Order Now</button>
-          ) : (
-            {}
-          )}
+          ) : null}
         </div>
       </div>
-
       <h4>{name}</h4>
       <div className="itemm__data__amount">
         {pagetype === "buyerPage" ? (
@@ -40,4 +38,12 @@ const ProductItem = ({ src, amount, pagetype, name }) => {
     </div>
   );
 };
+
+ProductItem.protoTypes = {
+  src: PropTypes.string,
+  amount: PropTypes.number,
+  pagetype: PropTypes.string,
+  name: PropTypes.string,
+};
+
 export default ProductItem;
