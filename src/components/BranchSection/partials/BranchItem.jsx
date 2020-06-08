@@ -4,7 +4,6 @@ const BranchItem = ({
   cityName,
   address,
   phoneNumber,
-  cancelIcon,
   cancelButtonHandle,
   index
 }) => (

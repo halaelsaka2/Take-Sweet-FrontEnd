@@ -20,7 +20,7 @@ const BranchSection = ({
         {isEditBranch && (
           <div className="branchContainer__edit">
             <div className="branchContainer__edit__icon" id="editBranch">
-              <i class="fas fa-plus"></i>
+              <i className="fas fa-plus"></i>
             </div>
           </div>
         )}
