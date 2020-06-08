@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import HistoryFromUserSection from "../../components/HistoryFromUserSection";
+// import HistoryFromUserSection from "../../components/HistoryFromUserSection";
+import HistoryFromUserSection from "./../../components/historyFromUserSection";
 class HistoryFromUser extends Component {
   state = {
     productCards: [
@@ -39,13 +40,13 @@ class HistoryFromUser extends Component {
   };
 
   paginate = (currentPage) => {
-    if (
-      0 < currentPage &&
-      currentPage <=
-        Math.ceil(this.state.productCards.length / this.state.productsPerPage)
-    ) {
-      this.setState({ currentPage });
-    }
+    // if (
+    //   0 < currentPage &&
+    //   currentPage <=
+    //     Math.ceil(this.state.productCards.length / this.state.productsPerPage)
+    // ) {
+    this.setState({ currentPage });
+    // }
   };
 
   render() {

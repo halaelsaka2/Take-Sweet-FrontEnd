@@ -6,9 +6,10 @@ const Input = ({
   className,
   type,
   value,
+  checked,
   onChange,
   placeholder,
-  id
+  id,
 }) => {
   return (
     <React.Fragment>
@@ -21,6 +22,7 @@ const Input = ({
         id={id}
         name={name}
         placeholder={placeholder}
+        checked={checked}
       />
     </React.Fragment>
   );
