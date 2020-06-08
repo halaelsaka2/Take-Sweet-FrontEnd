@@ -29,6 +29,7 @@ class AddProduct extends Component {
     console.log(product);
     this.setState({ product });
   };
+
   handlePaymentTypeChange = (e) => {
     let paymentTypes = [...this.state.paymentTypes];
     const name = e.target.name;
@@ -49,11 +50,13 @@ class AddProduct extends Component {
     );
     this.setState({ product });
   };
+
   handleSubmit = (e) => {
     e.preventDefault();
     let paymentTypes = [...this.state.paymentTypes];
     paymentTypes = console.log(this.state.product);
   };
+
   render() {
     const {
       state: {

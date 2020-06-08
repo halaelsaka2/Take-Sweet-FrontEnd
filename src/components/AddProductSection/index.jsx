@@ -22,38 +22,32 @@ const AddProducSection = ({
   currentTabe,
   onAddButtonClicked,
   onCancelButtonClicked,
-}) => {
-  return (
-    <React.Fragment>
-      <Header />
+}) => (
+  <div class="project-container project-container--h">
+    <HistoryStates tabs={tabs} currentTabe={currentTabe} />
 
-      <div class="project-container project-container--h">
-        <HistoryStates tabs={tabs} currentTabe={currentTabe} />
+    <Container>
+      <div class="ProductContainer">
+        <ProductImage imgSrc={imgSrc} />
 
-        <Container>
-          <div class="ProductContainer">
-            <ProductImage imgSrc={imgSrc} />
-            <ProductDetails
-              countItems={countItems}
-              paymentTypes={paymentTypes}
-              categories={categories}
-              onChange={onChange}
-              productNameValue={productNameValue}
-              moreDetailsValue={moreDetailsValue}
-              countItemsChange={countItemsChange}
-              checkedCategory={checkedCategory}
-              countItemValues={countItemValues}
-              onPaymentTypeChange={onPaymentTypeChange}
-              onCategoryChange={onCategoryChange}
-              onAddButtonClicked={onAddButtonClicked}
-              onCancelButtonClicked={onCancelButtonClicked}
-            />
-          </div>
-        </Container>
+        <ProductDetails
+          countItems={countItems}
+          paymentTypes={paymentTypes}
+          categories={categories}
+          onChange={onChange}
+          productNameValue={productNameValue}
+          moreDetailsValue={moreDetailsValue}
+          countItemsChange={countItemsChange}
+          checkedCategory={checkedCategory}
+          countItemValues={countItemValues}
+          onPaymentTypeChange={onPaymentTypeChange}
+          onCategoryChange={onCategoryChange}
+          onAddButtonClicked={onAddButtonClicked}
+          onCancelButtonClicked={onCancelButtonClicked}
+        />
       </div>
-      <Footer />
-    </React.Fragment>
-  );
-};
+    </Container>
+  </div>
+);
 
 export default AddProducSection;
