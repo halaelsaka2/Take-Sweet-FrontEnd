@@ -17,7 +17,7 @@ export default Bestsellers;
 
 Bestsellers.propTypes = {
   products: PropTypes.arrayOf(
-    PropTypes.objectOf({
+    PropTypes.exact({
       id: PropTypes.number,
       name: PropTypes.string,
       src: PropTypes.string,

@@ -1,5 +1,5 @@
 import React from "react";
-import BrandItem from "../BrandItem";
+import CompanyItem from "../CompanyItem";
 import PropTypes from "prop-types";
 
 const Bestcompanies = ({ companies }) => (
@@ -12,7 +12,7 @@ const Bestcompanies = ({ companies }) => (
     </div>
     <div className="list-container list-container--4">
       {companies.map((company) => (
-        <BrandItem src={company.src} />
+        <CompanyItem src={company.src} key={company.id} />
       ))}
     </div>
   </div>
@@ -22,10 +22,10 @@ export default Bestcompanies;
 
 Bestcompanies.propTypes = {
   companies: PropTypes.arrayOf(
-    PropTypes.objectOf({
+    PropTypes.exact({
       id: PropTypes.number,
       name: PropTypes.string,
-      src: PropTypes.string, //logoImgSrc
+      src: PropTypes.string,
     })
   ),
 };
