@@ -7,7 +7,6 @@ const BranchSection = ({
   isEditBranch,
   branchStyle,
   isBranchTab,
-  cancelIcon,
   ListAdditionalStyle,
   cancelButtonHandle
 }) => (
@@ -21,14 +20,13 @@ const BranchSection = ({
         {isEditBranch && (
           <div className="branchContainer__edit">
             <div className="branchContainer__edit__icon" id="editBranch">
-              <i className="fas fa-pencil-alt"></i>
+              <i className="fas fa-plus"></i>
             </div>
           </div>
         )}
 
         <BranchList
           branchList={branchList}
-          cancelIcon={cancelIcon}
           ListAdditionalStyle={ListAdditionalStyle}
           cancelButtonHandle={cancelButtonHandle}
         ></BranchList>
