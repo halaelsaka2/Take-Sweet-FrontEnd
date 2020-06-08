@@ -7,13 +7,14 @@ import React from "react";
         ></Textarea> */
 }
 
-const Textarea = ({ classname, placeholder, onChange, name }) => {
+const Textarea = ({ classname, placeholder, onChange, name, value }) => {
   return (
     <textarea
       name={name}
       className={classname}
       placeholder={placeholder}
       onChange={onChange}
+      value={value}
     ></textarea>
   );
 };
