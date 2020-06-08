@@ -11,7 +11,7 @@ const EditPasswordModal = ({
   onSave,
   onCancel,
 }) => (
-  <div class="myModal__modalContent__body">
+  <div className="myModal__modalContent__body">
     <div>
       <Input
         onChange={onChange}
@@ -45,7 +45,7 @@ const EditPasswordModal = ({
         value={confirmPasswordValue}
       />
     </div>
-    <div class="lastContent__buttons">
+    <div className="lastContent__buttons">
       <Button
         className="button--rounded button--rounded--s"
         name="Save"
