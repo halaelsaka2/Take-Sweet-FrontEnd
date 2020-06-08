@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import LoginSection from "../../components/LoginSection";
+import constants from"./constants"
 
 class LoginPage extends Component {
   state = {
     userAccountInfo: {
       email: "",
-      Password: ""
-    },
-    emailType: "email",
-    emailPlaceholder: "Email",
-    PasswordType: "password",
-    passwordPlaceholder: "Password"
+      password: ""
+    }
   };
   onChange = event => {
     let userAccountInfo = { ...this.state.userAccountInfo };
@@ -25,20 +22,20 @@ class LoginPage extends Component {
       onChange,
       loginButtonHandle,
       state: {
-        emailType,
-        emailPlaceholder,
-        passwordType,
-        passwordPlaceholder,
         userAccountInfo: { email, password }
       }
     } = this;
     return (
       <LoginSection
-        emailType={emailType}
-        emailPlaceholder={emailPlaceholder}
+        emailType={constants.emailType}
+        emailPlaceholder={constants.emailPlaceholder}
+        emailId={constants.emailId}
+        emailName={constants.emailName}
         emailValue={email}
-        passwordType={passwordType}
-        passwordPlaceholder={passwordPlaceholder}
+        passwordType={constants.passwordType}
+        passwordId={constants.passwordId}
+        passwordName={constants.passwordName}
+        passwordPlaceholder={constants.passwordPlaceholder}
         passwordValue={password}
         onChange={onChange}
         loginButtonHandle={loginButtonHandle}
