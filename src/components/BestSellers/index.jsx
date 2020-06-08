@@ -5,9 +5,9 @@ import CompanyItem from "../CompanyItem";
 
 const Bestsellers = ({ products }) => {
   return (
-    <div class="bestContainer">
-      <div class="bestContainer__header">Best Seller</div>
-      <div class="list-container list-container--grid">
+    <div className="bestContainer">
+      <div className="bestContainer__header">Best Seller</div>
+      <div className="list-container list-container--grid">
         {products.map((product) => (
           // <Bestsellersitem product={product} />
           <CompanyItem src={product.src} />

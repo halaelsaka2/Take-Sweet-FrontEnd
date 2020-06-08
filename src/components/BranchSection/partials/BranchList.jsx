@@ -1,11 +1,11 @@
 import React from "react";
 import BranchItem from "./BranchItem";
+import PropTypes from "prop-types";
 
 const BranchList = ({
   branchList,
-  cancelIcon,
   ListAdditionalStyle,
-  cancelButtonHandle
+  cancelButtonHandle,
 }) => (
   <div className={`branchContainer__branches ${ListAdditionalStyle}`}>
     {branchList.length > 0 ? (
@@ -15,7 +15,6 @@ const BranchList = ({
           cityName={item.cityName}
           address={item.address}
           phoneNumber={item.phoneNumber}
-          cancelIcon={cancelIcon}
           cancelButtonHandle={cancelButtonHandle}
           index={index}
         ></BranchItem>
@@ -25,5 +24,12 @@ const BranchList = ({
     )}
   </div>
 );
+
+BranchList.propTypes = {
+  branchList: PropTypes.array,
+  cancelIcon: PropTypes.string,
+  ListAdditionalStyle: PropTypes.array,
+  cancelButtonHandle: PropTypes.func,
+};
 
 export default BranchList;

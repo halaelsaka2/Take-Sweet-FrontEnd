@@ -4,9 +4,9 @@ import AboutUsImageRight from "../AboutUsImageRight";
 const AboutUsSection = ({ AboutUsContext }) => {
   console.log(AboutUsContext);
   return (
-    <div class="about-us">
-      <div class="about-us__header">About Us</div>
-      <div class="about-us__about-us-container">
+    <div className="about-us">
+      <div className="about-us__header">About Us</div>
+      <div className="about-us__about-us-container">
         {AboutUsContext.map((row) =>
           AboutUsContext.indexOf(row) % 2 === 0 ? (
             <AboutUsImageLeft row={row} />
