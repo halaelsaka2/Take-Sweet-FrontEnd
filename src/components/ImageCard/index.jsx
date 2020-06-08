@@ -1,10 +1,15 @@
 import React from "react";
-const ImageCard = ({ className, imageUrl, children }) => {
-  return (
-    <div className={className} style={{ backgroundColor: `url(${imageUrl})` }}>
-      {children}
-    </div>
-  );
-};
+import PropTypes from "prop-types";
 
+const ImageCard = ({ className, imageUrl, children }) => (
+  <div className={className} style={{ backgroundImage: `url(${imageUrl})` }}>
+    {children}
+  </div>
+);
+
+ImageCard.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  imageUrl: PropTypes.string,
+};
 export default ImageCard;
