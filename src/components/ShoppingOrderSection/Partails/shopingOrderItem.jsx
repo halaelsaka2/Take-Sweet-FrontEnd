@@ -1,7 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Button from "../../Button";
 
-const ShoppingOrderItem = ({ src, quantity, totalPrice }) => (
+const ShoppingOrderItem = ({
+  src,
+  quantity,
+  totalPrice,
+  orderHandle,
+  cancelHandle,
+}) => (
   <React.Fragment>
     <div className="shoppingCart__item">
       <div className="shoppingCart__item__image">
@@ -15,12 +22,20 @@ const ShoppingOrderItem = ({ src, quantity, totalPrice }) => (
           Total Price : ${totalPrice}
         </div>
         <div className="shoppingCart__item__product__buttons">
-          <button className="button--rounded--s shoppingCart__item__product__buttons__btn">
-            Order
-          </button>
-          <button className="button--rounded--s shoppingCart__item__product__buttons__btn">
-            Cancel
-          </button>
+          <Button
+            onclick={orderHandle}
+            name={"order"}
+            className={
+              "button--rounded--s shoppingCart__item__product__buttons__btn"
+            }
+          ></Button>
+          <Button
+            onclick={cancelHandle}
+            name={"cancel"}
+            className={
+              "button--rounded--s shoppingCart__item__product__buttons__btn"
+            }
+          ></Button>
         </div>
       </div>
       <div className="shoppingCart__item__icon">
@@ -35,6 +50,8 @@ ShoppingOrderItem.propTypes = {
   src: PropTypes.string,
   quantity: PropTypes.number,
   totalPrice: PropTypes.number,
+  buttonHandle: PropTypes.func,
+  orderHandle:PropTypes.func
 };
 
 export default ShoppingOrderItem;
