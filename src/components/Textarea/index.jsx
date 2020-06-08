@@ -1,13 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-{
-  /* <Textarea
-          classname="textarea (textarea--reviewCard or textarea--orderdetails)"
-          placeholder="your message"
-        ></Textarea> */
-}
-
-const Textarea = ({ classname, placeholder, onChange, name, value }) => {
+const Textarea = ({ classname, placeholder, name, value, onChange }) => {
   return (
     <textarea
       name={name}
@@ -20,3 +14,8 @@ const Textarea = ({ classname, placeholder, onChange, name, value }) => {
 };
 
 export default Textarea;
+
+Textarea.propTypes = {
+  className: PropTypes.string,
+  placeholder: PropTypes.string,
+};

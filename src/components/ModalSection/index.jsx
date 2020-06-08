@@ -1,10 +1,18 @@
 import React from "react";
-const ModalInfoContainer = ({ isClicked, classModifier, children }) => {
-  return (
-    <div className={`myModal${isClicked && "active-modal"}`} id="editInfo">
-      <div className={`myModal__modalContent ${classModifier}`}>{children}</div>
-    </div>
-  );
+import PropTypes from "prop-types";
+
+const ModalSection = ({ isClicked, classModifier, children }) => (
+  <div className={`myModal${isClicked && "active-modal"}`} id="editInfo">
+    <div className={`myModal__modalContent ${classModifier}`}>{children}</div>
+  </div>
+);
+ModalSection.defaultProps = {
+  isClicked: false,
 };
 
-export default ModalInfoContainer;
+ModalSection.propTypes = {
+  classModifier: PropTypes.string,
+  children: PropTypes.node,
+  isClicked: PropTypes.bool,
+};
+export default ModalSection;

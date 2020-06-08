@@ -11,7 +11,7 @@ class ProductCardModal extends Component {
       handleDelete,
       state: { productCards },
     } = this;
-    const { productCards } = this.state;
+
     return (
       <ProductCardsSection
         handleDelete={handleDelete}
