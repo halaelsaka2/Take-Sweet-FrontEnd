@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 const BrandItem = ({ src }) => (
   <div className="item-medium">
     <div
@@ -13,5 +15,9 @@ const BrandItem = ({ src }) => (
     ></div>
   </div>
 );
+
+BrandItem.protoTypes = {
+  src: PropTypes.string,
+};
 
 export default BrandItem;

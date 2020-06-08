@@ -1,18 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const ProductItem = ({ src, amount, pagetype, name }) => {
   return (
     <div className="itemm">
       <div className="itemm__image" style={{ backgroundImage: `url(${src})` }}>
         <div className="itemm__data">
-          {pagetype === "buyerPage" ? (
+          {pagetype === "buyerPage" && (
             <button className="itemm__btn">Order Now</button>
-          ) : (
-            {}
           )}
         </div>
       </div>
-
       <h4>{name}</h4>
       <div className="itemm__data__amount">
         {pagetype === "buyerPage" ? (
@@ -40,4 +38,12 @@ const ProductItem = ({ src, amount, pagetype, name }) => {
     </div>
   );
 };
+
+ProductItem.propTypes = {
+  src: PropTypes.string,
+  amount: PropTypes.number,
+  pagetype: PropTypes.string,
+  name: PropTypes.string,
+};
+
 export default ProductItem;
