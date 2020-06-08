@@ -3,7 +3,6 @@ import BranchItem from "./BranchItem";
 
 const BranchList = ({
   branchList,
-  cancelIcon,
   ListAdditionalStyle,
   cancelButtonHandle
 }) => (
@@ -15,7 +14,6 @@ const BranchList = ({
           cityName={item.cityName}
           address={item.address}
           phoneNumber={item.phoneNumber}
-          cancelIcon={cancelIcon}
           cancelButtonHandle={cancelButtonHandle}
           index={index}
         ></BranchItem>

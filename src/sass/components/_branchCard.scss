@@ -77,3 +77,26 @@
 
   }
 }
+
+.branch-header-flex {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.branch-icons-flex {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: $main-gray;
+  cursor: pointer;
+}
+
+.branch-icons-flex :hover {
+  color: $primary-alpine;
+}
+
+.branch-trash-icon {
+  padding-left: 0.3rem;
+}
