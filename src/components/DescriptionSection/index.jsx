@@ -1,14 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const DescriptionSection = ({ titleClassName, textClassName, title, text }) => {
-  return (
-    <React.Fragment>
-      <h2 className={titleClassName}>{title}</h2>
-      <div className={textClassName}>{text}</div>
-    </React.Fragment>
-  );
-};
+const DescriptionSection = ({ titleClassName, textClassName, title, text }) => (
+  <React.Fragment>
+    <h2 className={titleClassName}>{title}</h2>
+    <div className={textClassName}>{text}</div>
+  </React.Fragment>
+);
 export default DescriptionSection;
 
 DescriptionSection.propTypes = {
