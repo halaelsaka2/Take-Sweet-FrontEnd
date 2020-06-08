@@ -6,9 +6,9 @@ const ProductItem = ({ src, amount, pagetype, name }) => {
     <div className="itemm">
       <div className="itemm__image" style={{ backgroundImage: `url(${src})` }}>
         <div className="itemm__data">
-          {pagetype === "buyerPage" ? (
+          {pagetype === "buyerPage" && (
             <button className="itemm__btn">Order Now</button>
-          ) : null}
+          )}
         </div>
       </div>
       <h4>{name}</h4>
@@ -39,7 +39,7 @@ const ProductItem = ({ src, amount, pagetype, name }) => {
   );
 };
 
-ProductItem.protoTypes = {
+ProductItem.propTypes = {
   src: PropTypes.string,
   amount: PropTypes.number,
   pagetype: PropTypes.string,

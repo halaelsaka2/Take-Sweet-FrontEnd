@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import BrandItem from "../../BrandItem";
 
 const BranchItem = ({
   cityName,
@@ -29,7 +28,7 @@ const BranchItem = ({
   </div>
 );
 
-BrandItem.protoTypes = {
+BranchItem.protoTypes = {
   cityName: PropTypes.string,
   address: PropTypes.string,
   phoneNumber: PropTypes.number,
