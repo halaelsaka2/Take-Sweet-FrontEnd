@@ -25,6 +25,7 @@ const ProductDetails = ({
       name="name"
       onChange={onChange}
       value={productNameValue}
+      type="text"
     />
 
     <div className="countContainer">
@@ -55,6 +56,7 @@ const ProductDetails = ({
             className="paymentItem__input"
             onChange={onPaymentTypeChange}
             name={paymentType.name}
+            value={paymentType.name}
             checked={paymentType.checked}
           />
           <lable className="paymentItem__name">{paymentType.name}</lable>
