@@ -7,22 +7,15 @@ const Bestsellersitem = ({ product }) => {
         className="item-medium__image image"
         style={{
           backgroundImage: "url('" + product.src + "')",
-          "background-size": "cover",
-          "background-repeat": "no-repeat",
-          "background-position": "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
         }}
       ></div>
       <a href="#">
         <h4>{product.name}</h4>
+        <span className="lable">50%</span>
       </a>
-      <div className="item-medium__crud-actions">
-        <a href="#">
-          <i className="fas fa-edit"></i>
-        </a>
-        <a href="#">
-          <i className="fas fa-trash-alt"></i>
-        </a>
-      </div>
     </div>
   );
 };

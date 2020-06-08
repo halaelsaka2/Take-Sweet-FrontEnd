@@ -1,5 +1,4 @@
 import React from "react";
-import Bestcompaniesitem from "../Bestcompaniesitem";
 import BrandItem from "../BrandItem";
 import PropTypes from "prop-types";
 
@@ -15,7 +14,6 @@ const Bestcompanies = ({ companies }) => {
         </div>
         <div className="list-container list-container--4">
           {companies.map((company) => (
-            // <Bestcompaniesitem company={company} />
             <BrandItem src={company.src} />
           ))}
         </div>
