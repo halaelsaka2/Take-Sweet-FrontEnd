@@ -4,10 +4,6 @@ import Input from "../Input";
 import Textarea from "./../Textarea";
 import Button from "../Button";
 
-{
-  /* <ReviewCard /> */
-}
-
 const ReviewCard = () => (
   <div class="reviewCard">
     <DescriptionSection
@@ -32,7 +28,7 @@ const ReviewCard = () => (
       />
     </div>
     <Textarea
-      classname="textarea textarea--reviewCard"
+      className="textarea textarea--reviewCard"
       placeholder="your message"
     />
     <Button
