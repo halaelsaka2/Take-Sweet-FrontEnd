@@ -41,13 +41,13 @@ class HistoryFromUser extends Component {
   };
 
   paginate = (currentPage) => {
-    if (
-      0 < currentPage &&
-      currentPage <=
-        Math.ceil(this.state.productCards.length / this.state.productsPerPage)
-    ) {
-      this.setState({ currentPage });
-    }
+    // if (
+    //   0 < currentPage &&
+    //   currentPage <=
+    //     Math.ceil(this.state.productCards.length / this.state.productsPerPage)
+    // ) {
+    this.setState({ currentPage });
+    // }
   };
 
   render() {

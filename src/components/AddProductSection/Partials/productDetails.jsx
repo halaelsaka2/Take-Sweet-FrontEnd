@@ -1,119 +1,114 @@
-import React from "./node_modules/react";
+import React from "react";
+import Textarea from "../../Textarea";
+import Input from "../../Input";
+import Button from "../../Button";
+
 const ProductDetails = ({
-  countItems = [
-    { name: "Avalialbe amount", unit: "pieces" },
-    { name: "pieces for trade", unit: "pieces" },
-    { name: "price", unit: "EGY" },
-  ],
-}) => {
-  return (
-    <div className="productDetailsContainer">
-      <div>product Name</div>
-      <br />
-      <input className="input" type="text" placeholder="product name" />
 
-      {/* <div className="countContainer">
+  countItems,
+  categories,
+  productNameValue,
+  moreDetailsValue,
+  checkedCategory,
+  countItemValues,
+  paymentTypes,
+  onChange,
+  onPaymentTypeChange,
+  onCategoryChange,
+  onAddButtonClicked,
+  onCancelButtonClicked,
+}) => (
+  <div className="productDetailsContainer">
+    <label>Product Name</label>
+    <Input
+      className="input input--m"
+      placeholder="Product name"
+      name="name"
+      onChange={onChange}
+      value={productNameValue}
+      type="text"
+    />
+
+    <div className="countContainer">
+      {countItems.map((countItem, index) => (
         <div className="countItem">
-          <div className="countItem__info">Avalialbe amount</div>
-          <input className="countItem__input" type="number" />
-          <label className="countItem__info">pieces</label>
-        </div>
-        <div className="countItem">
-          <div className="countItem__info">pieces for trade</div>
-          <input className="countItem__input" type="number" />
-          <label className="countItem__info">pieces</label>
-        </div>
-        <div className="countItem">
-          <div className="countItem__info">price</div>
-          <input className="countItem__input" type="number" />
-          <label className="countItem__info">EGP</label>
-        </div>
-      </div> */}
-      {/* [{name,unit}]*/}
-      <div className="countContainer">
-        {countItems.map((countItem) => (
-          <div className="countItem">
-            <div className="countItem__info">{countItem.name}</div>
-            <input className="countItem__input" type="number" />
-            <label className="countItem__info">{countItem.unit}</label>
-          </div>
-        ))}
-      </div>
-      <label>paymentTypes</label>
-      <br />
-      <div className="paymentsContianer">
-        <br />
-        <div className="paymentItem">
-          <input type="checkbox" className="paymentItem__input" />
-          <lable className="paymentItem__name">cash</lable>
-        </div>
-        <div className="paymentItem">
-          <input type="checkbox" className="paymentItem__input" />
-          <lable className="paymentItem__name">credit card</lable>
-        </div>
-        <div className="paymentItem">
-          <input type="checkbox" className="paymentItem__input" />
-          <lable className="paymentItem__name">VISA</lable>
-        </div>
-        <div className="paymentItem">
-          <input type="checkbox" className="paymentItem__input" />
-          <lable className="paymentItem__name">MOBILE PAYMENT</lable>
-        </div>
-        <div className="paymentItem">
-          <input type="checkbox" className="paymentItem__input" />
-          <lable className="paymentItem__name">BANK TRANSFER</lable>
-        </div>
-        <div className="paymentItem">
-          <input type="checkbox" className="paymentItem__input" />
-          <lable className="paymentItem__name">E-WALLET</lable>
-        </div>
-      </div>
-      <br />
-      <label>Categories</label>
-      <br />
-      <div className="categoryContainer">
-        <div className="categoryItem">
-          <input
-            type="radio"
-            className="categoryItem__input"
-            name="category"
-            value="Back"
+          <div className="countItem__info">{countItem.label}</div>
+          <Input
+            key={index}
+            className="countItem__input"
+            type="number"
+            name={countItem.name}
+            onChange={onChange}
+            value={countItemValues[index]}
           />
-          <label className="categoryItem__name">Back Goods</label>
+          <label className="countItem__info">{countItem.unit}</label>
         </div>
-        <div className="categoryItem">
-          <input
-            type="radio"
-            className="categoryItem__input"
-            name="category"
-            value="Coffe"
-          />
-          <label className="categoryItem__name">Coffee</label>
-        </div>
-        <div className="categoryItem">
-          <input
-            type="radio"
-            className="categoryItem__input"
-            name="category"
-            value="Pastery"
-          />
-          <label className="categoryItem__name">Pastery</label>
-        </div>
-      </div>
-      <div className="detailsContainer">
-        <div className="detailsContainer__info">More details</div>
-        <textarea
-          className="detailsContainer__input"
-          rows="10"
-          cols="60"
-        ></textarea>
-      </div>
-      <div className="btnContainer">
-        <button className="button--rounded--s">Add</button>
-        <button className="button--rounded--s">Cancel</button>
-      </div>
+      ))}
     </div>
-  );
-};
 
+    <label>paymentTypes</label>
+    <div className="paymentsContianer">
+      <br />
+      {paymentTypes.map((paymentType) => (
+        <div className="paymentItem">
+          <Input
+            key={paymentType.id}
+            type="checkbox"
+            className="paymentItem__input"
+            onChange={onPaymentTypeChange}
+            name={paymentType.name}
+            value={paymentType.name}
+            checked={paymentType.checked}
+          />
+          <lable className="paymentItem__name">{paymentType.name}</lable>
+        </div>
+      ))}
+    </div>
+
+    <label>Categories</label>
+    <div className="categoryContainer">
+      {categories.map((category) => (
+        <div className="categoryItem">
+          <Input
+            key={category.id}
+            type="radio"
+            className="categoryItem__input"
+            name="category"
+            value={category.id}
+            onChange={onCategoryChange}
+            checked={checkedCategory === category.id && checkedCategory}
+          />
+          <label className="categoryItem__name">{category.name}</label>
+        </div>
+      ))}
+    </div>
+
+    <div className="detailsContainer">
+      <div className="detailsContainer__info">More details</div>
+      <Textarea
+        name="moreDetails"
+        classname="textarea"
+        value={moreDetailsValue}
+        onChange={onChange}
+      />
+    </div>
+
+    <div className="btnContainer">
+      <Button
+        className="button--rounded--s"
+        name="Add"
+        onClick={onAddButtonClicked}
+      />
+      <Button
+        className="button--rounded--s button--rounded--danger"
+        name="Cancel"
+        onClick={onCancelButtonClicked}
+      />
+    </div>
+  </div>
+);
+
+ProductDetails.defaultProps = {
+  paymentTypes: ["cash"],
+};
 export default ProductDetails;

@@ -147,3 +147,11 @@
 //   width: 0%;
 //   margin: 0 auto;
 // }
+input {
+  &:focus {
+    outline: none;
+  }
+  // &label {
+  //   font-weight: bold;
+  // }
+}

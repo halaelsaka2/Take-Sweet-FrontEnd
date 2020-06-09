@@ -4,7 +4,7 @@ import Footer from "../../components/Layouts/Footer";
 import Search from "../../components/Search";
 import ProductItem from "../../components/ProductItem";
 import DropDown from "../../components/Dropdown";
-import DescriptionSection from "../../components/DescriptionScetion";
+import DescriptionSection from "../../components/DescriptionSection";
 import BrandItem from "../BrandItem";
 import PropTypes from "prop-types";
 
