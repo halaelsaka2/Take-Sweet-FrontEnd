@@ -1,28 +1,31 @@
 import React, { Component } from "react";
 import RegisterAcceptanceSection from "./../../components/RegisterAcceptanceSection";
+import constants from "./constants";
+
 class RegisterAcceptancePage extends Component {
-  state = { checked: false, inputType: "checkbox", inputId: "checkbox" };
+  state = { checked: false };
   checkHandle = event => {
     let checked = { ...this.state.checked };
     checked = event.target.checked;
     this.setState({ checked });
   };
-  backButtonHandle = event => console.log(this.state.checked);
+  backButtonHandle = event => {}
 
-  registerButtonHandle = event => console.log("register");
+  registerButtonHandle = event => {}
 
   render() {
     const {
       checkHandle,
       backButtonHandle,
       registerButtonHandle,
-      state: { checked, inputType, inputId }
+      state: { checked }
     } = this;
     return (
       <RegisterAcceptanceSection
         checked={checked}
-        inputId={inputId}
-        inputType={inputType}
+        inputId={constants.inputId}
+        inputType={constants.inputType}
+        inputName={constants.inputName}
         checkHandle={checkHandle}
         backButtonHandle={backButtonHandle}
         registerButtonHandle={registerButtonHandle}

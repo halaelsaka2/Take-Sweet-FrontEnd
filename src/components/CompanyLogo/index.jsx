@@ -1,8 +1,8 @@
 import React from "react";
 const CompanyLogo = ({ imgSrc }) => {
   return (
-    <div class="company-logo">
-      <div class="date-container date-container--company">
+    <div className="company-logo">
+      <div className="date-container date-container--company">
         <img src={imgSrc} alt="company-logo" />
       </div>
     </div>

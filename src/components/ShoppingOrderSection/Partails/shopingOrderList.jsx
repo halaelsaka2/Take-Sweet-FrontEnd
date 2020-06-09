@@ -1,8 +1,9 @@
 import React from "react";
 import ShoppingOrderItem from "./shopingOrderItem";
+import PropTypes from "prop-types";
 
-const ShoppingOrderList = ({ shoppingOrderList }) => {
-  return shoppingOrderList.map((item) => (
+const ShoppingOrderList = ({ shoppingOrderList }) =>
+  shoppingOrderList.map((item) => (
     <ShoppingOrderItem
       key={item.id}
       src={item.src}
@@ -10,6 +11,9 @@ const ShoppingOrderList = ({ shoppingOrderList }) => {
       totalPrice={item.totalPrice}
     />
   ));
+
+ShoppingOrderList.propTypes = {
+  shoppingOrderList: PropTypes.array,
 };
 
 export default ShoppingOrderList;

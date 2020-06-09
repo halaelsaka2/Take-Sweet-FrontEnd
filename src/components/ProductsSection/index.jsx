@@ -6,6 +6,7 @@ import ProductItem from "../../components/ProductItem";
 import DropDown from "../../components/Dropdown";
 import DescriptionSection from "../../components/DescriptionSection";
 import BrandItem from "../BrandItem";
+import PropTypes from "prop-types";
 
 const ProductsSection = ({ products, sortbyList, categoryList, pageType }) => {
   return (
@@ -52,7 +53,7 @@ const ProductsSection = ({ products, sortbyList, categoryList, pageType }) => {
             ))}
           </div>
         ) : (
-          <div class="list-container list-container--4">
+          <div className="list-container list-container--4">
             {products.map((item) => (
               <BrandItem src={item.src}></BrandItem>
             ))}
@@ -62,6 +63,13 @@ const ProductsSection = ({ products, sortbyList, categoryList, pageType }) => {
       <Footer></Footer>
     </React.Fragment>
   );
+};
+
+ProductsSection.prototypes = {
+  products: PropTypes.array,
+  sortbyList: PropTypes.array,
+  categoryList: PropTypes.array,
+  pageType: PropTypes.string,
 };
 
 export default ProductsSection;

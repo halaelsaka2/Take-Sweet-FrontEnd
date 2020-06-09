@@ -1,19 +1,25 @@
-import React from "react";
-import NewsItem from "./newsItem";
-const NewsList = ({ newsList }) => {
-  return (
-    <ul className="container__col__menu grid">
-      {newsList.map((item) => (
-        <NewsItem
-          key={item.id}
-          src={item.src}
-          alt={item.alt}
-          text={item.text}
-          date={item.date}
-        />
-      ))}
-    </ul>
-  );
+import UsefulLinks from "./usefulLinks";
+import Icons from "./footerIcons";
+import NewsItemList from "./newsItemList";
+import { newsList, icons, usefulLinks } from "./constants";
+import Copyright from "./copyright";
+import BriefSummary from "./briefSummary";
+export {
+  NewsItemList,
+  UsefulLinks,
+  Icons,
+  Copyright,
+  BriefSummary,
+  newsList,
+  icons,
+  usefulLinks,
 };
 
-export default NewsList;
+// import {
+//   NewsItemList,
+//   UsefulLinks,
+//   Icons,
+//   Copyright,
+//   BriefSummary,
+//   newsList,
+// } from "./Partials";

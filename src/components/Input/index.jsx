@@ -9,9 +9,8 @@ const Input = ({
   checked,
   onChange,
   placeholder,
-  id,
-}) => {
-  return (
+  id
+}) => (
     <React.Fragment>
       <label htmlFor={name}>{label}</label>
       <input
@@ -26,6 +25,5 @@ const Input = ({
       />
     </React.Fragment>
   );
-};
 
 export default Input;

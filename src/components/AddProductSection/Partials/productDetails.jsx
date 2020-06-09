@@ -4,6 +4,7 @@ import Input from "../../Input";
 import Button from "../../Button";
 
 const ProductDetails = ({
+
   countItems,
   categories,
   productNameValue,

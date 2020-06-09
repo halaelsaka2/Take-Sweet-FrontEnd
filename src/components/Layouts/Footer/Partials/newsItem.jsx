@@ -4,8 +4,8 @@ const NewsItem = ({ src, alt, text, date }) => {
     <li className="container__col__menu item">
       <img src={src} alt={alt} className="imgs" />
       <span>
-        {text} <br />
-        {date}
+        <div>{text}</div>
+        <div>{date}</div>
       </span>
     </li>
   );

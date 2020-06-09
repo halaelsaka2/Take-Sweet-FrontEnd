@@ -1,50 +1,45 @@
 import React, { Component } from "react";
 import RegisterGeneralInfoSection from "../../components/RegisterGeneralInfoSection";
+import constants from "./constants";
 class RegisterGeneralInfoPage extends Component {
   state = {
     newUserAccountInfo: {
       email: "",
       password: "",
       confirmPassword: ""
-    },
-    emailType: "email",
-    emailPlaceholder: "Email",
-    passwordType: "password",
-    passwordPlaceholder: "Password",
-    confirmPasswordType: "password",
-    confirmPasswordPlaceholder: "Confirm Password"
+    }
   };
   onChange = event => {
     let newUserAccountInfo = { ...this.state.newUserAccountInfo };
     newUserAccountInfo[event.target.name] = event.target.value;
     this.setState({ newUserAccountInfo });
   };
-  nextButtonHandle = event => console.log(this.state);
+  nextButtonHandle = event => {}
   render() {
     const {
       onChange,
       nextButtonHandle,
       state: {
-        newUserAccountInfo: { email, password, confirmPassword },
-        emailType,
-        emailPlaceholder,
-        passwordType,
-        passwordPlaceholder,
-        confirmPasswordType,
-        confirmPasswordPlaceholder
+        newUserAccountInfo: { email, password, confirmPassword }
       }
     } = this;
     return (
       <RegisterGeneralInfoSection
-        emailType={emailType}
-        emailPlaceholder={emailPlaceholder}
+        emailType={constants.emailType}
+        emailPlaceholder={constants.emailPlaceholder}
         emailValue={email}
-        passwordType={passwordType}
-        passwordPlaceholder={passwordPlaceholder}
+        emailId={constants.emailId}
+        emailName={constants.emailName}
+        passwordType={constants.passwordType}
+        passwordPlaceholder={constants.passwordPlaceholder}
+        passwordId={constants.passwordId}
+        passwordName={constants.passwordName}
         passwordValue={password}
-        confirmPasswordType={confirmPasswordType}
-        confirmPasswordPlaceholder={confirmPasswordPlaceholder}
+        confirmPasswordType={constants.confirmPasswordType}
+        confirmPasswordPlaceholder={constants.confirmPasswordPlaceholder}
         confirmPasswordValue={confirmPassword}
+        confirmPasswordId={constants.confirmPasswordId}
+        confirmPasswordName={constants.confirmPasswordName}
         onChange={onChange}
         nextButtonHandle={nextButtonHandle}
       />

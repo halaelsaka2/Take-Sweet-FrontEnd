@@ -68,3 +68,7 @@ const HistoryFromUserSection = ({
 };
 
 export default HistoryFromUserSection;
+
+HistoryFromUserSection.defaultProps = {
+  currentPage: 1,
+};

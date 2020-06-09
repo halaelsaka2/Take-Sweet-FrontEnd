@@ -30,6 +30,12 @@
     cursor: pointer;
     font-size: 1.6rem;
   }
+
+  &--sm {
+    margin-left: 0.5rem;
+    margin-right: 0rem;
+  }
+
   &--xs {
     width: 8rem;
     height: 3.4rem;
@@ -38,6 +44,7 @@
     border: none;
     font-size: 1.6rem;
   }
+
   &--danger {
     background-color: $main-red;
     color: white;
