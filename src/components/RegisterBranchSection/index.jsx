@@ -3,14 +3,20 @@ import Stepper from "../Stepper";
 import Dropdown from "../Dropdown";
 import Button from "../Button";
 import Input from "../Input";
+import PropTypes from "prop-types";
+
 const RegisterBranchSection = ({
   cityValue,
   addressType,
   addressPlaceholder,
   addressValue,
+  addressId,
+  addressName,
   phoneType,
   phonePlaceholder,
   phoneValue,
+  phoneId,
+  phoneName,
   onChange,
   addBranchButtonHandle,
   numberOfBranches,
@@ -19,8 +25,7 @@ const RegisterBranchSection = ({
   dropdownIsOpen,
   dropdownIsOpenHandle,
   selectCityHandle
-}) => {
-  return (
+}) => (
     <div className="register-container">
       <div className="register-form-container">
         <div className="register-form">
@@ -60,8 +65,8 @@ const RegisterBranchSection = ({
                     className="input input--mwh"
                     type={addressType}
                     placeholder={addressPlaceholder}
-                    name="address"
-                    id="address"
+                    name={addressName}
+                    id={addressId}
                     value={addressValue}
                     onChange={onChange}
                   />
@@ -71,8 +76,8 @@ const RegisterBranchSection = ({
                   className="input input--mwh"
                   type={phoneType}
                   placeholder={phonePlaceholder}
-                  name="phone"
-                  id="phone"
+                  name={phoneName}
+                  id={phoneId}
                   value={phoneValue}
                   onChange={onChange}
                 />
@@ -117,6 +122,26 @@ const RegisterBranchSection = ({
       </div>
     </div>
   );
-};
 
+RegisterBranchSection.propTypes = {
+  cityValue: PropTypes.string,
+  addressType: PropTypes.string,
+  addressPlaceholder: PropTypes.string,
+  addressValue: PropTypes.string,
+  addressId: PropTypes.string,
+  addressName: PropTypes.string,
+  phoneType: PropTypes.string,
+  phonePlaceholder: PropTypes.string,
+  phoneValue: PropTypes.string,
+  phoneId: PropTypes.string,
+  phoneName: PropTypes.string,
+  onChange: PropTypes.func,
+  addBranchButtonHandle: PropTypes.func,
+  backButtonHandle: PropTypes.func,
+  nextButtonHandle: PropTypes.func,
+  dropdownIsOpen: PropTypes.bool,
+  dropdownIsOpenHandle: PropTypes.func,
+  selectCityHandle: PropTypes.func,
+  numberOfBranches: PropTypes.number
+};
 export default RegisterBranchSection;

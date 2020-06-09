@@ -28,7 +28,7 @@ const BranchList = ({
 BranchList.propTypes = {
   branchList: PropTypes.array,
   cancelIcon: PropTypes.string,
-  ListAdditionalStyle: PropTypes.array,
+  ListAdditionalStyle: PropTypes.string,
   cancelButtonHandle: PropTypes.func,
 };
 

@@ -20,13 +20,10 @@ class RegisterBrachesDetailsPage extends Component {
       }
     ]
   };
-  backButtonHandle = event => console.log("back is clicked");
+  backButtonHandle = event => {};
   cancelButtonHandle = index => {
     let branchList = [...this.state.branchList];
-
-    // branchList.pop(event.target.value);
     branchList = branchList.filter(list => list !== branchList[index]);
-    console.log(index);
     this.setState({ branchList });
   };
   render() {
@@ -42,7 +39,6 @@ class RegisterBrachesDetailsPage extends Component {
         cancelButtonHandle={cancelButtonHandle}
         isEditBranch={false}
         isBranchTab={false}
-        cancelIcon={true}
       />
     );
   }

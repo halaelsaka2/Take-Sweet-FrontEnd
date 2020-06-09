@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import RegisterBranchSection from "../../components/RegisterBranchSection";
+import constants from "./constants";
 class RegisterBranchPage extends Component {
   state = {
     branchesInfo: [],
     oneBranchInfo: { city: "City", address: "", phone: "" },
-    dropdownIsOpen: false,
-    addressType: "text",
-    addressPlaceholder: "Address",
-    phoneType: "tel",
-    phonePlaceholder: "Phone Number"
+    dropdownIsOpen: false
   };
 
   onChange = event => {
@@ -17,8 +14,8 @@ class RegisterBranchPage extends Component {
     this.setState({ oneBranchInfo });
   };
 
-  nextButtonHandle = event => console.log(this.state.oneBranchInfo);
-  backButtonHandle = event => console.log("back");
+  nextButtonHandle = event => {};
+  backButtonHandle = event => {};
   addBranchButtonHandle = event => {
     let { branchesInfo, oneBranchInfo } = this.state;
     branchesInfo.push(oneBranchInfo);
@@ -44,11 +41,7 @@ class RegisterBranchPage extends Component {
       state: {
         branchesInfo,
         oneBranchInfo: { city, address, phone },
-        dropdownIsOpen,
-        addressType,
-        addressPlaceholder,
-        phoneType,
-        phonePlaceholder
+        dropdownIsOpen
       },
       onChange,
       backButtonHandle,
@@ -61,11 +54,15 @@ class RegisterBranchPage extends Component {
     return (
       <RegisterBranchSection
         cityValue={city}
-        addressType={addressType}
-        addressPlaceholder={addressPlaceholder}
+        addressType={constants.addressType}
+        addressPlaceholder={constants.addressPlaceholder}
+        addressId={constants.addressId}
+        addressName={constants.addressName}
         addressValue={address}
-        phoneType={phoneType}
-        phonePlaceholder={phonePlaceholder}
+        phoneType={constants.phoneType}
+        phonePlaceholder={constants.phonePlaceholder}
+        phoneName={constants.phoneName}
+        phoneId={constants.phoneId}
         phoneValue={phone}
         addBranchButtonHandle={addBranchButtonHandle}
         onChange={onChange}
