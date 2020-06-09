@@ -5,7 +5,7 @@ import { Container } from "reactstrap";
 import OrderCard from "../OrderCard";
 const OrderList = ({ orders, onReorder, onCancel }) => (
   <Container fluid="xl">
-    {orders.length > 0 && (
+    {orders.length > 0 ? (
       <div className="order-container">
         {orders.map((order, index) => (
           <OrderCard
@@ -19,6 +19,8 @@ const OrderList = ({ orders, onReorder, onCancel }) => (
           />
         ))}
       </div>
+    ):(
+      <div className="noItem">There Is No Orders Yet</div>
     )}
   </Container>
 );
