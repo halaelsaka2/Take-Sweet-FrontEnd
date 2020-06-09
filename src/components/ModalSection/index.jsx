@@ -7,10 +7,7 @@ const ModalSection = ({
   classModifier,
   children,
 }) => (
-  <div
-    className={`myModal ${classModifier1} ${isClicked && "active-modal"}`}
-    id="editInfo"
-  >
+  <div className={`myModal ${classModifier1} ${isClicked && "active-modal"}`}>
     <div className={`myModal__modalContent ${classModifier}`}>{children}</div>
   </div>
 );
