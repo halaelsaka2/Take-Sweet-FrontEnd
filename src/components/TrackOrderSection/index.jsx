@@ -6,7 +6,7 @@ import Header from "../Layouts/Header";
 import { Container } from "reactstrap";
 import HistoryStates from "../HistoryStates";
 import OrderListSection from "../OrderList";
-import Pagination from "../pagination";
+import Pagination from "../Pagination";
 import Footer from "../Layouts/Footer";
 const OrderTrackSection = ({
   orders,
