@@ -1,6 +1,7 @@
 import React from "react";
 import BranchList from "./partials/BranchList";
 import ProfileLabel from "../ProfileLabel";
+import PropTypes from "prop-types";
 
 const BranchSection = ({
   branchList,
@@ -40,4 +41,13 @@ export default BranchSection;
 BranchSection.defaultProps = {
   isEditBranch: true,
   isBranchTab: true
+};
+
+BranchSection.protoTypes = {
+  branchList: PropTypes.array,
+  isEditBranch: PropTypes.bool,
+  isBranchTab: PropTypes.bool,
+  branchStyle: PropTypes.string,
+  ListAdditionalStyle: PropTypes.string,
+  cancelButtonHandle: PropTypes.func
 };

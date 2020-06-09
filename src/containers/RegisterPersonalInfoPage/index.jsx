@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import RegisterPersonalInfoSection from "../../components/RegisterPersonalInfoSection";
+import constants from "./constants";
 class RegisterPersonalInfoPage extends Component {
   state = {
     newUserPersonalInfo: {
@@ -7,8 +8,6 @@ class RegisterPersonalInfoPage extends Component {
       username: "",
       userImage: ""
     },
-    usernameType: "text",
-    usernamePlaceholder: "Name",
     dropdownIsOpen: false
   };
 
@@ -18,8 +17,8 @@ class RegisterPersonalInfoPage extends Component {
     this.setState({ newUserPersonalInfo });
   };
 
-  nextButtonHandle = event => console.log(this.state.newUserPersonalInfo);
-  backButtonHandle = event => console.log("back");
+  nextButtonHandle = event => {};
+  backButtonHandle = event => {};
 
   dropdownIsOpenHandle = event => {
     let dropdownIsOpen = this.state.dropdownIsOpen;
@@ -42,8 +41,6 @@ class RegisterPersonalInfoPage extends Component {
     const {
       state: {
         newUserPersonalInfo: { accountType, username, userImage },
-        usernameType,
-        usernamePlaceholder,
         dropdownIsOpen
       },
       onChange,
@@ -57,8 +54,10 @@ class RegisterPersonalInfoPage extends Component {
         accountType={accountType}
         username={username}
         userImage={userImage}
-        usernameType={usernameType}
-        usernamePlaceholder={usernamePlaceholder}
+        usernameType={constants.usernameType}
+        usernamePlaceholder={constants.usernamePlaceholder}
+        usernamName={constants.usernameName}
+        usernameId={constants.usernameId}
         dropdownIsOpen={dropdownIsOpen}
         onChange={onChange}
         backButtonHandle={backButtonHandle}
