@@ -1,81 +1,33 @@
 import React, { Component } from "react";
-
+import { dumy } from "./dumy";
+import { constants } from "./constants";
 import TrackOrderSection from "../../components/TrackOrderSection";
+
 class TrackOrder extends Component {
   state = {
-    orders: [
-      {
-        status: "Waiting",
-        date: "20/5/2020",
-        rows: [
-          ["product", "Quantity", "Price Per Piece", "Total Price"],
-          ["cake", "20", "100", "2000"],
-          ["cake", "30", "100", "3000"],
-          ["cake", "40", "100", "4000"],
-          ["cake", "50", "100", "5000"],
-        ],
-        companyLogoImgSrc:""
-      },
-      {
-        status: "Waiting",
-        date: "20/5/2020",
-        rows: [
-          ["product", "Quantity", "Price Per Piece", "Total Price"],
-          ["cake", "20", "100", "2000"],
-          ["cake", "30", "100", "3000"],
-          ["cake", "40", "100", "4000"],
-          ["cake", "50", "100", "5000"],
-        ],
-        companyLogoImgSrc:""
-      },
-      {
-        status: "Arrived",
-        date: "20/5/2020",
-        rows: [
-          ["product", "Quantity", "Price Per Piece", "Total Price"],
-          ["cake", "20", "100", "2000"],
-          ["cake", "30", "100", "3000"],
-          ["cake", "40", "100", "4000"],
-          ["cake", "50", "100", "5000"],
-        ],
-        companyLogoImgSrc:""
-      },
-      {
-        status: "Arrived",
-        date: "20/5/2020",
-        rows: [
-          ["product", "Quantity", "Price Per Piece", "Total Price"],
-          ["cake", "20", "100", "2000"],
-          ["cake", "30", "100", "3000"],
-          ["cake", "40", "100", "4000"],
-          ["cake", "50", "100", "5000"],
-        ],
-        companyLogoImgSrc:""
-      },
-    ],
-    statusTabs: ["All", "Waiting", "Arrived", "Cancelled"],
-    currentTabe: 0,
-    currentPage: 1,
-    ordersPerPage: 3,
-    statusorders: [],
+    orders:dumy.orders,
+    statusTabs: constants.statusTabs,
+    currentTabe: dumy.currentTabe,
+    currentPage: dumy.currentPage,
+    ordersPerPage: constants.ordersPerPage,
+    statusorders: dumy.statusorders,
   };
 
   componentDidMount() {
     let statusorders = this.state.orders;
-
     this.setState({ statusorders });
   }
 
   handleTabChange = (currentTabe) => {
-    const currentStatus = this.state.statusTabs[currentTabe];
-    let statusorders = this.state.orders;
+    const {
+      state: { orders, statusTabs }
+    } = this;
+    const currentStatus = statusTabs[currentTabe];
+    let statusorders = orders;
 
     const currentPage = 1;
     if (currentTabe !== 0) {
-      statusorders = this.state.orders.filter(
-        (order) => order.status === currentStatus
-      );
-      console.log(statusorders);
+      statusorders = orders.filter((order) => order.status === currentStatus);
     }
     this.setState({ currentTabe, statusorders, currentPage });
   };
