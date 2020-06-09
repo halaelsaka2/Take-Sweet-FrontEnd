@@ -1,11 +1,9 @@
 import React from "react";
-import Header from "../Layouts/Header";
 import Search from "../Search";
 
 import { Container } from "reactstrap";
 import HistoryStates from "../HistoryStates";
 import ProductCardList from "../ProductCardList";
-import Footer from "../Layouts/Footer";
 
 import OrderDate from "../OrderDate";
 import Pagination from "../Pagination";
@@ -25,7 +23,6 @@ const HistoryFromUserSection = ({
 }) => {
   return (
     <React.Fragment>
-      <Header />
       <Container>
         <div className="project-container project-container--h">
           <div className="userHistoryFilter ">
@@ -62,7 +59,6 @@ const HistoryFromUserSection = ({
           />
         </Container>
       )}
-      <Footer />
     </React.Fragment>
   );
 };
