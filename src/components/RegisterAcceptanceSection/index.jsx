@@ -3,6 +3,7 @@ import Input from "../Input";
 import Button from "../Button";
 import Stepper from "../Stepper";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const RegisterAcceptanceSection = ({
   checked,
@@ -11,7 +12,7 @@ const RegisterAcceptanceSection = ({
   inputName,
   checkHandle,
   backButtonHandle,
-  registerButtonHandle
+  registerButtonHandle,
 }) => (
   <div className="register-container">
     <div className="register-form-container">
@@ -22,7 +23,7 @@ const RegisterAcceptanceSection = ({
           stepClassNames={[
             "circle--finished",
             "circle--finished",
-            "circle--finished"
+            "circle--finished",
           ]}
           pipeClassNames={["pipe--finished", "pipe--finished"]}
         />
@@ -53,17 +54,21 @@ const RegisterAcceptanceSection = ({
         </div>
         <div className="button-container">
           <div className="flex-buttons-container">
-            <Button
-              className="button--rounded button--rounded--s button--rounded--shadow"
-              name="Back"
-              onClick={backButtonHandle}
-            />
+            <Link to="register-branch">
+              <Button
+                className="button--rounded button--rounded--s button--rounded--shadow"
+                name="Back"
+                onClick={backButtonHandle}
+              />
+            </Link>
             {/* <!-- button--rounded--disabled --> */}
-            <Button
-              className="button--rounded button--rounded--s button--rounded--shadow"
-              name="Register"
-              onClick={registerButtonHandle}
-            />
+            <Link to="/profile">
+              <Button
+                className="button--rounded button--rounded--s button--rounded--shadow"
+                name="Register"
+                onClick={registerButtonHandle}
+              />
+            </Link>
           </div>
         </div>
       </div>
@@ -76,11 +81,11 @@ const RegisterAcceptanceSection = ({
 
 RegisterAcceptanceSection.propTypes = {
   checked: PropTypes.bool,
-  inputType:  PropTypes.string,
+  inputType: PropTypes.string,
   inputId: PropTypes.string,
   inputName: PropTypes.string,
   checkHandle: PropTypes.func,
   backButtonHandle: PropTypes.func,
-  registerButtonHandle: PropTypes.func
+  registerButtonHandle: PropTypes.func,
 };
 export default RegisterAcceptanceSection;

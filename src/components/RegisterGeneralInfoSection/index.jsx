@@ -3,6 +3,7 @@ import Input from "../Input";
 import Button from "../Button";
 import Stepper from "../Stepper";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const RegisterGeneralInfoSection = ({
   emailType,
@@ -21,7 +22,7 @@ const RegisterGeneralInfoSection = ({
   confirmPasswordId,
   confirmPasswordName,
   onChange,
-  nextButtonHandle
+  nextButtonHandle,
 }) => (
   <div className="register-container">
     <div className="register-form-container">
@@ -33,7 +34,7 @@ const RegisterGeneralInfoSection = ({
           stepClassNames={[
             "circle--active",
             "circle--notTouched",
-            "circle--notTouched"
+            "circle--notTouched",
           ]}
           pipeClassNames={["pipe--notTouched", "pipe--notTouched"]}
         />
@@ -66,12 +67,16 @@ const RegisterGeneralInfoSection = ({
           onChange={onChange}
           value={confirmPasswordValue}
         />
-        <Button
-          className="button--rounded button--rounded--s button--rounded--shadow"
-          name="Next"
-          onClick={nextButtonHandle}
-        />
-        <a>Already Have An Account</a>
+        <Link to="/register-personal-info">
+          <Button
+            className="button--rounded button--rounded--s button--rounded--shadow"
+            name="Next"
+            onClick={nextButtonHandle}
+          />
+        </Link>
+        <Link to="/login" style={{ color: "black", textDecoration: "none" }}>
+          Already Have An Account
+        </Link>
       </div>
     </div>
 
@@ -98,7 +103,7 @@ RegisterGeneralInfoSection.propTypes = {
   confirmPasswordId: PropTypes.string,
   confirmPasswordName: PropTypes.string,
   onChange: PropTypes.func,
-  nextButtonHandle: PropTypes.func
+  nextButtonHandle: PropTypes.func,
 };
 
 export default RegisterGeneralInfoSection;

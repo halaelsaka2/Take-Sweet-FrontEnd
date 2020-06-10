@@ -8,14 +8,14 @@ import { container } from "reactstrap";
 const Home = () => {
   return (
     <React.Fragment>
-      <Header />
+      {/* <Header check='t' /> */}
       <container>
         <HomePageSection
           AboutUsContext={constents.AboutUsContext}
           companies={constents.companies}
         />
       </container>
-      <Footer />
+      {/* <Footer /> */}
     </React.Fragment>
   );
 };
