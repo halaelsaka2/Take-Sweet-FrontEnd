@@ -1,14 +1,11 @@
 .paymentItem {
   width: 40%;
-  // display: flex;
-  // padding: 0.5rem;
-  // margin-right: 3rem;
+  margin-right: 1rem;
+  padding: 1rem;
   &__input {
-    // -webkit-appearance: none;
     border-radius: 0.3rem;
     border: 0.1rem solid $primary-alpine;
     padding: 0.5rem;
     margin-right: 1rem;
   }
-  margin-right: 1rem;
 }

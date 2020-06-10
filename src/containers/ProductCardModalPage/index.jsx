@@ -3,7 +3,7 @@ import ProductCardsSection from "../../components/ProductCardsSection";
 
 class ProductCardModal extends Component {
   state = {
-    productCards: [1, 2, 3],
+    productCards: [],
   };
   handleDelete = (id) => {};
   render() {

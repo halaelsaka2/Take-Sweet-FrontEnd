@@ -3,18 +3,13 @@ import ProductCardList from "../ProductCardList";
 import ModalSection from "../ModalSection";
 
 const ProductCardsSection = ({ productCards, handleDelete, isClicked }) => (
-  // <div className="myModal myModal--product active-modal">
-  //   <div className="myModal__modalContent myModal__modalContent--product">
-
-  <ModalSection isClicked={isClicked} classModifier>
+  <ModalSection
+    isClicked={isClicked}
+    classModifier1="myModal--product"
+    classModifier="myModal__modalContent--product"
+  >
     <i className="myModal__modalContent__closeIcon fas fa-times"></i>
-    <ProductCardList
-      handleDelete={handleDelete}
-      productCards={productCards}
-      classModifier="myModal__modalContent--product"
-    />
+    <ProductCardList handleDelete={handleDelete} productCards={productCards} />
   </ModalSection>
-
-  // </div>
 );
 export default ProductCardsSection;
