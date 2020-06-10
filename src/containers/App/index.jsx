@@ -17,6 +17,7 @@ import ProductsSellerPage from "../../containers/ProductsSellerPage";
 import AddProductPage from "../../containers/AddProductPage";
 import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
+import OrderDetailsPage from "../OrderDetailsPage";
 
 export default class App extends Component {
   render() {
@@ -25,6 +26,7 @@ export default class App extends Component {
         {/* <Header /> */}
         <Route path="/" exact component={HomePage} />
         <Route path="/add-product" component={AddProductPage} />
+        <Route path="/order-details" component={OrderDetailsPage} />
         <Route path="/profile" component={ProfilePage} />
         <Route path="/user-history" component={HistoryFromUserPage} />
         <Route path="/track-order" component={TrackOrder} />
