@@ -41,7 +41,7 @@ class Profile extends Component {
             />
           </ModalSection>
         )}
-        <Header />
+        {/* <Header /> */}
         <Container>
           <PersonalInfoSection
             email={userProfile.email}
@@ -56,7 +56,7 @@ class Profile extends Component {
             <BestSection products={products} />
           </div>
         </Container>
-        <Footer />
+        {/* <Footer /> */}
       </React.Fragment>
     );
   }

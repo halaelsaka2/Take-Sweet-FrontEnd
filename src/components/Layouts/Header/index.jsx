@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Header = ({ check }) => (
   <header className="header">
@@ -12,41 +13,43 @@ const Header = ({ check }) => (
     <nav className="nav">
       <ul className="nav__menu">
         <li className="nav__menu__item">
-          <a href="#" className="nav__menu__link">
+          <NavLink to="/home" className="nav__menu__link">
             Home
-          </a>
+          </NavLink>
         </li>
         <li className="nav__menu__item">
-          <a href="#" className="nav__menu__link">
+          <NavLink to="/home" className="nav__menu__link">
             Features
-          </a>
+          </NavLink>
         </li>
         <li className="nav__menu__item">
-          <a className="nav__menu__link" href="#">
+          <NavLink to="/home" className="nav__menu__link">
             About us
-          </a>
+          </NavLink>
         </li>
         <li className="nav__menu__item">
-          <a className="nav__menu__link" href="#">
+          <NavLink to="/home" className="nav__menu__link">
             Review
-          </a>
+          </NavLink>
         </li>
         <li className="nav__menu__item">
-          <a className="nav__menu__link" href="#">
+          <NavLink to="/home" className="nav__menu__link">
             Contact
-          </a>
+          </NavLink>
         </li>
         {check && (
           <li className="nav__menu__item">
-            <a className="nav__menu__link" href="#">
+            <NavLink to="/seller" className="nav__menu__link">
               Products
-            </a>
+            </NavLink>
           </li>
         )}
       </ul>
     </nav>
     <div>
-      <i className="fas fa-user"></i> Sign in
+      <NavLink to="/login">
+        <i className="fas fa-user"></i> Sign in
+      </NavLink>
     </div>
   </header>
 );

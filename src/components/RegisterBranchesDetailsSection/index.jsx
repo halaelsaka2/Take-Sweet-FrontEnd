@@ -3,13 +3,14 @@ import Button from "../Button";
 import Stepper from "../Stepper";
 import BranchSection from "../BranchSection";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const RegisterBranchesDetailsSection = ({
   branchList,
   backButtonHandle,
   cancelButtonHandle,
   isEditBranch,
-  isBranchTab
+  isBranchTab,
 }) => (
   <div className="register-container">
     <div className="register-form-container">
@@ -20,7 +21,7 @@ const RegisterBranchesDetailsSection = ({
           stepClassNames={[
             "circle--finished",
             "circle--finished",
-            "circle--active"
+            "circle--active",
           ]}
           pipeClassNames={["pipe--finished", "pipe--finished"]}
         />
@@ -36,11 +37,13 @@ const RegisterBranchesDetailsSection = ({
 
         <div className="button-container">
           <div className="flex-buttons-container">
-            <Button
-              className="button--rounded button--rounded--s button--rounded--shadow"
-              name="Back"
-              onClick={backButtonHandle}
-            />
+            <Link to="register-branch">
+              <Button
+                className="button--rounded button--rounded--s button--rounded--shadow"
+                name="Back"
+                onClick={backButtonHandle}
+              />
+            </Link>
           </div>
         </div>
       </div>
@@ -56,6 +59,6 @@ RegisterBranchesDetailsSection.propTypes = {
   isEditBranch: PropTypes.bool,
   isBranchTab: PropTypes.bool,
   backButtonHandle: PropTypes.func,
-  cancelButtonHandle: PropTypes.func
+  cancelButtonHandle: PropTypes.func,
 };
 export default RegisterBranchesDetailsSection;

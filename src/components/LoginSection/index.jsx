@@ -2,6 +2,8 @@ import React from "react";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+
 const LoginSection = ({
   emailType,
   emailPlaceholder,
@@ -14,7 +16,7 @@ const LoginSection = ({
   passwordId,
   passwordName,
   onChange,
-  loginButtonHandle
+  loginButtonHandle,
 }) => (
   <div className="login-container">
     <div className="login-img">
@@ -41,12 +43,19 @@ const LoginSection = ({
           onChange={onChange}
           value={passwordValue}
         />
+        <Link to='/profile'>
         <Button
           className="button--rounded button--rounded--s button--rounded--shadow"
           name="Login"
           onClick={loginButtonHandle}
         />
-        <a>Register Now</a>
+        </Link>
+        <Link
+          to="/register-general-info"
+          style={{ color: "#bb9230", textDecoration: "none" }}
+        >
+          Register Now
+        </Link>
       </div>
     </div>
   </div>

@@ -4,6 +4,7 @@ import Stepper from "../Stepper";
 import Dropdown from "../Dropdown";
 import Input from "../Input";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const RegisterPersonalInfoSection = ({
   usernameType,
@@ -17,7 +18,7 @@ const RegisterPersonalInfoSection = ({
   nextButtonHandle,
   dropdownIsOpenHandle,
   selectAccountTypeHandle,
-  accountType
+  accountType,
 }) => (
   <div className="register-container">
     <div className="register-form-container">
@@ -28,7 +29,7 @@ const RegisterPersonalInfoSection = ({
           stepClassNames={[
             "circle--finished",
             "circle--active",
-            "circle--notTouched"
+            "circle--notTouched",
           ]}
           pipeClassNames={["pipe--finished", "pipe--notTouched"]}
         />
@@ -58,17 +59,20 @@ const RegisterPersonalInfoSection = ({
         </div>
         <div className="button-container">
           <div className="flex-buttons-container">
-            <Button
-              className="button--rounded button--rounded--s button--rounded--shadow"
-              name="Back"
-              onClick={backButtonHandle}
-            />
-
-            <Button
-              className="button--rounded button--rounded--s button--rounded--shadow"
-              name="Next"
-              onClick={nextButtonHandle}
-            />
+            <Link to="/register-general-info">
+              <Button
+                className="button--rounded button--rounded--s button--rounded--shadow"
+                name="Back"
+                onClick={backButtonHandle}
+              />
+            </Link>
+            <Link to="/register-branch">
+              <Button
+                className="button--rounded button--rounded--s button--rounded--shadow"
+                name="Next"
+                onClick={nextButtonHandle}
+              />
+            </Link>
           </div>
         </div>
       </div>
@@ -91,6 +95,6 @@ RegisterPersonalInfoSection.propTypes = {
   backButtonHandle: PropTypes.func,
   nextButtonHandle: PropTypes.func,
   dropdownIsOpenHandle: PropTypes.func,
-  selectAccountTypeHandle: PropTypes.func
+  selectAccountTypeHandle: PropTypes.func,
 };
 export default RegisterPersonalInfoSection;
