@@ -4,7 +4,6 @@ import Input from "../../Input";
 import Button from "../../Button";
 
 const ProductDetails = ({
-
   countItems,
   categories,
   productNameValue,
@@ -81,16 +80,6 @@ const ProductDetails = ({
           <label className="categoryItem__name">{category.name}</label>
         </div>
       ))}
-    </div>
-
-    <div className="detailsContainer">
-      <div className="detailsContainer__info">More details</div>
-      <Textarea
-        name="moreDetails"
-        classname="textarea"
-        value={moreDetailsValue}
-        onChange={onChange}
-      />
     </div>
 
     <div className="btnContainer">
