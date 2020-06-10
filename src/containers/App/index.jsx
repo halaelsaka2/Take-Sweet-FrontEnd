@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import { Switch, Route } from "react-router-dom";
 import HomePage from "../Homepage";
 import LoginPage from "../LoginPage";
@@ -42,7 +43,4 @@ class App extends Component {
         <Route path="/register-acceptance" component={RegisterAcceptancePage} />
       </Switch>
     );
-  }
-}
-
 export default App;

@@ -1,8 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const ModalSection = ({ isClicked, classModifier, children }) => (
-  <div className={`myModal${isClicked && "active-modal"}`} id="editInfo">
+const ModalSection = ({
+  isClicked,
+  classModifier1,
+  classModifier,
+  children,
+}) => (
+  <div className={`myModal ${classModifier1} ${isClicked && "active-modal"}`}>
     <div className={`myModal__modalContent ${classModifier}`}>{children}</div>
   </div>
 );
