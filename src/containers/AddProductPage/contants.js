@@ -2,9 +2,9 @@ const constants = {
   tabs: ["Add Product"],
   currentTabe: 0,
   countItems: [
-    { label: "Avalialbe amount", unit: "pieces", name: "availableAmount" },
-    { label: "Pieces Per Trade", unit: "pieces", name: "piecesForTrade" },
-    { label: "Price", unit: "EGY", name: "price" },
+    { label: "Avalialbe Amount", unit: "Pieces", name: "availableAmount" },
+    { label: "Minimum Pieces", unit: "Pieces", name: "minPieces" },
+    { label: "Price", unit: "EGY/Piece", name: "price" },
   ],
   categories: [
     { id: 1, name: "pastry" },
