@@ -15,7 +15,7 @@ import BrandsPage from "../BrandsPage";
 import BuyerPage from "../BuyerPage";
 import ProductsSellerPage from "../../containers/ProductsSellerPage";
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <Switch>
@@ -43,4 +43,5 @@ class App extends Component {
         <Route path="/register-acceptance" component={RegisterAcceptancePage} />
       </Switch>
     );
-export default App;
+    }
+  }
