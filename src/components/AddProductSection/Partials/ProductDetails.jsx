@@ -7,12 +7,9 @@ const ProductDetails = ({
   countItems,
   categories,
   productNameValue,
-  moreDetailsValue,
   checkedCategory,
   countItemValues,
-  paymentTypes,
   onChange,
-  onPaymentTypeChange,
   onCategoryChange,
   onAddButtonClicked,
   onCancelButtonClicked,
@@ -45,7 +42,7 @@ const ProductDetails = ({
       ))}
     </div>
 
-    <label>paymentTypes</label>
+    {/* <label>paymentTypes</label>
     <div className="paymentsContianer">
       <br />
       {paymentTypes.map((paymentType) => (
@@ -62,7 +59,7 @@ const ProductDetails = ({
           <lable className="paymentItem__name">{paymentType.name}</lable>
         </div>
       ))}
-    </div>
+    </div> */}
 
     <label>Categories</label>
     <div className="categoryContainer">

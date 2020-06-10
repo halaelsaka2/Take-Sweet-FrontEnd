@@ -5,22 +5,13 @@ import constants from "./contants";
 class AddProduct extends Component {
   state = {
     product: {
-      imgSrc: "",
+      imageSrc: "",
       name: "",
       availableAmount: "",
-      piecesForTrade: "",
+      minPieces: "",
       price: "",
-      category: { id: "", name: "" },
-      paymentTypes: [],
-      moreDetails: "",
+      category: "",
     },
-    paymentTypes: [
-      { id: 1, name: "cash", checked: false },
-      { id: 2, name: "visa", checked: false },
-      { id: 3, name: "Master Card", checked: false },
-      { id: 4, name: "Cheque payment", checked: false },
-      { id: 5, name: "PayPal", checked: false },
-    ],
   };
 
   handleChange = (event) => {
@@ -30,31 +21,36 @@ class AddProduct extends Component {
     this.setState({ product });
   };
 
-  handlePaymentTypeChange = (e) => {
-    let paymentTypes = [...this.state.paymentTypes];
-    const name = e.target.name;
-    let paymentTypeChecked = paymentTypes.find(
-      (paymentType) => paymentType.name === name
-    );
-    paymentTypeChecked.checked = !paymentTypeChecked.checked;
-    console.log(paymentTypes);
-    this.setState({ paymentTypes });
-  };
+  // handlePaymentTypeChange = (e) => {
+  //   let paymentTypes = [...this.state.paymentTypes];
+  //   const name = e.target.name;
+  //   let paymentTypeChecked = paymentTypes.find(
+  //     (paymentType) => paymentType.name === name
+  //   );
+  //   paymentTypeChecked.checked = !paymentTypeChecked.checked;
+  //   console.log(paymentTypes);
+  //   this.setState({ paymentTypes });
+  // };
 
   handleCategoryChange = (e) => {
     const product = { ...this.state.product };
-    const categories = [...this.state.categories];
     const categorySelected = parseInt(e.target.value);
-    product.category = categories.find(
-      (category) => category.id === categorySelected
-    );
+    product.category = categorySelected;
+    console.log(product);
     this.setState({ product });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let paymentTypes = [...this.state.paymentTypes];
-    paymentTypes = console.log(this.state.product);
+    const { product } = this.state;
+    console.log(product);
+    // product = await Add(prod);
+    this.props.history.replace("/seller");
+  };
+  handelCancel = (e) => {
+    e.preventDefault();
+
+    this.props.history.push("/seller");
   };
 
   render() {
@@ -62,17 +58,17 @@ class AddProduct extends Component {
       state: {
         product: {
           name,
-          imgSrc,
+          imageSrc,
           moreDetails,
           availableAmount,
-          piecesForTrade,
+          minPieces,
           price,
           category,
         },
         paymentTypes,
       },
       handleChange,
-      handlePaymentTypeChange,
+      // handlePaymentTypeChange,
       handleCategoryChange,
       handleSubmit,
       handelCancel,
@@ -82,15 +78,15 @@ class AddProduct extends Component {
       <AddProducSection
         productNameValue={name}
         countItems={constants.countItems}
-        countItemValues={[availableAmount, piecesForTrade, price]}
-        imgSrc={imgSrc}
+        countItemValues={[availableAmount, minPieces, , price]}
+        imgSrc={imageSrc}
         moreDetailsValue={moreDetails}
-        paymentTypes={paymentTypes}
+        // paymentTypes={paymentTypes}
         categories={constants.categories}
         onChange={handleChange}
-        checkedPayment={paymentTypes.checked}
-        checkedCategory={category.id}
-        onPaymentTypeChange={handlePaymentTypeChange}
+        // checkedPayment={paymentTypes.checked}
+        checkedCategory={category}
+        // onPaymentTypeChange={handlePaymentTypeChange}
         onCategoryChange={handleCategoryChange}
         tabs={constants.tabs}
         currentTabe={constants.currentTabe}
