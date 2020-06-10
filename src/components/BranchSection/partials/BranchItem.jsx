@@ -5,8 +5,9 @@ const BranchItem = ({
   cityName,
   address,
   phoneNumber,
-  cancelButtonHandle,
-  index,
+  deleteButtonHandle,
+  editButtonHandle,
+  index
 }) => (
   <div className="branchContainer__branches__location">
     <div className="branch-header-flex">
@@ -14,9 +15,12 @@ const BranchItem = ({
         {cityName}
       </span>
       <div className="branch-icons-flex">
-        <i className="fas fa-pencil-alt"></i>
         <i
-          onClick={() => cancelButtonHandle(index)}
+          onClick={() => editButtonHandle(index)}
+          className="fas fa-pencil-alt"
+        ></i>
+        <i
+          onClick={() => deleteButtonHandle(index)}
           className="fas fa-trash-alt branch-trash-icon"
         ></i>
       </div>
@@ -36,7 +40,7 @@ BranchItem.protoTypes = {
   phoneNumber: PropTypes.number,
   cancelIcon: PropTypes.string,
   cancelButtonHandle: PropTypes.func,
-  index: PropTypes.number,
+  index: PropTypes.number
 };
 
 export default BranchItem;

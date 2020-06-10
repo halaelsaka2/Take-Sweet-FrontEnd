@@ -8,9 +8,10 @@ import { Link } from "react-router-dom";
 const RegisterBranchesDetailsSection = ({
   branchList,
   backButtonHandle,
-  cancelButtonHandle,
+  deleteButtonHandle,
+  editButtonHandle,
   isEditBranch,
-  isBranchTab,
+  isBranchTab
 }) => (
   <div className="register-container">
     <div className="register-form-container">
@@ -21,7 +22,7 @@ const RegisterBranchesDetailsSection = ({
           stepClassNames={[
             "circle--finished",
             "circle--finished",
-            "circle--active",
+            "circle--active"
           ]}
           pipeClassNames={["pipe--finished", "pipe--finished"]}
         />
@@ -32,7 +33,8 @@ const RegisterBranchesDetailsSection = ({
           isEditBranch={isEditBranch}
           isBranchTab={isBranchTab}
           ListAdditionalStyle={"branchContainer__branches--2branches"}
-          cancelButtonHandle={cancelButtonHandle}
+          deleteButtonHandle={deleteButtonHandle}
+          editButtonHandle={editButtonHandle}
         />
 
         <div className="button-container">
@@ -59,6 +61,6 @@ RegisterBranchesDetailsSection.propTypes = {
   isEditBranch: PropTypes.bool,
   isBranchTab: PropTypes.bool,
   backButtonHandle: PropTypes.func,
-  cancelButtonHandle: PropTypes.func,
+  cancelButtonHandle: PropTypes.func
 };
 export default RegisterBranchesDetailsSection;
