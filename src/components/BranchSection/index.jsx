@@ -9,7 +9,8 @@ const BranchSection = ({
   branchStyle,
   isBranchTab,
   ListAdditionalStyle,
-  cancelButtonHandle
+  deleteButtonHandle,
+  editButtonHandle
 }) => (
   <React.Fragment>
     {isBranchTab && (
@@ -29,7 +30,8 @@ const BranchSection = ({
         <BranchList
           branchList={branchList}
           ListAdditionalStyle={ListAdditionalStyle}
-          cancelButtonHandle={cancelButtonHandle}
+          deleteButtonHandle={deleteButtonHandle}
+          editButtonHandle={editButtonHandle}
         ></BranchList>
       </div>
     </div>
@@ -49,5 +51,5 @@ BranchSection.protoTypes = {
   isBranchTab: PropTypes.bool,
   branchStyle: PropTypes.string,
   ListAdditionalStyle: PropTypes.string,
-  cancelButtonHandle: PropTypes.func
+  deleteButtonHandle: PropTypes.func
 };
