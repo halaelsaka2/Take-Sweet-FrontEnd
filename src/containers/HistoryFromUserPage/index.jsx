@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Header from "../../components/Layouts/Header";
+import Footer from "../../components/Layouts/Footer";
 import HistoryFromUserSection from "../../components/HistoryFromUserSection";
 import constents from "./constents";
 
@@ -32,9 +34,9 @@ class HistoryFromUser extends Component {
     const currentStatus = this.state.statusTabs[currentTabe];
     let statusProducts = this.state.productCards;
     const currentPage = 1;
-    if (currentTabe != 0) {
+    if (currentTabe !== 0) {
       statusProducts = this.state.productCards.filter(
-        (products) => products.status == currentStatus
+        (products) => products.status === currentStatus
       );
     }
     this.setState({ currentTabe, statusProducts, currentPage });
@@ -71,18 +73,22 @@ class HistoryFromUser extends Component {
       lastIndex
     );
     return (
-      <HistoryFromUserSection
-        productCards={statusProducts}
-        currentProducts={currentProducts}
-        date={date}
-        statusTabs={constents.statusTabs}
-        currentTabe={currentTabe}
-        handleTabChange={handleTabChange}
-        productsPerPage={productsPerPage}
-        paginate={paginate}
-        currentPage={currentPage}
-        companyLogoImgSrc={companyLogoImgSrc}
-      />
+      <React.Fragment>
+        <Header />
+        <HistoryFromUserSection
+          productCards={statusProducts}
+          currentProducts={currentProducts}
+          date={date}
+          statusTabs={constents.statusTabs}
+          currentTabe={currentTabe}
+          handleTabChange={handleTabChange}
+          productsPerPage={productsPerPage}
+          paginate={paginate}
+          currentPage={currentPage}
+          companyLogoImgSrc={companyLogoImgSrc}
+        />
+        <Footer />
+      </React.Fragment>
     );
   }
 }

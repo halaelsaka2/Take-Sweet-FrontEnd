@@ -3,14 +3,15 @@ import ReactDOM from "react-dom";
 import App from "./containers/App";
 import "bootstrap/dist/css/bootstrap.css";
 import "./sass/main.scss";
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById("root")
-// );
+import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+const app = (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+ReactDOM.render(app, document.querySelector("#root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

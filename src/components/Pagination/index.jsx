@@ -36,7 +36,6 @@ const Pagination = ({
       <div className="paging__arrow">
         <i
           className="fas fa-angle-right"
-          s
           style={{ cursor: "pointer" }}
           onClick={() => paginate(currentPage + 1)}
         ></i>
