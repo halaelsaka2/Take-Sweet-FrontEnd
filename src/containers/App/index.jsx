@@ -22,6 +22,15 @@ export default class App extends Component {
   render() {
     return (
       <Switch>
+        {/* <Header /> */}
+        <Route path="/" exact component={HomePage} />
+        <Route path="/add-product" component={AddProductPage} />
+        <Route path="/profile" component={ProfilePage} />
+        <Route path="/user-history" component={HistoryFromUserPage} />
+        <Route path="/track-order" component={TrackOrder} />
+        <Route path="/brands" component={BrandsPage} />
+        <Route path="/buyer" component={BuyerPage} />
+        <Route path="/seller" component={ProductsSellerPage} />
         <Route path="/login" component={LoginPage} />
         <Route path="/register-branch" component={RegisterBranchPage} />
         <Route
@@ -37,19 +46,10 @@ export default class App extends Component {
           component={RegisterGeneralInfoPage}
         />
         <Route path="/register-acceptance" component={RegisterAcceptancePage} />
-
-        <Header />
-        <Route path="/" exact component={HomePage} />
         <Redirect from="/home" to="/" />
         <Redirect form="/edit-product" to="/add-product" />
-        <Route path="/add-product" component={AddProductPage} />
-        <Route path="/profile" component={ProfilePage} />
-        <Route path="/user-history" component={HistoryFromUserPage} />
-        <Route path="/track-order" component={TrackOrder} />
-        <Route path="/brands" component={BrandsPage} />
-        <Route path="/buyer" component={BuyerPage} />
-        <Route path="/seller" component={ProductsSellerPage} />
-        <Footer />
+
+        {/* <Footer /> */}
       </Switch>
     );
   }
