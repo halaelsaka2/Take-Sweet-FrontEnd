@@ -1,7 +1,7 @@
 .about-us {
     width: 100%;
     text-align: center;
-    margin: 15rem 0rem 0rem 0rem;
+    margin: 10rem 0rem 0rem 0rem;
 
     &__header {
         width: 100%;
@@ -35,9 +35,7 @@
                 border-radius: 50%;
                 margin-left: -0.7rem;
             }
-
         }
-
 
         &__left-img-container {
             width: 40rem;
@@ -57,7 +55,6 @@
             align-self: center;
             margin-left: 3rem;
 
-
             &__right-header {
                 font-weight: bolder;
                 font-size: 2rem;
@@ -66,7 +63,6 @@
                 text-transform: uppercase;
                 margin-bottom: 3rem;
             }
-
 
             &__right-body {
                 width: 35rem;
@@ -104,7 +100,6 @@
                 margin-bottom: 3rem;
             }
 
-
             &__left-body {
                 width: 35rem;
                 word-wrap: break-word;
@@ -113,6 +108,4 @@
             }
         }
     }
-
-
 }
