@@ -1,1 +1,1 @@
-hotfix/adding-prop-types-and-removing-return-from-register-components
+// hotfix/adding-prop-types-and-removing-return-from-register-components
