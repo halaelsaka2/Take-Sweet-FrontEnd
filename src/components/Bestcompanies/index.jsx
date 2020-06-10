@@ -1,5 +1,6 @@
 import React from "react";
-import CompanyItem from "../CompanyItem";
+// import CompanyItem from "../CompanyItem";
+import Bestcompaniesitem from "../Bestcompaniesitem";
 import PropTypes from "prop-types";
 
 const Bestcompanies = ({ companies }) => (
@@ -12,7 +13,8 @@ const Bestcompanies = ({ companies }) => (
     </div>
     <div className="list-container list-container--4">
       {companies.map((company) => (
-        <CompanyItem src={company.src} key={company.id} />
+        // <Companiesitem src={company.src} key={company.id} />
+        <Bestcompaniesitem src={company.src} key={company.id} />
       ))}
     </div>
   </div>

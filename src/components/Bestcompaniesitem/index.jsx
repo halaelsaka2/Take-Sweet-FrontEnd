@@ -1,15 +1,14 @@
 import React from "react";
 
-const Bestcompaniesitem = ({ company }) => (
+const Bestcompaniesitem = ({ src }) => (
   <div className="item-medium">
     <div
       className="item-medium__image image"
       style={{
-        backgroundImage: "url('" + company.src + "')",
-        "background-position": "center",
-        "background-repeat": "no-repeat",
-        "background-position": "center",
-        "background-size": "20rem 20rem",
+        backgroundImage: "url('" + src + "')",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "contain",
       }}
     ></div>
   </div>

@@ -2,12 +2,12 @@ const constents = {
     companies: [{
             id: 1,
             name: "company",
-            src: "assets/images/lo.png",
+            src: "assets/images/Logo.png",
         },
         {
             id: 2,
             name: "company",
-            src: "assets/images/Logo.png",
+            src: "assets/images/Logoo.jpg",
         },
         {
             id: 3,
@@ -17,7 +17,7 @@ const constents = {
         {
             id: 4,
             name: "company",
-            src: "assets/images/Logoo.jpg",
+            src: "assets/images/lo.png",
         },
     ],
     AboutUsContext: [{
