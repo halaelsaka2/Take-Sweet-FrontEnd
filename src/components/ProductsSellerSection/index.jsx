@@ -6,7 +6,12 @@ import ProductItem from "../ProductItem";
 import DropDown from "../Dropdown";
 import PropTypes from "prop-types";
 
-const ProductsSellerSection = ({ products, sortbyList, category, pageType }) => {
+const ProductsSellerSection = ({
+  products,
+  sortbyList,
+  category,
+  pageType,
+}) => {
   return (
     <React.Fragment>
       <Header></Header>
