@@ -11,8 +11,9 @@ const AddProducSection = ({
   paymentTypes,
   categories,
   productNameValue,
-  moreDetailsValue,
+  productNameError,
   countItemValues,
+  countItemErrors,
   checkedCategory,
   onChange,
   onPaymentTypeChange,
@@ -22,6 +23,7 @@ const AddProducSection = ({
   currentTabe,
   onAddButtonClicked,
   onCancelButtonClicked,
+  error,
 }) => (
   <div class="project-container project-container--h">
     <HistoryStates tabs={tabs} currentTabe={currentTabe} />
@@ -36,10 +38,11 @@ const AddProducSection = ({
           categories={categories}
           onChange={onChange}
           productNameValue={productNameValue}
-          moreDetailsValue={moreDetailsValue}
+          productNameError={productNameError}
           countItemsChange={countItemsChange}
-          checkedCategory={checkedCategory}
           countItemValues={countItemValues}
+          countItemErrors={countItemErrors}
+          checkedCategory={checkedCategory}
           onPaymentTypeChange={onPaymentTypeChange}
           onCategoryChange={onCategoryChange}
           onAddButtonClicked={onAddButtonClicked}
