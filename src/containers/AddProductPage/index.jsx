@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+// import { string, object } from "yup";
+import joi from "joi-browser";
 import AddProducSection from "../../components/AddProductSection";
 import constants from "./contants";
 
 class AddProduct extends Component {
   state = {
     product: {
-      imageSrc: "",
+      imageSrc: "jjjjj",
       name: "",
       availableAmount: "",
       minPieces: "",
@@ -40,19 +43,15 @@ class AddProduct extends Component {
     this.setState({ product });
   };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const { product } = this.state;
-    console.log(product);
-    // product = await Add(prod);
-    this.props.history.replace("/seller");
-  };
   handelCancel = (e) => {
     e.preventDefault();
-
     this.props.history.push("/seller");
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.history.replace("/seller");
+  };
   render() {
     const {
       state: {
@@ -65,7 +64,6 @@ class AddProduct extends Component {
           price,
           category,
         },
-        paymentTypes,
       },
       handleChange,
       // handlePaymentTypeChange,
