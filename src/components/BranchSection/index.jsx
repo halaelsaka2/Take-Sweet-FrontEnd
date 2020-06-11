@@ -10,7 +10,8 @@ const BranchSection = ({
   isBranchTab,
   ListAdditionalStyle,
   deleteButtonHandle,
-  editButtonHandle
+  editButtonHandle,
+  newBranchModalOpenHandle
 }) => (
   <React.Fragment>
     {isBranchTab && (
@@ -21,8 +22,8 @@ const BranchSection = ({
       <div className="branchContainer__content">
         {isEditBranch && (
           <div className="branchContainer__edit">
-            <div className="branchContainer__edit__icon" id="editBranch">
-              <i className="fas fa-plus"></i>
+            <div className="branchContainer__edit__icon">
+              <i onClick={newBranchModalOpenHandle} className="fas fa-plus"></i>
             </div>
           </div>
         )}
