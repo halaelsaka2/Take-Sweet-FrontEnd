@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ProductsSection from "../../components/ProductsSection";
 import { connect } from "react-redux";
-import * as actions from "../../redux-module/products/actions";
+import * as actions from "../../redux-modules/products/actions";
 class ProductsPage extends Component {
   state = {
     products: [],

@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./sass/main.scss";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./redux-module/store";
+import store from "./redux-modules/store";
 
 const app = (
   <Provider store={store}>
