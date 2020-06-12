@@ -2,7 +2,7 @@ import React from "react";
 
 const Dropdown = ({
   Header,
-  ListItems,
+  listItems,
   isOpened,
   IsOpenHandle,
   selectionHandle,
@@ -21,7 +21,7 @@ const Dropdown = ({
       className={`dropdown ${isOpened && `dropdown-open`} ${additionalStyle}`}
     >
       <ul className="dropdown__list">
-        {ListItems.map((item, index) => (
+        {listItems.map((item, index) => (
           <li
             onClick={selectionHandle}
             key={index}

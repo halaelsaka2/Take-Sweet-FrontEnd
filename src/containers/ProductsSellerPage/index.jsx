@@ -1,22 +1,60 @@
 import React, { Component } from "react";
-import Header from "../../components/Layouts/Header";
-import Footer from "../../components/Layouts/Footer";
-import ProductsSellerSection from "../../components/ProductsSellerSection";
-import { category, sortByList, products } from "./dumy";
+import ProductsSection from "../../components/ProductsSection";
+import { connect } from "react-redux";
+import * as actions from "../../redux-modules/products/actions";
+class ProductsPage extends Component {
+  state = {
+    products: [],
+    sortbyList: [],
+    categoryList: [],
+    pagetype: this.props.pagetype,
+  };
 
-export default class BrandsPage extends Component {
+  componentDidMount() {
+    console.log("This.props: ", this.props);
+    this.props.getAllProducts();
+    this.props.getSortByList();
+    this.props.getCategoryList();
+  }
+
   render() {
     return (
-      <React.Fragment>
-        <Header />
-        <ProductsSellerSection
-          products={products}
-          category={category}
-          sortbyList={sortByList}
-          type={"brand-page"}
-        />
-        <Footer />
-      </React.Fragment>
+      <ProductsSection
+        products={this.props.products}
+        sortbyList={this.props.sortbyList}
+        category={this.props.categoryList}
+        // categoryFilterHandler={this.props.categoryFilter}
+        // sortByFilterHandler={this.props.sortByFilter}
+        // searchHandler={this.props.searchFilter}
+        pagetype={this.props.pagetype}
+      ></ProductsSection>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    products: state.prod.products,
+    sortbyList: state.prod.sortBy,
+    categoryList: state.prod.category,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getAllProducts: () => {
+      dispatch(actions.getAllProducts());
+    },
+    getSortByList: () => {
+      dispatch(actions.getSortByList());
+    },
+    getCategoryList: () => {
+      dispatch(actions.getCategoryList());
+    },
+    // sortByFilter: dispatch({ type: "sortBy" }),
+    // categoryFilter: dispatch({ type: "category" }),
+    // searchFilter: dispatch({ type: "search" }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsPage);
