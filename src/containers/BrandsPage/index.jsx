@@ -8,7 +8,7 @@ export default class BrandsPage extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header />
+        {/* <Header /> */}
         <ProductsSection
           products={products}
           category={category}
