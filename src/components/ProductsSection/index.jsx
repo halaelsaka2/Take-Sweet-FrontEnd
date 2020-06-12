@@ -9,7 +9,6 @@ import ProductItem from "../ProductItem";
 import PropTypes from "prop-types";
 
 const ProductsSection = ({ products, sortbyList, category, type }) => {
-  console.log(sortbyList);
   return (
     <React.Fragment>
       <Header></Header>
@@ -25,14 +24,14 @@ const ProductsSection = ({ products, sortbyList, category, type }) => {
       <div className="tabs-containera">
         <div style={{ position: "relative" }}>
           <DropDown
-            ListItems={sortbyList}
+            listItems={sortbyList}
             isOpened={true}
             Header={"sortBy"}
           ></DropDown>
         </div>
         <div style={{ position: "relative" }}>
           <DropDown
-            ListItems={category}
+            listItems={category}
             isOpened={false}
             Header={"Category"}
           ></DropDown>
