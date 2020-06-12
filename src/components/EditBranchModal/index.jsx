@@ -20,7 +20,7 @@ const EditBranchModal = ({
       <Dropdown
         additionalStyle={"dropdown--br1"}
         Header={branchData.city}
-        ListItems={["Cairo", "Alexandria", "Ismailia", "Portsaid", "Suez"]}
+        listItems={["Cairo", "Alexandria", "Ismailia", "Portsaid", "Suez"]}
         isOpened={dropdownIsOpen}
         IsOpenHandle={dropdownIsOpenHandle}
         selectionHandle={selectCityHandle}
