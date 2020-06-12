@@ -16,9 +16,8 @@ class LoginPage extends Component {
   };
 
   loginButtonHandle = (event, values) => {
-    this.props.history.push("/profile");
+    this.props.history.replace("/profile");
   };
-
   render() {
     const {
       onChange,
