@@ -1,9 +1,10 @@
 import React from "react";
 import Input from "../../components/Input";
-import Button from "../../components/Button";
+// import Button from "../../components/Button";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { AvForm, AvField } from "availity-reactstrap-validation";
+import { Button } from "reactstrap";
 
 const LoginSection = ({
   emailType,
@@ -21,11 +22,11 @@ const LoginSection = ({
 }) => (
   <div className="login-container">
     <div className="login-img">
-      <img className="img-login" src="assets/images/cookies6x6.jpg" />
+      <img className="img-login" src="assets/images/cookies6x6.jpg" alt="" />
     </div>
     <div className="login-form-container">
       <div className="login-form">
-        <AvForm className="login-form">
+        <AvForm className="login-form" onSubmit={loginButtonHandle}>
           <div className="form-header">Login</div>
           <AvField
             className="input input--shadow"
@@ -57,8 +58,11 @@ const LoginSection = ({
             className="button--rounded button--rounded--s button--rounded--shadow"
             name="Login"
             type="submit"
-            onClick={loginButtonHandle}
-          />
+            // onClick={loginButtonHandle}
+            color=""
+          >
+            Login
+          </Button>
         </AvForm>
         {/* </Link> */}
         <Link className="register-now" to="/register-general-info">
