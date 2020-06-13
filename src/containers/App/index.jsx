@@ -26,27 +26,63 @@ export default class App extends Component {
     isShoppingIconHidden: false,
     isShoppingBagOpen: false,
     isProductCardModalOpen: false,
-    products: [{
-      id: 1,
-      name: "Cup Cake",
-      src: "assets/images/cake6x6.jpg",
-    },
-    {
-      id: 2,
-      name: "Caramel Cake",
-      src: "assets/images/Product-1.jpg",
-    },
-    {
-      id: 3,
-      name: "Waffle",
-      src: "assets/images/waffle.jpeg",
-    },
-    {
-      id: 4,
-      name: "Tart",
-      src: "assets/images/Product-2.jpg",
-    },
-  ],
+    products: [
+      {
+        id: 1,
+        name: "Cup Cake",
+        src: "assets/images/cake6x6.jpg",
+      },
+      {
+        id: 2,
+        name: "Caramel Cake",
+        src: "assets/images/Product-1.jpg",
+      },
+      {
+        id: 3,
+        name: "Waffle",
+        src: "assets/images/waffle.jpeg",
+      },
+      {
+        id: 4,
+        name: "Tart",
+        src: "assets/images/Product-2.jpg",
+      },
+    ],
+    shoppingOrderList: [
+      {
+        id:1,
+        date:14/6/2020,
+        status:"Waiting",
+        products: [
+          {
+            id: 1,
+            name: "Cup Cake",
+            src: "assets/images/cake6x6.jpg",
+          },
+          {
+            id: 2,
+            name: "Caramel Cake",
+            src: "assets/images/Product-1.jpg",
+          },
+          {
+            id: 3,
+            name: "Waffle",
+            src: "assets/images/waffle.jpeg",
+          },
+          {
+            id: 4,
+            name: "Tart",
+            src: "assets/images/Product-2.jpg",
+          },
+        ],
+        src:"assets/images/ElAbd.jpg"
+        // "companyId",
+        // "userId",
+        // "comments"
+        // paymentType,
+      },
+      
+    ],
   };
 
   toggleShoppingBag = () => {
@@ -62,17 +98,16 @@ export default class App extends Component {
     this.setState({ isProductCardModalOpen });
   };
   render() {
-    
     const {
       state: {
         isProductCardModalOpen,
         isShoppingBagOpen,
         isShoppingIconHidden,
-        products
+        products,
+        shoppingOrderList
       },
       openProductsCardModal,
       toggleShoppingBag,
-      
     } = this;
     return (
       <React.Fragment>
@@ -91,6 +126,7 @@ export default class App extends Component {
                 openProductsCardModal={openProductsCardModal}
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
+                shoppingOrderList={shoppingOrderList}
                 {...props}
               />
             )}
@@ -106,6 +142,7 @@ export default class App extends Component {
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
                 products={products}
+                shoppingOrderList={shoppingOrderList}
                 {...props}
               />
             )}
@@ -124,6 +161,7 @@ export default class App extends Component {
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
                 products={products}
+                shoppingOrderList={shoppingOrderList}
                 {...props}
               />
             )}
@@ -140,6 +178,7 @@ export default class App extends Component {
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
                 products={products}
+                shoppingOrderList={shoppingOrderList}
                 {...props}
               />
             )}
@@ -147,7 +186,7 @@ export default class App extends Component {
           {/* <Route path="/buyer" component={BuyerPage} /> */}
 
           <Route path="/seller" component={ProductsSellerPage} />
-          
+
           <Route path="/login" component={LoginPage} />
           <Route path="/register-branch" component={RegisterBranchPage} />
           <Route

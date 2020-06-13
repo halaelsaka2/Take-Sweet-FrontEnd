@@ -28,6 +28,7 @@ class BuyerPage extends Component {
       toggleShoppingBag,
       openProductsCardModal,
       products,
+      shoppingOrderList,
     } = this.props;
     return (
       <React.Fragment>
@@ -39,7 +40,7 @@ class BuyerPage extends Component {
           isHidden={isShoppingIconHidden}
         />
         <ShoppingOrderContainer
-          shoppingOrderList={[1, 2, 3]}
+          shoppingOrderList={shoppingOrderList}
           isOpen={isShoppingBagOpen}
           closeShoppingBag={toggleShoppingBag}
           openCardModal={openProductsCardModal}
