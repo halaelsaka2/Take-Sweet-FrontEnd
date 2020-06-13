@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
 import PersonalInfoSection from "../../components/PersonalInfoSection";
@@ -14,6 +13,7 @@ import { Container } from "reactstrap";
 import { dumy } from "./dumy";
 import constants from "./constants";
 import EditPaymentType from "../../components/EditPaymentTypeModal";
+import HistoryIcon from "../../components/HistoryIcon";
 
 class Profile extends Component {
   state = {
@@ -183,19 +183,6 @@ class Profile extends Component {
     console.log("Cancel PaymentType Modal");
     this.togglePaymentModal();
   };
-  // saveNewBrachButtonHandle = () => {
-  //   let branchData = { ...this.state.branchData };
-  //   let branchList = [...this.state.branchList];
-  //   let editBranchModalIsOpen = this.state.editBranchModalIsOpen;
-  //   branchList.push(branchData);
-  //   editBranchModalIsOpen = false;
-  //   branchData = { city: "City", phone: "", address: "" };
-  //   this.setState({
-  //     editBranchModalIsOpen,
-  //     branchData,
-  //     branchList
-  //   });
-  // };
   render() {
     const {
       state: {
@@ -263,6 +250,7 @@ class Profile extends Component {
           </ModalSection>
         )}
         <Header />
+        <HistoryIcon/>
         <Container>
           <PersonalInfoSection
             email={userProfile.email}
