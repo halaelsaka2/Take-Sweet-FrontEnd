@@ -5,10 +5,11 @@ const Bestsellersitem = ({ product }) => (
     <div
       className="item-medium__image image"
       style={{
+        height: "20rem",
         backgroundImage: "url('" + product.src + "')",
         backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
     ></div>
     <a href="#">
