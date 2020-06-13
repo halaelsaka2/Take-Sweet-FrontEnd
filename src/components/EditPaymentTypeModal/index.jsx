@@ -12,9 +12,10 @@ const EditPaymentType = ({
   <div className="myModal__modalContent__body">
     <div className="paymentsContianer">
       {paymentTypes.map((paymentType) => (
-        <div className="paymentItem">
+        <div className="paymentItem"
+          key={paymentType.id}
+        >
           <Input
-            key={paymentType.id}
             type="checkbox"
             className="paymentItem__input"
             onChange={onPaymentTypeChange}
@@ -22,7 +23,7 @@ const EditPaymentType = ({
             value={paymentType.name}
             checked={paymentType.checked}
           />
-          <lable className="paymentItem__name">{paymentType.name}</lable>
+          <span className="paymentItem__name">{paymentType.name}</span>
         </div>
       ))}
     </div>
