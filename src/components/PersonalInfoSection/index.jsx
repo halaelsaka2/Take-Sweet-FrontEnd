@@ -11,7 +11,7 @@ const PersonalInfoCard = ({
   onClick,
 }) => (
   <React.Fragment>
-    <ProfileLabel className="profileLabel" content="Personal Information" />
+    <ProfileLabel className="profileLabel project-container--h" content="Personal Information" />
     <div className="infoContainer">
       <div className="infoContainer__content">
         <div className="infoContainer__content__left">

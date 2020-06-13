@@ -26,7 +26,7 @@ const LoginSection = ({
     </div>
     <div className="login-form-container">
       <div className="login-form">
-        <AvForm className="login-form" onSubmit={loginButtonHandle}>
+        <AvForm className="login-form" onValidSubmit={loginButtonHandle}>
           <div className="form-header">Login</div>
           <AvField
             className="input input--shadow"
@@ -56,7 +56,7 @@ const LoginSection = ({
           {/* <Link to="/profile"> */}
           <Button
             className="button--rounded button--rounded--s button--rounded--shadow"
-            name="Login"
+            // name="Login"
             type="submit"
             // onClick={loginButtonHandle}
             color=""

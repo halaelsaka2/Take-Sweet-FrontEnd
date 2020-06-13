@@ -15,11 +15,9 @@ class LoginPage extends Component {
     this.setState({ userAccountInfo });
   };
 
-  loginButtonHandle = (event, errors, values) => {
-    if (errors !== null) return;
-    this.props.history.push("/profile");
+  loginButtonHandle = (event, values) => {
+    this.props.history.replace("/profile");
   };
-
   render() {
     const {
       onChange,
