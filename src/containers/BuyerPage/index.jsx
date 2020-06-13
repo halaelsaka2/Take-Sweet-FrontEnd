@@ -21,9 +21,9 @@ class BuyerPage extends Component {
       <React.Fragment>
         <Header />
         <ProductsSection
-          productsList={this.props.products}
-          categoryList={this.props.category}
-          sortbyList={this.props.sortByList}
+          productsList={this.props.productsList}
+          categoryList={this.props.categoryList}
+          sortList={this.props.sortList}
           type={"buyer-page"}
           description={description}
         />
@@ -32,15 +32,15 @@ class BuyerPage extends Component {
     );
   }
 }
-const mapDispatchToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
-    productsList: state.prod.products,
+    productsList: state.prod.productsList,
     categoryList: state.prod.categoryList,
     sortList: state.prod.sortList,
   };
 };
 
-const mapStateToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     getAllProducts: () => dispatch(getAllProducts()),
     getCategoryList: () => dispatch(getCategoryList()),

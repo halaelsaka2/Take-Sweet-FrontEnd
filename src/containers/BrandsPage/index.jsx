@@ -18,6 +18,7 @@ class BrandsPage extends Component {
   }
 
   render() {
+    // console.log("this.props:",this.props)
     return (
       <React.Fragment>
         {/* <Header /> */}
@@ -34,15 +35,16 @@ class BrandsPage extends Component {
   }
 }
 
-const mapDispatchToProps = (state) => {
+const mapStateToProps = (state) => {
+  console.log("state:",state)
   return {
-    productsList: state.prod.products,
+    productsList: state.prod.productsList,
     categoryList: state.prod.categoryList,
     sortList: state.prod.sortList,
   };
 };
 
-const mapStateToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     getAllProducts: () => dispatch(getAllProducts()),
     getCategoryList: () => dispatch(getCategoryList()),
