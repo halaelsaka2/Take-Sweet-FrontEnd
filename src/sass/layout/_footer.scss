@@ -1,6 +1,6 @@
 .footer {
     width: 100%;
-    height: 24rem;
+    // height: 24rem;
     background-color: $main-black;
     color: $gray;
     margin: auto;
@@ -13,7 +13,7 @@
 
     &__bottom {
         width: 100%;
-        height: 13%;
+        // height: 13%;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -29,7 +29,7 @@
 
 .footerContainer {
     margin: auto;
-    height: 85%;
+    // height: 85%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -39,7 +39,7 @@
 
     &__col {
         width: 27.7%;
-        height: 85%;
+        // height: 85%;
         list-style: none;
         margin-left: -4rem;
 
@@ -78,8 +78,8 @@
 }
 
 .imgs {
-    width: 50px;
-    height: 50px;
+    width: 5rem;
+    height: 5rem;
     margin-right: 0.5rem;
 }
 
