@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 const HistoryIcon = () => {
   return (
-    <div className="history-tab">
-      <span>History</span>
+    <Link to="/track-order" className="history-tab">
+      <span>Track Order</span>
       <i className="fa-2x fas fa-history"></i>
-    </div>
+    </Link>
   );
 };
 
