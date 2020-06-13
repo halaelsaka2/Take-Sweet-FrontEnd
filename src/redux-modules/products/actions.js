@@ -4,7 +4,7 @@ import * as actionTypes from "./constants";
 export const getAllProductsRes = (productsList) => {
   return {
     type: actionTypes.GET_ALL_PRODUCTS,
-    products: productsList,
+    productsList,
   };
 };
 export const getAllProducts = () => {
@@ -15,16 +15,16 @@ export const getAllProducts = () => {
   };
 };
 
-export const getSortListRes = (sortByList) => {
+export const getSortListRes = (sortList) => {
   return {
     type: actionTypes.GET_SORT_BY_LIST,
-    sortByList,
+    sortList,
   };
 };
 export const getSortList = () => {
   return async (dispatch) => {
-    const SortByList = await productsHandler.getSortList();
-    dispatch(getSortListRes(SortByList));
+    const sortList = await productsHandler.getSortList();
+    dispatch(getSortListRes(sortList));
   };
 };
 

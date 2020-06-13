@@ -17,6 +17,7 @@ const ProductsSection = ({
   type,
   description,
 }) => {
+  
   return (
     <React.Fragment>
       <Header />
