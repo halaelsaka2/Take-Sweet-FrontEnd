@@ -4,15 +4,17 @@ import constants from "./constants";
 
 class LoginPage extends Component {
   state = {
-    userAccountInfo: {
+    user: {
       email: "",
-      password: ""
-    }
+      password: "",
+    },
   };
-  onChange = event => {
-    let userAccountInfo = { ...this.state.userAccountInfo };
-    userAccountInfo[event.target.name] = event.target.value;
-    this.setState({ userAccountInfo });
+
+  inputHandler = (event) => {
+    const { name, value } = event.target;
+    const user = { ...this.state.user };
+    user[name] = value;
+    this.setState({ user });
   };
 
   loginButtonHandle = (event, values) => {
@@ -20,11 +22,11 @@ class LoginPage extends Component {
   };
   render() {
     const {
-      onChange,
+      inputHandler,
       loginButtonHandle,
       state: {
-        userAccountInfo: { email, password }
-      }
+        user: { email, password },
+      },
     } = this;
     return (
       <LoginSection
@@ -38,7 +40,7 @@ class LoginPage extends Component {
         passwordName={constants.passwordName}
         passwordPlaceholder={constants.passwordPlaceholder}
         passwordValue={password}
-        onChange={onChange}
+        onChange={inputHandler}
         loginButtonHandle={loginButtonHandle}
       />
     );

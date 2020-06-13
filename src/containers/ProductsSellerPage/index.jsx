@@ -2,14 +2,9 @@ import React, { Component } from "react";
 import ProductsSection from "../../components/ProductsSection";
 import { connect } from "react-redux";
 import * as actions from "../../redux-modules/products/actions";
+import PropTypes from "prop-types";
+import ProductsSellerSection from "../../components/ProductsSellerSection";
 class ProductsPage extends Component {
-  state = {
-    products: [],
-    sortbyList: [],
-    categoryList: [],
-    pagetype: this.props.pagetype,
-  };
-
   componentDidMount() {
     console.log("This.props: ", this.props);
     this.props.getAllProducts();
@@ -19,15 +14,15 @@ class ProductsPage extends Component {
 
   render() {
     return (
-      <ProductsSection
-        products={this.props.products}
-        sortbyList={this.props.sortbyList}
-        category={this.props.categoryList}
+      <ProductsSellerSection
+        productsList={this.props.products}
+        sortList={this.props.sortbyList}
+        categoryList={this.props.categoryList}
         // categoryFilterHandler={this.props.categoryFilter}
         // sortByFilterHandler={this.props.sortByFilter}
         // searchHandler={this.props.searchFilter}
-        pagetype={this.props.pagetype}
-      ></ProductsSection>
+        type={"seller"}
+      ></ProductsSellerSection>
     );
   }
 }
@@ -46,7 +41,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actions.getAllProducts());
     },
     getSortByList: () => {
-      dispatch(actions.getSortByList());
+      dispatch(actions.getSortList());
     },
     getCategoryList: () => {
       dispatch(actions.getCategoryList());
@@ -56,5 +51,9 @@ const mapDispatchToProps = (dispatch) => {
     // searchFilter: dispatch({ type: "search" }),
   };
 };
-
+ProductsPage.propTypes = {
+  productsList: PropTypes.array,
+  categoryList: PropTypes.array,
+  sortList: PropTypes.array,
+};
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsPage);

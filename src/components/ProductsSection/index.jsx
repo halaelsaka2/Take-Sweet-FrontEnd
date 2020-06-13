@@ -8,8 +8,9 @@ import BrandItem from "../BrandItem";
 import ProductItem from "../ProductItem";
 import PropTypes from "prop-types";
 import { Container } from "reactstrap";
+import { products } from "../../containers/BrandsPage/dumy";
 
-const ProductsSection = ({ products, sortbyList, category, type }) => {
+const ProductsSection = ({ productsList, sortList, categoryList, type }) => {
   return (
     <React.Fragment>
       <Header />
@@ -27,23 +28,23 @@ const ProductsSection = ({ products, sortbyList, category, type }) => {
         <div className="tabs-containera">
           <div style={{ position: "relative" }}>
             <DropDown
-              listItems={sortbyList}
+              listItems={sortList}
               isOpened={true}
               Header={"sortBy"}
             ></DropDown>
           </div>
           <div style={{ position: "relative" }}>
             <DropDown
-              listItems={category}
+              listItems={categoryList}
               isOpened={false}
               Header={"Category"}
             ></DropDown>
           </div>
           <Search></Search>
         </div>
-        {type === "buyer-page" ? (
+        {type === "seller" ? (
           <div className="list-container">
-            {products.map((item) => (
+            {productsList.map((item) => (
               <ProductItem
                 name={item.name}
                 src={item.src}
@@ -53,7 +54,7 @@ const ProductsSection = ({ products, sortbyList, category, type }) => {
           </div>
         ) : (
           <div className="list-container list-container--4">
-            {products.map((item) => (
+            {productsList.map((item) => (
               <BrandItem src={item.src}></BrandItem>
             ))}
           </div>
