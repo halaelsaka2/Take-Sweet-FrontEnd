@@ -8,6 +8,7 @@ const ShoppingOrderItem = ({
   totalPrice,
   orderHandle,
   cancelHandle,
+  openCardModal,
 }) => (
   <React.Fragment>
     <div className="shoppingCart__item">
@@ -39,7 +40,7 @@ const ShoppingOrderItem = ({
         </div>
       </div>
       <div className="shoppingCart__item__icon">
-        <i className="fas fa-eye"></i>
+        <i className="fas fa-eye" onClick={openCardModal}></i>
       </div>
     </div>
     <hr className="line" />
@@ -51,7 +52,7 @@ ShoppingOrderItem.propTypes = {
   quantity: PropTypes.number,
   totalPrice: PropTypes.number,
   buttonHandle: PropTypes.func,
-  orderHandle:PropTypes.func
+  orderHandle: PropTypes.func,
 };
 
 export default ShoppingOrderItem;

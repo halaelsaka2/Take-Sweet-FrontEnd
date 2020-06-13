@@ -15,6 +15,9 @@ import { dumy } from "./dumy";
 import constants from "./constants";
 import EditPaymentType from "../../components/EditPaymentTypeModal";
 import HistoryIcon from "../../components/HistoryIcon";
+import ShoppingCart from "../../components/ShoppingCart";
+import ShoppingOrderContainer from "../../components/ShoppingOrderSection";
+import ProductCardsSection from "../../components/ProductCardsSection";
 
 class Profile extends Component {
   state = {
@@ -184,6 +187,30 @@ class Profile extends Component {
     console.log("Cancel PaymentType Modal");
     this.togglePaymentModal();
   };
+
+  /////////////Shopping Cart Icon/////////
+  // openShoppingBag = () => {
+  //   let isShoppingIconHidden = this.state.isShoppingIconHidden;
+  //   isShoppingIconHidden = !isShoppingIconHidden;
+  //   let isShoppingBagOpen = this.state.isShoppingBagOpen;
+  //   isShoppingBagOpen = !isShoppingBagOpen;
+  //   this.setState({ isShoppingIconHidden, isShoppingBagOpen });
+  // };
+
+  // closeShoppingBag = () => {
+  //   let isShoppingIconHidden = this.state.isShoppingIconHidden;
+  //   isShoppingIconHidden = !isShoppingIconHidden;
+  //   let isShoppingBagOpen = this.state.isShoppingBagOpen;
+  //   isShoppingBagOpen = !isShoppingBagOpen;
+  //   this.setState({ isShoppingIconHidden, isShoppingBagOpen });
+  // };
+  // openProductsCardModal = () => {
+  //   console.log("beo");
+
+  //   let isProductCardModalOpen = this.state.isProductCardModalOpen;
+  //   isProductCardModalOpen = !isProductCardModalOpen;
+  //   this.setState({ isProductCardModalOpen });
+  // };
   // saveNewBrachButtonHandle = () => {
   //   let branchData = { ...this.state.branchData };
   //   let branchList = [...this.state.branchList];
@@ -198,6 +225,13 @@ class Profile extends Component {
   //   });
   // };
   render() {
+    const {
+      isShoppingIconHidden,
+      isShoppingBagOpen,
+      isProductCardModalOpen,
+      toggleShoppingBag,
+      openProductsCardModal
+    } = this.props;
     const {
       state: {
         products,
@@ -265,7 +299,26 @@ class Profile extends Component {
         )}
 
         <Header />
-        <HistoryIcon/>
+        <HistoryIcon />
+        <ShoppingCart
+          number={2}
+          openShoppingBag={toggleShoppingBag}
+          isHidden={isShoppingIconHidden}
+        />
+        <ShoppingOrderContainer
+          shoppingOrderList={[1, 2, 3]}
+          isOpen={isShoppingBagOpen}
+          closeShoppingBag={toggleShoppingBag}
+          openCardModal={openProductsCardModal}
+        />
+        {isProductCardModalOpen && (
+          <ProductCardsSection
+            isClicked={isProductCardModalOpen}
+            productCards={products}
+            closeProductsModal={openProductsCardModal}
+            handleDelete
+          />
+        )}
         <Container>
           <PersonalInfoSection
             email={userProfile.email}
