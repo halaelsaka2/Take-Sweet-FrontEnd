@@ -15,6 +15,9 @@ import { dumy } from "./dumy";
 import constants from "./constants";
 import EditPaymentType from "../../components/EditPaymentTypeModal";
 import HistoryIcon from "../../components/HistoryIcon";
+import ShoppingCart from "../../components/ShoppingCart";
+import ShoppingOrderContainer from "../../components/ShoppingOrderSection";
+import ProductCardsSection from "../../components/ProductCardsSection";
 
 class Profile extends Component {
   state = {
@@ -195,8 +198,30 @@ class Profile extends Component {
     console.log("Cancel PaymentType Modal");
     this.togglePaymentModal();
   };
+
+  // saveNewBrachButtonHandle = () => {
+  //   let branchData = { ...this.state.branchData };
+  //   let branchList = [...this.state.branchList];
+  //   let editBranchModalIsOpen = this.state.editBranchModalIsOpen;
+  //   branchList.push(branchData);
+  //   editBranchModalIsOpen = false;
+  //   branchData = { city: "City", phone: "", address: "" };
+  //   this.setState({
+  //     editBranchModalIsOpen,
+  //     branchData,
+  //     branchList
+  //   });
+  // };
+
   render() {
     console.log(this.state.user);
+    const {
+      isShoppingIconHidden,
+      isShoppingBagOpen,
+      isProductCardModalOpen,
+      toggleShoppingBag,
+      openProductsCardModal
+    } = this.props;
     const {
       state: {
         products,
@@ -266,6 +291,27 @@ class Profile extends Component {
 
         <Header />
         <HistoryIcon />
+
+        <ShoppingCart
+          number={2}
+          openShoppingBag={toggleShoppingBag}
+          isHidden={isShoppingIconHidden}
+        />
+        <ShoppingOrderContainer
+          shoppingOrderList={[1, 2, 3]}
+          isOpen={isShoppingBagOpen}
+          closeShoppingBag={toggleShoppingBag}
+          openCardModal={openProductsCardModal}
+        />
+        {isProductCardModalOpen && (
+          <ProductCardsSection
+            isClicked={isProductCardModalOpen}
+            productCards={products}
+            closeProductsModal={openProductsCardModal}
+            handleDelete
+          />
+        )}
+        
         <Container>
           <PersonalInfoSection
             email={userProfile.email}

@@ -22,7 +22,43 @@ import OrderDetailsPage from "../OrderDetailsPage";
 import NotificationPopOver from "./../../components/NotificationPopover/index";
 
 export default class App extends Component {
+  state = {
+    isShoppingIconHidden: false,
+    isShoppingBagOpen: false,
+    isProductCardModalOpen: false,
+  };
+
+  // openShoppingBag = () => {
+  //   let isShoppingIconHidden = this.state.isShoppingIconHidden;
+  //   isShoppingIconHidden = !isShoppingIconHidden;
+  //   let isShoppingBagOpen = this.state.isShoppingBagOpen;
+  //   isShoppingBagOpen = !isShoppingBagOpen;
+  //   this.setState({ isShoppingIconHidden, isShoppingBagOpen });
+  // };
+
+  toggleShoppingBag = () => {
+    let isShoppingIconHidden = this.state.isShoppingIconHidden;
+    isShoppingIconHidden = !isShoppingIconHidden;
+    let isShoppingBagOpen = this.state.isShoppingBagOpen;
+    isShoppingBagOpen = !isShoppingBagOpen;
+    this.setState({ isShoppingIconHidden, isShoppingBagOpen });
+  };
+  openProductsCardModal = () => {
+    let isProductCardModalOpen = this.state.isProductCardModalOpen;
+    isProductCardModalOpen = !isProductCardModalOpen;
+    this.setState({ isProductCardModalOpen });
+  };
   render() {
+    const {
+      state: {
+        isProductCardModalOpen,
+        isShoppingBagOpen,
+        isShoppingIconHidden,
+      },
+      openProductsCardModal,
+      toggleShoppingBag,
+      
+    } = this;
     return (
       <React.Fragment>
         <Switch>
@@ -30,7 +66,21 @@ export default class App extends Component {
           <Route path="/" exact component={HomePage} />
           <Route path="/add-product" component={AddProductPage} />
           <Route path="/order-details/:id" component={OrderDetailsPage} />
-          <Route path="/profile" component={ProfilePage} />
+          <Route
+            path="/profile"
+            render={(props) => (
+              <ProfilePage
+                isShoppingIconHidden={isShoppingIconHidden}
+                isProductCardModalOpen={isProductCardModalOpen}
+                isShoppingBagOpen={isShoppingBagOpen}
+                openProductsCardModal={openProductsCardModal}
+                toggleShoppingBag={toggleShoppingBag}
+                closeShoppingBag={toggleShoppingBag}
+                {...props}
+              />
+            )}
+          />
+          {/* <Route path="/profile" component={ProfilePage} /> */}
           <Route path="/user-history" component={HistoryFromUserPage} />
           <Route path="/track-order" component={TrackOrder} />
           <Route path="/brands" component={BrandsPage} />
