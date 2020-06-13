@@ -15,6 +15,17 @@ import {
 } from "../../redux-modules/products/actions";
 
 class BrandsPage extends Component {
+  state = {
+    categoryDropDownStatus: false,
+    sortDropDownStatus: false,
+  };
+
+  dropDownHandler = (name) => {
+    this.setState({
+      [name]: !this.state[name],
+    });
+  };
+
   componentDidMount() {
     this.props.getAllProducts();
     this.props.getCategoryList();
@@ -23,6 +34,11 @@ class BrandsPage extends Component {
 
   render() {
     const {
+
+      dropDownHandler,
+      state: { categoryDropDownStatus, sortDropDownStatus },
+    } = this;
+        {
       isShoppingIconHidden,
       isShoppingBagOpen,
       isProductCardModalOpen,
@@ -31,6 +47,7 @@ class BrandsPage extends Component {
       products,
     } = this.props;
     // console.log("this.props:",this.props)
+
     return (
       <React.Fragment>
         <Header />
@@ -60,6 +77,9 @@ class BrandsPage extends Component {
           sortList={this.props.sortList}
           description={description}
           type={"Brands"}
+          sortDropDownStatus={sortDropDownStatus}
+          categoryDropDownStatus={categoryDropDownStatus}
+          dropDownHandler={dropDownHandler}
         />
         <Footer />
       </React.Fragment>

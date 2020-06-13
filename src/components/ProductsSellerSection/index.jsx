@@ -8,6 +8,9 @@ import PropTypes from "prop-types";
 import Plus from "../AddProductPlus";
 
 const ProductsSellerSection = ({
+  sortDropDownStatus,
+  categoryDropDownStatus,
+  dropDownHandler,
   productsList,
   sortList,
   categoryList,
@@ -17,25 +20,29 @@ const ProductsSellerSection = ({
     <React.Fragment>
       <Header></Header>
       <div className="project-container project-container--h">
+
         <div class="gridAdded">
-          <div className="tabs-containera">
-            <div style={{ position: "relative" }}>
-              <DropDown
-                listItems={sortList}
-                isOpened={true}
-                Header={"sortBy"}
-              ></DropDown>
-            </div>
-            <div style={{ position: "relative" }}>
-              <DropDown
-                listItems={categoryList}
-                isOpened={false}
-                Header={"Category"}
-              ></DropDown>
-            </div>
-            <Search></Search>
+        <div className="tabs-containera">
+          <div style={{ position: "relative" }}>
+            <DropDown
+            status={sortDropDownStatus}
+            dropDownHandler={dropDownHandler}
+              listItems={sortList}
+              isOpened={true}
+              Header={"sortBy"}
+            ></DropDown>
           </div>
-          <Plus></Plus>
+          <div style={{ position: "relative" }}>
+            <DropDown
+            status={categoryDropDownStatus}
+            dropDownHandler={dropDownHandler}
+              listItems={categoryList}
+              isOpened={false}
+              Header={"Category"}
+            ></DropDown>
+          </div>
+          <Search></Search>
+          </div>
         </div>
 
         <div className="list-container">
