@@ -8,35 +8,35 @@ import BestSection from "../../components/BestSection";
 import ModalSection from "../../components/ModalSection";
 import EditPersonalInfoModal from "../../components/EditPersonalInfoModal";
 import EditBranchSection from "../../components/EditBranchSection";
+import EditPasswordModal from "../../components/EditPasswordModal";
+import PaymentType from "../../components/PaymentType";
 import { Container } from "reactstrap";
 import { dumy } from "./dumy";
 import constants from "./constants";
+import EditPaymentType from "../../components/EditPaymentTypeModal";
 
 class Profile extends Component {
   state = {
     products: dumy.products,
     branchList: dumy.branchList,
     userProfile: dumy.userProfile,
-    isClicked: false,
+    paymentTypes: dumy.paymentTypes,
+    isPersonalInfoModalOpen: false,
+    isPasswordModalOpen: false,
+    isPaymentTypeOpen: false,
     branchData: { city: "city", address: "", phone: "" },
     selectedIndex: null,
     editBranchModalIsOpen: false,
-    dropdownIsOpen: false
+    dropdownIsOpen: false,
   };
 
-  openModal = () => {
-    let isClicked = this.state.isClicked;
-    isClicked = !isClicked;
-    this.setState({ isClicked });
-  };
-
-  deleteButtonHandle = index => {
+  deleteButtonHandle = (index) => {
     let branchList = [...this.state.branchList];
-    branchList = branchList.filter(list => list !== branchList[index]);
+    branchList = branchList.filter((list) => list !== branchList[index]);
     this.setState({ branchList });
   };
 
-  editButtonHandle = index => {
+  editButtonHandle = (index) => {
     let branchList = [...this.state.branchList];
     let branchData = { ...this.state.branchData };
     let editBranchModalIsOpen = this.state.editBranchModalIsOpen;
@@ -47,23 +47,23 @@ class Profile extends Component {
     this.setState({
       branchData,
       editBranchModalIsOpen,
-      selectedIndex
+      selectedIndex,
     });
   };
 
-  onChangeBranchModal = event => {
+  onChangeBranchModal = (event) => {
     let branchData = { ...this.state.branchData };
     branchData[event.target.name] = event.target.value;
     this.setState({ branchData });
   };
 
-  dropdownIsOpenHandle = event => {
+  dropdownIsOpenHandle = (event) => {
     let dropdownIsOpen = this.state.dropdownIsOpen;
     dropdownIsOpen = !dropdownIsOpen;
     this.setState({ dropdownIsOpen });
   };
 
-  selectCityHandle = event => {
+  selectCityHandle = (event) => {
     let branchData = { ...this.state.branchData };
     let dropdownIsOpen = this.state.dropdownIsOpen;
     branchData.city = event.target.textContent;
@@ -98,7 +98,7 @@ class Profile extends Component {
         editBranchModalIsOpen,
         selectedIndex,
         branchData,
-        branchList
+        branchList,
       });
     } else if (selectedIndex === null) {
       console.log("beww");
@@ -110,11 +110,79 @@ class Profile extends Component {
       this.setState({
         editBranchModalIsOpen,
         branchData,
-        branchList
+        branchList,
       });
     }
   };
 
+  ///////////personalInfoModal///////
+  togglePersonalModal = () => {
+    let isPersonalInfoModalOpen = this.state.isPersonalInfoModalOpen;
+    isPersonalInfoModalOpen = !isPersonalInfoModalOpen;
+    this.setState({ isPersonalInfoModalOpen });
+  };
+  openPersonalModal = () => {
+    this.togglePersonalModal();
+  };
+  savePersonalInfoModal = () => {
+    console.log("save Data in Personal info modal");
+    this.togglePersonalModal();
+  };
+  cancelPersonalInfoModal = () => {
+    console.log("closed Personal info modal");
+    this.togglePersonalModal();
+  };
+  changePersonalInfoModal = () => {
+    console.log("change in Personal info modal");
+  };
+
+  //////////////PasswordModal///////
+  togglePasswordModal = () => {
+    let isPasswordModalOpen = this.state.isPasswordModalOpen;
+    isPasswordModalOpen = !isPasswordModalOpen;
+    this.setState({ isPasswordModalOpen });
+  };
+  openPasswordModal = () => {
+    this.togglePersonalModal();
+    this.togglePasswordModal();
+  };
+
+  changePasswordModal = () => {
+    console.log("change Password modal");
+  };
+
+  savePasswordModal = () => {
+    console.log("save Password Modal");
+    this.togglePasswordModal();
+    this.togglePersonalModal();
+  };
+
+  cancelPasswordModal = () => {
+    console.log("Close Password Modal");
+    this.togglePersonalModal();
+    this.togglePasswordModal();
+  };
+
+  /////////PaymentTypeModal///////////
+  togglePaymentModal = () => {
+    let isPaymentTypeOpen = this.state.isPaymentTypeOpen;
+    isPaymentTypeOpen = !isPaymentTypeOpen;
+    this.setState({ isPaymentTypeOpen });
+  };
+  openPaymentModal = () => {
+    this.togglePaymentModal();
+  };
+  changePaymentTypeModal = () => {
+    console.log("change PaymentType Modal");
+  };
+  savePaymentTypeModal = () => {
+    console.log("Save PaymentType Modal");
+    this.togglePaymentModal();
+  };
+  cancelPaymentTypeModal = () => {
+    console.log("Cancel PaymentType Modal");
+    this.togglePaymentModal();
+  };
   // saveNewBrachButtonHandle = () => {
   //   let branchData = { ...this.state.branchData };
   //   let branchList = [...this.state.branchList];
@@ -134,13 +202,16 @@ class Profile extends Component {
         products,
         userProfile,
         branchList,
-        isClicked,
+        isPersonalInfoModalOpen,
         branchData,
         dropdownIsOpen,
-        editBranchModalIsOpen
+        editBranchModalIsOpen,
+        isPasswordModalOpen,
+        isPaymentTypeOpen,
+        paymentTypes,
       },
 
-      openModal,
+      openPersonalModal,
       deleteButtonHandle,
       editButtonHandle,
       dropdownIsOpenHandle,
@@ -148,29 +219,57 @@ class Profile extends Component {
       cancelModalButtonHandle,
       onChangeBranchModal,
       newBranchModalOpenHandle,
-      saveModalButtonHandle
+      saveModalButtonHandle,
+      savePersonalInfoModal,
+      cancelPersonalInfoModal,
+      changePersonalInfoModal,
+      changePasswordModal,
+      savePasswordModal,
+      cancelPasswordModal,
+      openPasswordModal,
+      changePaymentTypeModal,
+      savePaymentTypeModal,
+      cancelPaymentTypeModal,
+      openPaymentModal,
     } = this;
     return (
       <React.Fragment>
-        {isClicked && (
-          <ModalSection isClicked={isClicked}>
+        {isPersonalInfoModalOpen && (
+          <ModalSection isClicked={isPersonalInfoModalOpen}>
             <EditPersonalInfoModal
-              isClicked={isClicked}
+              isClicked={isPersonalInfoModalOpen}
               userName={userProfile.userName}
               email={userProfile.email}
               discription={userProfile.discription}
               imageUrl={userProfile.imageUrl}
+              onSave={savePersonalInfoModal}
+              onCancel={cancelPersonalInfoModal}
+              onChange={changePersonalInfoModal}
+              openPasswordModal={openPasswordModal}
             />
           </ModalSection>
         )}
-        {/* <Header /> */}
+
+        {isPasswordModalOpen && (
+          <ModalSection
+            isClicked={isPasswordModalOpen}
+            classModifier="myModal__modalContent--password"
+          >
+            <EditPasswordModal
+              onChange={changePasswordModal}
+              onSave={savePasswordModal}
+              onCancel={cancelPasswordModal}
+            />
+          </ModalSection>
+        )}
+        <Header />
         <Container>
           <PersonalInfoSection
             email={userProfile.email}
             userName={userProfile.userName}
             discription={userProfile.discription}
             imageUrl={userProfile.imageUrl}
-            onClick={openModal}
+            onClick={openPersonalModal}
           />
 
           <BranchSection
@@ -197,11 +296,28 @@ class Profile extends Component {
             onChange={onChangeBranchModal}
             saveModalButtonHandle={saveModalButtonHandle}
           />
+          <PaymentType
+            paymentTypes={paymentTypes}
+            openModal={openPaymentModal}
+          />
+          {isPaymentTypeOpen && (
+            <ModalSection
+              isClicked={isPaymentTypeOpen}
+              classModifier="myModal__modalContent--password"
+            >
+              <EditPaymentType
+                paymentTypes={paymentTypes}
+                onPaymentTypeChange={changePaymentTypeModal}
+                onSave={savePaymentTypeModal}
+                onCancel={cancelPaymentTypeModal}
+              />
+            </ModalSection>
+          )}
           <div className="project-container project-container--h">
             <BestSection products={products} />
           </div>
         </Container>
-        {/* <Footer /> */}
+        <Footer />
       </React.Fragment>
     );
   }
