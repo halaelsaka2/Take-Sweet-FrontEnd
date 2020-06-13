@@ -5,8 +5,8 @@ const NotificationPopOver = ({
   isOpen,
   orders,
   handleToggle,
-  handleOpenOrder,
-  newOrders,
+  // handleOpenOrder,
+  newOrders
 }) => (
   <div style={{ position: "relative", cursor: "pointer" }}>
     <div onClick={handleToggle}>
@@ -17,11 +17,11 @@ const NotificationPopOver = ({
     </div>
     <div className={`popOver ${isOpen && "popOver-open"}`}>
       <ul>
-        {newOrders.map((order) => (
+        {newOrders.map(order => (
           <li
             key={order.id}
             className="notification-order"
-            onClick={() => handleOpenOrder(order.id)}
+            // onClick={() => handleOpenOrder(order.id)}
           >
             <Link to={`/order-details/${order.id}`}>{order.name}</Link>
           </li>

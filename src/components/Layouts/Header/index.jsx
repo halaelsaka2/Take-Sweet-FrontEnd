@@ -11,7 +11,18 @@ class Header extends Component {
     isOpen: false,
     orders: [] /*backednd*/,
     newOrders: [],
+    userName: "",
+    role: ""
   };
+
+  componentDidMount() {
+    let userObject = JSON.parse(localStorage.getItem("userObject"));
+    this.setState({
+      userName: userObject.userProfile.userName,
+      role: userObject.role
+    });
+  }
+
   handleToggle = () => {
     let { isOpen } = this.state;
     isOpen = !isOpen;
@@ -20,9 +31,9 @@ class Header extends Component {
 
   render() {
     const {
-      state: { isCompany, isCafe, isOpen, orders, newOrders },
+      state: { isCompany, isCafe, isOpen, orders, newOrders, userName, role },
       handleToggle,
-      handleOpenOrder,
+      handleOpenOrder
     } = this;
     return (
       <header className="header">
@@ -50,7 +61,7 @@ class Header extends Component {
             <li className="nav__menu__item">
               <Link to="reviewCard" className="nav__menu__link">
                 <NavLink to="/home" className="nav__menu__link">
-                 Review
+                  Review
                 </NavLink>
               </Link>
             </li>
@@ -61,14 +72,14 @@ class Header extends Component {
                 </NavLink>
               </Link>
             </li>
-            {isCompany && (
+            {role === "company" && (
               <li className="nav__menu__item">
                 <NavLink to="/seller" className="nav__menu__link">
                   Products
                 </NavLink>
               </li>
             )}
-            {isCafe && (
+            {role === "cafe" && (
               <li className="nav__menu__item">
                 <NavLink to="/brands" className="nav__menu__link">
                   Brands
@@ -81,7 +92,7 @@ class Header extends Component {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            width: "10%",
+            width: "10%"
           }}
         >
           {isCompany && (
@@ -90,15 +101,28 @@ class Header extends Component {
               orders={orders}
               newOrders={[
                 { id: 1, name: "Cake" },
-                { id: 2, name: "Donuts" },
+                { id: 2, name: "Donuts" }
               ]}
               handleToggle={handleToggle}
               handleOpenOrder={handleOpenOrder}
             />
           )}
 
+          {userName ? (
+            <NavLink to="/profile">
+              {/* <i className="fas fa-user"></i>  */}
+              {userName}
+            </NavLink>
+          ) : (
+            <NavLink to="/login">
+              <i className="fas fa-user"></i> Sign in
+            </NavLink>
+          )}
+          {/* // <NavLink to="/login">
+          //   <i className="fas fa-user"></i> Sign in
+          // </NavLink> */}
           <NavLink to="/login">
-            <i className="fas fa-user"></i> Sign in
+            <i class="fas fa-sign-out-alt"></i>
           </NavLink>
         </div>
       </header>
