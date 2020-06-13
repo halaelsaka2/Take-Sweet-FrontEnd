@@ -14,7 +14,9 @@ class RegisterGeneralInfoPage extends Component {
     newUserAccountInfo[event.target.name] = event.target.value;
     this.setState({ newUserAccountInfo });
   };
-  nextButtonHandle = event => {}
+  nextButtonHandle = (event, values) => {
+    this.props.history.push("/register-personal-info");
+  };
   render() {
     const {
       onChange,

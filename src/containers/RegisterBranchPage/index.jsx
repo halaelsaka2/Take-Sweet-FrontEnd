@@ -14,9 +14,11 @@ class RegisterBranchPage extends Component {
     this.setState({ oneBranchInfo });
   };
 
-  nextButtonHandle = event => {};
+  nextButtonHandle = event => {
+    this.props.history.push("/register-acceptance");
+  };
   backButtonHandle = event => {};
-  addBranchButtonHandle = event => {
+  addBranchButtonHandle = (event, values) => {
     let { branchesInfo, oneBranchInfo } = this.state;
     branchesInfo.push(oneBranchInfo);
     oneBranchInfo = { city: "City", address: "", phone: "" };

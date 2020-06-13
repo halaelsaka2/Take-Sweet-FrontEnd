@@ -1,6 +1,4 @@
 import React from "react";
-import Input from "../../components/Input";
-// import Button from "../../components/Button";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { AvForm, AvField } from "availity-reactstrap-validation";
@@ -56,9 +54,7 @@ const LoginSection = ({
           {/* <Link to="/profile"> */}
           <Button
             className="button--rounded button--rounded--s button--rounded--shadow"
-            // name="Login"
             type="submit"
-            // onClick={loginButtonHandle}
             color=""
           >
             Login
