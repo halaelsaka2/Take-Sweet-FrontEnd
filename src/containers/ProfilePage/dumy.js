@@ -1,23 +1,23 @@
 export const dumy = {
   products: [{
       id: 1,
-      name: "product",
-      src: "assets/images/Product-1.jpg",
+      name: "Cup Cake",
+      src: "assets/images/cake6x6.jpg",
     },
     {
       id: 2,
-      name: "product",
+      name: "Caramel Cake",
       src: "assets/images/Product-1.jpg",
     },
     {
       id: 3,
-      name: "product",
-      src: "assets/images/Product-1.jpg",
+      name: "Waffle",
+      src: "assets/images/waffle.jpeg",
     },
     {
       id: 4,
-      name: "product",
-      src: "assets/images/Product-1.jpg",
+      name: "Tart",
+      src: "assets/images/Product-2.jpg",
     },
   ],
   userProfile: {
