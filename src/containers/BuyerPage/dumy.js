@@ -29,3 +29,11 @@ export const category=[
     "category",
     "category",
 ]
+
+export const description = {
+    title: "Our Products",
+    text: `Whether you are looking for the perfect cake for a
+          celebration, browsing breakfast ideas on searching for catering options for large 
+          meetings or celebrations; our food has something for everyone.`,
+  };
+  
