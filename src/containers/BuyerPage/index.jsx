@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
 import ProductsSection from "../../components/ProductsSection";
-import { category, sortByList, products } from "./dumy";
+import { description } from "./dumy";
 import { connect } from "react-redux";
 import {
   getAllProducts,
@@ -11,23 +11,21 @@ import {
 } from "../../redux-modules/products/actions";
 
 class BuyerPage extends Component {
-
-  componentDidMount(){
+  componentDidMount() {
     this.props.getAllProducts();
     this.props.getCategoryList();
     this.props.getSortList();
-  
   }
   render() {
-   
     return (
       <React.Fragment>
         <Header />
         <ProductsSection
-          productsList={products}
-          categoryList={category}
-          sortbyList={sortByList}
+          productsList={this.props.products}
+          categoryList={this.props.category}
+          sortbyList={this.props.sortByList}
           type={"buyer-page"}
+          description={description}
         />
         <Footer />
       </React.Fragment>
