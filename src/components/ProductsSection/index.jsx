@@ -16,15 +16,15 @@ const ProductsSection = ({ productsList, sortList, categoryList, type }) => {
       <Header />
       {/* <Container ></Container> */}
       <div className="project-container project-container--h">
-        <DescriptionSection
-          titleClassName={"text-container-h3"}
-          title={"Our Products "}
-          textClassName={"text-container"}
-          text={`Whether you are looking for the perfect cake for a celebration,
+        <div className="reviewCard">
+          <DescriptionSection
+            title={"Our Products "}
+            text={`Whether you are looking for the perfect cake for a celebration,
             browsing breakfast ideas on searching for catering options for
             large meetings or celebrations; our food has something for
             everyone`}
-        ></DescriptionSection>
+          ></DescriptionSection>
+        </div>
         <div className="tabs-containera">
           <div style={{ position: "relative" }}>
             <DropDown
