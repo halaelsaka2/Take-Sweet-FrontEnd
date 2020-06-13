@@ -9,7 +9,7 @@ import ShoppingCart from "../../components/ShoppingCart";
 import ShoppingOrderContainer from "../../components/ShoppingOrderSection";
 import ProductCardsSection from "../../components/ProductCardsSection";
 import {
-  getAllProducts,
+  getAllBrands,
   getSortList,
   getCategoryList,
 } from "../../redux-modules/products/actions";
@@ -27,7 +27,7 @@ class BrandsPage extends Component {
   };
 
   componentDidMount() {
-    this.props.getAllProducts();
+    this.props.getAllBrands();
     this.props.getCategoryList();
     this.props.getSortList();
   }
@@ -38,7 +38,7 @@ class BrandsPage extends Component {
       dropDownHandler,
       state: { categoryDropDownStatus, sortDropDownStatus },
     } = this;
-        {
+     const   {
       isShoppingIconHidden,
       isShoppingBagOpen,
       isProductCardModalOpen,
@@ -46,7 +46,7 @@ class BrandsPage extends Component {
       openProductsCardModal,
       products,
     } = this.props;
-    // console.log("this.props:",this.props)
+    console.log("this.props:",this.props)
 
     return (
       <React.Fragment>
@@ -98,7 +98,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getAllProducts: () => dispatch(getAllProducts()),
+
+    getAllBrands: () => dispatch(getAllBrands()),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
   };

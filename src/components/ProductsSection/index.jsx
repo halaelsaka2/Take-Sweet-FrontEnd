@@ -51,10 +51,11 @@ const ProductsSection = ({
           </div>
           <Search></Search>
         </div>
-        {type === "seller" ? (
+        {type === "seller" || "buyer" ? (
           <div className="list-container">
             {productsList.map((item) => (
               <ProductItem
+                type={type}
                 name={item.name}
                 src={item.src}
                 amount={item.amount}
