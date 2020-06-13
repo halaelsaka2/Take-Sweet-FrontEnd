@@ -3,6 +3,10 @@ import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
 import HistoryFromUserSection from "../../components/HistoryFromUserSection";
 import constents from "./constents";
+import HistoryIcon from "../../components/HistoryIcon";
+import ShoppingCart from "../../components/ShoppingCart";
+import ShoppingOrderContainer from "../../components/ShoppingOrderSection";
+import ProductCardsSection from "../../components/ProductCardsSection";
 
 class HistoryFromUser extends Component {
   state = {
@@ -54,6 +58,14 @@ class HistoryFromUser extends Component {
 
   render() {
     const {
+      isShoppingIconHidden,
+      isShoppingBagOpen,
+      isProductCardModalOpen,
+      toggleShoppingBag,
+      openProductsCardModal,
+      products
+    } = this.props;
+    const {
       state: {
         date,
         statusTabs,
@@ -75,6 +87,25 @@ class HistoryFromUser extends Component {
     return (
       <React.Fragment>
         <Header />
+        <ShoppingCart
+          number={2}
+          openShoppingBag={toggleShoppingBag}
+          isHidden={isShoppingIconHidden}
+        />
+        <ShoppingOrderContainer
+          shoppingOrderList={[1, 2, 3]}
+          isOpen={isShoppingBagOpen}
+          closeShoppingBag={toggleShoppingBag}
+          openCardModal={openProductsCardModal}
+        />
+        {isProductCardModalOpen && (
+          <ProductCardsSection
+            isClicked={isProductCardModalOpen}
+            productCards={products}
+            closeProductsModal={openProductsCardModal}
+            handleDelete
+          />
+        )}
         <HistoryFromUserSection
           productCards={statusProducts}
           currentProducts={currentProducts}
