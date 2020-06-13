@@ -1,10 +1,12 @@
 import React from "react";
 import Stepper from "../Stepper";
 import Dropdown from "../Dropdown";
-import Button from "../Button";
-import Input from "../Input";
+// import Button from "../Button";
+// import Input from "../Input";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { AvForm, AvField } from "availity-reactstrap-validation";
+import { Button } from "reactstrap";
 
 const RegisterBranchSection = ({
   cityValue,
@@ -25,78 +27,98 @@ const RegisterBranchSection = ({
   nextButtonHandle,
   dropdownIsOpen,
   dropdownIsOpenHandle,
-  selectCityHandle,
+  selectCityHandle
 }) => (
   <div className="register-container">
     <div className="register-form-container">
       <div className="register-form">
-        <div className="register-header">Register</div>
-        <Stepper
-          steps={[1, 2, 3]}
-          stepClassNames={[
-            "circle--finished",
-            "circle--finished",
-            "circle--active",
-          ]}
-          pipeClassNames={["pipe--finished", "pipe--finished"]}
-        />
+        <AvForm onValidSubmit={addBranchButtonHandle}>
+          <div className="register-header">Register</div>
+          <Stepper
+            steps={[1, 2, 3]}
+            stepClassNames={[
+              "circle--finished",
+              "circle--finished",
+              "circle--active"
+            ]}
+            pipeClassNames={["pipe--finished", "pipe--finished"]}
+          />
 
-        <div className="branches-container">
-          <div className="profileLabel  profileLabel--left">Branches</div>
-          <div className="branches-div">
-            <div className="reg-dropdown-container reg-dropdown-container--reg4">
-              <Dropdown
-                additionalStyle={"dropdown--br1"}
-                Header={cityValue}
-                ListItems={[
-                  "Cairo",
-                  "Alexandria",
-                  "Ismailia",
-                  "Portsaid",
-                  "Suez",
-                ]}
-                isOpened={dropdownIsOpen}
-                IsOpenHandle={dropdownIsOpenHandle}
-                selectionHandle={selectCityHandle}
-              />
-            </div>
-            <div id="location">
-              <div className="location-container">
-                <Input
-                  className="input input--mwh"
-                  type={addressType}
-                  placeholder={addressPlaceholder}
-                  name={addressName}
-                  id={addressId}
-                  value={addressValue}
-                  onChange={onChange}
+          <div className="branches-container">
+            <div className="profileLabel  profileLabel--left">Branches</div>
+            <div className="branches-div">
+              <div className="reg-dropdown-container reg-dropdown-container--reg4">
+                <Dropdown
+                  additionalStyle={"dropdown--br1"}
+                  Header={cityValue}
+                  listItems={[
+                    "Cairo",
+                    "Alexandria",
+                    "Ismailia",
+                    "Portsaid",
+                    "Suez"
+                  ]}
+                  isOpened={dropdownIsOpen}
+                  IsOpenHandle={dropdownIsOpenHandle}
+                  selectionHandle={selectCityHandle}
                 />
-                <i className="fas fa-2x fa-map-marker-alt map-icon "></i>
               </div>
-              <Input
-                className="input input--mwh"
-                type={phoneType}
-                placeholder={phonePlaceholder}
-                name={phoneName}
-                id={phoneId}
-                value={phoneValue}
-                onChange={onChange}
-              />
-              <div className="add-branch">
-                <Button
-                  className="button--rounded button--rounded--s button--rounded--shadow"
-                  name="Add"
-                  onClick={addBranchButtonHandle}
+              <div id="location">
+                <div className="location-container">
+                  <AvField
+                    className="input input--mwh"
+                    type={addressType}
+                    placeholder={addressPlaceholder}
+                    name={addressName}
+                    id={addressId}
+                    value={addressValue}
+                    onChange={onChange}
+                    validate={{
+                      required: {
+                        value: true,
+                        errorMessage: "Address can't be empty"
+                      }
+                    }}
+                  />
+                  <i className="fas fa-2x fa-map-marker-alt map-icon "></i>
+                </div>
+                <AvField
+                  className="input input--mwh"
+                  type={phoneType}
+                  placeholder={phonePlaceholder}
+                  name={phoneName}
+                  id={phoneId}
+                  value={phoneValue}
+                  onChange={onChange}
+                  validate={{
+                    required: {
+                      value: true,
+                      errorMessage: "Phone can't be empty"
+                    },
+                    phone: { value: true, errorMessage: "Invalid phone number" }
+                  }}
                 />
+                <div className="add-branch">
+                  <Button
+                    className="button--rounded button--rounded--s button--rounded--shadow"
+                    // name="Add"
+                    // onClick={addBranchButtonHandle}
+                    color=""
+                  >
+                    Add
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="branches-link">
+        </AvForm>
+        <div className="branches-link-div">
           {numberOfBranches > 0 && (
             <React.Fragment>
               <span>{numberOfBranches} Brach.</span>
-              <Link to="/register-branch-details">check your branches</Link>
+              <Link to="/register-branch-details" className="branches-link">
+                check your branches
+              </Link>
             </React.Fragment>
           )}
         </div>
@@ -104,16 +126,22 @@ const RegisterBranchSection = ({
           <div className="flex-buttons-container">
             <Button
               className="button--rounded button--rounded--s button--rounded--shadow"
-              name="Back"
-              onClick={backButtonHandle}
-            />
-            <Link to="register-acceptance">
-              <Button
-                className="button--rounded button--rounded--s button--rounded--shadow"
-                name="Next"
-                onClick={nextButtonHandle}
-              />
-            </Link>
+              // name="Back"
+              // onClick={backButtonHandle}
+              color=""
+            >
+              <Link to="/register-personal-info">Back</Link>
+            </Button>
+            {/* <Link to="register-acceptance"> */}
+            <Button
+              className="button--rounded button--rounded--s button--rounded--shadow"
+              // name="Next"
+              onClick={nextButtonHandle}
+              color=""
+            >
+              Next
+            </Button>
+            {/* </Link> */}
           </div>
         </div>
       </div>
@@ -144,6 +172,6 @@ RegisterBranchSection.propTypes = {
   dropdownIsOpen: PropTypes.bool,
   dropdownIsOpenHandle: PropTypes.func,
   selectCityHandle: PropTypes.func,
-  numberOfBranches: PropTypes.number,
+  numberOfBranches: PropTypes.number
 };
 export default RegisterBranchSection;
