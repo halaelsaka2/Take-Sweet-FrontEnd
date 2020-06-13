@@ -14,6 +14,7 @@ import { Container } from "reactstrap";
 import { dumy } from "./dumy";
 import constants from "./constants";
 import EditPaymentType from "../../components/EditPaymentTypeModal";
+import HistoryIcon from "../../components/HistoryIcon";
 
 class Profile extends Component {
   state = {
@@ -262,7 +263,9 @@ class Profile extends Component {
             />
           </ModalSection>
         )}
+
         <Header />
+        <HistoryIcon/>
         <Container>
           <PersonalInfoSection
             email={userProfile.email}
