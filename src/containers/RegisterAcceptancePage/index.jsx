@@ -4,21 +4,26 @@ import constants from "./constants";
 
 class RegisterAcceptancePage extends Component {
   state = { checked: false };
-  checkHandle = event => {
+  checkHandle = (event) => {
     let checked = { ...this.state.checked };
     checked = event.target.checked;
     this.setState({ checked });
   };
-  backButtonHandle = event => {}
+  backButtonHandle = (event) => {
+    this.props.history.push("/register-branch");
+  };
 
-  registerButtonHandle = event => {}
+  registerButtonHandle = (event) => {
+    window.history.replaceState(null, null, "/");
+    this.props.history.push("/profile");
+  };
 
   render() {
     const {
       checkHandle,
       backButtonHandle,
       registerButtonHandle,
-      state: { checked }
+      state: { checked },
     } = this;
     return (
       <RegisterAcceptanceSection

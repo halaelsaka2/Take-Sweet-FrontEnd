@@ -6,7 +6,7 @@ import NotificationPopOver from "./../../NotificationPopover/index";
 
 class Header extends Component {
   state = {
-    isCompany: true,
+    isCompany: false,
     isCafe: false,
     isOpen: false,
     orders: [] /*backednd*/,
@@ -49,13 +49,21 @@ class Header extends Component {
         <nav className="nav">
           <ul className="nav__menu">
             <li className="nav__menu__item">
-              <NavLink to="/home" className="nav__menu__link">
+              <NavLink
+                to="/home"
+                activeClassName="activeLink"
+                className="nav__menu__link"
+              >
                 Home
               </NavLink>
             </li>
             <li className="nav__menu__item">
               <Link to="about-us" className="nav__menu__link">
-                <NavLink to="/home" className="nav__menu__link">
+                <NavLink
+                  to="/home"
+                  className="nav__menu__link"
+                  activeClassName="activeLink"
+                >
                   About us
                 </NavLink>
               </Link>
@@ -97,7 +105,7 @@ class Header extends Component {
             width: "10%",
           }}
         >
-          {isCompany && (
+          {role === "company" && (
             <NotificationPopOver
               isOpen={isOpen}
               orders={orders}

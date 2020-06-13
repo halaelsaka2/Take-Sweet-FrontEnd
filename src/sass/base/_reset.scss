@@ -61,28 +61,28 @@ input:-webkit-autofill:focus {
   background: $main-white;
 }
 
-a:link {
-  text-decoration: none !important;
-  color: $main-black !important;
-}
+// a:link {
+//   text-decoration: none !important;
+//   color: $main-black !important;
+// }
 
-/* visited link */
-a:visited {
-  text-decoration: none;
-  color: $main-black;
-}
+// /* visited link */
+// a:visited {
+//   text-decoration: none;
+//   color: $main-black;
+// }
 
-/* mouse over link */
-a:hover {
-  text-decoration: none;
-  color: $main-black;
-}
+// /* mouse over link */
+// a:hover {
+//   text-decoration: none;
+//   color: $main-black;
+// }
 
-/* selected link */
-a:active {
-  text-decoration: none;
-  color: $main-black;
-}
+// /* selected link */
+// a:active {
+//   text-decoration: none;
+//   color: $main-black;
+// }
 
 .form-check {
   margin-right: 9rem;

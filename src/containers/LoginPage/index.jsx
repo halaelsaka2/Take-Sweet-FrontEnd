@@ -6,11 +6,11 @@ class LoginPage extends Component {
   state = {
     user: {
       email: "",
-      password: ""
-    }
+      password: "",
+    },
   };
 
-  inputHandler = event => {
+  inputHandler = (event) => {
     const { name, value } = event.target;
     const user = { ...this.state.user };
     user[name] = value;
@@ -24,15 +24,15 @@ class LoginPage extends Component {
         email: "elabd@gmail.com",
         userName: "El Abd",
         discription: "this is El Abd",
-        imageUrl: ""
+        imageUrl: "assets/images/ElAbd.jpg",
       },
 
       branchList: [
         { city: "Cairo", address: "el maadi", phone: "0128855888" },
         { city: "Cairo", address: "el zamalk", phone: "0128855888" },
-        { city: "Alexandra", address: "Green plaza", phone: "0128855888" }
+        { city: "Alexandra", address: "Green plaza", phone: "0128855888" },
       ],
-      role: "company"
+      role: "company",
     };
 
     let cafeObject = {
@@ -40,13 +40,13 @@ class LoginPage extends Component {
         email: "moka@gmail.com",
         userName: "Moka",
         discription: "this is moka",
-        imageUrl: ""
+        imageUrl: "assets/images/moka.jpeg",
       },
 
       branchList: [
-        { city: "ismailia", address: "nemra6", phone: "0128855888" }
+        { city: "ismailia", address: "nemra6", phone: "0128855888" },
       ],
-      role: "cafe"
+      role: "cafe",
     };
 
     if (user.email === companyObject.userProfile.email) {
@@ -62,8 +62,8 @@ class LoginPage extends Component {
       inputHandler,
       loginButtonHandle,
       state: {
-        user: { email, password }
-      }
+        user: { email, password },
+      },
     } = this;
     return (
       <LoginSection

@@ -32,26 +32,28 @@ class Profile extends Component {
     selectedIndex: null,
     editBranchModalIsOpen: false,
     dropdownIsOpen: false,
-    role: ""
+    role: "",
   };
 
   componentDidMount() {
     let userObject = JSON.parse(localStorage.getItem("userObject"));
     console.log(userObject);
-    this.setState({
-      userProfile: userObject.userProfile,
-      branchList: userObject.branchList,
-      role: userObject.role
-    });
+    if (userObject) {
+      this.setState({
+        userProfile: userObject.userProfile,
+        branchList: userObject.branchList,
+        role: userObject.role,
+      });
+    }
   }
 
-  deleteButtonHandle = index => {
+  deleteButtonHandle = (index) => {
     let branchList = [...this.state.branchList];
-    branchList = branchList.filter(list => list !== branchList[index]);
+    branchList = branchList.filter((list) => list !== branchList[index]);
     this.setState({ branchList });
   };
 
-  editButtonHandle = index => {
+  editButtonHandle = (index) => {
     let branchList = [...this.state.branchList];
     let branchData = { ...this.state.branchData };
     let editBranchModalIsOpen = this.state.editBranchModalIsOpen;
@@ -62,23 +64,23 @@ class Profile extends Component {
     this.setState({
       branchData,
       editBranchModalIsOpen,
-      selectedIndex
+      selectedIndex,
     });
   };
 
-  onChangeBranchModal = event => {
+  onChangeBranchModal = (event) => {
     let branchData = { ...this.state.branchData };
     branchData[event.target.name] = event.target.value;
     this.setState({ branchData });
   };
 
-  dropdownIsOpenHandle = event => {
+  dropdownIsOpenHandle = (event) => {
     let dropdownIsOpen = this.state.dropdownIsOpen;
     dropdownIsOpen = !dropdownIsOpen;
     this.setState({ dropdownIsOpen });
   };
 
-  selectCityHandle = event => {
+  selectCityHandle = (event) => {
     let branchData = { ...this.state.branchData };
     let dropdownIsOpen = this.state.dropdownIsOpen;
     branchData.city = event.target.textContent;
@@ -113,7 +115,7 @@ class Profile extends Component {
         editBranchModalIsOpen,
         selectedIndex,
         branchData,
-        branchList
+        branchList,
       });
     } else if (selectedIndex === null) {
       console.log("beww");
@@ -125,7 +127,7 @@ class Profile extends Component {
       this.setState({
         editBranchModalIsOpen,
         branchData,
-        branchList
+        branchList,
       });
     }
   };
@@ -220,7 +222,7 @@ class Profile extends Component {
       isShoppingBagOpen,
       isProductCardModalOpen,
       toggleShoppingBag,
-      openProductsCardModal
+      openProductsCardModal,
     } = this.props;
     const {
       state: {
@@ -233,7 +235,8 @@ class Profile extends Component {
         editBranchModalIsOpen,
         isPasswordModalOpen,
         isPaymentTypeOpen,
-        paymentTypes
+        paymentTypes,
+        role,
       },
 
       openPersonalModal,
@@ -255,7 +258,7 @@ class Profile extends Component {
       changePaymentTypeModal,
       savePaymentTypeModal,
       cancelPaymentTypeModal,
-      openPaymentModal
+      openPaymentModal,
     } = this;
 
     return (
@@ -311,7 +314,7 @@ class Profile extends Component {
             handleDelete
           />
         )}
-        
+
         <Container>
           <PersonalInfoSection
             email={userProfile.email}
@@ -345,10 +348,12 @@ class Profile extends Component {
             onChange={onChangeBranchModal}
             saveModalButtonHandle={saveModalButtonHandle}
           />
-          <PaymentType
-            paymentTypes={paymentTypes}
-            openModal={openPaymentModal}
-          />
+          {role === "company" && (
+            <PaymentType
+              paymentTypes={paymentTypes}
+              openModal={openPaymentModal}
+            />
+          )}
           {isPaymentTypeOpen && (
             <ModalSection
               isClicked={isPaymentTypeOpen}
