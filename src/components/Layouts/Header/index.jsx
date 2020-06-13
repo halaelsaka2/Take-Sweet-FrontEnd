@@ -12,15 +12,17 @@ class Header extends Component {
     orders: [] /*backednd*/,
     newOrders: [],
     userName: "",
-    role: ""
+    role: "",
   };
 
   componentDidMount() {
     let userObject = JSON.parse(localStorage.getItem("userObject"));
-    this.setState({
-      userName: userObject.userProfile.userName,
-      role: userObject.role
-    });
+    if (userObject) {
+      this.setState({
+        userName: userObject.userProfile.userName,
+        role: userObject.role,
+      });
+    }
   }
 
   handleToggle = () => {
@@ -33,7 +35,7 @@ class Header extends Component {
     const {
       state: { isCompany, isCafe, isOpen, orders, newOrders, userName, role },
       handleToggle,
-      handleOpenOrder
+      handleOpenOrder,
     } = this;
     return (
       <header className="header">
@@ -92,7 +94,7 @@ class Header extends Component {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            width: "10%"
+            width: "10%",
           }}
         >
           {isCompany && (
@@ -101,7 +103,7 @@ class Header extends Component {
               orders={orders}
               newOrders={[
                 { id: 1, name: "Cake" },
-                { id: 2, name: "Donuts" }
+                { id: 2, name: "Donuts" },
               ]}
               handleToggle={handleToggle}
               handleOpenOrder={handleOpenOrder}
