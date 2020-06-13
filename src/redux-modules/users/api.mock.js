@@ -1,0 +1,15 @@
+export const register = (user) =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(user);
+    }, 3000);
+  });
+
+export const login = (user) => {
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const token = "3a1sd231sd2f1a2s2d32a";
+      resolve(token);
+    });
+  });
+};
