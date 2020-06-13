@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
 import ProductsSection from "../../components/ProductsSection";
-import { category, sortByList, products } from "./dumy";
+import { description } from "./dumy";
 import { connect } from "react-redux";
 import {
   getAllProducts,
@@ -25,6 +25,7 @@ class BrandsPage extends Component {
           productsList={this.props.productsList}
           categoryList={this.props.categoryList}
           sortList={this.props.sortList}
+          description={description}
           type={"Brands"}
         />
         <Footer />
