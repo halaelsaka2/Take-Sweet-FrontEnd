@@ -3,7 +3,7 @@ import AboutUsImageLeft from "../AboutUsImageleft";
 import AboutUsImageRight from "../AboutUsImageRight";
 
 const AboutUsSection = ({ AboutUsContext }) => (
-  <div className="about-us">
+  <div className="about-us" id={"about-us"}>
     <div className="about-us__header">About Us</div>
     <div className="about-us__about-us-container">
       {AboutUsContext.map((row) =>

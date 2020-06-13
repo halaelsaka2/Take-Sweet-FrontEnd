@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+
+import { Link, animateScroll as scroll } from "react-scroll";
 import NotificationPopOver from "./../../NotificationPopover/index";
 
 class Header extends Component {
@@ -39,24 +41,25 @@ class Header extends Component {
               </NavLink>
             </li>
             <li className="nav__menu__item">
-              <NavLink to="/home" className="nav__menu__link">
-                Features
-              </NavLink>
+              <Link to="about-us" className="nav__menu__link">
+                <NavLink to="/home" className="nav__menu__link">
+                  About us
+                </NavLink>
+              </Link>
             </li>
             <li className="nav__menu__item">
-              <NavLink to="/home" className="nav__menu__link">
-                About us
-              </NavLink>
+              <Link to="reviewCard" className="nav__menu__link">
+                <NavLink to="/home" className="nav__menu__link">
+                 Review
+                </NavLink>
+              </Link>
             </li>
             <li className="nav__menu__item">
-              <NavLink to="/home" className="nav__menu__link">
-                Review
-              </NavLink>
-            </li>
-            <li className="nav__menu__item">
-              <NavLink to="/home" className="nav__menu__link">
-                Contact
-              </NavLink>
+              <Link to="footer" className="nav__menu__link">
+                <NavLink to="/home" className="nav__menu__link">
+                  Contact
+                </NavLink>
+              </Link>
             </li>
             {isCompany && (
               <li className="nav__menu__item">

@@ -4,7 +4,7 @@ import Bestcompaniesitem from "../Bestcompaniesitem";
 import PropTypes from "prop-types";
 
 const Bestcompanies = ({ companies }) => (
-  <div className="project-container project-container--h">
+  <React.Fragment>
     <div className="bestContainer__header">Our Best Sellers</div>
     <div className="text-container">
       Whether you are looking for the perfect cake for a celebration, browsing
@@ -17,7 +17,7 @@ const Bestcompanies = ({ companies }) => (
         <Bestcompaniesitem src={company.src} key={company.id} />
       ))}
     </div>
-  </div>
+  </React.Fragment>
 );
 
 export default Bestcompanies;
