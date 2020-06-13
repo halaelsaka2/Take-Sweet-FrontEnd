@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import { Button } from "reactstrap";
-import { Popover, PopoverHeader, PopoverBody } from "reactstrap";
 import NotificationPopOver from "./../../NotificationPopover/index";
-// import { useHistory } from "react-route-dom";
 
 class Header extends Component {
   state = {
@@ -11,21 +8,14 @@ class Header extends Component {
     isCafe: false,
     isOpen: false,
     orders: [] /*backednd*/,
-    newOrders: [
-      { id: 1, name: "Cake" },
-      { id: 2, name: "Donuts" },
-    ],
+    newOrders: [],
   };
   handleToggle = () => {
     let { isOpen } = this.state;
     isOpen = !isOpen;
     this.setState({ isOpen });
   };
-  handleOpenOrder = (id) => {
-    // this.props.history.push("/order-details");
-    // const history = useHistory();
-    console.log(this.props.history);
-  };
+
   render() {
     const {
       state: { isCompany, isCafe, isOpen, orders, newOrders },
@@ -95,7 +85,10 @@ class Header extends Component {
             <NotificationPopOver
               isOpen={isOpen}
               orders={orders}
-              newOrders={newOrders}
+              newOrders={[
+                { id: 1, name: "Cake" },
+                { id: 2, name: "Donuts" },
+              ]}
               handleToggle={handleToggle}
               handleOpenOrder={handleOpenOrder}
             />
