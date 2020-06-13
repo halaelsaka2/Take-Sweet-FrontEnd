@@ -7,8 +7,13 @@ import DropDown from "../Dropdown";
 import PropTypes from "prop-types";
 import Plus from "../AddProductPlus";
 import { Link } from "react-router-dom";
+import { Container } from "reactstrap";
+import Pagination from "../Pagination";
 
 const ProductsSellerSection = ({
+  paginate,
+  productsPerPage,
+  currentPage,
   sortDropDownStatus,
   categoryDropDownStatus,
   dropDownHandler,
@@ -17,6 +22,12 @@ const ProductsSellerSection = ({
   categoryList,
   Type,
 }) => {
+  const firstIndex = (currentPage - 1) * productsPerPage;
+    const lastIndex = firstIndex + productsPerPage;
+    const currentProducts = productsList.slice(
+      firstIndex,
+      lastIndex
+    );
   return (
     <React.Fragment>
       <Header></Header>
@@ -58,6 +69,16 @@ const ProductsSellerSection = ({
             ></ProductItem>
           ))}
         </div>
+        {productsList.length > productsPerPage && (
+          <Container>
+            <Pagination
+              productsPerPage={productsPerPage}
+              totalProducts={productsList.length}
+              currentPage={currentPage}
+              paginate={paginate}
+            />
+          </Container>
+        )}
       </div>
       <Footer></Footer>
     </React.Fragment>

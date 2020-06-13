@@ -12,8 +12,18 @@ class ProductsPage extends Component {
   state = {
     categoryDropDownStatus: false,
     sortDropDownStatus: false,
+    productsPerPage: 9,
+    currentPage: 1,
   };
-
+  paginate = (currentPage) => {
+    if (
+      0 < currentPage &&
+      currentPage <=
+        Math.ceil(this.props.productsList.length / this.state.productsPerPage)
+    ) {
+      this.setState({ currentPage });
+    }
+  };
   dropDownHandler = (name) => {
     this.setState({
       [name]: !this.state[name],
@@ -33,6 +43,9 @@ class ProductsPage extends Component {
     } = this;
     return (
       <ProductsSellerSection
+        paginate={this.paginate}
+        productsPerPage={this.state.productsPerPage}
+        currentPage={this.state.currentPage}
         productsList={this.props.productsList}
         categoryList={this.props.categoryList}
         sortList={this.props.sortList}
