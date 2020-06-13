@@ -1,22 +1,23 @@
-import React, { Component } from "react";
-import ProductsSection from "../../components/ProductsSection";
+// import React, { Component } from "react";
+// import Header from "../../components/Layouts/Header";
+// import Footer from "../../components/Layouts/Footer";
+// import ProductsSellerSection from "../../components/ProductsSellerSection";
+// import { category, sortByList, products } from "./dumy";
 
-export default class ProductsPage extends Component {
-  state = {
-    products: [],
-    sortbyList: [],
-    categoryList: [],
-    pagetype: this.props.pagetype,
-  };
+// export default class BrandsPage extends Component {
+//   render() {
+//     return (
+//       <React.Fragment>
+//         <Header />
+//         <ProductsSellerSection
+//           products={products}
+//           category={category}
+//           sortbyList={sortByList}
+//           type={"brand-page"}
+//         />
+//         <Footer />
+//       </React.Fragment>
+//     );
+//   }
+// }
 
-  render() {
-    return (
-      <ProductsSection
-        products={this.products}
-        sortbyList={this.state.sortbyList}
-        categoryList={this.state.categoryList}
-        pagetype={this.state.pagetype}
-      ></ProductsSection>
-    );
-  }
-}

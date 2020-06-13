@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
 import AddProducSection from "../../components/AddProductSection";
 import constants from "./contants";
 

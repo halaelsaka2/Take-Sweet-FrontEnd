@@ -56,19 +56,31 @@
     margin-bottom: 8rem;
     font-size: 5rem;
     font-weight: bold;
+    text-align: center;
 }
 
-.login-form>input {
+.login-form>div {
+    width: 100%;
     margin-bottom: 2em;
 }
 
 .login-form>button {
     margin: 1rem 0rem 2rem 0rem;
     font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+
 }
 
-.login-form>a {
+.login-form>.register-now {
     margin-top: 6rem;
     cursor: pointer;
     font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.register-now:hover {
+    text-decoration: none;
+    color: $main-black;
 }

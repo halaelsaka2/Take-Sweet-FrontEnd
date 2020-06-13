@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import LoginSection from "../../components/LoginSection";
-import constants from"./constants"
+import constants from "./constants";
 
 class LoginPage extends Component {
   state = {
@@ -15,8 +15,9 @@ class LoginPage extends Component {
     this.setState({ userAccountInfo });
   };
 
-  loginButtonHandle = event => console.log(this.state);
-
+  loginButtonHandle = (event, values) => {
+    this.props.history.replace("/profile");
+  };
   render() {
     const {
       onChange,
