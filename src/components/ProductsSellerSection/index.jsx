@@ -6,6 +6,7 @@ import ProductItem from "../ProductItem";
 import DropDown from "../Dropdown";
 import PropTypes from "prop-types";
 import Plus from "../AddProductPlus";
+import { Link } from "react-router-dom";
 
 const ProductsSellerSection = ({
   sortDropDownStatus,
@@ -20,29 +21,31 @@ const ProductsSellerSection = ({
     <React.Fragment>
       <Header></Header>
       <div className="project-container project-container--h">
-
         <div class="gridAdded">
-        <div className="tabs-containera">
-          <div style={{ position: "relative" }}>
-            <DropDown
-            status={sortDropDownStatus}
-            dropDownHandler={dropDownHandler}
-              listItems={sortList}
-              isOpened={true}
-              Header={"sortBy"}
-            ></DropDown>
+          <div className="tabs-containera">
+            <div style={{ position: "relative" }}>
+              <DropDown
+                status={sortDropDownStatus}
+                dropDownHandler={dropDownHandler}
+                listItems={sortList}
+                isOpened={true}
+                Header={"sortBy"}
+              ></DropDown>
+            </div>
+            <div style={{ position: "relative" }}>
+              <DropDown
+                status={categoryDropDownStatus}
+                dropDownHandler={dropDownHandler}
+                listItems={categoryList}
+                isOpened={false}
+                Header={"Category"}
+              ></DropDown>
+            </div>
+            <Search></Search>
           </div>
-          <div style={{ position: "relative" }}>
-            <DropDown
-            status={categoryDropDownStatus}
-            dropDownHandler={dropDownHandler}
-              listItems={categoryList}
-              isOpened={false}
-              Header={"Category"}
-            ></DropDown>
-          </div>
-          <Search></Search>
-          </div>
+          <Link to="add-product">
+            <Plus></Plus>
+          </Link>
         </div>
 
         <div className="list-container">

@@ -36,7 +36,7 @@ class BuyerPage extends Component {
       dropDownHandler,
       state: { categoryDropDownStatus, sortDropDownStatus },
     } = this;
-        {
+      const  {
       isShoppingIconHidden,
       isShoppingBagOpen,
       isProductCardModalOpen,
@@ -72,7 +72,7 @@ class BuyerPage extends Component {
           productsList={this.props.productsList}
           categoryList={this.props.categoryList}
           sortList={this.props.sortList}
-          type={"buyer-page"}
+          type={"buyer"}
           description={description}
           sortDropDownStatus={sortDropDownStatus}
           categoryDropDownStatus={categoryDropDownStatus}

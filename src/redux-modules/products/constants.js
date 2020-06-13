@@ -5,3 +5,4 @@ export const GET_PRODUCT_BY_ID = "GET_PRODUCT_BY_ID";
 export const DELETE_PRODUCT_BY_ID = "DELETE_PRODUCT_BY_ID";
 export const EDIT_PRODUCT_BY_ID = " EDIT_PRODUCT_BY_ID ";
 export const ADD_PRODUCT = "ADD_PRODUCT";
+export const GET_ALL_BRANDS = "GET_ALL_BRANDS";

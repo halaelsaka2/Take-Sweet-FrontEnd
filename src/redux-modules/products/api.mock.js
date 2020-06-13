@@ -2,30 +2,30 @@ export const getSortList = () =>
   new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(sortByList);
-    }, 3000);
+    }, 1000);
   });
 export const getAllProducts = () =>
   new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(products);
-    }, 3000);
+    }, 1000);
   });
-export const getAllbrands = () =>
+export const getAllBrands = () =>
   new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(brands);
-    }, 3000);
+    }, 1000);
   });
 export const getCategoryList = () =>
   new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(category);
-    }, 3000);
+    }, 1000);
   });
 export const addProduct = (product) => {
   const newProduct = product;
   new Promise((resolve, reject) => {
-    setTimeout(() => newProduct, 3000);
+    setTimeout(() => newProduct, 1000);
   });
 };
 export const products = [{
@@ -210,24 +210,11 @@ export const brands = [{
 }, ];
 
 export const sortByList = [
-  "ahmed",
-  "ahmed",
-  "ahmed",
-  "ahmed",
-  "ahmed",
-  "ahmed",
-  "ahmed",
-  "ahmed",
+  "Name", "Price"
+
 ];
 
 export const category = [
-  "category",
-  "category",
-  "category",
-  "category",
-  "category",
-  "category",
-  "category",
-  "category",
-  "category",
+  "Bakery", "Pastery", "Coffee"
+
 ];
