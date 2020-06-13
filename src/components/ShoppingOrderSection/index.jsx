@@ -11,19 +11,20 @@ const ShoppingOrderContainer = ({
   openCardModal,
 }) => (
   <React.Fragment>
-    {/* <ShoppingCart number={number} openShoppingBag={openShoppingBag}/> */}
-    <div className={`shoppingCart ${isOpen && "openBag"}`}>
-      <div className="shoppingCart__title">
-        <h4>Shopping Bag</h4>
-        <i className="fas fa-times" onClick={closeShoppingBag}></i>
+    <div className="shoppingCart-container">
+      <div className={`shoppingCart ${isOpen && "openBag"}`}>
+        <div className="shoppingCart__title">
+          <h4>Shopping Bag</h4>
+          <i className="fas fa-times" onClick={closeShoppingBag}></i>
+        </div>
+        {shoppingOrderList.length === 0 && (
+          <h5>you have no items in shopping card...</h5>
+        )}
+        <ShoppingOrderList
+          shoppingOrderList={shoppingOrderList}
+          openCardModal={openCardModal}
+        />
       </div>
-      {shoppingOrderList.length === 0 && (
-        <h5>you have no items in shopping card...</h5>
-      )}
-      <ShoppingOrderList
-        shoppingOrderList={shoppingOrderList}
-        openCardModal={openCardModal}
-      />
     </div>
   </React.Fragment>
 );
