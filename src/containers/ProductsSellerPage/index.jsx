@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ProductsSection from "../../components/ProductsSection";
 import { connect } from "react-redux";
 import * as actions from "../../redux-modules/products/actions";
 import PropTypes from "prop-types";
