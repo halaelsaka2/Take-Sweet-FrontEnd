@@ -12,7 +12,12 @@
   right: 0%;
   left: 96.1%;
 }
-
+.hiddenCar {
+  display: none;
+}
+.shoppingCart-container {
+  position: relative;
+}
 .shoppingCart {
   width: 40rem;
   padding: 1rem;
@@ -20,8 +25,12 @@
   border: 1px solid $primary-alpine;
   display: flex;
   flex-direction: column;
-  float: right;
+  position: absolute;
+  left: 112.5rem;
+  top: 1rem;
   background-color: $floral-white-3;
+  display: none;
+  z-index: 100;
 
   &__title {
     display: flex;
@@ -76,6 +85,10 @@
 
     }
   }
+}
+
+.openBag {
+  display: flex;
 }
 
 .line {

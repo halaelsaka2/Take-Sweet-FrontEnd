@@ -17,7 +17,9 @@ class RegisterPersonalInfoPage extends Component {
     this.setState({ newUserPersonalInfo });
   };
 
-  nextButtonHandle = event => {};
+  nextButtonHandle = (event, values) => {
+    this.props.history.push("/register-branch");
+  };
   backButtonHandle = event => {};
 
   dropdownIsOpenHandle = event => {

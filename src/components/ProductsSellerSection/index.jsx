@@ -5,6 +5,7 @@ import Search from "../Search";
 import ProductItem from "../ProductItem";
 import DropDown from "../Dropdown";
 import PropTypes from "prop-types";
+import Plus from "../AddProductPlus";
 
 const ProductsSellerSection = ({
   sortDropDownStatus,
@@ -19,6 +20,8 @@ const ProductsSellerSection = ({
     <React.Fragment>
       <Header></Header>
       <div className="project-container project-container--h">
+
+        <div class="gridAdded">
         <div className="tabs-containera">
           <div style={{ position: "relative" }}>
             <DropDown
@@ -39,6 +42,7 @@ const ProductsSellerSection = ({
             ></DropDown>
           </div>
           <Search></Search>
+          </div>
         </div>
 
         <div className="list-container">

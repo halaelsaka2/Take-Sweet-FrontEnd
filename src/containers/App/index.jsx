@@ -22,7 +22,58 @@ import OrderDetailsPage from "../OrderDetailsPage";
 import NotificationPopOver from "./../../components/NotificationPopover/index";
 
 export default class App extends Component {
+  state = {
+    isShoppingIconHidden: false,
+    isShoppingBagOpen: false,
+    isProductCardModalOpen: false,
+    products: [{
+      id: 1,
+      name: "Cup Cake",
+      src: "assets/images/cake6x6.jpg",
+    },
+    {
+      id: 2,
+      name: "Caramel Cake",
+      src: "assets/images/Product-1.jpg",
+    },
+    {
+      id: 3,
+      name: "Waffle",
+      src: "assets/images/waffle.jpeg",
+    },
+    {
+      id: 4,
+      name: "Tart",
+      src: "assets/images/Product-2.jpg",
+    },
+  ],
+  };
+
+  toggleShoppingBag = () => {
+    let isShoppingIconHidden = this.state.isShoppingIconHidden;
+    isShoppingIconHidden = !isShoppingIconHidden;
+    let isShoppingBagOpen = this.state.isShoppingBagOpen;
+    isShoppingBagOpen = !isShoppingBagOpen;
+    this.setState({ isShoppingIconHidden, isShoppingBagOpen });
+  };
+  openProductsCardModal = () => {
+    let isProductCardModalOpen = this.state.isProductCardModalOpen;
+    isProductCardModalOpen = !isProductCardModalOpen;
+    this.setState({ isProductCardModalOpen });
+  };
   render() {
+    
+    const {
+      state: {
+        isProductCardModalOpen,
+        isShoppingBagOpen,
+        isShoppingIconHidden,
+        products
+      },
+      openProductsCardModal,
+      toggleShoppingBag,
+      
+    } = this;
     return (
       <React.Fragment>
         <Switch>
@@ -30,12 +81,73 @@ export default class App extends Component {
           <Route path="/" exact component={HomePage} />
           <Route path="/add-product" component={AddProductPage} />
           <Route path="/order-details/:id" component={OrderDetailsPage} />
-          <Route path="/profile" component={ProfilePage} />
-          <Route path="/user-history" component={HistoryFromUserPage} />
+          <Route
+            path="/profile"
+            render={(props) => (
+              <ProfilePage
+                isShoppingIconHidden={isShoppingIconHidden}
+                isProductCardModalOpen={isProductCardModalOpen}
+                isShoppingBagOpen={isShoppingBagOpen}
+                openProductsCardModal={openProductsCardModal}
+                toggleShoppingBag={toggleShoppingBag}
+                closeShoppingBag={toggleShoppingBag}
+                {...props}
+              />
+            )}
+          />
+          <Route
+            path="/user-history"
+            render={(props) => (
+              <HistoryFromUserPage
+                isShoppingIconHidden={isShoppingIconHidden}
+                isProductCardModalOpen={isProductCardModalOpen}
+                isShoppingBagOpen={isShoppingBagOpen}
+                openProductsCardModal={openProductsCardModal}
+                toggleShoppingBag={toggleShoppingBag}
+                closeShoppingBag={toggleShoppingBag}
+                products={products}
+                {...props}
+              />
+            )}
+          />
+          {/* <Route path="/profile" component={ProfilePage} /> */}
+          {/* <Route path="/user-history" component={HistoryFromUserPage} /> */}
           <Route path="/track-order" component={TrackOrder} />
-          <Route path="/brands" component={BrandsPage} />
-          <Route path="/buyer" component={BuyerPage} />
+          <Route
+            path="/brands"
+            render={(props) => (
+              <BrandsPage
+                isShoppingIconHidden={isShoppingIconHidden}
+                isProductCardModalOpen={isProductCardModalOpen}
+                isShoppingBagOpen={isShoppingBagOpen}
+                openProductsCardModal={openProductsCardModal}
+                toggleShoppingBag={toggleShoppingBag}
+                closeShoppingBag={toggleShoppingBag}
+                products={products}
+                {...props}
+              />
+            )}
+          />
+          {/* <Route path="/brands" component={BrandsPage} /> */}
+          <Route
+            path="/buyer"
+            render={(props) => (
+              <BuyerPage
+                isShoppingIconHidden={isShoppingIconHidden}
+                isProductCardModalOpen={isProductCardModalOpen}
+                isShoppingBagOpen={isShoppingBagOpen}
+                openProductsCardModal={openProductsCardModal}
+                toggleShoppingBag={toggleShoppingBag}
+                closeShoppingBag={toggleShoppingBag}
+                products={products}
+                {...props}
+              />
+            )}
+          />
+          {/* <Route path="/buyer" component={BuyerPage} /> */}
+
           <Route path="/seller" component={ProductsSellerPage} />
+          
           <Route path="/login" component={LoginPage} />
           <Route path="/register-branch" component={RegisterBranchPage} />
           <Route

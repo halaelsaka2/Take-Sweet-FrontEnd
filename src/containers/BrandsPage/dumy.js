@@ -1,10 +1,21 @@
-export const products = [
-  { src: "assets/images/Product-1.jpg" },
-  { src: "assets/images/Product-1.jpg" },
-  { src: "assets/images/Product-1.jpg" },
-  { src: "assets/images/Product-1.jpg" },
-  { src: "assets/images/Product-1.jpg" },
-  { src: "assets/images/Product-1.jpg" },
+export const products = [{
+    src: "assets/images/Product-1.jpg"
+  },
+  {
+    src: "assets/images/Product-1.jpg"
+  },
+  {
+    src: "assets/images/Product-1.jpg"
+  },
+  {
+    src: "assets/images/Product-1.jpg"
+  },
+  {
+    src: "assets/images/Product-1.jpg"
+  },
+  {
+    src: "assets/images/Product-1.jpg"
+  },
 ];
 
 export const sortByList = [
