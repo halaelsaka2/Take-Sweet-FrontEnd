@@ -21,8 +21,9 @@ const AddProducSection = ({
   countItemsChange,
   tabs,
   currentTabe,
-  onAddButtonClicked,
+  handleSubmit,
   onCancelButtonClicked,
+  isAddButtonClicked,
   error,
 }) => (
   <div class="project-container project-container--h">
@@ -45,8 +46,9 @@ const AddProducSection = ({
           checkedCategory={checkedCategory}
           onPaymentTypeChange={onPaymentTypeChange}
           onCategoryChange={onCategoryChange}
-          onAddButtonClicked={onAddButtonClicked}
+          handleSubmit={handleSubmit}
           onCancelButtonClicked={onCancelButtonClicked}
+          isAddButtonClicked={isAddButtonClicked}
         />
       </div>
     </Container>

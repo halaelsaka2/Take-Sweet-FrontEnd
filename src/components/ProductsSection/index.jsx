@@ -22,12 +22,16 @@ const ProductsSection = ({
       <Header />
       {/* <Container ></Container> */}
       <div className="project-container project-container--h">
+
         <DescriptionSection
           titleClassName={"text-container-h3"}
           title={description.title}
           textClassName={"text-container"}
           text={description.text}
         ></DescriptionSection>
+
+ 
+
         <div className="tabs-containera">
           <div style={{ position: "relative" }}>
             <DropDown
