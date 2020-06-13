@@ -23,12 +23,12 @@ const constents = {
     AboutUsContext: [{
             imgSrc: "assets/images/cookies6x6.jpg",
             title: "Our Shops",
-            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            text: "One of the key factors in The ‘GoBetween’ Bakery’s prosperity has been its ethos that cakes taste best when they’ve been naturally heated utilizing the very same fixings and methods as those utilized in home preparing. Consequently, every single ‘Organization Name’ Bakery branch has its own kitchen and a group of occupant master pastry specialists and cake decorators.",
         },
         {
             imgSrc: "assets/images/companies.jpg",
             title: "Our Company",
-            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            text: "Because we know that your time is important to you, and it is above all a matter of trust, we are committed to providing you with the answers to the questions you have about our companies and brands.",
         },
     ]
 }

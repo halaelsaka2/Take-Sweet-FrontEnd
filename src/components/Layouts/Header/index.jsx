@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const Header = ({ check }) => (
   <header className="header">
@@ -13,29 +14,32 @@ const Header = ({ check }) => (
     <nav className="nav">
       <ul className="nav__menu">
         <li className="nav__menu__item">
-          <NavLink to="/home" className="nav__menu__link">
-            Home
-          </NavLink>
+          <Link to="home">
+            <NavLink to="/home" className="nav__menu__link">
+              Home
+            </NavLink>
+          </Link>
         </li>
         <li className="nav__menu__item">
-          <NavLink to="/home" className="nav__menu__link">
-            Features
-          </NavLink>
+          <Link to="about-us" className="nav__menu__link">
+            <NavLink to="/home" className="nav__menu__link">
+              About us
+            </NavLink>
+          </Link>
         </li>
         <li className="nav__menu__item">
-          <NavLink to="/home" className="nav__menu__link">
-            About us
-          </NavLink>
+          <Link to="reviewCard" className="nav__menu__link">
+            <NavLink to="/home" className="nav__menu__link">
+              Review
+            </NavLink>
+          </Link>
         </li>
         <li className="nav__menu__item">
-          <NavLink to="/home" className="nav__menu__link">
-            Review
-          </NavLink>
-        </li>
-        <li className="nav__menu__item">
-          <NavLink to="/home" className="nav__menu__link">
-            Contact
-          </NavLink>
+          <Link to="footer" className="nav__menu__link">
+            <NavLink to="/home" className="nav__menu__link">
+              Contact
+            </NavLink>
+          </Link>
         </li>
         {check && (
           <li className="nav__menu__item">

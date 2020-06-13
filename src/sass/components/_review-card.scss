@@ -1,4 +1,5 @@
 .reviewCard {
+    padding: 5rem 0 0 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,6 +10,7 @@
         width: 50%;
         display: flex;
     }
+
     &__title {
         margin: 1rem;
         padding: 1rem;

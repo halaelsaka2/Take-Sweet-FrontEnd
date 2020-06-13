@@ -11,7 +11,7 @@ import {
 } from "./Partials";
 
 const Footer = () => (
-  <footer className="footer">
+  <footer className="footer" id={"footer"}>
     <div className="footerContainer">
       <div className="footerContainer__col">
         <BriefSummary />

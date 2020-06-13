@@ -5,7 +5,7 @@ import Textarea from "./../Textarea";
 import Button from "../Button";
 
 const ReviewCard = () => (
-  <div className="reviewCard">
+  <div className="reviewCard" id={"reviewCard"}>
     <DescriptionSection
       titleClassName="reviewCard__title"
       title="Reviews"

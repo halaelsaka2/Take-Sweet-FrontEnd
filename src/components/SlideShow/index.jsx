@@ -19,7 +19,12 @@ const SlideShow = ({ width, arrows, duration }) => {
         style={{ width: `${width}` }}
       >
         {images.map((each, index) => (
-          <img key={index} alt="img" style={{ width: "100%" }} src={each} />
+          <img
+            key={index}
+            alt="img"
+            style={{ width: "100%", height: "50rem" }}
+            src={each}
+          />
         ))}
       </Zoom>
     </div>
