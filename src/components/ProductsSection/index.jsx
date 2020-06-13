@@ -10,21 +10,28 @@ import PropTypes from "prop-types";
 import { Container } from "reactstrap";
 import { products } from "../../containers/BrandsPage/dumy";
 
-const ProductsSection = ({ productsList, sortList, categoryList, type }) => {
+const ProductsSection = ({
+  productsList,
+  sortList,
+  categoryList,
+  type,
+  description,
+}) => {
   return (
     <React.Fragment>
       <Header />
       {/* <Container ></Container> */}
       <div className="project-container project-container--h">
-        <div className="reviewCard">
-          <DescriptionSection
-            title={"Our Products "}
-            text={`Whether you are looking for the perfect cake for a celebration,
-            browsing breakfast ideas on searching for catering options for
-            large meetings or celebrations; our food has something for
-            everyone`}
-          ></DescriptionSection>
-        </div>
+
+        <DescriptionSection
+          titleClassName={"text-container-h3"}
+          title={description.title}
+          textClassName={"text-container"}
+          text={description.text}
+        ></DescriptionSection>
+
+ 
+
         <div className="tabs-containera">
           <div style={{ position: "relative" }}>
             <DropDown
@@ -69,6 +76,7 @@ ProductsSection.propTypes = {
   sortbyList: PropTypes.array,
   category: PropTypes.array,
   type: PropTypes.string,
+  description: PropTypes.object,
 };
 
 export default ProductsSection;
