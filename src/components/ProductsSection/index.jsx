@@ -9,8 +9,12 @@ import ProductItem from "../ProductItem";
 import PropTypes from "prop-types";
 import { Container } from "reactstrap";
 import { products } from "../../containers/BrandsPage/dumy";
+import Pagination from "../Pagination";
 
 const ProductsSection = ({
+  paginate,
+  productsPerPage,
+  currentPage,
   productsList,
   sortList,
   categoryList,
@@ -20,6 +24,12 @@ const ProductsSection = ({
   categoryDropDownStatus,
   sortDropDownStatus,
 }) => {
+  const firstIndex = (currentPage - 1) * productsPerPage;
+    const lastIndex = firstIndex + productsPerPage;
+    const currentProducts = productsList.slice(
+      firstIndex,
+      lastIndex
+    );
   return (
     <React.Fragment>
       <Header />
@@ -51,9 +61,9 @@ const ProductsSection = ({
           </div>
           <Search></Search>
         </div>
-        {type === "seller" || "buyer" ? (
+        {type !== "Brands" ? (
           <div className="list-container">
-            {productsList.map((item) => (
+            {currentProducts.map((item) => (
               <ProductItem
                 type={type}
                 name={item.name}
@@ -64,10 +74,20 @@ const ProductsSection = ({
           </div>
         ) : (
           <div className="list-container list-container--4">
-            {productsList.map((item) => (
+            {currentProducts.map((item) => (
               <BrandItem src={item.src}></BrandItem>
             ))}
           </div>
+        )}
+        {productsList.length > productsPerPage && (
+          <Container>
+            <Pagination
+              productsPerPage={productsPerPage}
+              totalProducts={productsList.length}
+              currentPage={currentPage}
+              paginate={paginate}
+            />
+          </Container>
         )}
       </div>
     </React.Fragment>

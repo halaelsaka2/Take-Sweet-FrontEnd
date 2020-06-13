@@ -18,8 +18,18 @@ class BrandsPage extends Component {
   state = {
     categoryDropDownStatus: false,
     sortDropDownStatus: false,
+    productsPerPage: 9,
+    currentPage: 1,
   };
-
+  paginate = (currentPage) => {
+    if (
+      0 < currentPage &&
+      currentPage <=
+        Math.ceil(this.props.productsList.length / this.state.productsPerPage)
+    ) {
+      this.setState({ currentPage });
+    }
+  };
   dropDownHandler = (name) => {
     this.setState({
       [name]: !this.state[name],
@@ -34,11 +44,10 @@ class BrandsPage extends Component {
 
   render() {
     const {
-
       dropDownHandler,
       state: { categoryDropDownStatus, sortDropDownStatus },
     } = this;
-     const   {
+    const {
       isShoppingIconHidden,
       isShoppingBagOpen,
       isProductCardModalOpen,
@@ -47,7 +56,7 @@ class BrandsPage extends Component {
       products,
       shoppingOrderList
     } = this.props;
-    console.log("this.props:",this.props)
+    console.log("this.props:", this.props);
 
     return (
       <React.Fragment>
@@ -73,6 +82,9 @@ class BrandsPage extends Component {
           />
         )}
         <ProductsSection
+          paginate={this.paginate}
+          productsPerPage={this.state.productsPerPage}
+          currentPage={this.state.currentPage}
           productsList={this.props.productsList}
           categoryList={this.props.categoryList}
           sortList={this.props.sortList}
@@ -99,7 +111,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
     getAllBrands: () => dispatch(getAllBrands()),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
