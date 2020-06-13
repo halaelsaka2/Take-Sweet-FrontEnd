@@ -7,8 +7,8 @@ import Footer from "../../components/Layouts/Footer";
 class AddProduct extends Component {
   state = {
     product: {
-      imageSrc: "jjjjj",
-      name: "uuuu",
+      imageSrc: "assets/images/donut.jpg",
+      name: "",
       availableAmount: "",
       minPieces: "",
       price: "",
@@ -17,15 +17,15 @@ class AddProduct extends Component {
     isAddButtonClicked: "",
   };
   componentDidMount() {
-    const product = {
-      imageSrc: "jjjjj",
-      name: "eman",
-      availableAmount: "5",
-      minPieces: 10,
-      price: 500,
-      category: 1,
-    };
-    this.setState({ product });
+    // const product = {
+    //   imageSrc: "",
+    //   name: "",
+    //   availableAmount: "",
+    //   minPieces: "",
+    //   price: "",
+    //   category: "",
+    // };
+    // this.setState({ product });
   }
   handleChange = (event) => {
     const product = { ...this.state.product };
@@ -60,8 +60,10 @@ class AddProduct extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const isAddButtonClicked = true;
-    this.setState({ isAddButtonClicked });
+    // const isAddButtonClicked = true;
+    const product = { ...this.state.product };
+    console.log(product);
+    localStorage.setItem("product", JSON.stringify(product));
     this.props.history.replace("/seller");
   };
   render() {

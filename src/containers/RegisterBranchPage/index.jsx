@@ -5,19 +5,21 @@ class RegisterBranchPage extends Component {
   state = {
     branchesInfo: [],
     oneBranchInfo: { city: "City", address: "", phone: "" },
-    dropdownIsOpen: false
+    dropdownIsOpen: false,
   };
 
-  onChange = event => {
+  onChange = (event) => {
     let oneBranchInfo = { ...this.state.oneBranchInfo };
     oneBranchInfo[event.target.name] = event.target.value;
     this.setState({ oneBranchInfo });
   };
 
-  nextButtonHandle = event => {
+  nextButtonHandle = (event) => {
     this.props.history.push("/register-acceptance");
   };
-  backButtonHandle = event => {};
+  backButtonHandle = (event) => {
+    this.props.history.push("/register-personal-info");
+  };
   addBranchButtonHandle = (event, values) => {
     let { branchesInfo, oneBranchInfo } = this.state;
     branchesInfo.push(oneBranchInfo);
@@ -25,13 +27,13 @@ class RegisterBranchPage extends Component {
     this.setState({ oneBranchInfo, branchesInfo });
   };
 
-  dropdownIsOpenHandle = event => {
+  dropdownIsOpenHandle = (event) => {
     let dropdownIsOpen = this.state.dropdownIsOpen;
     dropdownIsOpen = !dropdownIsOpen;
     this.setState({ dropdownIsOpen });
   };
 
-  selectCityHandle = event => {
+  selectCityHandle = (event) => {
     let oneBranchInfo = { ...this.state.oneBranchInfo };
     let dropdownIsOpen = this.state.dropdownIsOpen;
     oneBranchInfo.city = event.target.textContent;
@@ -43,14 +45,14 @@ class RegisterBranchPage extends Component {
       state: {
         branchesInfo,
         oneBranchInfo: { city, address, phone },
-        dropdownIsOpen
+        dropdownIsOpen,
       },
       onChange,
       backButtonHandle,
       nextButtonHandle,
       addBranchButtonHandle,
       dropdownIsOpenHandle,
-      selectCityHandle
+      selectCityHandle,
     } = this;
 
     return (
