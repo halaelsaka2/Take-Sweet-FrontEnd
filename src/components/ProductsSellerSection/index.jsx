@@ -7,10 +7,10 @@ import DropDown from "../Dropdown";
 import PropTypes from "prop-types";
 
 const ProductsSellerSection = ({
-  products,
-  sortbyList,
-  category,
-  pageType,
+  productsList,
+  sortList,
+  categoryList,
+  Type,
 }) => {
   return (
     <React.Fragment>
@@ -19,14 +19,14 @@ const ProductsSellerSection = ({
         <div className="tabs-containera">
           <div style={{ position: "relative" }}>
             <DropDown
-              ListItems={sortbyList}
+              ListItems={sortList}
               isOpened={true}
               Header={"sortBy"}
             ></DropDown>
           </div>
           <div style={{ position: "relative" }}>
             <DropDown
-              ListItems={category}
+              ListItems={categoryList}
               isOpened={false}
               Header={"Category"}
             ></DropDown>
@@ -35,12 +35,12 @@ const ProductsSellerSection = ({
         </div>
 
         <div className="list-container">
-          {products.map((item) => (
+          {productsList.map((item) => (
             <ProductItem
               name={item.name}
               src={item.src}
               amount={item.amount}
-              pageType={pageType}
+              Type={"seller"}
             ></ProductItem>
           ))}
         </div>

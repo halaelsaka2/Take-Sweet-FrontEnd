@@ -1,23 +1,58 @@
 .header {
-    height: 5.5rem;
-    width: 100%;
-    color: $primary-alpine;
-    display: flex;
-    // background-color: $light-black;
-    background-color: $main-white;
-    // border: 1px solid $gray;
-    font-weight: 700;
-    justify-content: space-around;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    z-index: 10;
+  height: 5.5rem;
+  width: 100%;
+  color: $primary-alpine;
+  display: flex;
+  // background-color: $light-black;
+  background-color: $main-white;
+  // border: 1px solid $gray;
+  font-weight: 700;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 10;
 
-    &__logo {
-        width: 10rem;
+  &__logo {
+    width: 10rem;
 
-        &__icon {
-            width: 100%;
-        }
+    &__icon {
+      width: 100%;
     }
+  }
+}
+.notification-number {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: $main-red;
+  display: inline-block;
+  text-align: center;
+  font-size: 10px;
+  position: absolute;
+  color: white;
+  left: 0.8rem;
+  top: -0.2rem;
+}
+.popOver {
+  display: none;
+  width: 30rem;
+  max-height: 45rem;
+  // min-height: 10;
+  overflow-y: auto;
+  background-color: white;
+  border: 2px solid $primary-alpine;
+  border-radius: 1rem;
+  position: absolute;
+  left: -25rem;
+  top: 3rem;
+}
+.popOver-open {
+  display: block;
+}
+.notification-order {
+  padding: 2rem;
+  cursor: pointer;
+  border-bottom: 1px solid rgb(245, 242, 242);
+  text-align: center;
 }

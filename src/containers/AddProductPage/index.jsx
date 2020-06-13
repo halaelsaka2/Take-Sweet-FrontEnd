@@ -1,22 +1,32 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-// import { string, object } from "yup";
-
 import AddProducSection from "../../components/AddProductSection";
 import constants from "./contants";
+import Header from "../../components/Layouts/Header";
+import Footer from "../../components/Layouts/Footer";
 
 class AddProduct extends Component {
   state = {
     product: {
       imageSrc: "jjjjj",
-      name: "",
+      name: "uuuu",
       availableAmount: "",
       minPieces: "",
       price: "",
       category: "",
     },
+    isAddButtonClicked: "",
   };
-
+  componentDidMount() {
+    const product = {
+      imageSrc: "jjjjj",
+      name: "eman",
+      availableAmount: "5",
+      minPieces: 10,
+      price: 500,
+      category: 1,
+    };
+    this.setState({ product });
+  }
   handleChange = (event) => {
     const product = { ...this.state.product };
     product[event.target.name] = event.target.value;
@@ -50,6 +60,8 @@ class AddProduct extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    const isAddButtonClicked = true;
+    this.setState({ isAddButtonClicked });
     this.props.history.replace("/seller");
   };
   render() {
@@ -64,33 +76,35 @@ class AddProduct extends Component {
           price,
           category,
         },
+        isAddButtonClicked,
       },
       handleChange,
-      // handlePaymentTypeChange,
       handleCategoryChange,
       handleSubmit,
       handelCancel,
     } = this;
 
     return (
-      <AddProducSection
-        productNameValue={name}
-        countItems={constants.countItems}
-        countItemValues={[availableAmount, minPieces, , price]}
-        imgSrc={imageSrc}
-        moreDetailsValue={moreDetails}
-        // paymentTypes={paymentTypes}
-        categories={constants.categories}
-        onChange={handleChange}
-        // checkedPayment={paymentTypes.checked}
-        checkedCategory={category}
-        // onPaymentTypeChange={handlePaymentTypeChange}
-        onCategoryChange={handleCategoryChange}
-        tabs={constants.tabs}
-        currentTabe={constants.currentTabe}
-        onAddButtonClicked={handleSubmit}
-        onCancelButtonClicked={handelCancel}
-      />
+      <React.Fragment>
+        <Header />
+        <AddProducSection
+          productNameValue={name}
+          countItems={constants.countItems}
+          countItemValues={[availableAmount, minPieces, , price]}
+          imgSrc={imageSrc}
+          moreDetailsValue={moreDetails}
+          categories={constants.categories}
+          onChange={handleChange}
+          checkedCategory={category}
+          onCategoryChange={handleCategoryChange}
+          tabs={constants.tabs}
+          currentTabe={constants.currentTabe}
+          handleSubmit={handleSubmit}
+          onCancelButtonClicked={handelCancel}
+          isAddButtonClicked={isAddButtonClicked}
+        />
+        <Footer />
+      </React.Fragment>
     );
   }
 }

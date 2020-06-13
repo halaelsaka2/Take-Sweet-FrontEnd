@@ -8,8 +8,8 @@ const BriefSummary = () => {
         alt="logo"
       />
       <p className="footerContainer__col__text">
-        Here you can use rows and columns to organize your footer content here
-        you can use rows and columns to organize your footer content.
+        an intermediator connects between food brands and small cafes that want
+        to buy big quantities of sweets and baked goods everyday
       </p>
     </React.Fragment>
   );

@@ -13,6 +13,7 @@ const EditPersonalInfoModal = ({
   onCancel,
   onChange,
   imageUrl,
+  openPasswordModal
 }) => (
   <div className="infoContainer infoContainer--modal">
     <div className="infoContainer__content">
@@ -65,7 +66,7 @@ const EditPersonalInfoModal = ({
     </div>
     <div className="lastContent">
       <div className="lastContent__changepassword" id="changePassword">
-        <a>Change Password</a>
+        <a onClick={openPasswordModal}>Change Password</a>
       </div>
       <div className="lastContent__buttons">
         <Button

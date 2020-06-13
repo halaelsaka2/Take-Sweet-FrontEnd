@@ -1,28 +1,30 @@
 import React from "react";
+import {
+  AvField,
+  AvForm,
+  AvRadio,
+  AvRadioGroup,
+} from "availity-reactstrap-validation";
+import { Button } from "reactstrap";
 import Textarea from "../../Textarea";
 import Input from "../../Input";
-import Button from "../../Button";
-import { AvField } from "availity-reactstrap-validation";
-import AvForm from "availity-reactstrap-validation/lib/AvForm";
 
 const ProductDetails = ({
   countItems,
   categories,
   productNameValue,
-  productNameError,
   countItemValues,
-  countItemErrors,
   onChange,
   onCategoryChange,
   checkedCategory,
-  categoryError,
-  onAddButtonClicked,
+  handleSubmit,
   onCancelButtonClicked,
+  isAddButtonClicked,
 }) => {
-  // console.log(error);
+  console.log(checkedCategory);
   return (
     <div className="productDetailsContainer">
-      <AvForm>
+      <AvForm onValidSubmit={handleSubmit}>
         <AvField
           name="name"
           label="Product Name"
@@ -30,7 +32,6 @@ const ProductDetails = ({
           errorMessage="Invalid name"
           onChange={onChange}
           value={productNameValue}
-          error={productNameError}
           validate={{
             required: {
               value: true,
@@ -52,7 +53,6 @@ const ProductDetails = ({
                 errorMessage="Invalid name"
                 onChange={onChange}
                 value={productNameValue}
-                error={productNameError}
                 validate={{
                   required: {
                     value: true,
@@ -91,37 +91,43 @@ const ProductDetails = ({
       ))}
     </div> */}
 
-        <label>Categories</label>
-        <div className="categoryContainer">
+        <label style={{ marginBottom: "1rem" }}>Categories</label>
+        <AvRadioGroup
+          className="categoryContainer"
+          name="category"
+          required
+          inline
+          errorMessage="Pick one!"
+        >
           {categories.map((category) => (
-            <div className="categoryItem">
-              <Input
-                key={category.id}
-                type="radio"
-                className="categoryItem__input"
-                name="category"
-                value={category.id}
-                onChange={onCategoryChange}
-                checked={checkedCategory === category.id && checkedCategory}
-                error={categoryError}
-              />
-              <label className="categoryItem__name">{category.name}</label>
-            </div>
+            <AvRadio
+              label={category.name}
+              color=""
+              value={category.id}
+              onChange={onCategoryChange}
+              checked={checkedCategory === category.id && checkedCategory}
+            />
           ))}
-        </div>
+        </AvRadioGroup>
 
         <div className="btnContainer">
           <Button
             className="button--rounded--s"
             name="Add"
-            onClick={onAddButtonClicked}
             type="submit"
-          />
+            color=""
+          >
+            Add
+          </Button>
+
           <Button
             className="button--rounded--s button--rounded--danger"
             name="Cancel"
             onClick={onCancelButtonClicked}
-          />
+            color=""
+          >
+            Cancel
+          </Button>
         </div>
       </AvForm>
     </div>

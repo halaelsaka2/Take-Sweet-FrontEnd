@@ -19,40 +19,47 @@ import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
 import OrderDetailsPage from "../OrderDetailsPage";
 
+import NotificationPopOver from "./../../components/NotificationPopover/index";
+
 export default class App extends Component {
   render() {
     return (
-      <Switch>
-        {/* <Header /> */}
-        <Route path="/" exact component={HomePage} />
-        <Route path="/add-product" component={AddProductPage} />
-        <Route path="/order-details" component={OrderDetailsPage} />
-        <Route path="/profile" component={ProfilePage} />
-        <Route path="/user-history" component={HistoryFromUserPage} />
-        <Route path="/track-order" component={TrackOrder} />
-        <Route path="/brands" component={BrandsPage} />
-        <Route path="/buyer" component={BuyerPage} />
-        <Route path="/seller" component={ProductsSellerPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/register-branch" component={RegisterBranchPage} />
-        <Route
-          path="/register-branch-details"
-          component={RegisterBranchesDetailsPage}
-        />
-        <Route
-          path="/register-personal-info"
-          component={RegisterPersonalInfoPage}
-        />
-        <Route
-          path="/register-general-info"
-          component={RegisterGeneralInfoPage}
-        />
-        <Route path="/register-acceptance" component={RegisterAcceptancePage} />
-        <Redirect from="/home" to="/" />
-        <Redirect form="/edit-product" to="/add-product" />
+      <React.Fragment>
+        <Switch>
+          {/* <Header /> */}
+          <Route path="/" exact component={HomePage} />
+          <Route path="/add-product" component={AddProductPage} />
+          <Route path="/order-details/:id" component={OrderDetailsPage} />
+          <Route path="/profile" component={ProfilePage} />
+          <Route path="/user-history" component={HistoryFromUserPage} />
+          <Route path="/track-order" component={TrackOrder} />
+          <Route path="/brands" component={BrandsPage} />
+          <Route path="/buyer" component={BuyerPage} />
+          <Route path="/seller" component={ProductsSellerPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/register-branch" component={RegisterBranchPage} />
+          <Route
+            path="/register-branch-details"
+            component={RegisterBranchesDetailsPage}
+          />
+          <Route
+            path="/register-personal-info"
+            component={RegisterPersonalInfoPage}
+          />
+          <Route
+            path="/register-general-info"
+            component={RegisterGeneralInfoPage}
+          />
+          <Route
+            path="/register-acceptance"
+            component={RegisterAcceptancePage}
+          />
+          <Redirect from="/home" to="/" />
+          <Redirect form="/edit-product" to="/add-product" />
 
-        {/* <Footer /> */}
-      </Switch>
+          {/* <Footer /> */}
+        </Switch>
+      </React.Fragment>
     );
   }
 }
