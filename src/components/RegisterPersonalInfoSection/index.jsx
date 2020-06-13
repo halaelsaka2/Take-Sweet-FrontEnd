@@ -1,10 +1,12 @@
 import React from "react";
-import Button from "../Button";
+// import Button from "../Button";
 import Stepper from "../Stepper";
 import Dropdown from "../Dropdown";
 import Input from "../Input";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { AvForm, AvField } from "availity-reactstrap-validation";
+import { Button } from "reactstrap";
 
 const RegisterPersonalInfoSection = ({
   usernameType,
@@ -18,33 +20,33 @@ const RegisterPersonalInfoSection = ({
   nextButtonHandle,
   dropdownIsOpenHandle,
   selectAccountTypeHandle,
-  accountType,
+  accountType
 }) => (
   <div className="register-container">
     <div className="register-form-container">
-      <div className="register-form">
+      <AvForm className="register-form" onValidSubmit={nextButtonHandle}>
         <div className="register-header">Register</div>
         <Stepper
           steps={[1, 2, 3]}
           stepClassNames={[
             "circle--finished",
             "circle--active",
-            "circle--notTouched",
+            "circle--notTouched"
           ]}
           pipeClassNames={["pipe--finished", "pipe--notTouched"]}
         />
 
-        <div className="reg-dropdown-container reg-dropdown-container--regTop">
+        <div className="reg-dropdown-container ">
           <Dropdown
             Header={accountType}
-            ListItems={["Brand", "Cafe and Resturant"]}
+            listItems={["Brand", "Cafe and Resturant"]}
             isOpened={dropdownIsOpen}
             IsOpenHandle={dropdownIsOpenHandle}
             selectionHandle={selectAccountTypeHandle}
           />
         </div>
         <div className="info">
-          <Input
+          <AvField
             className="input input--mwh"
             type={usernameType}
             placeholder={usernamePlaceholder}
@@ -52,6 +54,12 @@ const RegisterPersonalInfoSection = ({
             id={usernameName}
             value={usernameValue}
             onChange={onChange}
+            validate={{
+              required: {
+                value: true,
+                errorMessage: "Name can't be empty"
+              }
+            }}
           />
           <div className="info__photo">
             <i className="img-logo fa-8x far fa-image"></i>
@@ -59,23 +67,26 @@ const RegisterPersonalInfoSection = ({
         </div>
         <div className="button-container">
           <div className="flex-buttons-container">
-            <Link to="/register-general-info">
-              <Button
-                className="button--rounded button--rounded--s button--rounded--shadow"
-                name="Back"
-                onClick={backButtonHandle}
-              />
-            </Link>
-            <Link to="/register-branch">
-              <Button
-                className="button--rounded button--rounded--s button--rounded--shadow"
-                name="Next"
-                onClick={nextButtonHandle}
-              />
-            </Link>
+            <Button
+              className="button--rounded button--rounded--s button--rounded--shadow"
+              name="Back"
+              // onClick={backButtonHandle}
+              color=""
+            >
+              <Link to="/register-general-info">Back</Link>
+            </Button>
+            {/* </Link> */}
+            <Button
+              className="button--rounded button--rounded--s button--rounded--shadow"
+              // name="Next"
+              // onClick={nextButtonHandle}
+              color=""
+            >
+              Next
+            </Button>
           </div>
         </div>
-      </div>
+      </AvForm>
     </div>
 
     <div className="register-img card-overlay">
@@ -95,6 +106,6 @@ RegisterPersonalInfoSection.propTypes = {
   backButtonHandle: PropTypes.func,
   nextButtonHandle: PropTypes.func,
   dropdownIsOpenHandle: PropTypes.func,
-  selectAccountTypeHandle: PropTypes.func,
+  selectAccountTypeHandle: PropTypes.func
 };
 export default RegisterPersonalInfoSection;
