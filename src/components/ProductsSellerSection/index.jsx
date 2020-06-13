@@ -7,6 +7,9 @@ import DropDown from "../Dropdown";
 import PropTypes from "prop-types";
 
 const ProductsSellerSection = ({
+  sortDropDownStatus,
+  categoryDropDownStatus,
+  dropDownHandler,
   productsList,
   sortList,
   categoryList,
@@ -19,6 +22,8 @@ const ProductsSellerSection = ({
         <div className="tabs-containera">
           <div style={{ position: "relative" }}>
             <DropDown
+            status={sortDropDownStatus}
+            dropDownHandler={dropDownHandler}
               listItems={sortList}
               isOpened={true}
               Header={"sortBy"}
@@ -26,6 +31,8 @@ const ProductsSellerSection = ({
           </div>
           <div style={{ position: "relative" }}>
             <DropDown
+            status={categoryDropDownStatus}
+            dropDownHandler={dropDownHandler}
               listItems={categoryList}
               isOpened={false}
               Header={"Category"}

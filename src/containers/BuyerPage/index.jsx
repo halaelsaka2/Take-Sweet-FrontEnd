@@ -11,12 +11,26 @@ import {
 } from "../../redux-modules/products/actions";
 
 class BuyerPage extends Component {
+  state = {
+    categoryDropDownStatus: false,
+    sortDropDownStatus: false,
+  };
+
+  dropDownHandler = (name) => {
+    this.setState({
+      [name]: !this.state[name],
+    });
+  };
   componentDidMount() {
     this.props.getAllProducts();
     this.props.getCategoryList();
     this.props.getSortList();
   }
   render() {
+    const {
+      dropDownHandler,
+      state: { categoryDropDownStatus, sortDropDownStatus },
+    } = this;
     return (
       <React.Fragment>
         <Header />
@@ -26,6 +40,9 @@ class BuyerPage extends Component {
           sortList={this.props.sortList}
           type={"buyer-page"}
           description={description}
+          sortDropDownStatus={sortDropDownStatus}
+          categoryDropDownStatus={categoryDropDownStatus}
+          dropDownHandler={dropDownHandler}
         />
         <Footer />
       </React.Fragment>

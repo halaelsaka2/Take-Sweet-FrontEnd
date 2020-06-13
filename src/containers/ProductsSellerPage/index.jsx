@@ -9,6 +9,16 @@ import {
 import PropTypes from "prop-types";
 import ProductsSellerSection from "../../components/ProductsSellerSection";
 class ProductsPage extends Component {
+  state = {
+    categoryDropDownStatus: false,
+    sortDropDownStatus: false,
+  };
+
+  dropDownHandler = (name) => {
+    this.setState({
+      [name]: !this.state[name],
+    });
+  };
   componentDidMount() {
     console.log("This.props: ", this.props);
     this.props.getAllProducts();
@@ -17,6 +27,10 @@ class ProductsPage extends Component {
   }
 
   render() {
+    const {
+      dropDownHandler,
+      state: { categoryDropDownStatus, sortDropDownStatus },
+    } = this;
     return (
       <ProductsSellerSection
         productsList={this.props.productsList}
@@ -25,6 +39,9 @@ class ProductsPage extends Component {
         // categoryFilterHandler={this.props.categoryFilter}
         // sortByFilterHandler={this.props.sortByFilter}
         // searchHandler={this.props.searchFilter}
+        sortDropDownStatus={sortDropDownStatus}
+        categoryDropDownStatus={categoryDropDownStatus}
+        dropDownHandler={dropDownHandler}
         type={"seller"}
       ></ProductsSellerSection>
     );
