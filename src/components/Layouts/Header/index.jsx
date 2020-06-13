@@ -3,23 +3,34 @@ import { NavLink } from "react-router-dom";
 import { Button } from "reactstrap";
 import { Popover, PopoverHeader, PopoverBody } from "reactstrap";
 import NotificationPopOver from "./../../NotificationPopover/index";
+// import { useHistory } from "react-route-dom";
 
 class Header extends Component {
   state = {
-    isCompany: false,
+    isCompany: true,
+    isCafe: false,
     isOpen: false,
     orders: [] /*backednd*/,
-    newOrders: [],
+    newOrders: [
+      { id: 1, name: "Cake" },
+      { id: 2, name: "Donuts" },
+    ],
   };
   handleToggle = () => {
     let { isOpen } = this.state;
     isOpen = !isOpen;
     this.setState({ isOpen });
   };
+  handleOpenOrder = (id) => {
+    // this.props.history.push("/order-details");
+    // const history = useHistory();
+    console.log(this.props.history);
+  };
   render() {
     const {
-      state: { isCompany, isOpen, orders, newOrders },
+      state: { isCompany, isCafe, isOpen, orders, newOrders },
       handleToggle,
+      handleOpenOrder,
     } = this;
     return (
       <header className="header">
@@ -64,6 +75,13 @@ class Header extends Component {
                 </NavLink>
               </li>
             )}
+            {isCafe && (
+              <li className="nav__menu__item">
+                <NavLink to="/brands" className="nav__menu__link">
+                  Brands
+                </NavLink>
+              </li>
+            )}
           </ul>
         </nav>
         <div
@@ -77,8 +95,9 @@ class Header extends Component {
             <NotificationPopOver
               isOpen={isOpen}
               orders={orders}
-              handleToggle={handleToggle}
               newOrders={newOrders}
+              handleToggle={handleToggle}
+              handleOpenOrder={handleOpenOrder}
             />
           )}
 

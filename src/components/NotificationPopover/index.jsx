@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NotificationPopOver = ({
   isOpen,
@@ -16,13 +17,13 @@ const NotificationPopOver = ({
     </div>
     <div className={`popOver ${isOpen && "popOver-open"}`}>
       <ul>
-        {orders.map((order) => (
+        {newOrders.map((order) => (
           <li
-            // key={order.id}
+            key={order.id}
             className="notification-order"
-            onClick={handleOpenOrder}
+            onClick={() => handleOpenOrder(order.id)}
           >
-            <a>{order}</a>
+            <Link to={`/order-details/${order.id}`}>{order.name}</Link>
           </li>
         ))}
       </ul>

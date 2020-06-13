@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { string, object } from "yup";
-import joi from "joi-browser";
 import AddProducSection from "../../components/AddProductSection";
 import constants from "./contants";
 
