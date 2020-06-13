@@ -63,7 +63,8 @@ class HistoryFromUser extends Component {
       isProductCardModalOpen,
       toggleShoppingBag,
       openProductsCardModal,
-      products
+      products,
+      shoppingOrderList
     } = this.props;
     const {
       state: {
@@ -93,7 +94,7 @@ class HistoryFromUser extends Component {
           isHidden={isShoppingIconHidden}
         />
         <ShoppingOrderContainer
-          shoppingOrderList={[1, 2, 3]}
+          shoppingOrderList={shoppingOrderList}
           isOpen={isShoppingBagOpen}
           closeShoppingBag={toggleShoppingBag}
           openCardModal={openProductsCardModal}

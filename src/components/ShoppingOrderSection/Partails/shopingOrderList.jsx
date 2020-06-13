@@ -7,7 +7,7 @@ const ShoppingOrderList = ({ shoppingOrderList, openCardModal }) =>
     <ShoppingOrderItem
       key={item.id}
       src={item.src}
-      quantity={item.quantity}
+      quantity={item.products.length}
       totalPrice={item.totalPrice}
       openCardModal={openCardModal}
     />

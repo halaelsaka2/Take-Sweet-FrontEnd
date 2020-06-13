@@ -38,6 +38,7 @@ class Profile extends Component {
   componentDidMount() {
     let userObject = JSON.parse(localStorage.getItem("userObject"));
     console.log(userObject);
+
     if (userObject) {
       this.setState({
         userProfile: userObject.userProfile,
@@ -45,6 +46,7 @@ class Profile extends Component {
         role: userObject.role,
       });
     }
+
   }
 
   deleteButtonHandle = (index) => {
@@ -223,6 +225,8 @@ class Profile extends Component {
       isProductCardModalOpen,
       toggleShoppingBag,
       openProductsCardModal,
+      shoppingOrderList
+
     } = this.props;
     const {
       state: {
@@ -294,14 +298,15 @@ class Profile extends Component {
 
         <Header />
         <HistoryIcon />
-
-        <ShoppingCart
-          number={2}
-          openShoppingBag={toggleShoppingBag}
-          isHidden={isShoppingIconHidden}
-        />
+        {role === "cafe" && (
+          <ShoppingCart
+            number={2}
+            openShoppingBag={toggleShoppingBag}
+            isHidden={isShoppingIconHidden}
+          />
+        )}
         <ShoppingOrderContainer
-          shoppingOrderList={[1, 2, 3]}
+          shoppingOrderList={shoppingOrderList}
           isOpen={isShoppingBagOpen}
           closeShoppingBag={toggleShoppingBag}
           openCardModal={openProductsCardModal}
