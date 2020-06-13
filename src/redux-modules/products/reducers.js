@@ -25,6 +25,11 @@ export default (state = initialState, action) => {
         ...state,
         categoryList: action.categoryList,
       };
+      case actionTypes.GET_ALL_BRANDS:
+      return {
+        ...state,
+        productsList: action.brandsList,
+      };
     default:
       return state;
   }

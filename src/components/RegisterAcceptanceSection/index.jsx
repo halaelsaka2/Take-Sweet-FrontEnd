@@ -44,7 +44,7 @@ const RegisterAcceptanceSection = ({
           </div>
           <div>
             <Input
-              type={inputType}
+              type="checkbox"
               name={inputName}
               id={inputId}
               onChange={checkHandle}
@@ -54,21 +54,21 @@ const RegisterAcceptanceSection = ({
         </div>
         <div className="button-container">
           <div className="flex-buttons-container">
-            <Link to="register-branch">
-              <Button
-                className="button--rounded button--rounded--s button--rounded--shadow"
-                name="Back"
-                onClick={backButtonHandle}
-              />
-            </Link>
+            {/* <Link to="register-branch"> */}
+            <Button
+              className="button--rounded button--rounded--s button--rounded--shadow"
+              name="Back"
+              onClick={backButtonHandle}
+            />
+            {/* </Link> */}
             {/* <!-- button--rounded--disabled --> */}
-            <Link to="/profile">
-              <Button
-                className="button--rounded button--rounded--s button--rounded--shadow"
-                name="Register"
-                onClick={registerButtonHandle}
-              />
-            </Link>
+            {/* <Link to="/profile"> */}
+            <Button
+              className="button--rounded button--rounded--s button--rounded--shadow"
+              name="Register"
+              onClick={registerButtonHandle}
+            />
+            {/* </Link> */}
           </div>
         </div>
       </div>

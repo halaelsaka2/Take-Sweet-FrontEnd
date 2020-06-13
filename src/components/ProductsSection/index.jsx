@@ -16,14 +16,15 @@ const ProductsSection = ({
   categoryList,
   type,
   description,
+  dropDownHandler,
+  categoryDropDownStatus,
+  sortDropDownStatus,
 }) => {
-  
   return (
     <React.Fragment>
       <Header />
       {/* <Container ></Container> */}
       <div className="project-container project-container--h">
-
         <DescriptionSection
           titleClassName={"text-container-h3"}
           title={description.title}
@@ -31,29 +32,30 @@ const ProductsSection = ({
           text={description.text}
         ></DescriptionSection>
 
- 
-
         <div className="tabs-containera">
           <div style={{ position: "relative" }}>
             <DropDown
               listItems={sortList}
-              isOpened={true}
               Header={"sortBy"}
+              dropDownHandler={dropDownHandler}
+              status={sortDropDownStatus}
             ></DropDown>
           </div>
           <div style={{ position: "relative" }}>
             <DropDown
               listItems={categoryList}
-              isOpened={false}
+              dropDownHandler={dropDownHandler}
+              status={categoryDropDownStatus}
               Header={"Category"}
             ></DropDown>
           </div>
           <Search></Search>
         </div>
-        {type === "seller" ? (
+        {type === "seller" || "buyer" ? (
           <div className="list-container">
             {productsList.map((item) => (
               <ProductItem
+                type={type}
                 name={item.name}
                 src={item.src}
                 amount={item.amount}

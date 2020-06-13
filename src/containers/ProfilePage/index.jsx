@@ -38,11 +38,15 @@ class Profile extends Component {
   componentDidMount() {
     let userObject = JSON.parse(localStorage.getItem("userObject"));
     console.log(userObject);
-    this.setState({
-      userProfile: userObject.userProfile,
-      branchList: userObject.branchList,
-      role: userObject.role,
-    });
+
+    if (userObject) {
+      this.setState({
+        userProfile: userObject.userProfile,
+        branchList: userObject.branchList,
+        role: userObject.role,
+      });
+    }
+
   }
 
   deleteButtonHandle = (index) => {
@@ -222,6 +226,7 @@ class Profile extends Component {
       toggleShoppingBag,
       openProductsCardModal,
       shoppingOrderList
+
     } = this.props;
     const {
       state: {
@@ -348,10 +353,12 @@ class Profile extends Component {
             onChange={onChangeBranchModal}
             saveModalButtonHandle={saveModalButtonHandle}
           />
-          <PaymentType
-            paymentTypes={paymentTypes}
-            openModal={openPaymentModal}
-          />
+          {role === "company" && (
+            <PaymentType
+              paymentTypes={paymentTypes}
+              openModal={openPaymentModal}
+            />
+          )}
           {isPaymentTypeOpen && (
             <ModalSection
               isClicked={isPaymentTypeOpen}

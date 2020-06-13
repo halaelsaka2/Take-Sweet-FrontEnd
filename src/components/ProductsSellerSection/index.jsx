@@ -6,8 +6,12 @@ import ProductItem from "../ProductItem";
 import DropDown from "../Dropdown";
 import PropTypes from "prop-types";
 import Plus from "../AddProductPlus";
+import { Link } from "react-router-dom";
 
 const ProductsSellerSection = ({
+  sortDropDownStatus,
+  categoryDropDownStatus,
+  dropDownHandler,
   productsList,
   sortList,
   categoryList,
@@ -21,6 +25,8 @@ const ProductsSellerSection = ({
           <div className="tabs-containera">
             <div style={{ position: "relative" }}>
               <DropDown
+                status={sortDropDownStatus}
+                dropDownHandler={dropDownHandler}
                 listItems={sortList}
                 isOpened={true}
                 Header={"sortBy"}
@@ -28,6 +34,8 @@ const ProductsSellerSection = ({
             </div>
             <div style={{ position: "relative" }}>
               <DropDown
+                status={categoryDropDownStatus}
+                dropDownHandler={dropDownHandler}
                 listItems={categoryList}
                 isOpened={false}
                 Header={"Category"}
@@ -35,7 +43,9 @@ const ProductsSellerSection = ({
             </div>
             <Search></Search>
           </div>
-          <Plus></Plus>
+          <Link to="add-product">
+            <Plus></Plus>
+          </Link>
         </div>
 
         <div className="list-container">

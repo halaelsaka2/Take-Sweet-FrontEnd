@@ -41,6 +41,18 @@ export const getCategoryList = () => {
   };
 };
 
+export const getAllBrandsRes = (brandsList) => {
+  return {
+    type: actionTypes.GET_ALL_BRANDS,
+    brandsList,
+  };
+};
+export const getAllBrands = () => {
+  return async (dispatch) => {
+    const brandsList = await productsHandler.getAllBrands();
+    dispatch(getAllBrandsRes(brandsList));
+  };
+};
 // export const getProductById = () => {
 //   type: GET_PRODUCT_BY_ID;
 // };

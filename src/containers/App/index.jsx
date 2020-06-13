@@ -206,7 +206,7 @@ export default class App extends Component {
             component={RegisterAcceptancePage}
           />
           <Redirect from="/home" to="/" />
-          <Redirect form="/edit-product" to="/add-product" />
+          <Redirect to="/" />
 
           {/* <Footer /> */}
         </Switch>
