@@ -4,16 +4,32 @@ import constants from "./constants";
 
 class RegisterAcceptancePage extends Component {
   state = { checked: false };
-  checkHandle = (event) => {
+  checkHandle = event => {
     let checked = { ...this.state.checked };
     checked = event.target.checked;
     this.setState({ checked });
   };
-  backButtonHandle = (event) => {
+  backButtonHandle = event => {
     this.props.history.push("/register-branch");
   };
 
-  registerButtonHandle = (event) => {
+  registerButtonHandle = event => {
+    let companyObject = {
+      userProfile: {
+        email: "elabd@gmail.com",
+        userName: "El Abd",
+        discription: "this is El Abd",
+        imageUrl: "assets/images/ElAbd.jpg"
+      },
+
+      branchList: [
+        { city: "Cairo", address: "el maadi", phone: "0128855888" },
+        { city: "Cairo", address: "el zamalk", phone: "0128855888" },
+        { city: "Alexandra", address: "Green plaza", phone: "0128855888" }
+      ],
+      role: "company"
+    };
+    localStorage.setItem("userObject", JSON.stringify(companyObject));
     window.history.replaceState(null, null, "/");
     this.props.history.push("/profile");
   };
@@ -23,7 +39,7 @@ class RegisterAcceptancePage extends Component {
       checkHandle,
       backButtonHandle,
       registerButtonHandle,
-      state: { checked },
+      state: { checked }
     } = this;
     return (
       <RegisterAcceptanceSection
