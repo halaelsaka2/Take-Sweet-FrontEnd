@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const Bestsellers = ({ products }) => (
   <div className="bestContainer">
-    <div className="bestContainer__header">Best Seller</div>
+    <div className="bestContainer__header">Best Selles</div>
     <div className="list-container list-container--grid">
       {products.map((product) => (
         <Bestsellersitem product={product} key={product.id} />

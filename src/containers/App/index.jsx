@@ -58,13 +58,13 @@ export default class App extends Component {
             src: "assets/images/Product-1.jpg",
             amount: 10,
             name: "Caramel Cake",
-            totalPrice:300
+            totalPrice: 300,
           },
           {
             src: "assets/images/Product-2.jpg",
             amount: 10,
             name: "Figs Tart",
-            totalPrice:200
+            totalPrice: 200,
           },
         ],
         src: "assets/images/ElAbd.jpg",
@@ -98,10 +98,7 @@ export default class App extends Component {
     }
     this.setState({ numberOfOrders });
   };
-  orderHandle=()=>{
-    console.log(this.props.history);
-    // this.props.history.push("/order-details/1")
-  }
+
   render() {
     const {
       state: {
@@ -114,7 +111,7 @@ export default class App extends Component {
       },
       openProductsCardModal,
       toggleShoppingBag,
-      orderHandle
+      orderHandle,
     } = this;
     return (
       <React.Fragment>
@@ -135,6 +132,7 @@ export default class App extends Component {
                 closeShoppingBag={toggleShoppingBag}
                 shoppingOrderList={shoppingOrderList}
                 numberOfOrders={numberOfOrders}
+                orderHandle={orderHandle}
                 {...props}
               />
             )}
