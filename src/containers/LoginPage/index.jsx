@@ -23,14 +23,15 @@ class LoginPage extends Component {
       userProfile: {
         email: "elabd@gmail.com",
         userName: "El Abd",
-        discription: "this is El Abd",
+        discription:
+          "Whether you are looking for the perfect cake for a celebration, browsing breakfast ideas on searching for catering options for large meetings or celebrations; our food has something for everyone",
         imageUrl: "assets/images/ElAbd.jpg",
       },
 
       branchList: [
-        { city: "Cairo", address: "el maadi", phone: "0128855888" },
-        { city: "Cairo", address: "el zamalk", phone: "0128855888" },
-        { city: "Alexandra", address: "Green plaza", phone: "0128855888" },
+        // { city: "Cairo", address: "el maadi", phone: "0128855888" },
+        { city: "Cairo", address: "el zamalk", phone: "01060621024" },
+        // { city: "Alexandra", address: "Green plaza", phone: "0128855888" },
       ],
       role: "company",
     };
@@ -39,12 +40,13 @@ class LoginPage extends Component {
       userProfile: {
         email: "moka@gmail.com",
         userName: "Moka",
-        discription: "this is moka",
+        discription:
+          "is a type of restaurant which typically serves coffee and tea, in addition to light refreshments such as baked goods or snacks",
         imageUrl: "assets/images/moka.jpeg",
       },
 
       branchList: [
-        { city: "ismailia", address: "nemra6", phone: "0128855888" },
+        { city: "ismailia", address: "nemra6", phone: "01060621024" },
       ],
       role: "cafe",
     };

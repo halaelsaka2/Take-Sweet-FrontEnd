@@ -50,15 +50,15 @@ export const dumy = {
     name: "Visa"
   }, {
     id: 3,
-    name: "Cridt Card"
+    name: "Credit Card"
   }, {
     id: 4,
-    name: "mobile payment"
+    name: "Mobile payment"
   }, {
     id: 5,
-    name: "e-wallet"
+    name: "E-Wallet"
   }, {
     id: 6,
-    name: "bank transfer"
+    name: "Bank Transfer"
   }]
 }

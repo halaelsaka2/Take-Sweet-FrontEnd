@@ -39,7 +39,7 @@ const ProductsSellerSection = ({
                 status={sortDropDownStatus}
                 dropDownHandler={dropDownHandler}
                 listItems={sortList}
-                isOpened={true}
+                isOpened={false}
                 Header={"sortBy"}
               ></DropDown>
             </div>

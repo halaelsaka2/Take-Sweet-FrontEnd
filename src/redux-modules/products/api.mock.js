@@ -28,7 +28,8 @@ export const addProduct = (product) => {
     setTimeout(() => newProduct, 1000);
   });
 };
-export const products = [{
+export const products = [
+  {
     src: "assets/images/Product-1.jpg",
     amount: 10,
     price: 30,
@@ -140,14 +141,15 @@ export const products = [{
     name: "Strawberry Cake"
   },
   {
-    src: "assets/images/Product-4.jpg",
-    amount: 10,
-    price: 20,
-    name: "Pastry Cream"
+    src: "assets/images/donut.jpg",
+    amount: 30,
+    price: 30,
+    name: "Dounts"
   },
 ];
 
-export const brands = [{
+export const brands = [
+  {
   src: "assets/images/ElAbd.jpg",
   description: "this is a brand",
   price: 20,
