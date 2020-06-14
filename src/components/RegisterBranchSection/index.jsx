@@ -117,7 +117,7 @@ const RegisterBranchSection = ({
         <div className="branches-link-div">
           {numberOfBranches > 0 && (
             <React.Fragment>
-              <span>{numberOfBranches} Brach.</span>
+              <span>{numberOfBranches} Branch.</span>
               <Link to="/register-branch-details" className="branches-link">
                 check your branches
               </Link>
