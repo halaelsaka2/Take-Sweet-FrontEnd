@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Button from "../../Button";
+import { Link } from "react-router-dom";
 
 const ShoppingOrderItem = ({
   src,
@@ -20,19 +21,24 @@ const ShoppingOrderItem = ({
           Quantity : {quantity}
         </div>
         <div className="shoppingCart__item__product__text">
-          Total Price : ${totalPrice}
+          Total Price : $500
         </div>
         <div className="shoppingCart__item__product__buttons">
-          <Button
-            onclick={orderHandle}
+          <Link
+            to="/order-details/1"
+            // onClick={orderHandle}
             name={"order"}
             className={
               "button--rounded--s shoppingCart__item__product__buttons__btn"
             }
-          ></Button>
+          >
+            Order
+            {/* <Link to="/order-details/1"> */}
+          </Link>
+
           <Button
-            onclick={cancelHandle}
-            name={"cancel"}
+            onClick={cancelHandle}
+            name={"Cancel"}
             className={
               "button--rounded--s shoppingCart__item__product__buttons__btn"
             }

@@ -7,7 +7,7 @@ const ProductCardList = ({ productCards, handleDelete }) =>
       key={product.id}
       productName={product.name}
       productAmount={product.amount}
-      productImg={product.image}
+      productImg={product.src}
       totalPrice={product.totalPrice}
       handleDelete={handleDelete}
       cardType="modalCard"

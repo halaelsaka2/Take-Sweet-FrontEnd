@@ -40,8 +40,8 @@ const HistoryFromUserSection = ({
         <div className="text-container">There is no products to be shown</div>
       ) : (
         <React.Fragment>
-          <OrderDate date={date} />
-          <CompanyLogo imgSrc={companyLogoImgSrc} />
+          <OrderDate date="14/6/2020" />
+          <CompanyLogo imgSrc="assets/images/ElAbd.jpg" />
           <div className="project-container project-container--h">
             <div className="history-cards-container history-cards-container--user project-container project-container--h">
               <ProductCardList productCards={currentProducts} />

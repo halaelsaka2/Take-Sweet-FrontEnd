@@ -225,7 +225,8 @@ class Profile extends Component {
       isProductCardModalOpen,
       toggleShoppingBag,
       openProductsCardModal,
-      shoppingOrderList
+      shoppingOrderList,
+      numberOfOrders
 
     } = this.props;
     const {
@@ -300,7 +301,7 @@ class Profile extends Component {
         <HistoryIcon />
         {role === "cafe" && (
           <ShoppingCart
-            number={2}
+            number={numberOfOrders}
             openShoppingBag={toggleShoppingBag}
             isHidden={isShoppingIconHidden}
           />
