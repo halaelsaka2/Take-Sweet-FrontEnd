@@ -59,7 +59,7 @@ const OrderDetaislSection = ({rows}) => {
             <div className="deliverType-container__content__total">
               Total Price
             </div>
-            <div className="deliverType-container__content__price">160</div>
+            <div className="deliverType-container__content__price">500</div>
             <div className="deliverType-container__content__currency">EGP</div>
           </div>
 

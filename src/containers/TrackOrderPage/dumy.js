@@ -2,7 +2,7 @@ export const dumy = {
     orders: [
         {
           status: "Waiting",
-          date: "20/5/2020",
+          date: "14/6/2020",
           rows: [
             ["product", "Quantity", "Price Per Piece", "Total Price"],
             ["Caramle Cake", "10", "30", "300"],
