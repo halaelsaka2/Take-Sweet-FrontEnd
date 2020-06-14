@@ -60,7 +60,7 @@ const ProductsSellerSection = ({
         </div>
 
         <div className="list-container">
-          {productsList.map((item) => (
+          {currentProducts.map((item) => (
             <ProductItem
               name={item.name}
               src={item.src}

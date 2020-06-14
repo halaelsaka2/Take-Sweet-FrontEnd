@@ -131,9 +131,11 @@ class Header extends Component {
           {/* // <NavLink to="/login">
           //   <i className="fas fa-user"></i> Sign in
           // </NavLink> */}
-          <NavLink to="/login">
-            <i className="fas fa-sign-out-alt"></i>
-          </NavLink>
+          {userName && (
+            <NavLink to="/login">
+              <i class="fas fa-sign-out-alt"></i>
+            </NavLink>
+          )}
         </div>
       </header>
     );

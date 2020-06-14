@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import Table from "../Table";
 import Button from "../Button";
+import { Link } from "react-router-dom";
 
 const OrderCard = ({
   rows,
@@ -46,7 +47,7 @@ const OrderCard = ({
             onClick={onCancel}
           />
         )}
-        <a>Show more</a>
+        <Link to="/user-history">Show more</Link>
       </div>
     </div>
   </div>

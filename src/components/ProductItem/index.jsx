@@ -1,41 +1,110 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { repeat } from "lodash";
 
-const ProductItem = ({ src, amount, type, name }) => {
+const ProductItem = ({ src, amount, type, name, addToCart, price }) => {
   return (
-    <div className="itemm">
-      <div className="itemm__image" style={{ backgroundImage: `url(${src})` }}>
-        <div className="itemm__data">
-          {type === "buyer" && (
-            <button className="itemm__btn">Order Now</button>
-          )}
-        </div>
-      </div>
-      <h4>{name}</h4>
-      <div className="itemm__data__amount">
-        {type === "buyer" ? (
-          <div className="itemm__data__amount">
-            <i className="fas fa-minus itemm__data__amount__controls"></i>
-            <div className="itemm__data__amount__number">{amount}</div>
-            <i className="fas fa-plus itemm__data__amount__controls"></i>
+    <React.Fragment>
+      {type === "buyer" ? (
+        <div class="itemm">
+          <div
+            class="itemm__image"
+            style={{
+              backgroundImage: `url(${src})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+            }}
+            // style="background-image: url('assets/images/Product-1.jpg');"
+          >
+            <div class="itemm__data">
+              <button class="itemm__btn" onClick={addToCart}>
+                Order Now
+              </button>
+            </div>
           </div>
-        ) : (
-          <div className="item-medium__crud-actions">
-            <div className="flex-row">
+          <h4>{name}</h4>
+          <div className="itemm-data">{price} EGP</div>
+          <div class="itemm__data__amount">
+            <i class="fas fa-minus itemm__data__amount__controls"></i>
+            <div class="itemm__data__amount__number">{amount}</div>
+            <i class="fas fa-plus itemm__data__amount__controls"></i>
+          </div>
+        </div>
+      ) : (
+        <div class="item-medium">
+          <div
+            class="item-medium__image image"
+            style={{
+              backgroundImage: `url(${src})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+            }}
+            // "
+            //   background-image: url('assets/images/Product-1.jpg');
+            //   background-size: cover;
+            //   background-repeat: no-repeat;
+            //   background-position: center;
+            // "
+          ></div>
+          <a href="#">
+            <h4>{name}</h4>
+            <div class="flex-row">
               <div>
-                <span className="lable"> 10 pieces</span>
+                <span class="lable"> {amount} pieces</span>
               </div>
             </div>
+          </a>
+          <div class="item-medium__crud-actions">
             <a href="#">
-              <i className="fas fa-edit"></i>
+              <i class="fas fa-edit"></i>
             </a>
             <a href="#">
-              <i className="fas fa-trash-alt"></i>
+              <i class="fas fa-trash-alt"></i>
             </a>
           </div>
-        )}
-      </div>
-    </div>
+        </div>
+      )}
+
+      {/* <div className="itemm">
+          <div className="itemm__image" style={{ backgroundImage: `url(${src})` }}>
+            <div className="itemm__data">
+              {type === "buyer" && (
+                <button className="itemm__btn">Order Now</button>
+              )}
+            </div>
+          </div>
+          <h4>{name}</h4>
+          <div className="itemm__data__amount">
+            {type === "buyer" ? (
+              <div className="itemm__data__amount">
+                <i className="fas fa-minus itemm__data__amount__controls"></i>
+                <div className="itemm__data__amount__number">{amount}</div>
+                <i className="fas fa-plus itemm__data__amount__controls"></i>
+              </div>
+            ) : (
+              <div className="item-medium__crud-actions">
+                <div className="flex-row">
+                  <div>
+                    <span className="lable"> 10 pieces</span>
+                  </div>
+                </div>
+                <a href="#">
+                  <i className="fas fa-edit"></i>
+                </a>
+                <a href="#">
+                  <i className="fas fa-trash-alt"></i>
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+        )
+      
+
+            } */}
+    </React.Fragment>
   );
 };
 

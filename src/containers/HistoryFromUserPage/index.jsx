@@ -11,14 +11,26 @@ import ProductCardsSection from "../../components/ProductCardsSection";
 class HistoryFromUser extends Component {
   state = {
     productCards: [
-      { Num: 1, status: "Arrived" },
-      { Num: 2, status: "Waiting" },
-      { Num: 3, status: "Arrived" },
-      { Num: 4, status: "Waiting" },
-      { Num: 5, status: "Arrived" },
-      { Num: 6, status: "Waiting" },
-      { Num: 7, status: "Waiting" },
-      { Num: 8, status: "Arrived" },
+      {
+        src: "assets/images/Product-1.jpg",
+        amount: 10,
+        price: 30,
+        name: "Caramel Cake"
+      },
+      {
+        src: "assets/images/Product-2.jpg",
+        amount: 10,
+        price: 20,
+        name: "Figs Tart"
+      }
+      // { Num: 1, status: "Arrived" },
+      // { Num: 2, status: "Waiting" },
+      // { Num: 3, status: "Arrived" },
+      // { Num: 4, status: "Waiting" },
+      // { Num: 5, status: "Arrived" },
+      // { Num: 6, status: "Waiting" },
+      // { Num: 7, status: "Waiting" },
+      // { Num: 8, status: "Arrived" },
     ],
     date: "",
     statusTabs: ["All", "Waiting", "Arrived", "Cancelled"],

@@ -23,6 +23,7 @@ const ProductsSection = ({
   dropDownHandler,
   categoryDropDownStatus,
   sortDropDownStatus,
+  addToCart,
 }) => {
   const firstIndex = (currentPage - 1) * productsPerPage;
     const lastIndex = firstIndex + productsPerPage;
@@ -69,6 +70,8 @@ const ProductsSection = ({
                 name={item.name}
                 src={item.src}
                 amount={item.amount}
+                addToCart={addToCart}
+                price={item.price}
               ></ProductItem>
             ))}
           </div>

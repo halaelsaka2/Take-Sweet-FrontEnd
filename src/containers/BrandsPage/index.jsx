@@ -54,7 +54,10 @@ class BrandsPage extends Component {
       toggleShoppingBag,
       openProductsCardModal,
       products,
-      shoppingOrderList
+      shoppingOrderList,
+      addToCart,
+      numberOfOrders,
+      orderHandle
     } = this.props;
     console.log("this.props:", this.props);
 
@@ -63,7 +66,7 @@ class BrandsPage extends Component {
         <Header />
         <HistoryIcon />
         <ShoppingCart
-          number={2}
+          number={numberOfOrders}
           openShoppingBag={toggleShoppingBag}
           isHidden={isShoppingIconHidden}
         />
@@ -72,11 +75,13 @@ class BrandsPage extends Component {
           isOpen={isShoppingBagOpen}
           closeShoppingBag={toggleShoppingBag}
           openCardModal={openProductsCardModal}
+          orderHandle={orderHandle}
+
         />
         {isProductCardModalOpen && (
           <ProductCardsSection
             isClicked={isProductCardModalOpen}
-            productCards={products}
+            productCards={shoppingOrderList[0].products}
             closeProductsModal={openProductsCardModal}
             handleDelete
           />
@@ -93,6 +98,7 @@ class BrandsPage extends Component {
           sortDropDownStatus={sortDropDownStatus}
           categoryDropDownStatus={categoryDropDownStatus}
           dropDownHandler={dropDownHandler}
+          addToCart={addToCart}
         />
         <Footer />
       </React.Fragment>

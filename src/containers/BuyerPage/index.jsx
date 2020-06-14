@@ -55,6 +55,10 @@ class BuyerPage extends Component {
       openProductsCardModal,
       products,
       shoppingOrderList,
+      addToCart,
+      numberOfOrders,
+      orderHandle
+
     } = this.props;
 
     return (
@@ -62,7 +66,7 @@ class BuyerPage extends Component {
         <Header />
         <HistoryIcon />
         <ShoppingCart
-          number={2}
+          number={numberOfOrders}
           openShoppingBag={toggleShoppingBag}
           isHidden={isShoppingIconHidden}
         />
@@ -71,11 +75,12 @@ class BuyerPage extends Component {
           isOpen={isShoppingBagOpen}
           closeShoppingBag={toggleShoppingBag}
           openCardModal={openProductsCardModal}
+          orderHandle={orderHandle}
         />
         {isProductCardModalOpen && (
           <ProductCardsSection
             isClicked={isProductCardModalOpen}
-            productCards={products}
+            productCards={shoppingOrderList[0].products}
             closeProductsModal={openProductsCardModal}
             handleDelete
           />
@@ -92,6 +97,7 @@ class BuyerPage extends Component {
           sortDropDownStatus={sortDropDownStatus}
           categoryDropDownStatus={categoryDropDownStatus}
           dropDownHandler={dropDownHandler}
+          addToCart={addToCart}
         />
         <Footer />
       </React.Fragment>
