@@ -226,7 +226,7 @@ class Profile extends Component {
       toggleShoppingBag,
       openProductsCardModal,
       shoppingOrderList,
-      numberOfOrders
+      numberOfOrders,
 
     } = this.props;
     const {
