@@ -132,7 +132,7 @@ class Header extends Component {
           //   <i className="fas fa-user"></i> Sign in
           // </NavLink> */}
           <NavLink to="/login">
-            <i class="fas fa-sign-out-alt"></i>
+            <i className="fas fa-sign-out-alt"></i>
           </NavLink>
         </div>
       </header>
