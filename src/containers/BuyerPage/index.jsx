@@ -8,21 +8,21 @@ import HistoryIcon from "../../components/HistoryIcon";
 import ShoppingCart from "../../components/ShoppingCart";
 import ShoppingOrderContainer from "../../components/ShoppingOrderSection";
 import ProductCardsSection from "../../components/ProductCardsSection";
+import { getAllProducts } from "../../redux-modules/products/actions";
 import {
-  getAllProducts,
   getSortList,
   getCategoryList,
-} from "../../redux-modules/products/actions";
+} from "../../redux-modules/dropdowns/actions";
 
 class BuyerPage extends Component {
   state = {
     categoryDropDownStatus: false,
     sortDropDownStatus: false,
-    productsPerPage:9,
-    currentPage:1
+    productsPerPage: 9,
+    currentPage: 1,
   };
 
-   paginate = (currentPage) => {
+  paginate = (currentPage) => {
     if (
       0 < currentPage &&
       currentPage <=
@@ -43,11 +43,10 @@ class BuyerPage extends Component {
   }
   render() {
     const {
-
       dropDownHandler,
       state: { categoryDropDownStatus, sortDropDownStatus },
     } = this;
-      const  {
+    const {
       isShoppingIconHidden,
       isShoppingBagOpen,
       isProductCardModalOpen,
@@ -57,8 +56,7 @@ class BuyerPage extends Component {
       shoppingOrderList,
       addToCart,
       numberOfOrders,
-      orderHandle
-
+      orderHandle,
     } = this.props;
 
     return (
@@ -86,9 +84,9 @@ class BuyerPage extends Component {
           />
         )}
         <ProductsSection
-        paginate={this.paginate}
-        productsPerPage={this.state.productsPerPage}
-        currentPage={this.state.currentPage}
+          paginate={this.paginate}
+          productsPerPage={this.state.productsPerPage}
+          currentPage={this.state.currentPage}
           productsList={this.props.productsList}
           categoryList={this.props.categoryList}
           sortList={this.props.sortList}
@@ -106,9 +104,9 @@ class BuyerPage extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    productsList: state.prod.productsList,
-    categoryList: state.prod.categoryList,
-    sortList: state.prod.sortList,
+    productsList: state.dropdown.productsList,
+    categoryList: state.dropdown.categoryList,
+    sortList: state.products.sortList,
   };
 };
 

@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { getAllProducts } from "../../redux-modules/products/actions";
 import {
-  getAllProducts,
   getSortList,
   getCategoryList,
-} from "../../redux-modules/products/actions";
-
+} from "../../redux-modules/dropdowns/actions";
 import PropTypes from "prop-types";
 import ProductsSellerSection from "../../components/ProductsSellerSection";
 class ProductsPage extends Component {
@@ -63,9 +62,9 @@ class ProductsPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    productsList: state.prod.productsList,
-    categoryList: state.prod.categoryList,
-    sortList: state.prod.sortList,
+    productsList: state.dropdown.productsList,
+    categoryList: state.dropdown.categoryList,
+    sortList: state.products.sortList,
   };
 };
 

@@ -10,10 +10,10 @@ import ShoppingOrderContainer from "../../components/ShoppingOrderSection";
 import ProductCardsSection from "../../components/ProductCardsSection";
 import {
   getAllBrands,
-  getSortList,
-  getCategoryList,
+  
 } from "../../redux-modules/products/actions";
-
+import {getSortList,
+  getCategoryList,} from '../../redux-modules/dropdowns/actions' 
 class BrandsPage extends Component {
   state = {
     categoryDropDownStatus: false,
@@ -109,9 +109,9 @@ class BrandsPage extends Component {
 const mapStateToProps = (state) => {
   console.log("state:", state);
   return {
-    productsList: state.prod.productsList,
-    categoryList: state.prod.categoryList,
-    sortList: state.prod.sortList,
+    productsList: state.dropdown.productsList,
+    categoryList: state.dropdown.categoryList,
+    sortList: state.products.sortList,
   };
 };
 

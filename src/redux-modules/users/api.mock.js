@@ -13,3 +13,12 @@ export const login = (user) => {
     });
   });
 };
+
+export const getAllOrders = (orders)=>{
+  new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      resolve(orders)
+    })
+  })
+}
+
