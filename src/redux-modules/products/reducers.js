@@ -14,17 +14,7 @@ export default (state = initialState, action) => {
         ...state,
         productsList: action.productsList,
       };
-    case actionTypes.GET_SORT_BY_LIST:
-      console.log("action.sortByList",action.sortList)
-      return {
-        ...state,
-        sortList: action.sortList,
-      };
-    case actionTypes.GET_CATEGORY_LIST:
-      return {
-        ...state,
-        categoryList: action.categoryList,
-      };
+    
       case actionTypes.GET_ALL_BRANDS:
       return {
         ...state,

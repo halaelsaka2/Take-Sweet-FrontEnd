@@ -50,48 +50,52 @@ class Header extends Component {
           <ul className="nav__menu">
             <li className="nav__menu__item">
               <NavLink
-                to="/home"
+                to="/home" 
                 activeClassName="activeLink"
-                className="nav__menu__link"
+                // className="nav__menu__link"
               >
                 Home
               </NavLink>
             </li>
             <li className="nav__menu__item">
-              <Link to="about-us" className="nav__menu__link">
-                <NavLink
-                  to="/home"
-                  className="nav__menu__link"
-                  activeClassName="activeLink"
-                >
-                  About us
-                </NavLink>
-              </Link>
+              {/* <Link to="about-us" 
+              className="nav__menu__link"
+              > */}
+              <NavLink
+                to="/home"
+                // className="nav__menu__link"
+                activeClassName="activeLink"
+              >
+                About us
+              </NavLink>
+              {/* </Link> */}
             </li>
             <li className="nav__menu__item">
-              <Link to="reviewCard" className="nav__menu__link">
-                <NavLink to="/home" className="nav__menu__link">
-                  Review
-                </NavLink>
-              </Link>
+              {/* <Link to="reviewCard"  */}
+              {/* // className="nav__menu__link" */}
+              {/* > */}
+              <NavLink to="/home#reviewCard" activeClassName="activeLink">
+                Review
+              </NavLink>
+              {/* </Link> */}
             </li>
             <li className="nav__menu__item">
-              <Link to="footer" className="nav__menu__link">
-                <NavLink to="/home" className="nav__menu__link">
-                  Contact
-                </NavLink>
-              </Link>
-            </li>
+              {/* <Link to="footer" className="nav__menu__link"> */}
+              <NavLink to="/" activeClassName="activeLink">
+                Contact
+              </NavLink>
+              {/* </Link> */}
+            </li> 
             {role === "company" && (
               <li className="nav__menu__item">
-                <NavLink to="/seller" className="nav__menu__link">
+                <NavLink to="/seller" activeClassName="activeLink">
                   Products
                 </NavLink>
               </li>
             )}
             {role === "cafe" && (
               <li className="nav__menu__item">
-                <NavLink to="/brands" className="nav__menu__link">
+                <NavLink to="/brands" activeClassName="activeLink">
                   Brands
                 </NavLink>
               </li>

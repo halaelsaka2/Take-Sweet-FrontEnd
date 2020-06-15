@@ -26,6 +26,8 @@ export default class App extends Component {
     isShoppingIconHidden: false,
     isShoppingBagOpen: false,
     isProductCardModalOpen: false,
+
+
     products: [
       {
         id: 1,
@@ -89,6 +91,7 @@ export default class App extends Component {
     isProductCardModalOpen = !isProductCardModalOpen;
     this.setState({ isProductCardModalOpen });
   };
+
   addToCart = () => {
     console.log("halaaa");
 
@@ -99,18 +102,20 @@ export default class App extends Component {
     this.setState({ numberOfOrders });
   };
 
+
   render() {
+    
     const {
       state: {
         isProductCardModalOpen,
         isShoppingBagOpen,
         isShoppingIconHidden,
-        products,
-        shoppingOrderList,
-        numberOfOrders,
+        products
       },
       openProductsCardModal,
       toggleShoppingBag,
+
+      
       orderHandle,
     } = this;
     return (
@@ -118,6 +123,8 @@ export default class App extends Component {
         <Switch>
           {/* <Header /> */}
           <Route path="/" exact component={HomePage} />
+          <Route path="/home"  component={HomePage} />
+          
           <Route path="/add-product" component={AddProductPage} />
           <Route path="/order-details/:id" component={OrderDetailsPage} />
           <Route
@@ -130,9 +137,11 @@ export default class App extends Component {
                 openProductsCardModal={openProductsCardModal}
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
+
                 shoppingOrderList={shoppingOrderList}
                 numberOfOrders={numberOfOrders}
                 orderHandle={orderHandle}
+
                 {...props}
               />
             )}
@@ -148,7 +157,6 @@ export default class App extends Component {
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
                 products={products}
-                shoppingOrderList={shoppingOrderList}
                 {...props}
               />
             )}
@@ -167,10 +175,6 @@ export default class App extends Component {
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
                 products={products}
-                shoppingOrderList={shoppingOrderList}
-                numberOfOrders={numberOfOrders}
-                addToCart={this.addToCart}
-                orderHandle={orderHandle}
                 {...props}
               />
             )}
@@ -187,10 +191,6 @@ export default class App extends Component {
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
                 products={products}
-                shoppingOrderList={shoppingOrderList}
-                numberOfOrders={numberOfOrders}
-                addToCart={this.addToCart}
-                orderHandle={orderHandle}
                 {...props}
               />
             )}
@@ -198,7 +198,7 @@ export default class App extends Component {
           {/* <Route path="/buyer" component={BuyerPage} /> */}
 
           <Route path="/seller" component={ProductsSellerPage} />
-
+          
           <Route path="/login" component={LoginPage} />
           <Route path="/register-branch" component={RegisterBranchPage} />
           <Route
@@ -217,7 +217,8 @@ export default class App extends Component {
             path="/register-acceptance"
             component={RegisterAcceptancePage}
           />
-          <Redirect from="/home" to="/" />
+
+          {/* <Redirect from="/home" to="/" /> */}
           <Redirect to="/" />
 
           {/* <Footer /> */}
@@ -226,3 +227,5 @@ export default class App extends Component {
     );
   }
 }
+
+
