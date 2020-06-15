@@ -138,8 +138,8 @@ export default class App extends Component {
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
 
-                shoppingOrderList={shoppingOrderList}
-                numberOfOrders={numberOfOrders}
+                shoppingOrderList={this.state.shoppingOrderList}
+                numberOfOrders={this.state.numberOfOrders}
                 orderHandle={orderHandle}
 
                 {...props}
@@ -174,6 +174,8 @@ export default class App extends Component {
                 openProductsCardModal={openProductsCardModal}
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
+                shoppingOrderList={this.state.shoppingOrderList}
+                numberOfOrders={this.state.numberOfOrders}
                 products={products}
                 {...props}
               />
@@ -190,6 +192,8 @@ export default class App extends Component {
                 openProductsCardModal={openProductsCardModal}
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
+                shoppingOrderList={this.state.shoppingOrderList}
+                numberOfOrders={this.state.numberOfOrders}
                 products={products}
                 {...props}
               />

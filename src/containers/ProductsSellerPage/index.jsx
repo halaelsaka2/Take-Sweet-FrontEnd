@@ -62,9 +62,9 @@ class ProductsPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    productsList: state.dropdown.productsList,
+    productsList: state.products.productsList,
     categoryList: state.dropdown.categoryList,
-    sortList: state.products.sortList,
+    sortList: state.dropdown.sortList,
   };
 };
 
