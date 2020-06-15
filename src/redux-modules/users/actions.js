@@ -1,5 +1,11 @@
-import { USER_REGISTER, USER_LOGIN, GET_ALL_ORDERS } from "./constants";
-import { register, login, getAllOrders } from "./api.mock";
+import {
+  USER_REGISTER,
+  USER_LOGIN,
+  GET_ALL_ORDERS,
+  ADD_TO_SHOPPING_CART,
+} from "./constants";
+import { register, login, getAllOrders, addtoShoppingCart } from "./api.mock";
+import { editProduct } from "../products/actions";
 
 export const userRegister = (user) => {
   const userInfo = user;
@@ -35,5 +41,18 @@ const orderslistRes = (ordersList) => {
   return {
     type: GET_ALL_ORDERS,
     ordersList,
+  };
+};
+
+export const addToShoppingCart = (product) => {
+  return async (dispatch) => {
+    const shoppingCartList = await addtoShoppingCart(product);
+    dispatch(addToShoppingCartRes(shoppingCartList));
+  };
+};
+const addToShoppingCartRes = (shoppingCartList) => {
+  return {
+    type: ADD_TO_SHOPPING_CART,
+    shoppingCartList,
   };
 };
