@@ -55,3 +55,12 @@ export const editProduct = (product) => {
 export const editProductRes = (editedProduct) => {
   return { type: EDIT_PRODUCT, editedProduct };
 };
+export const deleteProduct = (product) => {
+  return async (dispatch) => {
+    const deletedProduct = await productsHandler.deleteProduct(product);
+    dispatch(deleteProductRes(deletedProduct));
+  };
+};
+export const deleteProductRes = (deleteProduct) => {
+  return { type: DELETE_PRODUCT, deleteProduct };
+};
