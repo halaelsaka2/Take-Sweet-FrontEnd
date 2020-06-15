@@ -44,21 +44,27 @@ export const dumy = {
   ],
   paymentTypes: [{
     id: 1,
+    src:"assets/images/Cash.png",
     name: "Cash"
   }, {
     id: 2,
+    src:"assets/images/visa.png",
     name: "Visa"
   }, {
     id: 3,
+    src:"assets/images/Credit Card.png",
     name: "Credit Card"
   }, {
     id: 4,
+    src:"assets/images/mobile-payment.jpg",
     name: "Mobile payment"
   }, {
     id: 5,
+    src:"assets/images/E-wallet.jpg",
     name: "E-Wallet"
   }, {
     id: 6,
+    src:"assets/images/Bank.png",
     name: "Bank Transfer"
   }]
 }

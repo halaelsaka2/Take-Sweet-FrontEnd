@@ -39,6 +39,10 @@
     display: grid;
     grid-template-columns: auto auto auto;
 
+    &--payment {
+      grid-template-columns: 30% auto auto;
+    }
+
     &--2branches {
       width: 100%;
       grid-template-columns: auto auto;

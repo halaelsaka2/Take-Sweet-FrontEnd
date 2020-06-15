@@ -1,16 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Button from "../../Button";
-import { Link } from "react-router-dom";
+import {withRouter} from "react-router-dom"
 
 const ShoppingOrderItem = ({
   src,
   quantity,
   totalPrice,
-  orderHandle,
   cancelHandle,
   openCardModal,
-}) => (
+  history
+}) => {
+const orderHandle=()=>{
+    history.push("/order-details/1")
+  }
+return (
   <React.Fragment>
     <div className="shoppingCart__item">
       <div className="shoppingCart__item__image">
@@ -24,18 +28,15 @@ const ShoppingOrderItem = ({
           Total Price : $500
         </div>
         <div className="shoppingCart__item__product__buttons">
-          <Link
-            to="/order-details/1"
-            // onClick={orderHandle}
+          <Button
+            onClick={orderHandle}
             name={"order"}
             className={
               "button--rounded--s shoppingCart__item__product__buttons__btn"
             }
           >
             Order
-            {/* <Link to="/order-details/1"> */}
-          </Link>
-
+          </Button>
           <Button
             onClick={cancelHandle}
             name={"Cancel"}
@@ -51,7 +52,7 @@ const ShoppingOrderItem = ({
     </div>
     <hr className="line" />
   </React.Fragment>
-);
+)};
 
 ShoppingOrderItem.propTypes = {
   src: PropTypes.string,
@@ -61,4 +62,4 @@ ShoppingOrderItem.propTypes = {
   orderHandle: PropTypes.func,
 };
 
-export default ShoppingOrderItem;
+export default withRouter( ShoppingOrderItem)
