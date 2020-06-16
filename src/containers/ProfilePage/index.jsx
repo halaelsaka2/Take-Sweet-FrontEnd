@@ -18,6 +18,9 @@ import HistoryIcon from "../../components/HistoryIcon";
 import ShoppingCart from "../../components/ShoppingCart";
 import ShoppingOrderContainer from "../../components/ShoppingOrderSection";
 import ProductCardsSection from "../../components/ProductCardsSection";
+import { connect } from "react-redux";
+import { getAllPaymentTypes } from "../../redux-modules/paymentTypes/actions";
+
 
 class Profile extends Component {
   state = {
@@ -46,6 +49,7 @@ class Profile extends Component {
         role: userObject.role,
       });
     }
+    this.props.getAllPaymentTypes();
 
   }
 
@@ -240,7 +244,7 @@ class Profile extends Component {
         editBranchModalIsOpen,
         isPasswordModalOpen,
         isPaymentTypeOpen,
-        paymentTypes,
+        // paymentTypes,
         role,
       },
 
@@ -356,7 +360,7 @@ class Profile extends Component {
           />
           {role === "company" && (
             <PaymentType
-              paymentTypes={paymentTypes}
+              paymentTypes={this.props.paymentTypesList}
               openModal={openPaymentModal}
             />
           )}
@@ -366,7 +370,7 @@ class Profile extends Component {
               classModifier="myModal__modalContent--password"
             >
               <EditPaymentType
-                paymentTypes={paymentTypes}
+                paymentTypes={this.props.paymentTypesList}
                 onPaymentTypeChange={changePaymentTypeModal}
                 onSave={savePaymentTypeModal}
                 onCancel={cancelPaymentTypeModal}
@@ -383,4 +387,18 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+
+const mapStateToProps = (state) => {
+  return {
+    paymentTypesList: state.paymentTypes.paymentTypesList
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getAllPaymentTypes: () => dispatch(getAllPaymentTypes()),
+
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)
