@@ -1,6 +1,6 @@
 import * as actionTypes from "./constants";
 
-const initialState = { user: "" };
+const initialState = { user: "", shoppingCartList: [] };
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -8,6 +8,8 @@ export default (state = initialState, action) => {
       return { ...state, user: action.user, token: action.token };
     case actionTypes.USER_REGISTER:
       return { ...state, user: action.user };
+    case actionTypes.ADD_TO_SHOPPING_CART:
+      return { ...state, shoppingCartList: action.shoppingCartList };
     default:
       return state;
   }

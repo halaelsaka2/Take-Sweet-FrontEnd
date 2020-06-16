@@ -14,11 +14,18 @@ export const login = (user) => {
   });
 };
 
-export const getAllOrders = (orders)=>{
-  new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-      resolve(orders)
-    })
-  })
-}
+export const getAllOrders = (orders) => {
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(orders);
+    });
+  });
+};
 
+export const addtoShoppingCart = (product) => {
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(product);
+    });
+  });
+};
