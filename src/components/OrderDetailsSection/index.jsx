@@ -11,6 +11,7 @@ import Button from "./../Button/index";
 
 const OrderDetaislSection = ({
   rows,
+  isDeletable,
   paymentTypes = [
     { id: 1, name: "cash" },
     {
@@ -35,7 +36,7 @@ const OrderDetaislSection = ({
       </div>
       <div className="history__line"></div>
       <div className="details-table">
-        <Table rows={rows} />
+        <Table rows={rows} isDeletable={isDeletable} />
       </div>
       <Container>
         <div className="detailsContainerr">

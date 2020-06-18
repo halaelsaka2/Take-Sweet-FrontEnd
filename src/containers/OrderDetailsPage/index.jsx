@@ -8,7 +8,6 @@ export default class OrderDetailsPage extends Component {
       status: "Waiting",
       date: "20/5/2020",
       rows: [
-        ["product", "Quantity", "Price Per Piece", "Total Price"],
         ["Choclate cake", "10", "30", "300"],
         ["Figs Tart", "10", "20", "200"],
       ],
@@ -47,6 +46,7 @@ export default class OrderDetailsPage extends Component {
     return (
       <OrderDetaislSection
         rows={order.rows}
+        isDeletable={true}
         recommendationsValue={order.comments}
         checkedPaymentType={order.paymentType}
         handlePaymentTypeChange={handlePaymentTypeChange}
