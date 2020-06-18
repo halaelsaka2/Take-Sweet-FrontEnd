@@ -24,7 +24,7 @@ const Dropdown = ({
     >
       <ul className="dropdown__list">
         {listItems.map((item, index) => {
-          console.log(idList[index]);
+          // console.log(idList[index]);
           return (
             <li
               onClick={(event) => selectionHandle(event, idList[index])}
