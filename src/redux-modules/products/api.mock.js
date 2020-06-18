@@ -12,11 +12,10 @@ export const getAllBrands = () =>
     }, 1000);
   });
 
-export const addProduct = (product) => {
+export const addProduct = (product) =>
   new Promise((resolve, reject) => {
     setTimeout(() => resolve(product), 1000);
   });
-};
 
 export const editproduct = (Product) => {
   new Promise((resolve, reject) => {
