@@ -35,10 +35,10 @@ export const getAllBrands = () => {
   };
 };
 
-export const addProduct = (addedProduct) => {
+export const addProduct = (product) => {
   return async (dispatch) => {
-    const product = await productsHandler.addProduct(addedProduct);
-    dispatch(addProductRes(product));
+    const newproduct = await productsHandler.addProduct(product);
+    dispatch(addProductRes(newproduct));
   };
 };
 
