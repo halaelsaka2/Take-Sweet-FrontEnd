@@ -36,6 +36,13 @@ export default (state = initialState, action) => {
         ...state,
         editedProduct: action.product,
       };
+    // case actionTypes.ADD_PRODUCT:
+    // const productsList = [...state.productsList];
+    // productsList.push(action.product);
+    // return {
+    //   ...state,
+    //   productsList,
+    // };
     default:
       return state;
   }

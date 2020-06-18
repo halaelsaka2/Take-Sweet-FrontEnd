@@ -26,8 +26,6 @@ export default class App extends Component {
     isShoppingIconHidden: false,
     isShoppingBagOpen: false,
     isProductCardModalOpen: false,
-
-
     products: [
       {
         id: 1,
@@ -102,20 +100,17 @@ export default class App extends Component {
     this.setState({ numberOfOrders });
   };
 
-
   render() {
-    
     const {
       state: {
         isProductCardModalOpen,
         isShoppingBagOpen,
         isShoppingIconHidden,
-        products
+        products,
       },
       openProductsCardModal,
       toggleShoppingBag,
 
-      
       orderHandle,
     } = this;
     return (
@@ -123,8 +118,8 @@ export default class App extends Component {
         <Switch>
           {/* <Header /> */}
           <Route path="/" exact component={HomePage} />
-          <Route path="/home"  component={HomePage} />
-          
+          <Route path="/home" component={HomePage} />
+
           <Route path="/add-product" component={AddProductPage} />
           <Route path="/order-details/:id" component={OrderDetailsPage} />
           <Route
@@ -137,11 +132,9 @@ export default class App extends Component {
                 openProductsCardModal={openProductsCardModal}
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
-
                 shoppingOrderList={this.state.shoppingOrderList}
                 numberOfOrders={this.state.numberOfOrders}
                 orderHandle={orderHandle}
-
                 {...props}
               />
             )}
@@ -202,7 +195,7 @@ export default class App extends Component {
           {/* <Route path="/buyer" component={BuyerPage} /> */}
 
           <Route path="/seller" component={ProductsSellerPage} />
-          
+
           <Route path="/login" component={LoginPage} />
           <Route path="/register-branch" component={RegisterBranchPage} />
           <Route
@@ -231,5 +224,3 @@ export default class App extends Component {
     );
   }
 }
-
-

@@ -4,56 +4,56 @@ import OrderDetaislSection from "../../components/OrderDetailsSection";
 
 export default class OrderDetailsPage extends Component {
   state = {
-    orders: [
-      {
-        status: "Waiting",
-        date: "20/5/2020",
-        rows: [
-          ["product", "Quantity", "Price Per Piece", "Total Price"],
-          ["Caramle Cake", "10", "30", "300"],
-          ["Figs Tart", "10", "20", "200"],
-        ],
-        companyLogoImgSrc: "",
-      },
-      {
-        status: "Waiting",
-        date: "20/5/2020",
-        rows: [
-          ["product", "Quantity", "Price Per Piece", "Total Price"],
-          ["cake", "20", "100", "2000"],
-          ["cake", "30", "100", "3000"],
-          ["cake", "40", "100", "4000"],
-          ["cake", "50", "100", "5000"],
-        ],
-        companyLogoImgSrc: "",
-      },
-      {
-        status: "Arrived",
-        date: "20/5/2020",
-        rows: [
-          ["product", "Quantity", "Price Per Piece", "Total Price"],
-          ["cake", "20", "100", "2000"],
-          ["cake", "30", "100", "3000"],
-          ["cake", "40", "100", "4000"],
-          ["cake", "50", "100", "5000"],
-        ],
-        companyLogoImgSrc: "",
-      },
-      {
-        status: "Arrived",
-        date: "20/5/2020",
-        rows: [
-          ["product", "Quantity", "Price Per Piece", "Total Price"],
-          ["cake", "20", "100", "2000"],
-          ["cake", "30", "100", "3000"],
-          ["cake", "40", "100", "4000"],
-          ["cake", "50", "100", "5000"],
-        ],
-        companyLogoImgSrc: "",
-      },
-    ],
+    order: {
+      status: "Waiting",
+      date: "20/5/2020",
+      rows: [
+        ["Choclate cake", "10", "30", "300"],
+        ["Figs Tart", "10", "20", "200"],
+      ],
+      companyLogoImgSrc: "",
+      comments: "",
+      paymentType: "",
+    },
+    paymentTypes: [],
+  };
+  handleChange = (e) => {
+    let { order } = this.state;
+    order.comments = e.target.value;
+    this.setState({ order });
+  };
+  handlePaymentTypeChange = (e) => {
+    const order = { ...this.state.order };
+    const paymentTypeSelected = parseInt(e.target.value);
+    order.paymentType = paymentTypeSelected;
+    this.setState({ order });
+  };
+  handleSubmit = () => {
+    console.log(this.state.order);
+    // this.props.history.push("/track-order");
+  };
+  handleCancel = () => {
+    this.props.history.push("/buyer");
   };
   render() {
-    return <OrderDetaislSection rows={this.state.orders[0].rows} />;
+    const {
+      state: { order },
+      handleChange,
+      handlePaymentTypeChange,
+      handleCancel,
+      handleSubmit,
+    } = this;
+    return (
+      <OrderDetaislSection
+        rows={order.rows}
+        isDeletable={true}
+        recommendationsValue={order.comments}
+        checkedPaymentType={order.paymentType}
+        handlePaymentTypeChange={handlePaymentTypeChange}
+        onChange={handleChange}
+        confirmButtonHandle={handleSubmit}
+        cancelButtonHandle={handleCancel}
+      />
+    );
   }
 }

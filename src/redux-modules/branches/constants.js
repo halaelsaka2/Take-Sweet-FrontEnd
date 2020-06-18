@@ -1,0 +1,5 @@
+export const GET_ALL_BRANCHES = "GET_ALL_BRANCHES";
+export const ADD_BRANCH = "ADD_BRANCH";
+export const GET_BRANCH_BY_ID = "GET_BRANCH_BY_ID";
+export const EDIT_BRANCH = "EDIT_BRANCH";
+export const DELETE_BRANCH = "DELETE_BRANCH";

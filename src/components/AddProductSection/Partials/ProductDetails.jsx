@@ -10,18 +10,19 @@ import Textarea from "../../Textarea";
 import Input from "../../Input";
 
 const ProductDetails = ({
-  countItems,
-  categories,
-  productNameValue,
-  countItemValues,
-  onChange,
-  onCategoryChange,
-  checkedCategory,
-  handleSubmit,
-  onCancelButtonClicked,
+  product: {
+    checkedCategory,
+    productNameValue,
+    availableAmount,
+    minPieces,
+    price,
+  },
+  handlers: { handleSubmit, onChange, onCategoryChange, onCancelButtonClicked },
+  constants: { countItems, categories },
   isAddButtonClicked,
 }) => {
   console.log(checkedCategory);
+  const countItemValues = [availableAmount, minPieces, price];
   return (
     <div className="productDetailsContainer">
       <AvForm onValidSubmit={handleSubmit}>
@@ -72,25 +73,6 @@ const ProductDetails = ({
           ))}
         </div>
 
-        {/* <label>paymentTypes</label>
-    <div className="paymentsContianer">
-      <br />
-      {paymentTypes.map((paymentType) => (
-        <div className="paymentItem">
-          <Input
-            key={paymentType.id}
-            type="checkbox"
-            className="paymentItem__input"
-            onChange={onPaymentTypeChange}
-            name={paymentType.name}
-            value={paymentType.name}
-            checked={paymentType.checked}
-          />
-          <lable className="paymentItem__name">{paymentType.name}</lable>
-        </div>
-      ))}
-    </div> */}
-
         <label style={{ marginBottom: "1rem" }}>Categories</label>
         <AvRadioGroup
           className="categoryContainer"
@@ -116,6 +98,7 @@ const ProductDetails = ({
             name="Add"
             type="submit"
             color=""
+            onClick={handleSubmit}
           >
             Add
           </Button>

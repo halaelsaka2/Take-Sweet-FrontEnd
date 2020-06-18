@@ -12,46 +12,50 @@ const OrderCard = ({
   onReorder,
   onCancel,
   companyLogoImgSrc,
-}) => (
-  <div className="order-card">
-    <div className="order-card__header">
-      <div className="order-card__header__logo">
-        <img src={companyLogoImgSrc} alt="" />
-        <div className="order-card__header__logo__date">{date}</div>
-      </div>
-      <div className="status-current">
-        <div
-          className={`color-circle 
+  id,
+}) => {
+  // console.log(id);
+  return (
+    <div className="order-card">
+      <div className="order-card__header">
+        <div className="order-card__header__logo">
+          <img src={companyLogoImgSrc} alt="" />
+          <div className="order-card__header__logo__date">{date}</div>
+        </div>
+        <div className="status-current">
+          <div
+            className={`color-circle 
                     ${status === "Waiting" && "color-circle--wating"} 
                     ${status === "Arrived" && "color-circle--arrived"}
                     ${status === "Cancelled" && "color-circle--canceled"}`}
-        ></div>
-        <label>{status}</label>
+          ></div>
+          <label>{status}</label>
+        </div>
       </div>
-    </div>
-    <div className="order-card__content">
-      <div className="details-table details-table--order">
-        <Table rows={rows} />
-      </div>
-      <div className="order-card__content__buttons">
-        <Button
-          className="button--rounded button--rounded--s"
-          name="Reorder"
-          onClick={onReorder}
-        />
-
-        {status === "Waiting" && (
+      <div className="order-card__content">
+        <div className="details-table details-table--order">
+          <Table rows={rows} />
+        </div>
+        <div className="order-card__content__buttons">
           <Button
-            className="button--rounded button--rounded--s button--rounded--danger"
-            name="Cancel"
-            onClick={onCancel}
+            className="button--rounded button--rounded--s"
+            name="Reorder"
+            onClick={() => onReorder(id)}
           />
-        )}
-        <Link to="/user-history">Show more</Link>
+
+          {status === "Waiting" && (
+            <Button
+              className="button--rounded button--rounded--s button--rounded--danger"
+              name="Cancel"
+              onClick={() => onCancel(id)}
+            />
+          )}
+          <Link to="/user-history">Show more</Link>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 OrderCard.defaultProps = {
   status: "Waiting",
