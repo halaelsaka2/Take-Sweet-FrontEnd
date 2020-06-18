@@ -4,55 +4,41 @@ import Footer from "./../Layouts/Footer";
 import HistoryStates from "./../HistoryStates";
 import { Container } from "reactstrap";
 import { ProductImage, ProductDetails } from "./Partials";
+// import { products } from "../../redux-modules/products/api.mock";
 
 const AddProducSection = ({
-  imgSrc,
+  product,
+  constants,
   countItems,
   paymentTypes,
   categories,
-  productNameValue,
+  handlers,
   productNameError,
-  countItemValues,
   countItemErrors,
-  checkedCategory,
-  onChange,
-  onPaymentTypeChange,
-  onCategoryChange,
-  countItemsChange,
-  tabs,
-  currentTabe,
-  handleSubmit,
-  onCancelButtonClicked,
   isAddButtonClicked,
   error,
-}) => (
-  <div class="project-container project-container--h">
-    <HistoryStates tabs={tabs} currentTabe={currentTabe} />
+}) => {
+  const { imageSrc } = product;
+  const { tabs, currentTabe } = constants;
+  return (
+    <div class="project-container project-container--h">
+      <HistoryStates tabs={tabs} currentTabe={currentTabe} />
 
-    <Container>
-      <div class="ProductContainer">
-        <ProductImage imgSrc={imgSrc} />
-
-        <ProductDetails
-          countItems={countItems}
-          paymentTypes={paymentTypes}
-          categories={categories}
-          onChange={onChange}
-          productNameValue={productNameValue}
-          productNameError={productNameError}
-          countItemsChange={countItemsChange}
-          countItemValues={countItemValues}
-          countItemErrors={countItemErrors}
-          checkedCategory={checkedCategory}
-          onPaymentTypeChange={onPaymentTypeChange}
-          onCategoryChange={onCategoryChange}
-          handleSubmit={handleSubmit}
-          onCancelButtonClicked={onCancelButtonClicked}
-          isAddButtonClicked={isAddButtonClicked}
-        />
-      </div>
-    </Container>
-  </div>
-);
-
+      <Container>
+        <div class="ProductContainer">
+          <ProductImage imgSrc={imageSrc} />
+          <ProductDetails
+            paymentTypes={paymentTypes}
+            product={product}
+            handlers={handlers}
+            constants={constants}
+            productNameError={productNameError}
+            countItemErrors={countItemErrors}
+            isAddButtonClicked={isAddButtonClicked}
+          />
+        </div>
+      </Container>
+    </div>
+  );
+};
 export default AddProducSection;
