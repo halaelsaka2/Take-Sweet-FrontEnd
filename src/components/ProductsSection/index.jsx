@@ -26,11 +26,8 @@ const ProductsSection = ({
   addToCart,
 }) => {
   const firstIndex = (currentPage - 1) * productsPerPage;
-    const lastIndex = firstIndex + productsPerPage;
-    const currentProducts = productsList.slice(
-      firstIndex,
-      lastIndex
-    );
+  const lastIndex = firstIndex + productsPerPage;
+  const currentProducts = productsList.slice(firstIndex, lastIndex);
   return (
     <React.Fragment>
       <Header />
@@ -78,7 +75,7 @@ const ProductsSection = ({
         ) : (
           <div className="list-container list-container--4">
             {currentProducts.map((item) => (
-              <BrandItem src={item.src}></BrandItem>
+              <BrandItem src={item.userId.imageSrc}></BrandItem>
             ))}
           </div>
         )}
