@@ -1,17 +1,24 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import RegisterPersonalInfoSection from "../../components/RegisterPersonalInfoSection";
+import { getAllRoles } from "../../redux-modules/role/actions";
 import constants from "./constants";
 class RegisterPersonalInfoPage extends Component {
   state = {
     newUserPersonalInfo: {
       accountType: "Brand/Cafe and Resturant",
       username: "",
-      userImage: ""
+      userImage: "",
     },
-    dropdownIsOpen: false
+    dropdownIsOpen: false,
   };
 
-  onChange = event => {
+  async componentDidMount() {
+    await this.props.getAllRoles();
+    console.log("This.props: ", this.props.roles);
+  }
+
+  onChange = (event) => {
     let newUserPersonalInfo = { ...this.state.newUserPersonalInfo };
     newUserPersonalInfo[event.target.name] = event.target.value;
     this.setState({ newUserPersonalInfo });
@@ -20,17 +27,18 @@ class RegisterPersonalInfoPage extends Component {
   nextButtonHandle = (event, values) => {
     this.props.history.push("/register-branch");
   };
-  backButtonHandle = event => {};
+  backButtonHandle = (event) => {};
 
-  dropdownIsOpenHandle = event => {
+  dropdownIsOpenHandle = (event) => {
     let dropdownIsOpen = this.state.dropdownIsOpen;
     dropdownIsOpen = !dropdownIsOpen;
     this.setState({ dropdownIsOpen });
   };
 
-  selectAccountTypeHandle = event => {
+  selectAccountTypeHandle = (event, id) => {
     let newUserPersonalInfo = { ...this.state.newUserPersonalInfo };
     let { dropdownIsOpen, usernamePlaceholder } = this.state;
+    console.log(event.target.textContent, id);
     newUserPersonalInfo.accountType = event.target.textContent;
     newUserPersonalInfo.accountType === "Brand"
       ? (usernamePlaceholder = "Brand Name")
@@ -43,14 +51,25 @@ class RegisterPersonalInfoPage extends Component {
     const {
       state: {
         newUserPersonalInfo: { accountType, username, userImage },
-        dropdownIsOpen
+        dropdownIsOpen,
       },
       onChange,
       backButtonHandle,
       nextButtonHandle,
       dropdownIsOpenHandle,
-      selectAccountTypeHandle
+      selectAccountTypeHandle,
+      props: { roles },
     } = this;
+    // if (roles !== "undefined") {
+    // const x = roles.map((i) => i.name);
+    // console.log(
+    //   "beeeb",
+    //   x
+
+    // .map((role) => role.name)
+    // );
+    // }
+    console.log(this.props.roles);
     return (
       <RegisterPersonalInfoSection
         accountType={accountType}
@@ -66,9 +85,25 @@ class RegisterPersonalInfoPage extends Component {
         nextButtonHandle={nextButtonHandle}
         dropdownIsOpenHandle={dropdownIsOpenHandle}
         selectAccountTypeHandle={selectAccountTypeHandle}
+        roles={this.props.roles}
       />
     );
   }
 }
 
-export default RegisterPersonalInfoPage;
+const mapStateToProps = (state) => {
+  return {
+    roles: state.role.roles,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getAllRoles: () => dispatch(getAllRoles()),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RegisterPersonalInfoPage);
