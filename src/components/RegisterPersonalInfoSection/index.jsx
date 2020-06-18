@@ -1,8 +1,6 @@
 import React from "react";
-// import Button from "../Button";
 import Stepper from "../Stepper";
 import Dropdown from "../Dropdown";
-import Input from "../Input";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { AvForm, AvField } from "availity-reactstrap-validation";
@@ -20,8 +18,10 @@ const RegisterPersonalInfoSection = ({
   nextButtonHandle,
   dropdownIsOpenHandle,
   selectAccountTypeHandle,
-  accountType
+  accountType,
+  roles,
 }) => (
+  // console.log(roles)
   <div className="register-container">
     <div className="register-form-container">
       <AvForm className="register-form" onValidSubmit={nextButtonHandle}>
@@ -31,7 +31,7 @@ const RegisterPersonalInfoSection = ({
           stepClassNames={[
             "circle--finished",
             "circle--active",
-            "circle--notTouched"
+            "circle--notTouched",
           ]}
           pipeClassNames={["pipe--finished", "pipe--notTouched"]}
         />
@@ -39,10 +39,11 @@ const RegisterPersonalInfoSection = ({
         <div className="reg-dropdown-container ">
           <Dropdown
             Header={accountType}
-            listItems={["Brand", "Cafe and Resturant"]}
+            listItems={roles.map((role) => role.name)}
             isOpened={dropdownIsOpen}
             IsOpenHandle={dropdownIsOpenHandle}
             selectionHandle={selectAccountTypeHandle}
+            idList={roles.map((role) => role.id)}
           />
         </div>
         <div className="info">
@@ -57,8 +58,8 @@ const RegisterPersonalInfoSection = ({
             validate={{
               required: {
                 value: true,
-                errorMessage: "Name can't be empty"
-              }
+                errorMessage: "Name can't be empty",
+              },
             }}
           />
           <div className="info__photo">
@@ -94,6 +95,10 @@ const RegisterPersonalInfoSection = ({
     </div>
   </div>
 );
+
+RegisterPersonalInfoSection.defaultProps = {
+  roles: [],
+};
 RegisterPersonalInfoSection.propTypes = {
   usernameType: PropTypes.string,
   usernamePlaceholder: PropTypes.string,
@@ -106,6 +111,6 @@ RegisterPersonalInfoSection.propTypes = {
   backButtonHandle: PropTypes.func,
   nextButtonHandle: PropTypes.func,
   dropdownIsOpenHandle: PropTypes.func,
-  selectAccountTypeHandle: PropTypes.func
+  selectAccountTypeHandle: PropTypes.func,
 };
 export default RegisterPersonalInfoSection;
