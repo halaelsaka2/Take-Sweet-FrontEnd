@@ -17,8 +17,9 @@ const OrderTrackSection = ({
   currentPage,
   paginate,
   handleTabChange,
+  handleCancelOrder,
 }) => {
-  console.log(productsPerPage, orders, currentProducts.length, currentPage);
+  // console.log(productsPerPage, orders, currentProducts.length, currentPage);
 
   return (
     <React.Fragment>
@@ -36,7 +37,10 @@ const OrderTrackSection = ({
         handleTabChange={handleTabChange}
       />
       <Container>
-        <OrderListSection orders={currentProducts} />
+        <OrderListSection
+          orders={currentProducts}
+          handleCancelOrder={handleCancelOrder}
+        />
       </Container>
 
       {orders.length > productsPerPage && (

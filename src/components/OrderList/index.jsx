@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Container } from "reactstrap";
 
 import OrderCard from "../OrderCard";
-const OrderList = ({ orders, onReorder, onCancel }) => (
+const OrderList = ({ orders, onReorder, handleCancelOrder }) => (
   <Container fluid="xl">
     {orders.length > 0 ? (
       <div className="order-container">
@@ -14,12 +14,13 @@ const OrderList = ({ orders, onReorder, onCancel }) => (
             key={index}
             date={order.date}
             onReorder={onReorder}
-            onCancel={onCancel}
+            onCancel={handleCancelOrder}
             companyLogoImgSrc={order.companyLogoImgSrc}
+            id={order.id}
           />
         ))}
       </div>
-    ):(
+    ) : (
       <div className="noItem">There Is No Orders Yet</div>
     )}
   </Container>
@@ -32,6 +33,5 @@ OrderList.propTypes = {
   orders: PropTypes.array,
   onReorder: PropTypes.func,
   onCancel: PropTypes.func,
-  
 };
 export default OrderList;
