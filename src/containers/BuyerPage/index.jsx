@@ -8,7 +8,11 @@ import HistoryIcon from "../../components/HistoryIcon";
 import ShoppingCart from "../../components/ShoppingCart";
 import ShoppingOrderContainer from "../../components/ShoppingOrderSection";
 import ProductCardsSection from "../../components/ProductCardsSection";
-import { getAllProducts } from "../../redux-modules/products/actions";
+import {
+  getAllProducts,
+  getPorductById,
+  editAmount,
+} from "../../redux-modules/products/actions";
 import {
   getSortList,
   getCategoryList,
@@ -20,6 +24,7 @@ class BuyerPage extends Component {
     sortDropDownStatus: false,
     productsPerPage: 9,
     currentPage: 1,
+    amount: 0,
   };
 
   paginate = (currentPage) => {
@@ -36,6 +41,25 @@ class BuyerPage extends Component {
       [name]: !this.state[name],
     });
   };
+
+  amountHandler = (event, id) => {
+    const oldproduct = this.props.productsList.find(
+      (product) => product.id === id
+    );
+    console.log(event.target.id);
+    if (event.target.id === "plus") {
+      const amount = oldproduct.amount + 1;
+      const newproduct = { ...oldproduct, amount };
+      this.props.getAmout(newproduct);
+    } else {
+      if (oldproduct.amount !== 10) {
+        const amount = oldproduct.amount - 1;
+        const newproduct = { ...oldproduct, amount };
+        this.props.getAmout(newproduct);
+      }
+    }
+  };
+
   componentDidMount() {
     this.props.getAllProducts();
     this.props.getCategoryList();
@@ -44,7 +68,10 @@ class BuyerPage extends Component {
   render() {
     const {
       dropDownHandler,
-      state: { categoryDropDownStatus, sortDropDownStatus },
+      plusHandler,
+      minusHandler,
+      amountHandler,
+      state: { categoryDropDownStatus, sortDropDownStatus, amount },
     } = this;
     const {
       isShoppingIconHidden,
@@ -96,6 +123,9 @@ class BuyerPage extends Component {
           categoryDropDownStatus={categoryDropDownStatus}
           dropDownHandler={dropDownHandler}
           addToCart={addToCart}
+          plusHandler={plusHandler}
+          minusHandler={minusHandler}
+          amountHandler={amountHandler}
         />
         <Footer />
       </React.Fragment>
@@ -107,6 +137,7 @@ const mapStateToProps = (state) => {
     productsList: state.products.productsList,
     categoryList: state.dropdown.categoryList,
     sortList: state.dropdown.sortList,
+    product: state.products.product,
   };
 };
 
@@ -115,6 +146,8 @@ const mapDispatchToProps = (dispatch) => {
     getAllProducts: () => dispatch(getAllProducts()),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
+    getProductById: (id) => dispatch(getPorductById(id)),
+    getAmout: (product) => dispatch(editAmount(product)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(BuyerPage);

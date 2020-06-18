@@ -1,11 +1,12 @@
 import * as productsHandler from "./api.mock";
+import * as productsDB from "./api";
 import {
   GET_ALL_PRODUCTS,
   GET_PRODUCT_BY_ID,
-  GET_ALL_BRANDS,
   DELETE_PRODUCT,
   EDIT_PRODUCT,
   ADD_PRODUCT,
+  EDIT_Amount,
 } from "./constants";
 
 export const getAllProductsRes = (productsList) => {
@@ -16,28 +17,15 @@ export const getAllProductsRes = (productsList) => {
 };
 export const getAllProducts = () => {
   return async (dispatch) => {
-    const productsList = await productsHandler.getAllProducts();
+    const productsList = await productsDB.getAllProducts();
     console.log(productsList);
     dispatch(getAllProductsRes(productsList));
   };
 };
 
-export const getAllBrandsRes = (brandsList) => {
-  return {
-    type: GET_ALL_BRANDS,
-    brandsList,
-  };
-};
-export const getAllBrands = () => {
-  return async (dispatch) => {
-    const brandsList = await productsHandler.getAllBrands();
-    dispatch(getAllBrandsRes(brandsList));
-  };
-};
-
 export const addProduct = (product) => {
   return async (dispatch) => {
-    const newproduct = await productsHandler.addProduct(product);
+    const newproduct = await productsDB.addProduct(product);
     dispatch(addProductRes(newproduct));
   };
 };
@@ -46,18 +34,22 @@ export const addProductRes = (product) => {
   return { type: ADD_PRODUCT, product };
 };
 
-export const editProduct = (product) => {
+export const editProduct = (id,product) => {
   return async (dispatch) => {
-    const editedProduct = await productsHandler.editproduct(product);
-    dispatch(editProductRes(editedProduct));
+    const {newproducts} = await productsDB.updateProduct(id,product);
+    dispatch(editProductRes({newproducts}));
   };
 };
-export const editProductRes = (product) => {
-  return { type: EDIT_PRODUCT, product };
+
+export const editProductRes = (newproducts) => {
+  return { type: EDIT_PRODUCT, newproducts };
 };
-export const deleteProduct = (product) => {
+export const editAmount= (product) => {
+  return { type: EDIT_Amount, product };
+};
+export const deleteProduct = (id) => {
   return async (dispatch) => {
-    const deletedProduct = await productsHandler.deleteProduct(product);
+    const deletedProduct = await productsDB.deleteProduct(id);
     dispatch(deleteProductRes(deletedProduct));
   };
 };
@@ -67,7 +59,8 @@ export const deleteProductRes = (product) => {
 
 export const getPorductById = (id) => {
   return async (dispatch) => {
-    const product = await productsHandler.getProductById(id);
+    console.log(id,"inAction");
+    const product = await productsDB.getProductById(id);
     dispatch(getPorductByIdRes(product));
   };
 };
