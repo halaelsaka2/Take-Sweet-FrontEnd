@@ -38,7 +38,7 @@ class BrandsPage extends Component {
   };
 
   componentDidMount() {
-    this.props.getAllBrands();
+    // this.props.getAllBrands();
     this.props.getCategoryList();
     this.props.getSortList();
     this.props.getAllCompanies();
@@ -119,7 +119,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getAllBrands: () => dispatch(getAllBrands()),
+    // getAllBrands: () => dispatch(getAllBrands()),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
     getAllCompanies: () => dispatch(getAllCompanies()),

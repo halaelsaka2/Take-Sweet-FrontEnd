@@ -24,6 +24,10 @@ const ProductsSection = ({
   categoryDropDownStatus,
   sortDropDownStatus,
   addToCart,
+  plusHandler,
+  minusHandler,
+  amountHandler
+  
 }) => {
   const firstIndex = (currentPage - 1) * productsPerPage;
   const lastIndex = firstIndex + productsPerPage;
@@ -63,12 +67,18 @@ const ProductsSection = ({
           <div className="list-container">
             {currentProducts.map((item) => (
               <ProductItem
+                Key={item.id}
                 type={type}
                 name={item.name}
-                src={item.src}
-                amount={item.amount}
+                src={item.imageSrc}
+                minPieces={item.minPieces}
                 addToCart={addToCart}
                 price={item.price}
+                plusHandler={plusHandler}
+                minusHandler={minusHandler}
+                id={item.id}
+                amount={item.amount}
+                amountHandler={amountHandler}
               ></ProductItem>
             ))}
           </div>
