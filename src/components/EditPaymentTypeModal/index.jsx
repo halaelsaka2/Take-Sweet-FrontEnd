@@ -22,6 +22,7 @@ const EditPaymentType = ({
             name={paymentType.name}
             value={paymentType.name}
             checked={paymentType.checked}
+            id={paymentType.id}
           />
           <span className="paymentItem__name">{paymentType.name}</span>
         </div>

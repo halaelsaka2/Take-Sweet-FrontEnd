@@ -1,4 +1,5 @@
 import * as paymentTypeHandler from "./api.mock";
+import * as paymentDB from "./api"
 import {
   GET_ALL_PAYMENT_TYPES,
   GET_PAYMENT_TYPE_BY_ID,
@@ -15,7 +16,7 @@ export const getAllPaymentTypesRes = (paymentTypesList) => {
 };
 export const getAllPaymentTypes = () => {
   return async (dispatch) => {
-    const paymentTypesList = await paymentTypeHandler.getPaymentTypes();
+    const paymentTypesList = await paymentDB.getAllPaymentTypes();
     console.log(paymentTypesList,"inAction");
     dispatch(getAllPaymentTypesRes(paymentTypesList));
   };
@@ -32,14 +33,18 @@ export const addPaymentType = (addedPaymentType) => {
   };
 };
 
-export const editPaymentTypeRes = (paymentType) => {
-  return { type: EDIT_PAYMENT_TYPE, paymentType };
+export const editPaymentTypeRes = (paymentTypesList) => {
+  return { type: EDIT_PAYMENT_TYPE, paymentTypesList };
 };
 
-export const editPaymentType = (paymentType) => {
+export const editPaymentType = (id,checked) => {
+
+  console.log(checked,"out");
   return async (dispatch) => {
-    const editedPaymentType = await paymentTypeHandler.editPaymentType(paymentType);
-    dispatch(editPaymentTypeRes(editedPaymentType));
+  console.log(checked,"in");
+    const {paymentTypeList} = await paymentDB.updatePaymentType(id,checked);
+    console.log(paymentTypeList,"inAction");
+    dispatch(editPaymentTypeRes(paymentTypeList));
   };
 };
 
@@ -64,7 +69,7 @@ export const getPaymentTypeByIdRes = (paymentType) => {
 
 export const getPaymentTypeById = (id) => {
   return async (dispatch) => {
-    const paymentType = await paymentTypeHandler.getPaymentTypeById(id);
+    const paymentType = await paymentDB.getPaymentTypeById(id);
     dispatch(getPaymentTypeByIdRes(paymentType));
   };
 };
