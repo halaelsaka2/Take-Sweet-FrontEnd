@@ -2,34 +2,39 @@ import React, { Component } from "react";
 import { dumy } from "./dumy";
 import { constants } from "./constants";
 import TrackOrderSection from "../../components/TrackOrderSection";
+import { connect } from "react-redux";
+import { getAllOrders, deleteOrder } from "../../redux-modules/orders/actions";
 
 class TrackOrder extends Component {
   state = {
-    orders:dumy.orders,
     statusTabs: constants.statusTabs,
-    currentTabe: dumy.currentTabe,
-    currentPage: dumy.currentPage,
     ordersPerPage: constants.ordersPerPage,
-    statusorders: dumy.statusorders,
+    currentTabe: 0,
+    currentPage: 1,
+    statusorders: [],
   };
 
-  componentDidMount() {
-    let statusorders = this.state.orders;
+  async componentDidMount() {
+    await this.props.getAllOrders();
+    const statusorders = this.props.orders;
     this.setState({ statusorders });
   }
 
   handleTabChange = (currentTabe) => {
     const {
-      state: { orders, statusTabs }
+      state: { statusTabs },
     } = this;
-    const currentStatus = statusTabs[currentTabe];
+    const orders = this.props.orders;
     let statusorders = orders;
+    const currentStatus = statusTabs[currentTabe];
 
-    const currentPage = 1;
     if (currentTabe !== 0) {
       statusorders = orders.filter((order) => order.status === currentStatus);
     }
-    this.setState({ currentTabe, statusorders, currentPage });
+    this.setState({ currentTabe, statusorders, currentPage: 1 });
+  };
+  handleCancelOrder = (id) => {
+    this.props.deleteOrder(id);
   };
 
   paginate = (currentPage) => {
@@ -43,17 +48,17 @@ class TrackOrder extends Component {
         currentTabe,
         ordersPerPage,
         currentPage,
-        statusorders,
+        statusorders = this.props.orders,
       },
       handleTabChange,
+      handleCancelOrder,
       paginate,
     } = this;
-
+    // console.log(this.props.orders);
     const firstIndex = (currentPage - 1) * ordersPerPage;
     const lastIndex = firstIndex + ordersPerPage;
-    console.log("fi", firstIndex, lastIndex);
+    const currentOrders = statusorders.slice(firstIndex, lastIndex);
 
-    const currentOrders = this.state.statusorders.slice(firstIndex, lastIndex);
     return (
       <TrackOrderSection
         orders={statusorders}
@@ -64,9 +69,22 @@ class TrackOrder extends Component {
         currentPage={currentPage}
         paginate={paginate}
         handleTabChange={handleTabChange}
+        handleCancelOrder={handleCancelOrder}
       />
     );
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getAllOrders: () => dispatch(getAllOrders()),
+    deleteOrder: (id) => dispatch(deleteOrder(id)),
+  };
+};
+const mapStateToProps = (state) => {
+  // console.log(state.orders.allOrders);
+  return {
+    orders: state.orders.allOrders,
+  };
+};
 
-export default TrackOrder;
+export default connect(mapStateToProps, mapDispatchToProps)(TrackOrder);
