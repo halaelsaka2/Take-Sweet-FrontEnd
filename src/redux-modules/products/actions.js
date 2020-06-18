@@ -35,10 +35,10 @@ export const getAllBrands = () => {
   };
 };
 
-export const addProduct = (addedProduct) => {
+export const addProduct = (product) => {
   return async (dispatch) => {
-    const product = await productsHandler.addProduct(addedProduct);
-    dispatch(addProductRes(product));
+    const newproduct = await productsHandler.addProduct(product);
+    dispatch(addProductRes(newproduct));
   };
 };
 
@@ -52,8 +52,8 @@ export const editProduct = (product) => {
     dispatch(editProductRes(editedProduct));
   };
 };
-export const editProductRes = (editedProduct) => {
-  return { type: EDIT_PRODUCT, editedProduct };
+export const editProductRes = (product) => {
+  return { type: EDIT_PRODUCT, product };
 };
 export const deleteProduct = (product) => {
   return async (dispatch) => {
@@ -61,6 +61,19 @@ export const deleteProduct = (product) => {
     dispatch(deleteProductRes(deletedProduct));
   };
 };
-export const deleteProductRes = (deleteProduct) => {
-  return { type: DELETE_PRODUCT, deleteProduct };
+export const deleteProductRes = (product) => {
+  return { type: DELETE_PRODUCT, product };
+};
+
+export const getPorductById = (id) => {
+  return async (dispatch) => {
+    const product = await productsHandler.getProductById(id);
+    dispatch(getPorductByIdRes(product));
+  };
+};
+export const getPorductByIdRes = (product) => {
+  return {
+    type: GET_PRODUCT_BY_ID,
+    product,
+  };
 };

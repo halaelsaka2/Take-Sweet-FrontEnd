@@ -1,4 +1,3 @@
-
 export const getAllProducts = () =>
   new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -13,11 +12,10 @@ export const getAllBrands = () =>
     }, 1000);
   });
 
-export const addProduct = (product) => {
+export const addProduct = (product) =>
   new Promise((resolve, reject) => {
     setTimeout(() => resolve(product), 1000);
   });
-};
 
 export const editproduct = (Product) => {
   new Promise((resolve, reject) => {
@@ -28,6 +26,12 @@ export const editproduct = (Product) => {
 export const deleteProduct = (id) => {
   new Promise((resolve, reject) => {
     setTimeout(() => resolve(id), 1000);
+  });
+};
+
+export const getProductById = (id) => {
+  new Promise((resolve, reject) => {
+    setTimeout(() => resolve(product), 1000);
   });
 };
 
@@ -276,3 +280,10 @@ export const brands = [
     name: "stan's Dounts",
   },
 ];
+
+const product = {
+  src: "assets/images/Product-1.jpg",
+  amount: 10,
+  price: 30,
+  name: "Caramel Cake",
+};

@@ -7,7 +7,8 @@ const Dropdown = ({
   isOpened,
   IsOpenHandle,
   selectionHandle,
-  additionalStyle
+  additionalStyle,
+  idList,
 }) => (
   <div className="drop-container">
     <div
@@ -22,15 +23,18 @@ const Dropdown = ({
       className={`dropdown ${isOpened && `dropdown-open`} ${additionalStyle}`}
     >
       <ul className="dropdown__list">
-        {listItems.map((item, index) => (
-          <li
-            onClick={selectionHandle}
-            key={index}
-            className="dropdown__list__item"
-          >
-            <a className="dropdown__list__item__link">{item}</a>
-          </li>
-        ))}
+        {listItems.map((item, index) => {
+          // console.log(idList[index]);
+          return (
+            <li
+              onClick={(event) => selectionHandle(event, idList[index])}
+              key={index}
+              className="dropdown__list__item"
+            >
+              <a className="dropdown__list__item__link">{item}</a>
+            </li>
+          );
+        })}
       </ul>
     </div>
   </div>
@@ -39,5 +43,5 @@ const Dropdown = ({
 export default Dropdown;
 
 Dropdown.defaultProps = {
-  additionalStyle: ""
+  additionalStyle: "",
 };
