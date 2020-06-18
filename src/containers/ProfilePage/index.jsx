@@ -18,6 +18,12 @@ import HistoryIcon from "../../components/HistoryIcon";
 import ShoppingCart from "../../components/ShoppingCart";
 import ShoppingOrderContainer from "../../components/ShoppingOrderSection";
 import ProductCardsSection from "../../components/ProductCardsSection";
+import { connect } from "react-redux";
+import {
+  getAllPaymentTypes,
+  getPaymentTypeById,
+  editPaymentType,
+} from "../../redux-modules/paymentTypes/actions";
 
 class Profile extends Component {
   state = {
@@ -33,6 +39,7 @@ class Profile extends Component {
     editBranchModalIsOpen: false,
     dropdownIsOpen: false,
     role: "",
+    paymentTypeStatu: "",
   };
 
   componentDidMount() {
@@ -46,7 +53,7 @@ class Profile extends Component {
         role: userObject.role,
       });
     }
-
+    this.props.getAllPaymentTypes();
   }
 
   deleteButtonHandle = (index) => {
@@ -191,8 +198,13 @@ class Profile extends Component {
   openPaymentModal = () => {
     this.togglePaymentModal();
   };
-  changePaymentTypeModal = () => {
-    console.log("change PaymentType Modal");
+  changePaymentTypeModal = (event) => {
+    const id =event.target.id
+    const checked =event.target.checked
+    console.log(checked);
+    
+    this.props.editPaymentType(id,checked);
+    
   };
   savePaymentTypeModal = () => {
     console.log("Save PaymentType Modal");
@@ -218,7 +230,6 @@ class Profile extends Component {
   // };
 
   render() {
-    console.log(this.state.user);
     const {
       isShoppingIconHidden,
       isShoppingBagOpen,
@@ -227,7 +238,6 @@ class Profile extends Component {
       openProductsCardModal,
       shoppingOrderList,
       numberOfOrders,
-
     } = this.props;
     const {
       state: {
@@ -240,7 +250,7 @@ class Profile extends Component {
         editBranchModalIsOpen,
         isPasswordModalOpen,
         isPaymentTypeOpen,
-        paymentTypes,
+        // paymentTypes,
         role,
       },
 
@@ -266,7 +276,9 @@ class Profile extends Component {
       openPaymentModal,
     } = this;
 
+    console.log(this.props.paymentTypesList,"kdj")
     return (
+      
       <React.Fragment>
         {isPersonalInfoModalOpen && (
           <ModalSection isClicked={isPersonalInfoModalOpen}>
@@ -356,7 +368,7 @@ class Profile extends Component {
           />
           {role === "company" && (
             <PaymentType
-              paymentTypes={paymentTypes}
+              paymentTypes={this.props.paymentTypesList}
               openModal={openPaymentModal}
             />
           )}
@@ -366,7 +378,7 @@ class Profile extends Component {
               classModifier="myModal__modalContent--password"
             >
               <EditPaymentType
-                paymentTypes={paymentTypes}
+                paymentTypes={this.props.paymentTypesList}
                 onPaymentTypeChange={changePaymentTypeModal}
                 onSave={savePaymentTypeModal}
                 onCancel={cancelPaymentTypeModal}
@@ -383,4 +395,19 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+const mapStateToProps = (state) => {
+  return {
+    paymentTypesList: state.paymentTypes.paymentTypesList,
+    PaymentType: state.paymentTypes.paymentType,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getAllPaymentTypes: () => dispatch(getAllPaymentTypes()),
+    getPaymentTypeById: () => dispatch(getPaymentTypeById()),
+    editPaymentType: (id,checked) => dispatch(editPaymentType(id,checked)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
