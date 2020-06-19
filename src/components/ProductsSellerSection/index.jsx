@@ -63,7 +63,7 @@ const ProductsSellerSection = ({
           {currentProducts.map((item) => (
             <ProductItem
               name={item.name}
-              src={item.src}
+              src={item.imageSrc}
               amount={item.amount}
               Type={"seller"}
             ></ProductItem>
