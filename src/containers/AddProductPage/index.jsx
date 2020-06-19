@@ -15,14 +15,17 @@ class AddProduct extends Component {
       minPieces: "",
       price: "",
       category: "",
+      categoryId: "",
     },
     isAddButtonClicked: "",
+    token: "",
   };
 
   componentDidMount() {
     const imageSrc = this.props.imageSrc;
     const product = { ...this.state.product, imageSrc };
-    this.setState({ product });
+    const token = this.props.token;
+    this.setState({ product, token });
   }
 
   inputHandler = (event) => {
@@ -33,7 +36,9 @@ class AddProduct extends Component {
 
   categotyHandler = (event) => {
     const { value, name } = event.target;
+    // console.log(name, value);
     const product = { ...this.state.product, [name]: parseInt(value) };
+    // console.log(product);
     this.setState({ product });
   };
 
@@ -43,6 +48,15 @@ class AddProduct extends Component {
       this.props.history.push("/seller");
     } else {
       const product = { ...this.state.product };
+      switch (product.category) {
+        case 1:
+          product.categoryId = "5ee21fba7f98cd0cd8a724d9";
+        case 2:
+          product.categoryId = "5ee2322e57a2c453680237cc";
+        case 3:
+          product.categoryId = "5ee2325157a2c453680237cd";
+      }
+      console.log(product);
       await this.props.addProduct(product);
       this.props.history.replace("/seller");
     }
@@ -86,9 +100,10 @@ class AddProduct extends Component {
     );
   }
 }
-const mapStateToPorpos = (state) => {
+const mapStateToProps = (state) => {
   return {
     imageSrc: state.products.imageSrc,
+    token: state.user.token,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -98,4 +113,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToPorpos, mapDispatchToProps)(AddProduct);
+export default connect(mapStateToProps, mapDispatchToProps)(AddProduct);
