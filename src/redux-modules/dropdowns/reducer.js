@@ -8,7 +8,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case GET_SORT_LIST:
-      console.log("action.sortByList", action.sortList);
+      // console.log("action.sortByList", action.sortList);
       return {
         ...state,
         sortList: action.sortList,

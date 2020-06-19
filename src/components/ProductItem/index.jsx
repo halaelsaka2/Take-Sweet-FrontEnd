@@ -22,7 +22,7 @@ const ProductItem = ({
           <div
             className="itemm__image"
             style={{
-              backgroundImage: `url(${src})`,
+              backgroundImage: `url(/${src})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",

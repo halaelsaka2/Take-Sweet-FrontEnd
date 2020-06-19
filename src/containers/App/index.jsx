@@ -176,7 +176,7 @@ export default class App extends Component {
           />
           {/* <Route path="/brands" component={BrandsPage} /> */}
           <Route
-            path="/buyer"
+            path="/buyer/:id"
             render={(props) => (
               <BuyerPage
                 isShoppingIconHidden={isShoppingIconHidden}

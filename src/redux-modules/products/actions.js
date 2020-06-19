@@ -9,17 +9,17 @@ import {
   EDIT_Amount,
 } from "./constants";
 
-export const getAllProductsRes = (productsList) => {
+export const getAllProductsByUserIdRes = (productsList) => {
   return {
     type: GET_ALL_PRODUCTS,
     productsList,
   };
 };
-export const getAllProducts = () => {
+export const getAllProductsByUserId = (id) => {
   return async (dispatch) => {
-    const productsList = await productsDB.getAllProducts();
-    console.log(productsList);
-    dispatch(getAllProductsRes(productsList));
+    const productsList = await productsDB.getAllProductsByUserId(id);
+    console.log(productsList,"in actioooooooooooooon");
+    dispatch(getAllProductsByUserIdRes(productsList));
   };
 };
 

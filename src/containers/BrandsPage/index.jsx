@@ -61,7 +61,7 @@ class BrandsPage extends Component {
       numberOfOrders,
       orderHandle,
     } = this.props;
-    console.log("this.props:", this.props);
+    // console.log("this.props:", this.props);
 
     return (
       <React.Fragment>
@@ -108,7 +108,7 @@ class BrandsPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("state:", state);
+  // console.log("state:", state);
   return {
     productsList: state.products.productsList,
     categoryList: state.dropdown.categoryList,
