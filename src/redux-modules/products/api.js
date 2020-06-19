@@ -28,9 +28,13 @@ export const addNewProduct = async (product, token) => {
 const uri = "http://localhost:3000/product";
 
 export const getAllProductsByUserId = async (id) => {
+    console.log(id,"eman");
+    
     const {
         data
     } = await axios.get(`${uri}/products/${id}`)
+    console.log(data,"inApi");
+    
     return data;
 }
 
