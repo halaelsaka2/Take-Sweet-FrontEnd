@@ -4,8 +4,17 @@ import {
   GET_ALL_ORDERS,
   ADD_TO_SHOPPING_CART,
 } from "./constants";
-import { register, login, getAllOrders, addtoShoppingCart } from "./api.mock";
-import { editProduct } from "../products/actions";
+import {
+  UserLogin
+} from "./api"
+import {
+  register,
+  getAllOrders,
+  addtoShoppingCart
+} from "./api.mock";
+import {
+  editProduct
+} from "../products/actions";
 
 export const userRegister = (user) => {
   const userInfo = user;
@@ -15,44 +24,52 @@ export const userRegister = (user) => {
   };
 };
 const userRegisterRes = (user) => {
-  return { type: USER_REGISTER, user };
-};
-
-export const userLogin = (user) => {
-  const currentUser = user;
-  return async (dispatch) => {
-    const token = await login(currentUser);
-    dispatch(userLoginRes(token, currentUser));
-  };
-};
-
-const userLoginRes = (token, user) => {
-  return { type: USER_LOGIN, token, user };
-};
-
-export const ordersList = (userId) => {
-  return async (dispatch) => {
-    const ordersList = await getAllOrders(userId);
-    dispatch(orderslistRes(ordersList));
-  };
-};
-
-const orderslistRes = (ordersList) => {
   return {
-    type: GET_ALL_ORDERS,
-    ordersList,
+    type: USER_REGISTER,
+    user
   };
 };
 
-export const addToShoppingCart = (product) => {
-  return async (dispatch) => {
-    const shoppingCartList = await addtoShoppingCart(product);
-    dispatch(addToShoppingCartRes(shoppingCartList));
-  };
-};
-const addToShoppingCartRes = (shoppingCartList) => {
+const userLoginRes = (user, token) => {
   return {
-    type: ADD_TO_SHOPPING_CART,
-    shoppingCartList,
+    type: USER_LOGIN,
+    user,
+    token
   };
 };
+
+export const userLogin = (currentUser) => {
+  return async (dispatch) => {
+    const userData = await UserLogin(currentUser)
+    dispatch(userLoginRes(userData.user, userData.token));
+  };
+};
+
+
+
+// export const ordersList = (userId) => {
+//   return async (dispatch) => {
+//     const ordersList = await getAllOrders(userId);
+//     dispatch(orderslistRes(ordersList));
+//   };
+// };
+
+// const orderslistRes = (ordersList) => {
+//   return {
+//     type: GET_ALL_ORDERS,
+//     ordersList,
+//   };
+// };
+
+// export const addToShoppingCart = (product) => {
+//   return async (dispatch) => {
+//     const shoppingCartList = await addtoShoppingCart(product);
+//     dispatch(addToShoppingCartRes(shoppingCartList));
+//   };
+// };
+// const addToShoppingCartRes = (shoppingCartList) => {
+//   return {
+//     type: ADD_TO_SHOPPING_CART,
+//     shoppingCartList,
+//   };
+// };

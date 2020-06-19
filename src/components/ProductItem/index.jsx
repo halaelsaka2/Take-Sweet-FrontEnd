@@ -2,39 +2,61 @@ import React from "react";
 import PropTypes from "prop-types";
 import { repeat } from "lodash";
 
-const ProductItem = ({ src, amount, type, name, addToCart, price }) => {
+const ProductItem = ({
+  src,
+  minPieces,
+  type,
+  name,
+  addToCart,
+  price,
+  minusHandler,
+  plusHandler,
+  id,
+  amount,
+  amountHandler,
+}) => {
   return (
     <React.Fragment>
       {type === "buyer" ? (
-        <div class="itemm">
+        <div className="itemm">
           <div
-            class="itemm__image"
+            className="itemm__image"
             style={{
-              backgroundImage: `url(${src})`,
+              backgroundImage: `url(/${src})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
             }}
             // style="background-image: url('assets/images/Product-1.jpg');"
           >
-            <div class="itemm__data">
-              <button class="itemm__btn" onClick={addToCart}>
+            <div className="itemm__data">
+              <button className="itemm__btn" onClick={addToCart}>
                 Order Now
               </button>
             </div>
           </div>
           <h4>{name}</h4>
           <div className="itemm-data">{price} EGP</div>
-          <div class="itemm__data__amount">
-            <i class="fas fa-minus itemm__data__amount__controls"></i>
-            <div class="itemm__data__amount__number">{amount}</div>
-            <i class="fas fa-plus itemm__data__amount__controls"></i>
+          <div className="itemm__data__amount">
+            <i
+              className="fas fa-minus itemm__data__amount__controls"
+              id="minus"
+              onClick={(event) => amountHandler(event, id)}
+            ></i>
+
+            <div className="itemm__data__amount__number">{amount}</div>
+
+            <i
+              className="fas fa-plus itemm__data__amount__controls"
+              id="plus"
+              onClick={(event) => amountHandler(event, id)}
+            ></i>
           </div>
         </div>
       ) : (
-        <div class="item-medium">
+        <div className="item-medium">
           <div
-            class="item-medium__image image"
+            className="item-medium__image image"
             style={{
               backgroundImage: `url(${src})`,
               backgroundSize: "cover",
@@ -50,18 +72,18 @@ const ProductItem = ({ src, amount, type, name, addToCart, price }) => {
           ></div>
           <a href="#">
             <h4>{name}</h4>
-            <div class="flex-row">
+            <div className="flex-row">
               <div>
-                <span class="lable"> {amount} pieces</span>
+                <span className="lable"> {amount} pieces</span>
               </div>
             </div>
           </a>
-          <div class="item-medium__crud-actions">
+          <div className="item-medium__crud-actions">
             <a href="#">
-              <i class="fas fa-edit"></i>
+              <i className="fas fa-edit"></i>
             </a>
             <a href="#">
-              <i class="fas fa-trash-alt"></i>
+              <i className="fas fa-trash-alt"></i>
             </a>
           </div>
         </div>

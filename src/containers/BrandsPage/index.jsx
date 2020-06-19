@@ -8,12 +8,13 @@ import HistoryIcon from "../../components/HistoryIcon";
 import ShoppingCart from "../../components/ShoppingCart";
 import ShoppingOrderContainer from "../../components/ShoppingOrderSection";
 import ProductCardsSection from "../../components/ProductCardsSection";
+import { getAllBrands } from "../../redux-modules/products/actions";
 import {
-  getAllBrands,
-  
-} from "../../redux-modules/products/actions";
-import {getSortList,
-  getCategoryList,} from '../../redux-modules/dropdowns/actions' 
+  getSortList,
+  getCategoryList,
+} from "../../redux-modules/dropdowns/actions";
+
+import { getAllCompanies } from "../../redux-modules/company/actions";
 class BrandsPage extends Component {
   state = {
     categoryDropDownStatus: false,
@@ -37,9 +38,10 @@ class BrandsPage extends Component {
   };
 
   componentDidMount() {
-    this.props.getAllBrands();
+    // this.props.getAllBrands();
     this.props.getCategoryList();
     this.props.getSortList();
+    this.props.getAllCompanies();
   }
 
   render() {
@@ -57,9 +59,9 @@ class BrandsPage extends Component {
       shoppingOrderList,
       addToCart,
       numberOfOrders,
-      orderHandle
+      orderHandle,
     } = this.props;
-    console.log("this.props:", this.props);
+    // console.log("this.props:", this.props);
 
     return (
       <React.Fragment>
@@ -76,7 +78,6 @@ class BrandsPage extends Component {
           closeShoppingBag={toggleShoppingBag}
           openCardModal={openProductsCardModal}
           orderHandle={orderHandle}
-
         />
         {isProductCardModalOpen && (
           <ProductCardsSection
@@ -90,7 +91,7 @@ class BrandsPage extends Component {
           paginate={this.paginate}
           productsPerPage={this.state.productsPerPage}
           currentPage={this.state.currentPage}
-          productsList={this.props.productsList}
+          productsList={this.props.companyList}
           categoryList={this.props.categoryList}
           sortList={this.props.sortList}
           description={description}
@@ -107,19 +108,21 @@ class BrandsPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("state:", state);
+  // console.log("state:", state);
   return {
     productsList: state.products.productsList,
     categoryList: state.dropdown.categoryList,
     sortList: state.dropdown.sortList,
+    companyList: state.company.companyList,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getAllBrands: () => dispatch(getAllBrands()),
+    // getAllBrands: () => dispatch(getAllBrands()),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
+    getAllCompanies: () => dispatch(getAllCompanies()),
   };
 };
 

@@ -6,6 +6,8 @@ const initialState = {
   sortList: [],
   categoryList: [],
   imageSrc: "",
+  product: {}
+
 };
 
 export default (state = initialState, action) => {
@@ -16,28 +18,39 @@ export default (state = initialState, action) => {
         ...state,
         productsList: action.productsList,
       };
-
-    case actionTypes.GET_ALL_BRANDS:
+    case actionTypes.ADD_PRODUCT:
+      const productsList = [...state.productsList, action.product]
+      console.log(productsList, "in Addproduct Reducer");
       return {
         ...state,
-        productsList: action.brandsList,
+        productsList
       };
-
+    case actionTypes.DELETE_PRODUCT:
+      const newproductsList = state.productsList.filter((product) => product.id !== action.product.id)
+      return {
+        ...state,
+        productsList: newproductsList,
+      };
+    case actionTypes.EDIT_PRODUCT:
+      return {
+        ...state,
+        productsList: action.newproducts,
+      };
     case actionTypes.GET_PRODUCT_BY_ID:
       return {
         ...state,
         product: action.product,
       };
-    case actionTypes.DELETE_PRODUCT:
+    case actionTypes.EDIT_Amount:
+      const oldproduct = state.productsList.find((product) => product.id === action.product.id)
+      const index = state.productsList.indexOf(oldproduct)
+      const productList = [...state.productsList]
+      productList[index]=action.product;
       return {
         ...state,
-        deletedProduct: action.product,
+        productsList:productList
       };
-    case actionTypes.EDIT_PRODUCT:
-      return {
-        ...state,
-        editedProduct: action.product,
-      };
+
     case actionTypes.UPLOAD_IMAGE:
       return {
         ...state,
@@ -50,6 +63,7 @@ export default (state = initialState, action) => {
     //   ...state,
     //   productsList,
     // };
+
     default:
       return state;
   }

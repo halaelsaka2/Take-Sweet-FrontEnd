@@ -42,7 +42,7 @@ class Header extends Component {
         <div className="header__logo">
           <img
             className="header__logo__icon"
-            src="assets/images/GoBetween.png"
+            src="/assets/images/GoBetween.png"
             alt="logo"
           />
         </div>
@@ -137,7 +137,7 @@ class Header extends Component {
           // </NavLink> */}
           {userName && (
             <NavLink to="/login">
-              <i class="fas fa-sign-out-alt"></i>
+              <i className="fas fa-sign-out-alt"></i>
             </NavLink>
           )}
         </div>
