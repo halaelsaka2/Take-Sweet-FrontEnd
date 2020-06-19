@@ -24,37 +24,49 @@ import {
   getPaymentTypeById,
   editPaymentType,
 } from "../../redux-modules/paymentTypes/actions";
+import { getCompanyById } from "../../redux-modules/company/actions";
+import { editBranch } from "../../redux-modules/branches/actions";
 
 class Profile extends Component {
   state = {
     products: dumy.products,
-    branchList: dumy.branchList,
-    userProfile: dumy.userProfile,
+    userProfile: [{ userId: {} }],
     paymentTypes: dumy.paymentTypes,
     isPersonalInfoModalOpen: false,
     isPasswordModalOpen: false,
     isPaymentTypeOpen: false,
-    branchData: { city: "city", address: "", phone: "" },
+    branchData: {},
     selectedIndex: null,
     editBranchModalIsOpen: false,
     dropdownIsOpen: false,
     role: "",
     paymentTypeStatu: "",
+    branches: [],
   };
 
-  componentDidMount() {
-    let userObject = JSON.parse(localStorage.getItem("userObject"));
-    console.log(userObject);
+  componentDidMount = async () => {
+    let user = JSON.parse(localStorage.getItem("user"));
+    let branches = [...this.state.branches];
+    branches = user.branches;
 
-    if (userObject) {
-      this.setState({
-        userProfile: userObject.userProfile,
-        branchList: userObject.branchList,
-        role: userObject.role,
-      });
+    if (user) {
+      let role = this.state.role;
+      role = user.roleId.name;
+      this.setState({ role });
+      if (role === "Cafe") {
+        //getCafeById
+      } else {
+        //getCompanyById
+        await this.props.getCompanyById();
+        let userProfile = { ...this.state.userProfile };
+        userProfile = this.props.company;
+        this.setState({ userProfile });
+      }
     }
     this.props.getAllPaymentTypes();
-  }
+    this.setState({ branches });
+    
+  };
 
   deleteButtonHandle = (index) => {
     let branchList = [...this.state.branchList];
@@ -62,19 +74,16 @@ class Profile extends Component {
     this.setState({ branchList });
   };
 
-  editButtonHandle = (index) => {
-    let branchList = [...this.state.branchList];
+  editButtonHandle = (event) => {
+    let user = JSON.parse(localStorage.getItem("user"));
+    const branch = user.branches.find(
+      (branch) => branch.id === event.target.id
+    );
     let branchData = { ...this.state.branchData };
+    branchData = branch;
     let editBranchModalIsOpen = this.state.editBranchModalIsOpen;
-    let selectedIndex = this.state.selectedIndex;
-    editBranchModalIsOpen = true;
-    selectedIndex = index;
-    branchData = branchList[index];
-    this.setState({
-      branchData,
-      editBranchModalIsOpen,
-      selectedIndex,
-    });
+    editBranchModalIsOpen = !editBranchModalIsOpen;
+    this.setState({ branchData, editBranchModalIsOpen });
   };
 
   onChangeBranchModal = (event) => {
@@ -109,36 +118,20 @@ class Profile extends Component {
     this.setState({ editBranchModalIsOpen });
   };
 
-  saveModalButtonHandle = () => {
+  saveModalButtonHandle = async () => {
+    let user = JSON.parse(localStorage.getItem("user"));
+
     let branchData = { ...this.state.branchData };
-    let branchList = [...this.state.branchList];
-    let selectedIndex = this.state.selectedIndex;
+    await this.props.editBranch(branchData.id, branchData);
+    let newBranchData = this.props.branch;
+    const branch = user.branches.find((branch) => branch.id === newBranchData.id);
+    const index = user.branches.indexOf(branch);
+    let branches = [...this.state.branches];
+    user.branches[index] = newBranchData;
+    branches = user.branches;
     let editBranchModalIsOpen = this.state.editBranchModalIsOpen;
-    console.log(selectedIndex);
-    if (selectedIndex !== null) {
-      branchList[selectedIndex] = branchData;
-      editBranchModalIsOpen = false;
-      selectedIndex = null;
-      branchData = { city: "", phone: "", address: "" };
-      this.setState({
-        editBranchModalIsOpen,
-        selectedIndex,
-        branchData,
-        branchList,
-      });
-    } else if (selectedIndex === null) {
-      console.log("beww");
-      branchList.push(branchData);
-      editBranchModalIsOpen = false;
-      branchData = { city: "City", phone: "", address: "" };
-      console.log(branchList);
-      console.log(branchData);
-      this.setState({
-        editBranchModalIsOpen,
-        branchData,
-        branchList,
-      });
-    }
+    editBranchModalIsOpen = !editBranchModalIsOpen;
+    this.setState({ branchData:newBranchData, editBranchModalIsOpen ,branches});
   };
 
   ///////////personalInfoModal///////
@@ -199,12 +192,11 @@ class Profile extends Component {
     this.togglePaymentModal();
   };
   changePaymentTypeModal = (event) => {
-    const id =event.target.id
-    const checked =event.target.checked
+    const id = event.target.id;
+    const checked = event.target.checked;
     console.log(checked);
-    
-    this.props.editPaymentType(id,checked);
-    
+
+    this.props.editPaymentType(id, checked);
   };
   savePaymentTypeModal = () => {
     console.log("Save PaymentType Modal");
@@ -214,20 +206,6 @@ class Profile extends Component {
     console.log("Cancel PaymentType Modal");
     this.togglePaymentModal();
   };
-
-  // saveNewBrachButtonHandle = () => {
-  //   let branchData = { ...this.state.branchData };
-  //   let branchList = [...this.state.branchList];
-  //   let editBranchModalIsOpen = this.state.editBranchModalIsOpen;
-  //   branchList.push(branchData);
-  //   editBranchModalIsOpen = false;
-  //   branchData = { city: "City", phone: "", address: "" };
-  //   this.setState({
-  //     editBranchModalIsOpen,
-  //     branchData,
-  //     branchList
-  //   });
-  // };
 
   render() {
     const {
@@ -243,14 +221,13 @@ class Profile extends Component {
       state: {
         products,
         userProfile,
-        branchList,
         isPersonalInfoModalOpen,
         branchData,
         dropdownIsOpen,
         editBranchModalIsOpen,
         isPasswordModalOpen,
         isPaymentTypeOpen,
-        // paymentTypes,
+        branches,
         role,
       },
 
@@ -275,19 +252,16 @@ class Profile extends Component {
       cancelPaymentTypeModal,
       openPaymentModal,
     } = this;
-
-    console.log(this.props.paymentTypesList,"kdj")
     return (
-      
       <React.Fragment>
         {isPersonalInfoModalOpen && (
           <ModalSection isClicked={isPersonalInfoModalOpen}>
             <EditPersonalInfoModal
               isClicked={isPersonalInfoModalOpen}
-              userName={userProfile.userName}
-              email={userProfile.email}
-              discription={userProfile.discription}
-              imageUrl={userProfile.imageUrl}
+              userName={userProfile[0].userId.userName}
+              email={userProfile[0].userId.email}
+              discription={userProfile[0].userId.description}
+              imageUrl={userProfile[0].userId.imageSrc}
               onSave={savePersonalInfoModal}
               onCancel={cancelPersonalInfoModal}
               onChange={changePersonalInfoModal}
@@ -311,7 +285,7 @@ class Profile extends Component {
 
         <Header />
         <HistoryIcon />
-        {role === "cafe" && (
+        {role === "Cafe" && (
           <ShoppingCart
             number={numberOfOrders}
             openShoppingBag={toggleShoppingBag}
@@ -335,15 +309,15 @@ class Profile extends Component {
 
         <Container>
           <PersonalInfoSection
-            email={userProfile.email}
-            userName={userProfile.userName}
-            discription={userProfile.discription}
-            imageUrl={userProfile.imageUrl}
+            email={userProfile[0].userId.email}
+            userName={userProfile[0].userId.userName}
+            discription={userProfile[0].userId.description}
+            imageUrl={userProfile[0].userId.imageSrc}
             onClick={openPersonalModal}
           />
 
           <BranchSection
-            branchList={branchList}
+            branchList={branches}
             deleteButtonHandle={deleteButtonHandle}
             editButtonHandle={editButtonHandle}
             newBranchModalOpenHandle={newBranchModalOpenHandle}
@@ -366,7 +340,7 @@ class Profile extends Component {
             onChange={onChangeBranchModal}
             saveModalButtonHandle={saveModalButtonHandle}
           />
-          {role === "company" && (
+          {role === "Company" && (
             <PaymentType
               paymentTypes={this.props.paymentTypesList}
               openModal={openPaymentModal}
@@ -399,6 +373,8 @@ const mapStateToProps = (state) => {
   return {
     paymentTypesList: state.paymentTypes.paymentTypesList,
     PaymentType: state.paymentTypes.paymentType,
+    company: state.company.company,
+    branch: state.branches.branch,
   };
 };
 
@@ -406,7 +382,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getAllPaymentTypes: () => dispatch(getAllPaymentTypes()),
     getPaymentTypeById: () => dispatch(getPaymentTypeById()),
-    editPaymentType: (id,checked) => dispatch(editPaymentType(id,checked)),
+    editPaymentType: (id, checked) => dispatch(editPaymentType(id, checked)),
+    getCompanyById: () => dispatch(getCompanyById()),
+    editBranch: (id, branch) => dispatch(editBranch(id, branch)),
   };
 };
 

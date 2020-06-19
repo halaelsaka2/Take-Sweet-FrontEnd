@@ -1,4 +1,5 @@
 import * as companiesHandler from "./api.mock";
+import * as companiesDB from "./api";
 import {
   GET_ALL_Companies,
   GET_Company_BY_ID,
@@ -16,10 +17,9 @@ export const getAllCompaniesRes = (companies) => {
 };
 export const getAllCompanies = () => {
   return async (dispatch) => {
-    // const companies = await companiesHandler.getAllCompanies();
-    const { data } = await axios.get("http://localhost:3000/company");
-    // console.log(data, "In Action");
-    dispatch(getAllCompaniesRes(data));
+    const companies = await companiesDB.getAllCompanies();
+   
+    dispatch(getAllCompaniesRes(companies));
   };
 };
 
@@ -62,16 +62,13 @@ export const deleteCompanyRes = (company) => {
   return { type: DELETE_Company, company };
 };
 
-export const getPorductById = (id) => {
+export const getCompanyById = () => {
   return async (dispatch) => {
-    // const company = await companiesHandler.getCompanyById(id);
-    const company = await axios.get(
-      "http://localhost:3000/company/5ee3bdf4156a380df0236ad8"
-    );
-    dispatch(getPorductByIdRes(company));
+    const company = await companiesDB.getCompanyById()
+    dispatch(getCompanyByIdRes(company));
   };
 };
-export const getPorductByIdRes = (company) => {
+export const getCompanyByIdRes = (company) => {
   return {
     type: GET_Company_BY_ID,
     company,

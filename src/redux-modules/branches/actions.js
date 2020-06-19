@@ -65,7 +65,7 @@ export const editBranchRes = (branch) => {
 };
 export const editBranch = (id, editedBranch) => {
     return async (dispatch) => {
-        const branch = await EditBranch(id, editBranch)
+        const branch = await EditBranch(id, editedBranch)
         dispatch(editBranchRes(branch));
     };
 };
