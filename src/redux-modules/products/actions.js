@@ -20,17 +20,14 @@ export const getAllProductsByUserIdRes = (productsList) => {
 };
 export const getAllProductsByUserId = (id) => {
   return async (dispatch) => {
-
     const productsList = await productsDB.getAllProductsByUserId(id);
-    console.log(productsList,"in actioooooooooooooon");
+    console.log(productsList, "in actioooooooooooooon");
     dispatch(getAllProductsByUserIdRes(productsList));
-
   };
 };
 
 export const addProduct = (product) => {
   return async (dispatch) => {
-
     const newproduct = await addNewProduct(product);
 
     dispatch(addProductRes(newproduct));
@@ -41,17 +38,17 @@ export const addProductRes = (product) => {
   return { type: ADD_PRODUCT, product };
 };
 
-export const editProduct = (id,product) => {
+export const editProduct = (id, product) => {
   return async (dispatch) => {
-    const {newproducts} = await productsDB.updateProduct(id,product);
-    dispatch(editProductRes({newproducts}));
+    const { newproducts } = await productsDB.updateProduct(id, product);
+    dispatch(editProductRes({ newproducts }));
   };
 };
 
 export const editProductRes = (newproducts) => {
   return { type: EDIT_PRODUCT, newproducts };
 };
-export const editAmount= (product) => {
+export const editAmount = (product) => {
   return { type: EDIT_Amount, product };
 };
 export const deleteProduct = (id) => {
@@ -66,7 +63,7 @@ export const deleteProductRes = (product) => {
 
 export const getPorductById = (id) => {
   return async (dispatch) => {
-    console.log(id,"inAction");
+    console.log(id, "inAction");
     const product = await productsDB.getProductById(id);
     dispatch(getPorductByIdRes(product));
   };
