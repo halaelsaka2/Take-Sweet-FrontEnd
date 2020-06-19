@@ -35,128 +35,140 @@ export const getProductById = (id) => {
   });
 };
 
+
 export const products = [
   {
+    id: 1,
     src: "assets/images/Product-1.jpg",
     amount: 10,
     price: 30,
     name: "Caramel Cake",
   },
   {
+    id: 2,
     src: "assets/images/Product-2.jpg",
     amount: 10,
     price: 20,
     name: "Figs Tart",
   },
   {
+    id: 3,
     src: "assets/images/cake6x6.jpg",
     amount: 30,
     price: 40,
     name: "Cup Cake",
   },
   {
+    id: 4,
     src: "assets/images/Product-3.jpg",
     amount: 10,
     price: 90,
     name: "Strawberry Cake",
   },
   {
+    id: 5,
     src: "assets/images/Product-4.jpg",
     amount: 10,
     price: 70,
     name: "Pastry Cream",
   },
   {
+    id: 6,
     src: "assets/images/Product-1.jpg",
     amount: 40,
     price: 20,
     name: "Caramel Cake",
   },
   {
+    id: 7,
     src: "assets/images/Product-2.jpg",
     amount: 10,
     price: 10,
     name: "Figs Tart",
   },
   {
+    id: 8,
     src: "assets/images/cake6x6.jpg",
     amount: 10,
     price: 30,
     name: "Cup Cake",
   },
   {
+    id: 9,
     src: "assets/images/Product-3.jpg",
     amount: 10,
     price: 20,
     name: "Strawberry Cake",
   },
   {
+    id: 10,
     src: "assets/images/Product-4.jpg",
     amount: 60,
     price: 60,
     name: "Pastry Cream",
   },
-  {
-    src: "assets/images/Product-1.jpg",
-    amount: 10,
-    price: 40,
-    name: "Caramel Cake",
-  },
-  {
-    src: "assets/images/Product-2.jpg",
-    amount: 20,
-    price: 80,
-    name: "Figs Tart",
-  },
-  {
-    src: "assets/images/cake6x6.jpg",
-    amount: 10,
-    price: 40,
-    name: "Cup Cake",
-  },
-  {
-    src: "assets/images/Product-3.jpg",
-    amount: 10,
-    price: 20,
-    name: "Strawberry Cake",
-  },
-  {
-    src: "assets/images/Product-4.jpg",
-    amount: 10,
-    price: 20,
-    name: "Pastry Cream",
-  },
-  {
-    src: "assets/images/Product-1.jpg",
-    amount: 10,
-    price: 20,
-    name: "Caramel Cake",
-  },
-  {
-    src: "assets/images/Product-2.jpg",
-    amount: 10,
-    price: 20,
-    name: "Figs Tart",
-  },
-  {
-    src: "assets/images/cake6x6.jpg",
-    amount: 10,
-    price: 20,
-    name: "Cup Cake",
-  },
-  {
-    src: "assets/images/Product-3.jpg",
-    amount: 10,
-    price: 20,
-    name: "Strawberry Cake",
-  },
-  {
-    src: "assets/images/donut.jpg",
-    amount: 30,
-    price: 30,
-    name: "Dounts",
-  },
+  // {
+  //   src: "assets/images/Product-1.jpg",
+  //   amount: 10,
+  //   price: 40,
+  //   name: "Caramel Cake",
+  // },
+  // {
+  //   src: "assets/images/Product-2.jpg",
+  //   amount: 20,
+  //   price: 80,
+  //   name: "Figs Tart",
+  // },
+  // {
+  //   src: "assets/images/cake6x6.jpg",
+  //   amount: 10,
+  //   price: 40,
+  //   name: "Cup Cake",
+  // },
+  // {
+  //   src: "assets/images/Product-3.jpg",
+  //   amount: 10,
+  //   price: 20,
+  //   name: "Strawberry Cake",
+  // },
+  // {
+  //   src: "assets/images/Product-4.jpg",
+  //   amount: 10,
+  //   price: 20,
+  //   name: "Pastry Cream",
+  // },
+  // {
+  //   src: "assets/images/Product-1.jpg",
+  //   amount: 10,
+  //   price: 20,
+  //   name: "Caramel Cake",
+  // },
+  // {
+  //   src: "assets/images/Product-2.jpg",
+  //   amount: 10,
+  //   price: 20,
+  //   name: "Figs Tart",
+  // },
+  // {
+  //   src: "assets/images/cake6x6.jpg",
+  //   amount: 10,
+  //   price: 20,
+  //   name: "Cup Cake",
+  // },
+  // {
+  //   src: "assets/images/Product-3.jpg",
+  //   amount: 10,
+  //   price: 20,
+  //   name: "Strawberry Cake",
+  // },
+  // {
+  //   src: "assets/images/donut.jpg",
+  //   amount: 30,
+  //   price: 30,
+  //   name: "Dounts",
+  // },
 ];
+
 
 export const brands = [
   {

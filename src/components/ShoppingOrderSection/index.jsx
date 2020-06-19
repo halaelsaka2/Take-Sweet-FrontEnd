@@ -30,6 +30,9 @@ const ShoppingOrderContainer = ({
 );
 
 export default ShoppingOrderContainer;
+ShoppingOrderContainer.defaultProps = {
+  shoppingOrderList: [],
+};
 
 ShoppingOrderContainer.propTypes = {
   shoppingOrderList: PropTypes.arrayOf(
