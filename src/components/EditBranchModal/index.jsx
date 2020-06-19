@@ -41,9 +41,9 @@ const EditBranchModal = ({
         className="input input--s "
         type={phoneType}
         placeholder={phonePlaceholder}
-        name="phone"
-        id="phone"
-        value={branchData.phone}
+        name="phoneNumber"
+        id="phoneNumber"
+        value={branchData.phoneNumber}
         onChange={onChange}
       />
       <div className="add-branch">

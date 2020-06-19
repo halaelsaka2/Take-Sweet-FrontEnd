@@ -1,7 +1,8 @@
 import * as actionTypes from "./constants";
 
 const initialState = {
-    branchList: []
+    branchList: [],
+    branch:{}
 };
 
 export default (state = initialState, action) => {
@@ -26,12 +27,12 @@ export default (state = initialState, action) => {
             case actionTypes.EDIT_BRANCH:
                 return {
                     ...state,
-                    editBranch: action.branch
+                    branch: action.branch
                 };
             case actionTypes.DELETE_BRANCH:
                 return {
                     ...state,
-                    deleteBranch: action.branch
+                    branch: action.branch
                 }
                 default:
                     return state;

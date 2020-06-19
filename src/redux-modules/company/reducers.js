@@ -2,6 +2,7 @@ import * as actionTypes from "./constants";
 
 const initialState = {
   companyList: [],
+  company:{}
 };
 
 export default (state = initialState, action) => {
@@ -21,7 +22,7 @@ export default (state = initialState, action) => {
     case actionTypes.GET_Company_BY_ID:
       return {
         ...state,
-        companyList: action.companies,
+        company: action.company,
       };
     case actionTypes.DELETE_Company:
       return {

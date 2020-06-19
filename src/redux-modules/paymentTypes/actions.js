@@ -17,7 +17,6 @@ export const getAllPaymentTypesRes = (paymentTypesList) => {
 export const getAllPaymentTypes = () => {
   return async (dispatch) => {
     const paymentTypesList = await paymentDB.getAllPaymentTypes();
-    console.log(paymentTypesList,"inAction");
     dispatch(getAllPaymentTypesRes(paymentTypesList));
   };
 };
@@ -38,12 +37,8 @@ export const editPaymentTypeRes = (paymentTypesList) => {
 };
 
 export const editPaymentType = (id,checked) => {
-
-  console.log(checked,"out");
   return async (dispatch) => {
-  console.log(checked,"in");
     const {paymentTypeList} = await paymentDB.updatePaymentType(id,checked);
-    console.log(paymentTypeList,"inAction");
     dispatch(editPaymentTypeRes(paymentTypeList));
   };
 };

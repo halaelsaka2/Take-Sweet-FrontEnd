@@ -12,13 +12,14 @@ const BranchList = ({
     {branchList.length > 0 ? (
       branchList.map((item, index) => (
         <BranchItem
-          key={index}
+          key={item.id}
           cityName={item.city}
           address={item.address}
-          phoneNumber={item.phone}
+          phoneNumber={item.phoneNumber}
           deleteButtonHandle={deleteButtonHandle}
           editButtonHandle={editButtonHandle}
           index={index}
+          id={item.id}
         ></BranchItem>
       ))
     ) : (
@@ -32,6 +33,9 @@ BranchList.propTypes = {
   cancelIcon: PropTypes.string,
   ListAdditionalStyle: PropTypes.string,
   deleteButtonHandle: PropTypes.func
+};
+BranchList.defaultProps = {
+  branchList: [],
 };
 
 export default BranchList;
