@@ -25,7 +25,7 @@ class LoginPage extends Component {
     await this.props.userLogin(user);
     if (this.props.user) {
       localStorage.setItem("user", JSON.stringify(this.props.user));
-      localStorage.setItem("token", JSON.stringify(this.props.token));
+      localStorage.setItem("token", this.props.token);
       this.props.history.replace(`/profile`);
     }
     // let companyObject = {
@@ -83,7 +83,7 @@ class LoginPage extends Component {
         emailId={constants.emailId}
         emailName={constants.emailName}
         emailValue={email}
-        passwordType={constants.password}
+        passwordType={constants.passwordType}
         passwordId={constants.passwordId}
         passwordName={constants.passwordName}
         passwordPlaceholder={constants.passwordPlaceholder}

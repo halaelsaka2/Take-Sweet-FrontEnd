@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { getAllProducts } from "../../redux-modules/products/actions";
+import { getAllProductsByUserId } from "../../redux-modules/products/actions";
+
 import {
   getSortList,
   getCategoryList,
@@ -30,7 +31,8 @@ class ProductsPage extends Component {
   };
   componentDidMount() {
     console.log("This.props: ", this.props);
-    this.props.getAllProducts();
+    const id = JSON.parse(localStorage.getItem("user")).id;
+    this.props.getAllProductsByUserId(id);
     this.props.getSortList();
     this.props.getCategoryList();
   }
@@ -71,6 +73,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     // getAllProducts: () => dispatch(getAllProducts()),
+    getAllProductsByUserId: (id) => dispatch(getAllProductsByUserId(id)),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
   };

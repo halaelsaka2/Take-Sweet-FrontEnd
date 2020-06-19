@@ -52,6 +52,7 @@ export const addBranchRes = (branch) => {
 export const addBranch = (addedBranch) => {
     return async (dispatch) => {
         const branch = await AddBranch(addedBranch)
+        console.log(branch)
         dispatch(addBranchRes(branch));
     };
 };

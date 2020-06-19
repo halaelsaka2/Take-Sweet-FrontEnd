@@ -6,15 +6,18 @@ class RegisterGeneralInfoPage extends Component {
     newUserAccountInfo: {
       email: "",
       password: "",
-      confirmPassword: ""
-    }
+      confirmPassword: "",
+    },
   };
-  onChange = event => {
+  onChange = (event) => {
     let newUserAccountInfo = { ...this.state.newUserAccountInfo };
     newUserAccountInfo[event.target.name] = event.target.value;
     this.setState({ newUserAccountInfo });
   };
   nextButtonHandle = (event, values) => {
+    let { email, password } = this.state.newUserAccountInfo;
+    let newUser = { email, password };
+    localStorage.setItem("newUser", JSON.stringify(newUser));
     this.props.history.push("/register-personal-info");
   };
   render() {
@@ -22,8 +25,8 @@ class RegisterGeneralInfoPage extends Component {
       onChange,
       nextButtonHandle,
       state: {
-        newUserAccountInfo: { email, password, confirmPassword }
-      }
+        newUserAccountInfo: { email, password, confirmPassword },
+      },
     } = this;
     return (
       <RegisterGeneralInfoSection
