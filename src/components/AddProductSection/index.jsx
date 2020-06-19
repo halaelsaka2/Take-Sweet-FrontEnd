@@ -20,13 +20,14 @@ const AddProducSection = ({
 }) => {
   const { imageSrc } = product;
   const { tabs, currentTabe } = constants;
+  const {imagehandling} =handlers
   return (
     <div class="project-container project-container--h">
       <HistoryStates tabs={tabs} currentTabe={currentTabe} />
 
       <Container>
         <div class="ProductContainer">
-          <ProductImage imgSrc={imageSrc} />
+          <ProductImage imgSrc={imageSrc} imagehandling={imagehandling} />
           <ProductDetails
             paymentTypes={paymentTypes}
             product={product}

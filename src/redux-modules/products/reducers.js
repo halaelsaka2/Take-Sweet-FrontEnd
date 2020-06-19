@@ -1,10 +1,13 @@
 import * as actionTypes from "./constants";
+import { uploadImage } from "./actions";
 
 const initialState = {
   productsList: [],
   sortList: [],
   categoryList: [],
+  imageSrc: "",
   product: {}
+
 };
 
 export default (state = initialState, action) => {
@@ -47,6 +50,20 @@ export default (state = initialState, action) => {
         ...state,
         productsList:productList
       };
+
+    case actionTypes.UPLOAD_IMAGE:
+      return {
+        ...state,
+        imageSrc: action.imageSrc,
+      };
+    // case actionTypes.ADD_PRODUCT:
+    // const productsList = [...state.productsList];
+    // productsList.push(action.product);
+    // return {
+    //   ...state,
+    //   productsList,
+    // };
+
     default:
       return state;
   }

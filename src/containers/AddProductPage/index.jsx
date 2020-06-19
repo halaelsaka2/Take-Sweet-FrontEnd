@@ -3,7 +3,7 @@ import AddProducSection from "../../components/AddProductSection";
 import constants from "./contants";
 import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
-import { addProduct } from "../../redux-modules/products/actions";
+import { addProduct, uploadImage } from "../../redux-modules/products/actions";
 import { connect } from "react-redux";
 
 class AddProduct extends Component {
@@ -18,6 +18,12 @@ class AddProduct extends Component {
     },
     isAddButtonClicked: "",
   };
+
+  componentDidMount() {
+    const imageSrc = this.props.imageSrc;
+    const product = { ...this.state.product, imageSrc };
+    this.setState({ product });
+  }
 
   inputHandler = (event) => {
     const { value, name } = event.target;
@@ -42,16 +48,28 @@ class AddProduct extends Component {
     }
   };
 
+  imageUploadHandler = async (event) => {
+    console.log(event.target.file);
+    const image = event.target.files[0];
+    const formDate = new FormData();
+    formDate.set("image", image);
+    await this.props.uploadImage(formDate);
+    const imageSrc = "http://localhost:3000/" + this.props.imageSrc;
+    const product = { ...this.state.product, imageSrc };
+    this.setState({ product });
+  };
+
   render() {
     const {
       state: { product, isAddButtonClicked },
     } = this;
-
+    console.log(this.state.product);
     const handlers = {
       onChange: this.inputHandler,
       onCancelButtonClicked: this.buttonHandler,
       handleSubmit: this.buttonHandler,
       onCategoryChange: this.categotyHandler,
+      imagehandling: this.imageUploadHandler,
     };
 
     return (
@@ -68,11 +86,16 @@ class AddProduct extends Component {
     );
   }
 }
-
+const mapStateToPorpos = (state) => {
+  return {
+    imageSrc: state.products.imageSrc,
+  };
+};
 const mapDispatchToProps = (dispatch) => {
   return {
+    uploadImage: (image) => dispatch(uploadImage(image)),
     addProduct: (product) => dispatch(addProduct(product)),
   };
 };
 
-export default connect(null, mapDispatchToProps)(AddProduct);
+export default connect(mapStateToPorpos, mapDispatchToProps)(AddProduct);
