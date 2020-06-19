@@ -21,7 +21,7 @@ const ProductDetails = ({
   constants: { countItems, categories },
   isAddButtonClicked,
 }) => {
-  console.log(checkedCategory);
+  // console.log(checkedCategory);
   const countItemValues = [availableAmount, minPieces, price];
   return (
     <div className="productDetailsContainer">
