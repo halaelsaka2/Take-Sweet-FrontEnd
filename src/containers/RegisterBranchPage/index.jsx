@@ -4,7 +4,7 @@ import constants from "./constants";
 class RegisterBranchPage extends Component {
   state = {
     branchesInfo: [],
-    oneBranchInfo: { city: "City", address: "", phone: "" },
+    oneBranchInfo: { city: "City", address: "", phoneNumber: "" },
     dropdownIsOpen: false,
   };
 
@@ -15,6 +15,12 @@ class RegisterBranchPage extends Component {
   };
 
   nextButtonHandle = (event) => {
+    let newUser = JSON.parse(localStorage.getItem("newUser"));
+    let branchesInfo = [...this.state.branchesInfo];
+    let oneBranchInfo = { ...this.state.oneBranchInfo };
+    newUser.branches = branchesInfo;
+    newUser.description = "this is your description";
+    localStorage.setItem("newUser", JSON.stringify(newUser));
     this.props.history.push("/register-acceptance");
   };
   backButtonHandle = (event) => {
@@ -23,7 +29,7 @@ class RegisterBranchPage extends Component {
   addBranchButtonHandle = (event, values) => {
     let { branchesInfo, oneBranchInfo } = this.state;
     branchesInfo.push(oneBranchInfo);
-    oneBranchInfo = { city: "City", address: "", phone: "" };
+    oneBranchInfo = { city: "City", address: "", phoneNumber: "" };
     this.setState({ oneBranchInfo, branchesInfo });
   };
 
@@ -33,7 +39,7 @@ class RegisterBranchPage extends Component {
     this.setState({ dropdownIsOpen });
   };
 
-  selectCityHandle = (event) => {
+  selectCityHandle = (event, id) => {
     let oneBranchInfo = { ...this.state.oneBranchInfo };
     let dropdownIsOpen = this.state.dropdownIsOpen;
     oneBranchInfo.city = event.target.textContent;
@@ -42,11 +48,7 @@ class RegisterBranchPage extends Component {
   };
   render() {
     const {
-      state: {
-        branchesInfo,
-        oneBranchInfo: { city, address, phone },
-        dropdownIsOpen,
-      },
+      state: { branchesInfo, oneBranchInfo, dropdownIsOpen },
       onChange,
       backButtonHandle,
       nextButtonHandle,
@@ -57,17 +59,16 @@ class RegisterBranchPage extends Component {
 
     return (
       <RegisterBranchSection
-        cityValue={city}
+        cities={constants.cities}
+        branchInfo={oneBranchInfo}
         addressType={constants.addressType}
         addressPlaceholder={constants.addressPlaceholder}
         addressId={constants.addressId}
         addressName={constants.addressName}
-        addressValue={address}
         phoneType={constants.phoneType}
         phonePlaceholder={constants.phonePlaceholder}
         phoneName={constants.phoneName}
         phoneId={constants.phoneId}
-        phoneValue={phone}
         addBranchButtonHandle={addBranchButtonHandle}
         onChange={onChange}
         backButtonHandle={backButtonHandle}
