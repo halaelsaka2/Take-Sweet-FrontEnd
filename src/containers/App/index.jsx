@@ -48,32 +48,33 @@ export default class App extends Component {
         src: "assets/images/Product-2.jpg",
       },
     ],
-    shoppingOrderList: [
-      {
-        id: 1,
-        date: 14 / 6 / 2020,
-        status: "Waiting",
-        products: [
-          {
-            src: "assets/images/Product-1.jpg",
-            amount: 10,
-            name: "Caramel Cake",
-            totalPrice: 300,
-          },
-          {
-            src: "assets/images/Product-2.jpg",
-            amount: 10,
-            name: "Figs Tart",
-            totalPrice: 200,
-          },
-        ],
-        src: "assets/images/ElAbd.jpg",
-        // "companyId",
-        // "userId",
-        // "comments"
-        // paymentType,
-      },
-    ],
+    // shoppingOrderList: [
+    //   {
+    //     id: 1,
+    //     date: 14 / 6 / 2020,
+    //     status: "Waiting",
+    //     products: [
+    //       {
+    //         src: "assets/images/Product-1.jpg",
+    //         amount: 10,
+    //         name: "Caramel Cake",
+    //         totalPrice: 300,
+    //       },
+    //       {
+    //         src: "assets/images/Product-2.jpg",
+    //         amount: 10,
+    //         name: "Figs Tart",
+    //         totalPrice: 200,
+    //       },
+    //     ],
+    //     src: "assets/images/ElAbd.jpg",
+    //     // "companyId",
+    //     // "userId",
+    //     // "comments"
+    //     // paymentType,
+    //   },
+    // ],
+
     numberOfOrders: 0,
   };
 
@@ -88,16 +89,6 @@ export default class App extends Component {
     let isProductCardModalOpen = this.state.isProductCardModalOpen;
     isProductCardModalOpen = !isProductCardModalOpen;
     this.setState({ isProductCardModalOpen });
-  };
-
-  addToCart = () => {
-    console.log("halaaa");
-
-    let numberOfOrders = this.state.numberOfOrders;
-    if (numberOfOrders === 0) {
-      numberOfOrders = numberOfOrders + 1;
-    }
-    this.setState({ numberOfOrders });
   };
 
   render() {
@@ -132,7 +123,7 @@ export default class App extends Component {
                 openProductsCardModal={openProductsCardModal}
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
-                shoppingOrderList={this.state.shoppingOrderList}
+                // shoppingOrderList={this.state.shoppingOrderList}
                 numberOfOrders={this.state.numberOfOrders}
                 orderHandle={orderHandle}
                 {...props}
@@ -185,7 +176,7 @@ export default class App extends Component {
                 openProductsCardModal={openProductsCardModal}
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
-                shoppingOrderList={this.state.shoppingOrderList}
+                // // shoppingOrderList={this.state.shoppingOrderList}
                 numberOfOrders={this.state.numberOfOrders}
                 products={products}
                 {...props}

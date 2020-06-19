@@ -15,6 +15,7 @@ const ProductItem = ({
   amount,
   amountHandler,
 }) => {
+  // console.log(id);
   return (
     <React.Fragment>
       {type === "buyer" ? (
@@ -30,7 +31,7 @@ const ProductItem = ({
             // style="background-image: url('assets/images/Product-1.jpg');"
           >
             <div className="itemm__data">
-              <button className="itemm__btn" onClick={addToCart}>
+              <button className="itemm__btn" onClick={() => addToCart(id)}>
                 Order Now
               </button>
             </div>

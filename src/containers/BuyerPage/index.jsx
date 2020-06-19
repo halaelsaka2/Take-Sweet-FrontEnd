@@ -8,6 +8,8 @@ import HistoryIcon from "../../components/HistoryIcon";
 import ShoppingCart from "../../components/ShoppingCart";
 import ShoppingOrderContainer from "../../components/ShoppingOrderSection";
 import ProductCardsSection from "../../components/ProductCardsSection";
+import { ADD_TO_CART } from "../../redux-modules/orders/constants";
+
 import {
   getAllProductsByUserId,
   getPorductById,
@@ -36,6 +38,22 @@ class BuyerPage extends Component {
       this.setState({ currentPage });
     }
   };
+
+  addToCart = (id) => {
+    // console.log(id);
+    const addedProduct = this.props.productsList.find(
+      (product) => product.id === id
+    );
+    // console.log(addedProduct);
+    this.props.addToCart(addedProduct);
+
+    // let numberOfOrders = this.state.numberOfOrders;
+    // if (numberOfOrders === 0) {
+    //   numberOfOrders = numberOfOrders + 1;
+    // }
+    // this.setState({ numberOfOrders });
+  };
+
   dropDownHandler = (name) => {
     this.setState({
       [name]: !this.state[name],
@@ -73,6 +91,7 @@ class BuyerPage extends Component {
       plusHandler,
       minusHandler,
       amountHandler,
+      addToCart,
       state: { categoryDropDownStatus, sortDropDownStatus, amount },
     } = this;
     const {
@@ -83,7 +102,6 @@ class BuyerPage extends Component {
       openProductsCardModal,
       products,
       shoppingOrderList,
-      addToCart,
       numberOfOrders,
       orderHandle,
     } = this.props;
@@ -135,11 +153,13 @@ class BuyerPage extends Component {
   }
 }
 const mapStateToProps = (state) => {
+  // console.log(state.orders.shoppingBagList);
   return {
     productsList: state.products.productsList,
     categoryList: state.dropdown.categoryList,
     sortList: state.dropdown.sortList,
     product: state.products.product,
+    shoppingBagList: state.orders.shoppingBagList,
   };
 };
 
@@ -150,6 +170,7 @@ const mapDispatchToProps = (dispatch) => {
     getSortList: () => dispatch(getSortList()),
     getProductById: (id) => dispatch(getPorductById(id)),
     getAmout: (product) => dispatch(editAmount(product)),
+    addToCart: (product) => dispatch({ type: ADD_TO_CART, payload: product }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(BuyerPage);
