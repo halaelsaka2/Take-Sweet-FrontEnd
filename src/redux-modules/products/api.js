@@ -31,6 +31,7 @@ export const getAllProductsByUserId = async (id) => {
   return data;
 };
 
+
 export const getProductById = async (id) => {
   const { data } = await axios.get(`${uri}/${id}`);
   return data;

@@ -78,12 +78,12 @@ class BuyerPage extends Component {
     }
   };
 
-  componentDidMount = () => {
+  componentDidMount =async () => {
     const id = this.props.match.params.id;
     console.log(this.props.match, "inbuyerPage");
-    this.props.getAllProductsByUserId(id);
-    this.props.getCategoryList();
-    this.props.getSortList();
+    await this.props.getAllProductsByUserId(id);
+    await this.props.getCategoryList();
+    await this.props.getSortList();
   };
   render() {
     const {
@@ -105,8 +105,10 @@ class BuyerPage extends Component {
       numberOfOrders,
       orderHandle,
     } = this.props;
-
+    console.log(this.props.productsList);
+    
     return (
+      
       <React.Fragment>
         <Header />
         <HistoryIcon />

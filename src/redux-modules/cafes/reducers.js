@@ -17,6 +17,11 @@ export default (state = initialState, action) => {
                 ...state,
                 cafe: action.cafe,
             };
+        case actionTypes.GET_CAFE_BY_USER_ID:
+            return {
+                ...state,
+                cafe: action.cafe,
+            };
         case actionTypes.DELETE_CAFE:
             return {
                 ...state,

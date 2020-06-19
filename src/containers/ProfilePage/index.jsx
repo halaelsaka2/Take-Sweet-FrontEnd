@@ -26,6 +26,7 @@ import {
 } from "../../redux-modules/paymentTypes/actions";
 import { getCompanyById } from "../../redux-modules/company/actions";
 import { editBranch } from "../../redux-modules/branches/actions";
+import { getCafeByUserId } from "../../redux-modules/cafes/actions";
 
 class Profile extends Component {
   state = {
@@ -53,19 +54,22 @@ class Profile extends Component {
       let role = this.state.role;
       role = user.roleId.name;
       this.setState({ role });
+      let userProfile = { ...this.state.userProfile };
       if (role === "Cafe") {
         //getCafeById
+        await this.props.getCafeByUserId();
+        userProfile = this.props.cafe;
+        console.log(userProfile);
+        
       } else {
         //getCompanyById
         await this.props.getCompanyById();
-        let userProfile = { ...this.state.userProfile };
         userProfile = this.props.company;
-        this.setState({ userProfile });
       }
+      this.setState({ userProfile });
     }
     this.props.getAllPaymentTypes();
     this.setState({ branches });
-    
   };
 
   deleteButtonHandle = (index) => {
@@ -124,14 +128,20 @@ class Profile extends Component {
     let branchData = { ...this.state.branchData };
     await this.props.editBranch(branchData.id, branchData);
     let newBranchData = this.props.branch;
-    const branch = user.branches.find((branch) => branch.id === newBranchData.id);
+    const branch = user.branches.find(
+      (branch) => branch.id === newBranchData.id
+    );
     const index = user.branches.indexOf(branch);
     let branches = [...this.state.branches];
     user.branches[index] = newBranchData;
     branches = user.branches;
     let editBranchModalIsOpen = this.state.editBranchModalIsOpen;
     editBranchModalIsOpen = !editBranchModalIsOpen;
-    this.setState({ branchData:newBranchData, editBranchModalIsOpen ,branches});
+    this.setState({
+      branchData: newBranchData,
+      editBranchModalIsOpen,
+      branches,
+    });
   };
 
   ///////////personalInfoModal///////
@@ -375,6 +385,7 @@ const mapStateToProps = (state) => {
     PaymentType: state.paymentTypes.paymentType,
     company: state.company.company,
     branch: state.branches.branch,
+    cafe: state.cafe.cafe,
   };
 };
 
@@ -385,6 +396,7 @@ const mapDispatchToProps = (dispatch) => {
     editPaymentType: (id, checked) => dispatch(editPaymentType(id, checked)),
     getCompanyById: () => dispatch(getCompanyById()),
     editBranch: (id, branch) => dispatch(editBranch(id, branch)),
+    getCafeByUserId: () => dispatch(getCafeByUserId()),
   };
 };
 

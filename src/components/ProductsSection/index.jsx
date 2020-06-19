@@ -114,5 +114,7 @@ ProductsSection.propTypes = {
   type: PropTypes.string,
   description: PropTypes.object,
 };
-
+ProductsSection.defaultProps = {
+  productsList: [],
+};
 export default ProductsSection;
