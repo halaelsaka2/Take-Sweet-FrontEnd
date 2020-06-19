@@ -1,4 +1,5 @@
 import * as productsHandler from "./api.mock";
+import { uploadImageFile, addNewProduct } from "./api";
 import {
   GET_ALL_PRODUCTS,
   GET_PRODUCT_BY_ID,
@@ -6,6 +7,7 @@ import {
   DELETE_PRODUCT,
   EDIT_PRODUCT,
   ADD_PRODUCT,
+  UPLOAD_IMAGE,
 } from "./constants";
 
 export const getAllProductsRes = (productsList) => {
@@ -28,6 +30,7 @@ export const getAllBrandsRes = (brandsList) => {
     brandsList,
   };
 };
+
 export const getAllBrands = () => {
   return async (dispatch) => {
     const brandsList = await productsHandler.getAllBrands();
@@ -37,7 +40,7 @@ export const getAllBrands = () => {
 
 export const addProduct = (product) => {
   return async (dispatch) => {
-    const newproduct = await productsHandler.addProduct(product);
+    const newproduct = await addNewProduct(product);
     dispatch(addProductRes(newproduct));
   };
 };
@@ -75,5 +78,21 @@ export const getPorductByIdRes = (product) => {
   return {
     type: GET_PRODUCT_BY_ID,
     product,
+  };
+};
+
+export const uploadImage = (image) => {
+  return async (dispatch) => {
+    const { imageUrl } = await uploadImageFile(image);
+    console.log(imageUrl);
+    dispatch(uploadImageRes(imageUrl));
+  };
+};
+
+export const uploadImageRes = (imageSrc) => {
+  console.log(imageSrc);
+  return {
+    type: UPLOAD_IMAGE,
+    imageSrc,
   };
 };

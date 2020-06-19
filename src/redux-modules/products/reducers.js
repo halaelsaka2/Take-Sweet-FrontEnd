@@ -1,9 +1,11 @@
 import * as actionTypes from "./constants";
+import { uploadImage } from "./actions";
 
 const initialState = {
   productsList: [],
   sortList: [],
   categoryList: [],
+  imageSrc: "",
 };
 
 export default (state = initialState, action) => {
@@ -35,6 +37,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         editedProduct: action.product,
+      };
+    case actionTypes.UPLOAD_IMAGE:
+      return {
+        ...state,
+        imageSrc: action.imageSrc,
       };
     // case actionTypes.ADD_PRODUCT:
     // const productsList = [...state.productsList];

@@ -1,5 +1,5 @@
 import React from "react";
-const ImageSection = ({ imgSrc }) => {
+const ImageSection = ({ imgSrc, imagehandling }) => {
   return (
     <div className="productImageContainer">
       <img
@@ -7,6 +7,7 @@ const ImageSection = ({ imgSrc }) => {
         src={imgSrc}
         className="productImageContainer__image"
       />
+      <input type="file" onChange={imagehandling}></input>
       <div className="productImageContainer__label">Product Image</div>
     </div>
   );

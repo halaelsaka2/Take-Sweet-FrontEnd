@@ -4,3 +4,4 @@ export const GET_ALL_BRANDS = "GET_ALL_BRANDS";
 export const DELETE_PRODUCT = "DELETE_PRODUCT_BY_ID";
 export const EDIT_PRODUCT = " EDIT_PRODUCT_BY_ID ";
 export const ADD_PRODUCT = "ADD_PRODUCT";
+export const UPLOAD_IMAGE = "UPLOAD_IMAGE";
