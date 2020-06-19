@@ -4,7 +4,7 @@ const BriefSummary = () => {
     <React.Fragment>
       <img
         className="footerContainer__col__logo"
-        src="assets/images/GoBetween.png"
+        src="/assets/images/GoBetween.png"
         alt="logo"
       />
       <p className="footerContainer__col__text">

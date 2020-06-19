@@ -1,10 +1,10 @@
 import axios from "axios";
 const uri = "http://localhost:3000/product";
 
-export const getAllProducts = async () => {
+export const getAllProductsByUserId = async (id) => {
     const {
         data
-    } = await axios.get(`${uri}`)
+    } = await axios.get(`${uri}/products/${id}`)
     return data;
 }
 

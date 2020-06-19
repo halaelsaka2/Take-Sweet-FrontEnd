@@ -9,7 +9,7 @@ import ShoppingCart from "../../components/ShoppingCart";
 import ShoppingOrderContainer from "../../components/ShoppingOrderSection";
 import ProductCardsSection from "../../components/ProductCardsSection";
 import {
-  getAllProducts,
+  getAllProductsByUserId,
   getPorductById,
   editAmount,
 } from "../../redux-modules/products/actions";
@@ -60,11 +60,13 @@ class BuyerPage extends Component {
     }
   };
 
-  componentDidMount() {
-    this.props.getAllProducts();
+  componentDidMount = () => {
+    const id = this.props.match.params.id;
+    console.log(this.props.match, "inbuyerPage");
+    this.props.getAllProductsByUserId(id);
     this.props.getCategoryList();
     this.props.getSortList();
-  }
+  };
   render() {
     const {
       dropDownHandler,
@@ -143,7 +145,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getAllProducts: () => dispatch(getAllProducts()),
+    getAllProductsByUserId: (id) => dispatch(getAllProductsByUserId(id)),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
     getProductById: (id) => dispatch(getPorductById(id)),

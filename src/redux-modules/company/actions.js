@@ -18,7 +18,7 @@ export const getAllCompanies = () => {
   return async (dispatch) => {
     // const companies = await companiesHandler.getAllCompanies();
     const { data } = await axios.get("http://localhost:3000/company");
-    console.log(data, "In Action");
+    // console.log(data, "In Action");
     dispatch(getAllCompaniesRes(data));
   };
 };

@@ -26,8 +26,7 @@ const ProductsSection = ({
   addToCart,
   plusHandler,
   minusHandler,
-  amountHandler
-  
+  amountHandler,
 }) => {
   const firstIndex = (currentPage - 1) * productsPerPage;
   const lastIndex = firstIndex + productsPerPage;
@@ -85,7 +84,11 @@ const ProductsSection = ({
         ) : (
           <div className="list-container list-container--4">
             {currentProducts.map((item) => (
-              <BrandItem src={item.userId.imageSrc}></BrandItem>
+              <BrandItem
+                key={item.id}
+                src={item.userId.imageSrc}
+                id={item.userId.id}
+              ></BrandItem>
             ))}
           </div>
         )}

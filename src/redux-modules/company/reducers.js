@@ -7,7 +7,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GET_ALL_Companies:
-      console.log(action.productsList);
+      // console.log(action.productsList);
       return {
         ...state,
         companyList: action.companies,
