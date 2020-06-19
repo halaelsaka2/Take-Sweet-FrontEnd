@@ -10,10 +10,13 @@ class RegisterPersonalInfoPage extends Component {
       username: "",
       userImage: "",
     },
+    roleId: "",
     dropdownIsOpen: false,
   };
 
   async componentDidMount() {
+    console.log(JSON.parse(localStorage.getItem("newUser")));
+
     await this.props.getAllRoles();
     console.log("This.props: ", this.props.roles);
   }
@@ -25,6 +28,14 @@ class RegisterPersonalInfoPage extends Component {
   };
 
   nextButtonHandle = (event, values) => {
+    let newUser = JSON.parse(localStorage.getItem("newUser"));
+    let { username, userImage } = this.state.newUserPersonalInfo;
+    let roleId = this.state.roleId;
+    newUser.roleId = roleId;
+    newUser.userName = username;
+    newUser.imageSrc = userImage;
+    console.log(newUser);
+    localStorage.setItem("newUser", JSON.stringify(newUser));
     this.props.history.push("/register-branch");
   };
   backButtonHandle = (event) => {};
@@ -38,13 +49,22 @@ class RegisterPersonalInfoPage extends Component {
   selectAccountTypeHandle = (event, id) => {
     let newUserPersonalInfo = { ...this.state.newUserPersonalInfo };
     let { dropdownIsOpen, usernamePlaceholder } = this.state;
+    let roleId = this.state.roleId;
+    let roleName = event.target.textContent;
+    roleId = id;
     console.log(event.target.textContent, id);
-    newUserPersonalInfo.accountType = event.target.textContent;
+    newUserPersonalInfo.accountType = roleName;
     newUserPersonalInfo.accountType === "Brand"
       ? (usernamePlaceholder = "Brand Name")
       : (usernamePlaceholder = "Cafe and Resturant Name");
     dropdownIsOpen = !dropdownIsOpen;
-    this.setState({ newUserPersonalInfo, dropdownIsOpen, usernamePlaceholder });
+    console.log(roleId);
+    this.setState({
+      newUserPersonalInfo,
+      dropdownIsOpen,
+      usernamePlaceholder,
+      roleId,
+    });
   };
 
   render() {
@@ -60,15 +80,6 @@ class RegisterPersonalInfoPage extends Component {
       selectAccountTypeHandle,
       props: { roles },
     } = this;
-    // if (roles !== "undefined") {
-    // const x = roles.map((i) => i.name);
-    // console.log(
-    //   "beeeb",
-    //   x
-
-    // .map((role) => role.name)
-    // );
-    // }
     console.log(this.props.roles);
     return (
       <RegisterPersonalInfoSection

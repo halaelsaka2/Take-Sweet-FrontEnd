@@ -1,42 +1,48 @@
 import axios from "axios";
-import { editBranch } from "./actions";
+import {
+    editBranch
+} from "./actions";
 
 
 const branchEndPoint = "http://localhost:3000/branch/";
 
 export async function GetAllBranches() {
-    const {
-        data
-    } = await axios.get(branchEndPoint);
-    return data;
+    const response = await axios.get(branchEndPoint).catch((err) => console.log(err.response.data));
+    if (response) {
+        return response.data;
+    }
 }
+
 
 export async function GetBranchById(id) {
-    const {
-        data
-    } = await axios.get(`${branchEndPoint}/${id}`);
-    return data;
+    const response = await axios.get(`${branchEndPoint}/${id}`).catch((err) => console.log(err.response.data));
+    if (response) {
+        return response.data;
+    }
 }
+
 
 export async function AddBranch(addedBranch) {
-    const {
-        data
-    } = await axios.post(`${branchEndPoint}/addBranch`, addedBranch);
-    return data;
+    const response = await axios.post(`${branchEndPoint}/addBranch`, addedBranch).catch((err) => console.log(err.response.data));
+    if (response) {
+        console.log(response.data)
+        return response.data;
+    }
 }
-
 export async function EditBranch(id, editedBranch) {
     const {
-        data:{branch}
+        data: {
+            branch
+        }
     } = await axios.patch(`${branchEndPoint}/${id}`, editedBranch);
-    console.log(branch,"inApi");
-    
+    console.log(branch, "inApi");
+
     return branch;
 }
 
 export async function DeleteBranch(id) {
-    const {
-        data
-    } = await axios.delete(`${branchEndPoint}/${id}`);
-    return data;
+    const response = await axios.delete(`${branchEndPoint}/${id}`).catch((err) => console.log(err.response.data));
+    if (response) {
+        return response.data;
+    }
 }

@@ -2,10 +2,12 @@ import * as actionTypes from "./constants";
 
 const initialState = {
     branchList: [],
-    branch:{}
+    branchIds: [],
+    branch: {}
 };
 
 export default (state = initialState, action) => {
+    let branchList;
     switch (action.type) {
         case actionTypes.GET_ALL_BRANCHES:
             return {
@@ -19,9 +21,15 @@ export default (state = initialState, action) => {
             };
 
         case actionTypes.ADD_BRANCH:
+            let newBranch = action.branch
+            branchList = state.branchList
+            branchList.push(newBranch)
+            let branchIds = state.branchIds
+            branchIds.push(newBranch.id)
             return {
                 ...state,
-                addBranch: action.branch
+                branchList,
+                branchIds
             }
 
             case actionTypes.EDIT_BRANCH:

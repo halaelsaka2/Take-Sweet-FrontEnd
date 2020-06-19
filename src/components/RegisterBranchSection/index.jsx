@@ -9,15 +9,14 @@ import { Link } from "react-router-dom";
 // import { Button } from "reactstrap";
 
 const RegisterBranchSection = ({
-  cityValue,
+  cities,
+  branchInfo,
   addressType,
   addressPlaceholder,
-  addressValue,
   addressId,
   addressName,
   phoneType,
   phonePlaceholder,
-  phoneValue,
   phoneId,
   phoneName,
   onChange,
@@ -51,17 +50,12 @@ const RegisterBranchSection = ({
             <div className="reg-dropdown-container reg-dropdown-container--reg4">
               <Dropdown
                 additionalStyle={"dropdown--br1"}
-                Header={cityValue}
-                listItems={[
-                  "Cairo",
-                  "Alexandria",
-                  "Ismailia",
-                  "Portsaid",
-                  "Suez",
-                ]}
+                Header={branchInfo.city}
+                listItems={cities.map((city) => city.name)}
                 isOpened={dropdownIsOpen}
                 IsOpenHandle={dropdownIsOpenHandle}
                 selectionHandle={selectCityHandle}
+                idList={cities.map((city) => city.id)}
               />
             </div>
             <div id="location">
@@ -72,7 +66,7 @@ const RegisterBranchSection = ({
                   placeholder={addressPlaceholder}
                   name={addressName}
                   id={addressId}
-                  value={addressValue}
+                  value={branchInfo.address}
                   onChange={onChange}
                   // validate={{
                   //   required: {
@@ -89,7 +83,7 @@ const RegisterBranchSection = ({
                 placeholder={phonePlaceholder}
                 name={phoneName}
                 id={phoneId}
-                value={phoneValue}
+                value={branchInfo.phoneNumber}
                 onChange={onChange}
                 // validate={{
                 //   required: {
@@ -153,6 +147,10 @@ const RegisterBranchSection = ({
     </div>
   </div>
 );
+
+RegisterBranchSection.defaultProps = {
+  cities: [],
+};
 
 RegisterBranchSection.propTypes = {
   cityValue: PropTypes.string,

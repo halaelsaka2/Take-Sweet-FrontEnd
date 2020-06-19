@@ -83,7 +83,7 @@ class LoginPage extends Component {
         emailId={constants.emailId}
         emailName={constants.emailName}
         emailValue={email}
-        passwordType={constants.password}
+        passwordType={constants.passwordType}
         passwordId={constants.passwordId}
         passwordName={constants.passwordName}
         passwordPlaceholder={constants.passwordPlaceholder}
