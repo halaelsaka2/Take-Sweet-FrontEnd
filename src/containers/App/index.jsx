@@ -110,7 +110,7 @@ export default class App extends Component {
           {/* <Header /> */}
           <Route path="/" exact component={HomePage} />
           <Route path="/home" component={HomePage} />
-
+          <Route path="/edit/:id" component={AddProductPage} />
           <Route path="/add-product" component={AddProductPage} />
           <Route path="/order-details/:id" component={OrderDetailsPage} />
           <Route

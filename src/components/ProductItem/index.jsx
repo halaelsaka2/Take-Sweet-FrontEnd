@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { repeat } from "lodash";
+import { Link } from "react-router-dom";
 
 const ProductItem = ({
   src,
@@ -80,9 +81,9 @@ const ProductItem = ({
             </div>
           </a>
           <div className="item-medium__crud-actions">
-            <a href="#">
+            <Link to={`/edit/${id}`}>
               <i className="fas fa-edit"></i>
-            </a>
+            </Link>
             <a href="#">
               <i className="fas fa-trash-alt"></i>
             </a>

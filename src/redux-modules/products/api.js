@@ -31,7 +31,6 @@ export const getAllProductsByUserId = async (id) => {
   return data;
 };
 
-
 export const getProductById = async (id) => {
   const { data } = await axios.get(`${uri}/${id}`);
   return data;
@@ -48,6 +47,10 @@ export const deleteProduct = async (id) => {
 };
 
 export const updateProduct = async (id, product) => {
-  const { data } = await axios.patch(`${uri}/${id}`, product);
+  const { data } = await axios.patch(`${uri}/${id}`, product, {
+    headers: {
+      Authorization: token,
+    },
+  });
   return data;
 };

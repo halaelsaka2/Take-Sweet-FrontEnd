@@ -17,6 +17,7 @@ const AddProducSection = ({
   countItemErrors,
   isAddButtonClicked,
   error,
+  type
 }) => {
   const { imageSrc } = product;
   const { tabs, currentTabe } = constants;
@@ -36,6 +37,7 @@ const AddProducSection = ({
             productNameError={productNameError}
             countItemErrors={countItemErrors}
             isAddButtonClicked={isAddButtonClicked}
+            type={type}
           />
         </div>
       </Container>
