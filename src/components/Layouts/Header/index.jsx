@@ -16,11 +16,12 @@ class Header extends Component {
   };
 
   componentDidMount() {
-    let userObject = JSON.parse(localStorage.getItem("userObject"));
-    if (userObject) {
+    let user = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
+    if (user) {
       this.setState({
-        userName: userObject.userProfile.userName,
-        role: userObject.role,
+        userName: user.userName,
+        role: user.roleId.name,
       });
     }
   }
@@ -50,7 +51,7 @@ class Header extends Component {
           <ul className="nav__menu">
             <li className="nav__menu__item">
               <NavLink
-                to="/home" 
+                to="/home"
                 activeClassName="activeLink"
                 // className="nav__menu__link"
               >
@@ -85,15 +86,15 @@ class Header extends Component {
                 Contact
               </NavLink>
               {/* </Link> */}
-            </li> 
-            {role === "company" && (
+            </li>
+            {role === "Company" && (
               <li className="nav__menu__item">
                 <NavLink to="/seller" activeClassName="activeLink">
                   Products
                 </NavLink>
               </li>
             )}
-            {role === "cafe" && (
+            {role === "Cafe" && (
               <li className="nav__menu__item">
                 <NavLink to="/brands" activeClassName="activeLink">
                   Brands
@@ -109,7 +110,7 @@ class Header extends Component {
             width: "10%",
           }}
         >
-          {role === "company" && (
+          {role === "Company" && (
             <NotificationPopOver
               isOpen={isOpen}
               orders={orders}
