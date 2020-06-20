@@ -17,11 +17,12 @@ const AddProducSection = ({
   countItemErrors,
   isAddButtonClicked,
   error,
-  type
+  type,
 }) => {
   const { imageSrc } = product;
   const { tabs, currentTabe } = constants;
-  const {imagehandling} =handlers
+  const { imagehandling } = handlers;
+  // console.log(type);
   return (
     <div class="project-container project-container--h">
       <HistoryStates tabs={tabs} currentTabe={currentTabe} />
