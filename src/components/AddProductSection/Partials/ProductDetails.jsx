@@ -10,29 +10,25 @@ import Textarea from "../../Textarea";
 import Input from "../../Input";
 
 const ProductDetails = ({
-  product: {
-    checkedCategory,
-    productNameValue,
-    availableAmount,
-    minPieces,
-    price,
-  },
+  type,
+  product: { categoryId, name, availableAmount, minPieces, price },
   handlers: { handleSubmit, onChange, onCategoryChange, onCancelButtonClicked },
   constants: { countItems, categories },
   isAddButtonClicked,
 }) => {
   // console.log(checkedCategory);
+  const product = { category: categoryId.name };
   const countItemValues = [availableAmount, minPieces, price];
   return (
     <div className="productDetailsContainer">
-      <AvForm onValidSubmit={handleSubmit}>
+      <AvForm onValidSubmit={handleSubmit} model={product}>
         <AvField
           name="name"
           label="Product Name"
           type="text"
           errorMessage="Invalid name"
           onChange={onChange}
-          value={productNameValue}
+          value={name}
           validate={{
             required: {
               value: true,
@@ -53,7 +49,7 @@ const ProductDetails = ({
                 type="number"
                 errorMessage="Invalid name"
                 onChange={onChange}
-                value={productNameValue}
+                value={name}
                 validate={{
                   required: {
                     value: true,
@@ -81,26 +77,27 @@ const ProductDetails = ({
           inline
           errorMessage="Pick one!"
         >
-          {categories.map((category) => (
-            <AvRadio
-              label={category.name}
-              color=""
-              value={category.id}
-              onChange={onCategoryChange}
-              checked={checkedCategory === category.id && checkedCategory}
-            />
-          ))}
+          {categories.map((category) => {
+            console.log(category.name);
+            return (
+              <AvRadio
+                label={category.name}
+                value={category.name}
+                onChange={onCategoryChange}
+              />
+            );
+          })}
         </AvRadioGroup>
 
         <div className="btnContainer">
           <Button
             className="button--rounded--s"
-            name="Add"
+            name={type === "add" ? "add" : "edit"}
             type="submit"
             color=""
             onClick={handleSubmit}
           >
-            Add
+            {type === "add" ? "Add" : "edit"}
           </Button>
 
           <Button
