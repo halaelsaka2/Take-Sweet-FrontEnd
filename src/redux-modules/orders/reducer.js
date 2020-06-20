@@ -35,6 +35,7 @@ export default (state = initialState, action) => {
       const companyId = addedProduct.userId.id;
       let shoppingBagList = state.shoppingBagList;
 
+      /// first order
       if (shoppingBagList.length === 0) {
         shoppingBagList.push({
           shoppingBagProducts: [addedProduct],
@@ -44,37 +45,51 @@ export default (state = initialState, action) => {
         let exist = shoppingBagList.find((order) => {
           if (order.company.id === companyId) return order;
         });
+
         if (exist) {
           let index = shoppingBagList.indexOf(exist);
-          shoppingBagList[index].shoppingBagProducts.push(addedProduct);
-          console.log(shoppingBagList);
+
+          let isDublicatedProduct =
+            shoppingBagList[0].shoppingBagProducts.indexOf(addedProduct) !== -1;
+
+          if (!isDublicatedProduct) {
+            shoppingBagList[index].shoppingBagProducts.push(addedProduct);
+          }
+          // console.log(shoppingBagList);
+        } else {
+          shoppingBagList.push({
+            shoppingBagProducts: [addedProduct],
+            company: addedProduct.userId,
+          });
         }
       }
-
-      // let shoppingBagProducts = state.shoppingBagList.shoppingBagProducts;
-
-      // if (shoppingBagList.length != 0) {
-      //   let exist = shoppingBagList.find((m) => {
-      //     if (m.user.id === addedProduct.userId.id) return m;
-      //   });
-      //   console.log(exist);
-      //   if (exist) {
-      //     let index = shoppingBagList.indexOf(exist);
-      //     console.log(index);
-      //     shoppingBagList[index].shoppingBagProducts.push(addedProduct);
-      //   } else {
-      //     // shoppingBagProducts.push(addedProduct);ا
-      //   }
-      // } else {
-      //   shoppingBagList.push({
-      //     user: addedProduct.userId,
-      //     shoppingBagProducts: [addedProduct],
-      //   });
-      // }
-      console.log(shoppingBagList);
-      // if (x) {
-      //   ShoppingOrderList.push(addedProduct.userId);
-      // }
+      let totalOfOrders = [];
+      let totalPriceOfOrder;
+      let orderProductsPrice = [];
+      shoppingBagList.forEach((order) => {
+        ///total for each product
+        totalPriceOfOrder = [];
+        totalPriceOfOrder = 0;
+        orderProductsPrice = [];
+        order.shoppingBagProducts.forEach((product, index) => {
+          const total = product.amount * product.price;
+          orderProductsPrice.push(total);
+          product.totalPrice = total;
+        });
+        console.log("total price of each product", orderProductsPrice);
+        //total of each order
+        totalPriceOfOrder = orderProductsPrice.reduce(
+          (accumulator, current) => current + accumulator
+        );
+        totalOfOrders.push(totalPriceOfOrder);
+      });
+      shoppingBagList.forEach(
+        (order, index) => (order.totalPrice = totalOfOrders[index])
+      );
+      // console.log("total price of each order", totalPriceOfOrder);
+      // console.log("shoppingBagList toal price added", shoppingBagList);
+      // console.log("totalOfOrders", totalOfOrders);
+      // console.log("testttttttttting", shoppingBagList);
       return {
         ...state,
         shoppingBagList,
@@ -82,24 +97,5 @@ export default (state = initialState, action) => {
 
     default:
       return state;
-      break;
   }
-  //   console.log(newState);
-  //   return newState;
 };
-
-//     case actionTypes.GET_ALL_PRODUCTS:
-
-//       return {
-//         ...state,
-//         productsList: action.productsList,
-//       };
-
-//     case actionTypes.GET_ALL_BRANDS:
-//       return {
-//         ...state,
-//         productsList: action.brandsList,
-//       };
-//     default:
-//       return state;
-//   }

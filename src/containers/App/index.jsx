@@ -18,14 +18,13 @@ import AddProductPage from "../../containers/AddProductPage";
 import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
 import OrderDetailsPage from "../OrderDetailsPage";
-
-import NotificationPopOver from "./../../components/NotificationPopover/index";
-
-export default class App extends Component {
+import { withRouter } from "react-router";
+class App extends Component {
   state = {
     isShoppingIconHidden: false,
     isShoppingBagOpen: false,
     isProductCardModalOpen: false,
+    eyeId: "",
     products: [
       {
         id: 1,
@@ -85,12 +84,20 @@ export default class App extends Component {
     isShoppingBagOpen = !isShoppingBagOpen;
     this.setState({ isShoppingIconHidden, isShoppingBagOpen });
   };
-  openProductsCardModal = () => {
+  openProductsCardModal = (id) => {
     let isProductCardModalOpen = this.state.isProductCardModalOpen;
     isProductCardModalOpen = !isProductCardModalOpen;
-    this.setState({ isProductCardModalOpen });
+    this.setState({ isProductCardModalOpen, eyeId: id });
   };
-
+  orderHandle = (id) => {
+    this.props.history.push("/order-details/id");
+  };
+  cancelHandle = (id) => {
+    let shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
+    shoppingBagList = shoppingBagList.filter((m) => m.company.id !== id);
+    this.setState({});
+    localStorage.setItem("shoppingBagList", JSON.stringify(shoppingBagList));
+  };
   render() {
     const {
       state: {
@@ -101,8 +108,8 @@ export default class App extends Component {
       },
       openProductsCardModal,
       toggleShoppingBag,
-
       orderHandle,
+      cancelHandle,
     } = this;
     return (
       <React.Fragment>
@@ -177,6 +184,8 @@ export default class App extends Component {
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
                 // // shoppingOrderList={this.state.shoppingOrderList}
+                cancelHandle={cancelHandle}
+                orderHandle={orderHandle}
                 numberOfOrders={this.state.numberOfOrders}
                 products={products}
                 {...props}
@@ -215,3 +224,4 @@ export default class App extends Component {
     );
   }
 }
+export default withRouter(App);

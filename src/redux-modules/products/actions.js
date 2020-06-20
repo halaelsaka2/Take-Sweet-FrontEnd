@@ -21,7 +21,7 @@ export const getAllProductsByUserIdRes = (productsList) => {
 export const getAllProductsByUserId = (id) => {
   return async (dispatch) => {
     const productsList = await productsDB.getAllProductsByUserId(id);
-    console.log(productsList, "in actioooooooooooooon");
+    // console.log(productsList, "in actioooooooooooooon");
     dispatch(getAllProductsByUserIdRes(productsList));
   };
 };
@@ -63,7 +63,7 @@ export const deleteProductRes = (product) => {
 
 export const getPorductById = (id) => {
   return async (dispatch) => {
-    console.log(id, "inAction");
+    // console.log(id, "inAction");
     const product = await productsDB.getProductById(id);
     dispatch(getPorductByIdRes(product));
   };
@@ -78,13 +78,13 @@ export const getPorductByIdRes = (product) => {
 export const uploadImage = (image) => {
   return async (dispatch) => {
     const { imageUrl } = await uploadImageFile(image);
-    console.log(imageUrl);
+    // console.log(imageUrl);
     dispatch(uploadImageRes(imageUrl));
   };
 };
 
 export const uploadImageRes = (imageSrc) => {
-  console.log(imageSrc);
+  // console.log(imageSrc);
   return {
     type: UPLOAD_IMAGE,
     imageSrc,
