@@ -8,10 +8,15 @@ export const getAllCafes = async () => {
     return data;
 }
 
-export const addCafe = async (cafe) => {
+export const addCafe = async () => {
+    const token = JSON.parse(localStorage.getItem("token"))
     const {
         data
-    } = await axios.post(`${url}/addCafe`, cafe)
+    } = await axios.post(`${url}/addCafe`, {}, {
+        headers: {
+            authorization: token
+        }
+    })
     return data;
 }
 export const editCafe = async (id, cafe) => {
@@ -29,7 +34,7 @@ export const getCafeByUserId = async () => {
             authorization: token,
         }
     })
-    console.log(data,"inApiCaf");
-    
+    console.log(data, "inApiCaf");
+
     return data;
 }

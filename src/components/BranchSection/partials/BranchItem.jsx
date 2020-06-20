@@ -9,6 +9,7 @@ const BranchItem = ({
   editButtonHandle,
   index,
   id,
+  isEdit,
 }) => (
   <div className="branchContainer__branches__location">
     <div className="branch-header-flex">
@@ -16,7 +17,14 @@ const BranchItem = ({
         {cityName}
       </span>
       <div className="branch-icons-flex">
-        <i onClick={editButtonHandle} id={id} className="fas fa-pencil-alt"></i>
+        {isEdit && (
+          <i
+            onClick={editButtonHandle}
+            id={id}
+            className="fas fa-pencil-alt"
+          ></i>
+        )}
+
         <i
           onClick={() => deleteButtonHandle(index)}
           className="fas fa-trash-alt branch-trash-icon"
@@ -31,6 +39,10 @@ const BranchItem = ({
     </span>
   </div>
 );
+
+BranchItem.defaultProps = {
+  isEdit: true,
+};
 
 BranchItem.protoTypes = {
   cityName: PropTypes.string,

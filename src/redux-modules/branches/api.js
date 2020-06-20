@@ -22,12 +22,13 @@ export async function GetBranchById(id) {
 }
 
 
-export async function AddBranch(addedBranch) {
-    const response = await axios.post(`${branchEndPoint}/addBranch`, addedBranch).catch((err) => console.log(err.response.data));
-    if (response) {
-        console.log(response.data)
-        return response.data;
-    }
+export function AddBranch(addedBranch) {
+    // const response = await axios.post(`${branchEndPoint}/addBranch`, addedBranch).catch((err) => console.log(err.response.data));
+    // if (response) {
+    //     console.log(response.data,"branches response")
+    //     return response.data;
+    // }
+    return axios.post(`${branchEndPoint}/addBranch`, addedBranch);
 }
 export async function EditBranch(id, editedBranch) {
     const {

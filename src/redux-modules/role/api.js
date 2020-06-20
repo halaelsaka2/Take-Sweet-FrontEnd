@@ -9,3 +9,10 @@ export async function GetAllRoles() {
     } = await axios.get(rolesEndPoint);
     return data;
 }
+
+export async function GetRoleById(id) {
+    const {
+        data
+    } = await axios.get(`${rolesEndPoint}${id}`);
+    return data;
+}

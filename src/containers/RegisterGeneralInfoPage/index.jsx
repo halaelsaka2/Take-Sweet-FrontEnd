@@ -15,8 +15,8 @@ class RegisterGeneralInfoPage extends Component {
     this.setState({ newUserAccountInfo });
   };
   nextButtonHandle = (event, values) => {
-    let { email, password } = this.state.newUserAccountInfo;
-    let newUser = { email, password };
+    let { email, password, confirmPassword } = this.state.newUserAccountInfo;
+    let newUser = { email, password, confirmPassword };
     localStorage.setItem("newUser", JSON.stringify(newUser));
     this.props.history.push("/register-personal-info");
   };

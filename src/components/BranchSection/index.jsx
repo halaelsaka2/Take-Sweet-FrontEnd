@@ -11,7 +11,8 @@ const BranchSection = ({
   ListAdditionalStyle,
   deleteButtonHandle,
   editButtonHandle,
-  newBranchModalOpenHandle
+  newBranchModalOpenHandle,
+  isEdit,
 }) => (
   <React.Fragment>
     {isBranchTab && (
@@ -33,6 +34,7 @@ const BranchSection = ({
           ListAdditionalStyle={ListAdditionalStyle}
           deleteButtonHandle={deleteButtonHandle}
           editButtonHandle={editButtonHandle}
+          isEdit={isEdit}
         ></BranchList>
       </div>
     </div>
@@ -43,7 +45,7 @@ export default BranchSection;
 
 BranchSection.defaultProps = {
   isEditBranch: true,
-  isBranchTab: true
+  isBranchTab: true,
 };
 
 BranchSection.protoTypes = {
@@ -52,5 +54,5 @@ BranchSection.protoTypes = {
   isBranchTab: PropTypes.bool,
   branchStyle: PropTypes.string,
   ListAdditionalStyle: PropTypes.string,
-  deleteButtonHandle: PropTypes.func
+  deleteButtonHandle: PropTypes.func,
 };
