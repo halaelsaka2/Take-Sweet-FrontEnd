@@ -17,6 +17,7 @@ const ProductDetails = ({
   isAddButtonClicked,
 }) => {
   // console.log(checkedCategory);
+  console.log(type);
   const product = { category: categoryId.name };
   const countItemValues = [availableAmount, minPieces, price];
   return (
@@ -78,7 +79,7 @@ const ProductDetails = ({
           errorMessage="Pick one!"
         >
           {categories.map((category) => {
-            console.log(category.name);
+            // console.log(category.name);
             return (
               <AvRadio
                 label={category.name}
@@ -97,7 +98,7 @@ const ProductDetails = ({
             color=""
             onClick={handleSubmit}
           >
-            {type === "add" ? "Add" : "edit"}
+            {type === "add" ? "Add" : "Edit"}
           </Button>
 
           <Button

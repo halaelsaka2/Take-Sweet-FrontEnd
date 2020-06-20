@@ -7,7 +7,7 @@ import {
   addProduct,
   uploadImage,
   getPorductById,
-  editProduct
+  editProduct,
 } from "../../redux-modules/products/actions";
 import { connect } from "react-redux";
 import { products } from "../../redux-modules/products/api.mock";
@@ -25,23 +25,24 @@ class AddProduct extends Component {
     },
     isAddButtonClicked: "",
     token: "",
-    type:""
+    type: "",
   };
 
   async componentDidMount() {
-    if (this.props.match.url !== "/addProduct") {
+    if (this.props.match.url !== "/add-product") {
       const id = this.props.match.params.id;
       await this.props.getProduct(id);
       const product = this.props.product;
-      const type = "edit"
-      this.setState({ product,type });
+      const type = "edit";
+      this.setState({ product, type });
     } else {
       const imageSrc = this.props.imageSrc;
       const product = { ...this.state.product, imageSrc };
-      const token = this.props.token;
-      const type = "add"
+      const token = JSON.parse(localStorage.token);
+      // console.log(localStorage.token);
+      const type = "add";
 
-      this.setState({ product, token,type });
+      this.setState({ product, token, type });
     }
   }
 
@@ -54,7 +55,7 @@ class AddProduct extends Component {
   categotyHandler = (event) => {
     const { value, name } = event.target;
     // console.log(name, value);
-    const product = { ...this.state.product, [name]: parseInt(value) };
+    const product = { ...this.state.product, [name]: value };
     // console.log(product);
     this.setState({ product });
   };
@@ -63,22 +64,23 @@ class AddProduct extends Component {
     event.preventDefault();
     if (event.target.name === "cancel") {
       this.props.history.push("/seller");
-    } else if(event.target.name === "add"){
+    } else if (event.target.name === "add") {
       const product = { ...this.state.product };
       switch (product.category) {
-        case 1:
+        case "pastry":
           product.categoryId = "5ee21fba7f98cd0cd8a724d9";
-        case 2:
+        case "bakery":
           product.categoryId = "5ee2322e57a2c453680237cc";
-        case 3:
+        case "coffee":
           product.categoryId = "5ee2325157a2c453680237cd";
       }
+      console.log(product, "addddddddd");
       await this.props.addProduct(product);
       this.props.history.replace("/seller");
-    }else{
+    } else {
       const product = { ...this.state.product };
       const id = this.props.match.params.id;
-      await this.props.editproduct(id, product)
+      await this.props.editproduct(id, product);
       this.props.history.push("/seller");
     }
   };
@@ -95,7 +97,7 @@ class AddProduct extends Component {
 
   render() {
     const {
-      state: { product, isAddButtonClicked,type },
+      state: { product, isAddButtonClicked, type },
     } = this;
     console.log(this.state);
     const handlers = {
@@ -133,7 +135,7 @@ const mapDispatchToProps = (dispatch) => {
     uploadImage: (image) => dispatch(uploadImage(image)),
     addProduct: (product) => dispatch(addProduct(product)),
     getProduct: (id) => dispatch(getPorductById(id)),
-    editproduct:(id,product)=>dispatch(editProduct(id,product))
+    editproduct: (id, product) => dispatch(editProduct(id, product)),
   };
 };
 
