@@ -9,6 +9,8 @@ const ShoppingOrderContainer = ({
   closeShoppingBag,
   isOpen,
   openCardModal,
+  orderHandle,
+  cancelHandle,
 }) => (
   <React.Fragment>
     <div className="shoppingCart-container">
@@ -23,6 +25,8 @@ const ShoppingOrderContainer = ({
         <ShoppingOrderList
           shoppingOrderList={shoppingOrderList}
           openCardModal={openCardModal}
+          orderHandle={orderHandle}
+          cancelHandle={cancelHandle}
         />
       </div>
     </div>

@@ -21,7 +21,7 @@ export const getAllProductsByUserIdRes = (productsList) => {
 export const getAllProductsByUserId = (id) => {
   return async (dispatch) => {
     const productsList = await productsDB.getAllProductsByUserId(id);
-    console.log(productsList, "in actioooooooooooooon");
+    // console.log(productsList, "in actioooooooooooooon");
     dispatch(getAllProductsByUserIdRes(productsList));
   };
 };
@@ -77,13 +77,13 @@ export const getProductByIdRes = (product) => {
 export const uploadImage = (image) => {
   return async (dispatch) => {
     const { imageUrl } = await uploadImageFile(image);
-    console.log(imageUrl);
+    // console.log(imageUrl);
     dispatch(uploadImageRes(imageUrl));
   };
 };
 
 export const uploadImageRes = (imageSrc) => {
-  console.log(imageSrc);
+  // console.log(imageSrc);
   return {
     type: UPLOAD_IMAGE,
     imageSrc,

@@ -106,6 +106,9 @@ const ProductsSection = ({
     </React.Fragment>
   );
 };
+ProductsSection.defaultProps = {
+  productsList: [],
+};
 
 ProductsSection.propTypes = {
   products: PropTypes.array,

@@ -40,18 +40,13 @@ class BuyerPage extends Component {
   };
 
   addToCart = (id) => {
-    // console.log(id);
     const addedProduct = this.props.productsList.find(
       (product) => product.id === id
     );
-    // console.log(addedProduct);
     this.props.addToCart(addedProduct);
-
-    // let numberOfOrders = this.state.numberOfOrders;
-    // if (numberOfOrders === 0) {
-    //   numberOfOrders = numberOfOrders + 1;
-    // }
-    // this.setState({ numberOfOrders });
+    const shoppingBagList = this.props.shoppingBagList;
+    localStorage.setItem("shoppingBagList", JSON.stringify(shoppingBagList));
+    this.setState({ numberOfOrders: shoppingBagList.length });
   };
 
   dropDownHandler = (name) => {
@@ -92,6 +87,7 @@ class BuyerPage extends Component {
       minusHandler,
       amountHandler,
       addToCart,
+      // cancelHandle,
       state: { categoryDropDownStatus, sortDropDownStatus, amount },
     } = this;
     const {
@@ -104,30 +100,34 @@ class BuyerPage extends Component {
       shoppingOrderList,
       numberOfOrders,
       orderHandle,
+      cancelHandle,
+      // shoppingBagList,
     } = this.props;
-    console.log(this.props.productsList);
-    
+
+    const shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
+    //console.log(this.props.productsList);
     return (
       
       <React.Fragment>
         <Header />
         <HistoryIcon />
         <ShoppingCart
-          number={numberOfOrders}
+          number={shoppingBagList.length}
           openShoppingBag={toggleShoppingBag}
           isHidden={isShoppingIconHidden}
         />
         <ShoppingOrderContainer
-          shoppingOrderList={shoppingOrderList}
+          shoppingOrderList={shoppingBagList}
           isOpen={isShoppingBagOpen}
           closeShoppingBag={toggleShoppingBag}
           openCardModal={openProductsCardModal}
           orderHandle={orderHandle}
+          cancelHandle={cancelHandle}
         />
         {isProductCardModalOpen && (
           <ProductCardsSection
             isClicked={isProductCardModalOpen}
-            productCards={shoppingOrderList[0].products}
+            productCards={shoppingBagList[0].shoppingBagProducts}
             closeProductsModal={openProductsCardModal}
             handleDelete
           />
@@ -155,7 +155,7 @@ class BuyerPage extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  // console.log(state.orders.shoppingBagList);
+  console.log(state.orders.shoppingBagList);
   return {
     productsList: state.products.productsList,
     categoryList: state.dropdown.categoryList,
