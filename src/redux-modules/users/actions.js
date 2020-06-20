@@ -1,20 +1,13 @@
 import {
   USER_REGISTER,
   USER_LOGIN,
-  GET_ALL_ORDERS,
-  ADD_TO_SHOPPING_CART,
+  UPDATE_USER
 } from "./constants";
-import {
-  UserLogin
-} from "./api"
+import * as userDB from "./api"
 import {
   register,
-  getAllOrders,
-  addtoShoppingCart
+
 } from "./api.mock";
-import {
-  editProduct
-} from "../products/actions";
 
 export const userRegister = (user) => {
   const userInfo = user;
@@ -40,8 +33,22 @@ const userLoginRes = (user, token) => {
 
 export const userLogin = (currentUser) => {
   return async (dispatch) => {
-    const userData = await UserLogin(currentUser)
+    const userData = await userDB.UserLogin(currentUser)
     dispatch(userLoginRes(userData.user, userData.token));
+  };
+};
+export const updateUser = (user) => {
+  console.log(user,"inAction");
+  
+  return async (dispatch) => {
+    const updateduser = await userDB.updateUser(user);
+    dispatch(updateUserRes(updateduser));
+  };
+};
+const updateUserRes = (user) => {
+  return {
+    type: UPDATE_USER,
+    user,
   };
 };
 
