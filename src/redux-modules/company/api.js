@@ -2,13 +2,15 @@ import axios from "axios";
 const uri = "http://localhost:3000/company";
 
 export const getCompanyById = async () => {
-  const token = JSON.parse( localStorage.getItem("token"))
+    const token = JSON.parse(localStorage.getItem("token"))
+
     const {
         data
-    } = await axios.get(`${uri}/getByUserId`,{
+    } = await axios.get(`${uri}/getByUserId`, {
         headers: {
-          authorization: token,
-        }})
+            authorization: token,
+        }
+    })
     return data;
 }
 

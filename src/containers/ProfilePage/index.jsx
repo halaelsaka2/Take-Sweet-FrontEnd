@@ -27,11 +27,12 @@ import {
 import { getCompanyById } from "../../redux-modules/company/actions";
 import { editBranch } from "../../redux-modules/branches/actions";
 import { getCafeByUserId } from "../../redux-modules/cafes/actions";
+import { updateUser } from "../../redux-modules/users/actions";
 
 class Profile extends Component {
   state = {
     products: dumy.products,
-    userProfile: [{ userId: {} }],
+    userProfile: { userId: {} },
     paymentTypes: dumy.paymentTypes,
     isPersonalInfoModalOpen: false,
     isPasswordModalOpen: false,
@@ -43,13 +44,14 @@ class Profile extends Component {
     role: "",
     paymentTypeStatu: "",
     branches: [],
+    updatedUser: {},
   };
 
   componentDidMount = async () => {
     let user = JSON.parse(localStorage.getItem("user"));
+    console.log(user, "user");
     let branches = [...this.state.branches];
     branches = user.branches;
-
     if (user) {
       let role = this.state.role;
       role = user.roleId.name;
@@ -59,8 +61,6 @@ class Profile extends Component {
         //getCafeById
         await this.props.getCafeByUserId();
         userProfile = this.props.cafe;
-        console.log(userProfile);
-        
       } else {
         //getCompanyById
         await this.props.getCompanyById();
@@ -153,16 +153,28 @@ class Profile extends Component {
   openPersonalModal = () => {
     this.togglePersonalModal();
   };
-  savePersonalInfoModal = () => {
+  savePersonalInfoModal = async () => {
     console.log("save Data in Personal info modal");
+    let userProfile = this.state.userProfile;
+    console.log(userProfile, "insave");
+
+    await this.props.updateUser(userProfile.userId);
+
+    console.log(this.props.updatedUser);
+    userProfile.userId = this.props.updatedUser;
+    this.setState({ userProfile });
     this.togglePersonalModal();
   };
   cancelPersonalInfoModal = () => {
     console.log("closed Personal info modal");
     this.togglePersonalModal();
   };
-  changePersonalInfoModal = () => {
+  changePersonalInfoModal = (event) => {
     console.log("change in Personal info modal");
+    let { userProfile } = this.state;
+    console.log(userProfile, "inchange");
+    userProfile.userId[event.target.name] = event.target.value;
+    this.setState({ userProfile });
   };
 
   //////////////PasswordModal///////
@@ -218,6 +230,8 @@ class Profile extends Component {
   };
 
   render() {
+    console.log(this.state.userProfile);
+
     const {
       isShoppingIconHidden,
       isShoppingBagOpen,
@@ -268,10 +282,10 @@ class Profile extends Component {
           <ModalSection isClicked={isPersonalInfoModalOpen}>
             <EditPersonalInfoModal
               isClicked={isPersonalInfoModalOpen}
-              userName={userProfile[0].userId.userName}
-              email={userProfile[0].userId.email}
-              discription={userProfile[0].userId.description}
-              imageUrl={userProfile[0].userId.imageSrc}
+              userName={userProfile.userId.userName}
+              email={userProfile.userId.email}
+              discription={userProfile.userId.description}
+              imageUrl={userProfile.userId.imageSrc}
               onSave={savePersonalInfoModal}
               onCancel={cancelPersonalInfoModal}
               onChange={changePersonalInfoModal}
@@ -319,10 +333,10 @@ class Profile extends Component {
 
         <Container>
           <PersonalInfoSection
-            email={userProfile[0].userId.email}
-            userName={userProfile[0].userId.userName}
-            discription={userProfile[0].userId.description}
-            imageUrl={userProfile[0].userId.imageSrc}
+            email={userProfile.userId.email}
+            userName={userProfile.userId.userName}
+            discription={userProfile.userId.description}
+            imageUrl={userProfile.userId.imageSrc}
             onClick={openPersonalModal}
           />
 
@@ -386,6 +400,7 @@ const mapStateToProps = (state) => {
     company: state.company.company,
     branch: state.branches.branch,
     cafe: state.cafe.cafe,
+    updatedUser: state.user.user,
   };
 };
 
@@ -397,6 +412,7 @@ const mapDispatchToProps = (dispatch) => {
     getCompanyById: () => dispatch(getCompanyById()),
     editBranch: (id, branch) => dispatch(editBranch(id, branch)),
     getCafeByUserId: () => dispatch(getCafeByUserId()),
+    updateUser: (user) => dispatch(updateUser(user)),
   };
 };
 

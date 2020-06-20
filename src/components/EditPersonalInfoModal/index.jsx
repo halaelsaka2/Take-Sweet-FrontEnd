@@ -57,7 +57,7 @@ const EditPersonalInfoModal = ({
         <div className="infoContainer__content__right__discribtion">
           <Textarea
             className="textarea"
-            name="discription"
+            name="description"
             onChange={onChange}
             value={discription}
           />

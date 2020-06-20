@@ -20,3 +20,19 @@ export async function UserRegister(user) {
     }
 
 }
+
+export async function updateUser(updatedUser) {
+    console.log(updatedUser);
+    
+    const token = JSON.parse(localStorage.getItem("token"))
+    const response = await axios.patch(`${userEndPoint}`,updatedUser,{
+        headers: {
+            authorization: token,
+        }
+    }).catch((err) => console.log(err.response.data));
+    if (response) {
+        console.log(response.data,"inApi");
+        
+        return response.data;
+    }
+}
