@@ -2,7 +2,7 @@ import * as actionTypes from "./constants";
 
 const initialState = {
   companyList: [],
-  company:{}
+  company: {}
 };
 
 export default (state = initialState, action) => {
@@ -15,9 +15,12 @@ export default (state = initialState, action) => {
       };
 
     case actionTypes.ADD_Company:
+      let companyList = [...state.companyList, action.company]
+      // console.log(companyList, "zeeeeeeft in reducer")
+
       return {
         ...state,
-        companyList: action.companies,
+        companyList
       };
     case actionTypes.GET_Company_BY_ID:
       return {

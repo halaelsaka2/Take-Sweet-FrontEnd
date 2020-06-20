@@ -8,6 +8,18 @@ class RegisterBranchPage extends Component {
     dropdownIsOpen: false,
   };
 
+  componentDidMount = () => {
+    console.log("from here");
+    let branchesInfo = [...this.state.branchesInfo];
+    let user = JSON.parse(localStorage.getItem("newUser"));
+    if (user.branches) {
+      branchesInfo = user.branches;
+    } else {
+      branchesInfo = [];
+    }
+    this.setState({ branchesInfo });
+  };
+
   onChange = (event) => {
     let oneBranchInfo = { ...this.state.oneBranchInfo };
     oneBranchInfo[event.target.name] = event.target.value;
@@ -15,21 +27,25 @@ class RegisterBranchPage extends Component {
   };
 
   nextButtonHandle = (event) => {
-    let newUser = JSON.parse(localStorage.getItem("newUser"));
+    // let newUser = JSON.parse(localStorage.getItem("newUser"));
     let branchesInfo = [...this.state.branchesInfo];
     let oneBranchInfo = { ...this.state.oneBranchInfo };
-    newUser.branches = branchesInfo;
-    newUser.description = "this is your description";
-    localStorage.setItem("newUser", JSON.stringify(newUser));
+    // newUser.branches = branchesInfo;
+    // localStorage.setItem("newUser", JSON.stringify(newUser));
+    // console.log(newUser);
     this.props.history.push("/register-acceptance");
   };
   backButtonHandle = (event) => {
     this.props.history.push("/register-personal-info");
   };
   addBranchButtonHandle = (event, values) => {
+    let newUser = JSON.parse(localStorage.getItem("newUser"));
     let { branchesInfo, oneBranchInfo } = this.state;
     branchesInfo.push(oneBranchInfo);
     oneBranchInfo = { city: "City", address: "", phoneNumber: "" };
+    newUser.branches = branchesInfo;
+    localStorage.setItem("newUser", JSON.stringify(newUser));
+    console.log(newUser);
     this.setState({ oneBranchInfo, branchesInfo });
   };
 

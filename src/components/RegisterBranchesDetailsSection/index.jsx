@@ -11,7 +11,8 @@ const RegisterBranchesDetailsSection = ({
   deleteButtonHandle,
   editButtonHandle,
   isEditBranch,
-  isBranchTab
+  isBranchTab,
+  isEdit
 }) => (
   <div className="register-container">
     <div className="register-form-container">
@@ -35,6 +36,7 @@ const RegisterBranchesDetailsSection = ({
           ListAdditionalStyle={"branchContainer__branches--2branches"}
           deleteButtonHandle={deleteButtonHandle}
           editButtonHandle={editButtonHandle}
+          isEdit={isEdit}
         />
 
         <div className="button-container">
@@ -55,7 +57,9 @@ const RegisterBranchesDetailsSection = ({
     </div>
   </div>
 );
-
+RegisterBranchesDetailsSection.defaultProps={
+  branchList:[]
+}
 RegisterBranchesDetailsSection.propTypes = {
   branchList: PropTypes.array,
   isEditBranch: PropTypes.bool,

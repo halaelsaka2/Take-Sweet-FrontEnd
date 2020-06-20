@@ -23,11 +23,8 @@ const ProductsSellerSection = ({
   Type,
 }) => {
   const firstIndex = (currentPage - 1) * productsPerPage;
-    const lastIndex = firstIndex + productsPerPage;
-    const currentProducts = productsList.slice(
-      firstIndex,
-      lastIndex
-    );
+  const lastIndex = firstIndex + productsPerPage;
+  const currentProducts = productsList.slice(firstIndex, lastIndex);
   return (
     <React.Fragment>
       <Header></Header>
@@ -60,14 +57,18 @@ const ProductsSellerSection = ({
         </div>
 
         <div className="list-container">
-          {currentProducts.map((item) => (
-            <ProductItem
-              name={item.name}
-              src={item.imageSrc}
-              amount={item.amount}
-              Type={"seller"}
-            ></ProductItem>
-          ))}
+          {currentProducts.map((item) => {
+            console.log(item);
+            return (
+              <ProductItem
+                id={item.id}
+                name={item.name}
+                src={item.imageSrc}
+                amount={item.amount}
+                Type={"seller"}
+              ></ProductItem>
+            );
+          })}
         </div>
         {productsList.length > productsPerPage && (
           <Container>

@@ -3,13 +3,19 @@ import AddProducSection from "../../components/AddProductSection";
 import constants from "./contants";
 import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
-import { addProduct, uploadImage } from "../../redux-modules/products/actions";
+import {
+  addProduct,
+  uploadImage,
+  getPorductById,
+  editProduct,
+} from "../../redux-modules/products/actions";
 import { connect } from "react-redux";
+import { products } from "../../redux-modules/products/api.mock";
 
 class AddProduct extends Component {
   state = {
     product: {
-      imageSrc: "assets/images/donut.jpg",
+      imageSrc: "",
       name: "",
       availableAmount: "",
       minPieces: "",
@@ -19,13 +25,25 @@ class AddProduct extends Component {
     },
     isAddButtonClicked: "",
     token: "",
+    type: "",
   };
 
-  componentDidMount() {
-    const imageSrc = this.props.imageSrc;
-    const product = { ...this.state.product, imageSrc };
-    const token = this.props.token;
-    this.setState({ product, token });
+  async componentDidMount() {
+    if (this.props.match.url !== "/add-product") {
+      const id = this.props.match.params.id;
+      await this.props.getProduct(id);
+      const product = this.props.product;
+      const type = "edit";
+      this.setState({ product, type });
+    } else {
+      const imageSrc = this.props.imageSrc;
+      const product = { ...this.state.product, imageSrc };
+      const token = JSON.parse(localStorage.token);
+      // console.log(localStorage.token);
+      const type = "add";
+
+      this.setState({ product, token, type });
+    }
   }
 
   inputHandler = (event) => {
@@ -37,7 +55,7 @@ class AddProduct extends Component {
   categotyHandler = (event) => {
     const { value, name } = event.target;
     // console.log(name, value);
-    const product = { ...this.state.product, [name]: parseInt(value) };
+    const product = { ...this.state.product, [name]: value };
     // console.log(product);
     this.setState({ product });
   };
@@ -46,24 +64,28 @@ class AddProduct extends Component {
     event.preventDefault();
     if (event.target.name === "cancel") {
       this.props.history.push("/seller");
-    } else {
+    } else if (event.target.name === "add") {
       const product = { ...this.state.product };
       switch (product.category) {
-        case 1:
+        case "pastry":
           product.categoryId = "5ee21fba7f98cd0cd8a724d9";
-        case 2:
+        case "bakery":
           product.categoryId = "5ee2322e57a2c453680237cc";
-        case 3:
+        case "coffee":
           product.categoryId = "5ee2325157a2c453680237cd";
       }
-      console.log(product);
+      console.log(product, "addddddddd");
       await this.props.addProduct(product);
       this.props.history.replace("/seller");
+    } else {
+      const product = { ...this.state.product };
+      const id = this.props.match.params.id;
+      await this.props.editproduct(id, product);
+      this.props.history.push("/seller");
     }
   };
 
   imageUploadHandler = async (event) => {
-    console.log(event.target.file);
     const image = event.target.files[0];
     const formDate = new FormData();
     formDate.set("image", image);
@@ -75,9 +97,9 @@ class AddProduct extends Component {
 
   render() {
     const {
-      state: { product, isAddButtonClicked },
+      state: { product, isAddButtonClicked, type },
     } = this;
-    console.log(this.state.product);
+    console.log(this.state);
     const handlers = {
       onChange: this.inputHandler,
       onCancelButtonClicked: this.buttonHandler,
@@ -94,6 +116,7 @@ class AddProduct extends Component {
           product={product}
           isAddButtonClicked={isAddButtonClicked}
           constants={constants}
+          type={type}
         />
         <Footer />
       </React.Fragment>
@@ -102,6 +125,7 @@ class AddProduct extends Component {
 }
 const mapStateToProps = (state) => {
   return {
+    product: state.products.product,
     imageSrc: state.products.imageSrc,
     token: state.user.token,
   };
@@ -110,6 +134,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     uploadImage: (image) => dispatch(uploadImage(image)),
     addProduct: (product) => dispatch(addProduct(product)),
+    getProduct: (id) => dispatch(getPorductById(id)),
+    editproduct: (id, product) => dispatch(editProduct(id, product)),
   };
 };
 

@@ -6,7 +6,8 @@ const BranchList = ({
   branchList,
   ListAdditionalStyle,
   deleteButtonHandle,
-  editButtonHandle
+  editButtonHandle,
+  isEdit,
 }) => (
   <div className={`branchContainer__branches ${ListAdditionalStyle}`}>
     {branchList.length > 0 ? (
@@ -20,6 +21,7 @@ const BranchList = ({
           editButtonHandle={editButtonHandle}
           index={index}
           id={item.id}
+          isEdit={isEdit}
         ></BranchItem>
       ))
     ) : (
@@ -32,7 +34,7 @@ BranchList.propTypes = {
   branchList: PropTypes.array,
   cancelIcon: PropTypes.string,
   ListAdditionalStyle: PropTypes.string,
-  deleteButtonHandle: PropTypes.func
+  deleteButtonHandle: PropTypes.func,
 };
 BranchList.defaultProps = {
   branchList: [],

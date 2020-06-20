@@ -13,17 +13,19 @@ const EditBranchModal = ({
   phonePlaceholder,
   onChange,
   cancelModalButtonHandle,
-  saveModalButtonHandle
+  saveModalButtonHandle,
+  cities,
 }) => (
   <div className="branches-div branches-div--no-border">
     <div className="reg-dropdown-container reg-dropdown-container--edit-branch">
       <Dropdown
         additionalStyle={"dropdown--br1"}
         Header={branchData.city}
-        listItems={["Cairo", "Alexandria", "Ismailia", "Portsaid", "Suez"]}
+        listItems={cities.map((city) => city.name)}
         isOpened={dropdownIsOpen}
         IsOpenHandle={dropdownIsOpenHandle}
         selectionHandle={selectCityHandle}
+        idList={cities.map((city) => city.id)}
       />
     </div>
     <div id="location">

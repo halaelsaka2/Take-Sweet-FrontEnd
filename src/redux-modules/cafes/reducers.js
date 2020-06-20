@@ -17,6 +17,11 @@ export default (state = initialState, action) => {
                 ...state,
                 cafe: action.cafe,
             };
+        case actionTypes.GET_CAFE_BY_USER_ID:
+            return {
+                ...state,
+                cafe: action.cafe,
+            };
         case actionTypes.DELETE_CAFE:
             return {
                 ...state,
@@ -28,9 +33,11 @@ export default (state = initialState, action) => {
                 editedCafe: action.cafe,
             };
         case actionTypes.ADD_CAFE:
+            let cafeList = [...state.cafeList, action.cafe]
+            // console.log(cafeList, "cafe in reducer")
             return {
                 ...state,
-                addedCafe: action.cafe,
+                cafeList
             };
         default:
             return state;

@@ -17,10 +17,12 @@ const AddProducSection = ({
   countItemErrors,
   isAddButtonClicked,
   error,
+  type,
 }) => {
   const { imageSrc } = product;
   const { tabs, currentTabe } = constants;
-  const {imagehandling} =handlers
+  const { imagehandling } = handlers;
+  // console.log(type);
   return (
     <div class="project-container project-container--h">
       <HistoryStates tabs={tabs} currentTabe={currentTabe} />
@@ -36,6 +38,7 @@ const AddProducSection = ({
             productNameError={productNameError}
             countItemErrors={countItemErrors}
             isAddButtonClicked={isAddButtonClicked}
+            type={type}
           />
         </div>
       </Container>

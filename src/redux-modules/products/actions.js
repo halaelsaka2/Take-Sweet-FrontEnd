@@ -63,12 +63,11 @@ export const deleteProductRes = (product) => {
 
 export const getPorductById = (id) => {
   return async (dispatch) => {
-    // console.log(id, "inAction");
     const product = await productsDB.getProductById(id);
-    dispatch(getPorductByIdRes(product));
+    dispatch(getProductByIdRes(product));
   };
 };
-export const getPorductByIdRes = (product) => {
+export const getProductByIdRes = (product) => {
   return {
     type: GET_PRODUCT_BY_ID,
     product,
