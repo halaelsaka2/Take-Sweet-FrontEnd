@@ -4,8 +4,36 @@ import constants from "./constants";
 import { connect } from "react-redux";
 import { userRegister } from "../../redux-modules/users/actions";
 import { addBranch } from "../../redux-modules/branches/actions";
+import { userLogin } from "../../redux-modules/users/actions";
+import { addCompany } from "../../redux-modules/company/actions";
+import { addCafe } from "../../redux-modules/cafes/actions";
+import { getRoleById } from "../../redux-modules/role/actions";
 
 class RegisterAcceptancePage extends Component {
+  componentDidUpdate = () => {
+    if (this.props.user.id !== "undefind") {
+      let user = JSON.parse(localStorage.getItem("newUser"));
+
+      let userLogin = {
+        email: this.props.user.email,
+        password: user.password,
+      };
+
+      this.props.userLogin(userLogin);
+
+      localStorage.setItem("user", JSON.stringify(this.props.user));
+      localStorage.setItem("token", JSON.stringify(this.props.token));
+
+      if (this.props.user.roleId.name === "Cafe") {
+        this.props.addCafe();
+        console.log("this is cafe");
+        window.history.replaceState(null, null, "/");
+        this.props.history.push("/profile");
+      } else {
+        console.log("company");
+      }
+    }
+  };
   state = { checked: false };
   checkHandle = (event) => {
     let checked = { ...this.state.checked };
@@ -19,35 +47,42 @@ class RegisterAcceptancePage extends Component {
   registerButtonHandle = async (event) => {
     let user = JSON.parse(localStorage.getItem("newUser"));
     let branches = user.branches;
-    let branch = await branches.map((addedBranch) => {
-      this.props.addBranch(addedBranch);
-    });
+    // branches.forEach((addedBranch) => {
+    //   this.props.addBranch(addedBranch);
+    //   user.branches = this.props.branchIds;
+    //   // console.log(user.branches);
+    //   // console.log("branches id in register", this.props.branchIds);
+    // });
 
-    user.branches = this.props.branchIds;
+    // await this.props.addBranch(branches[0]);
+    // user.branches = this.props.branchIds;
+    // console.log(user.branches);
+    // console.log("branches id in register", this.props.branchIds);
 
-    await this.props.userRegister(user);
+    // console.log("peew", user);
+    this.props.userRegister(user);
+    // console.log(this.props.user, "hahahahhaahahh");
 
-    console.log(this.props.user);
+    // console.log(this.props.user);
 
-    // let companyObject = {
-    //   userProfile: {
-    //     email: "elabd@gmail.com",
-    //     userName: "El Abd",
-    //     discription:
-    //       "Whether you are looking for the perfect cake for a celebration, browsing breakfast ideas on searching for catering options for large meetings or celebrations; our food has something for everyone",
-    //     imageUrl: "assets/images/ElAbd.jpg",
-    //   },
+    // if (await this.props.user) {
+    //   let userLogin = {
+    //     email: this.props.user.email,
+    //     password: user.password,
+    //   };
 
-    //   branchList: [
-    //     // { city: "Cairo", address: "el maadi", phone: "0128855888" },
-    //     { city: "Cairo", address: "el zamalk", phone: "01060621024" },
-    //     // { city: "Alexandra", address: "Green plaza", phone: "0128855888" },
-    //   ],
-    //   role: "company",
-    // };
-    // localStorage.setItem("userObject", JSON.stringify(companyObject));
-    // window.history.replaceState(null, null, "/");
-    // this.props.history.push("/login");
+    //   await this.props.userLogin(userLogin);
+
+    //   localStorage.setItem("user", JSON.stringify(this.props.user));
+    //   localStorage.setItem("token", JSON.stringify(this.props.token));
+
+    //   if ((await this.props.user.roleId.name) === "Cafe") {
+    //     await this.props.addCafe();
+    //   }
+
+    //   // window.history.replaceState(null, null, "/");
+    //   // this.props.history.push("/profile");
+    // }
   };
 
   render() {
@@ -57,6 +92,8 @@ class RegisterAcceptancePage extends Component {
       registerButtonHandle,
       state: { checked },
     } = this;
+    console.log(this.props.user, "hahahahhaahahh");
+
     return (
       <RegisterAcceptanceSection
         checked={checked}
@@ -77,13 +114,21 @@ const mapStateToProps = (state) => {
     user: state.user.user,
     branch: state.branches.branch,
     branchIds: state.branches.branchIds,
+    token: state.user.token,
+    company: state.company.companyList,
+    cafe: state.cafe.cafeList,
+    role: state.role.roleById,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    userRegister: (user) => dispatch(userRegister(user)),
     addBranch: (addedBranch) => dispatch(addBranch(addedBranch)),
+    userRegister: (user) => dispatch(userRegister(user)),
+    userLogin: (user) => dispatch(userLogin(user)),
+    addCompany: (company) => dispatch(addCompany(company)),
+    addCafe: () => dispatch(addCafe()),
+    getRoleById: (id) => dispatch(getRoleById(id)),
   };
 };
 

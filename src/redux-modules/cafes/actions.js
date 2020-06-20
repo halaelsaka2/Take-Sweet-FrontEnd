@@ -30,9 +30,9 @@ export const addCafeRes = (cafe) => {
     };
 };
 
-export const addCafe = (addedCafe) => {
+export const addCafe = () => {
     return async (dispatch) => {
-        const cafe = await cafeDB.addCafe(addedCafe)
+        const cafe = await cafeDB.addCafe()
         dispatch(addCafeRes(cafe));
     };
 };

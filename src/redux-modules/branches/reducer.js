@@ -26,6 +26,7 @@ export default (state = initialState, action) => {
             branchList.push(newBranch)
             let branchIds = state.branchIds
             branchIds.push(newBranch.id)
+            console.log("branch list after push", branchIds)
             return {
                 ...state,
                 branchList,

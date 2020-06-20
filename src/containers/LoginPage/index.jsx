@@ -24,8 +24,9 @@ class LoginPage extends Component {
     let user = { ...this.state.user };
     await this.props.userLogin(user);
     if (this.props.user) {
+      // console.log(this.props.user);
       localStorage.setItem("user", JSON.stringify(this.props.user));
-      localStorage.setItem("token",JSON.stringify( this.props.token));
+      localStorage.setItem("token", JSON.stringify(this.props.token));
       this.props.history.replace(`/profile`);
     }
     // let companyObject = {

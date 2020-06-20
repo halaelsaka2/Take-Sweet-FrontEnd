@@ -44,6 +44,7 @@ class Profile extends Component {
     role: "",
     paymentTypeStatu: "",
     branches: [],
+    // cities:[],
     updatedUser: {},
   };
 
@@ -63,11 +64,15 @@ class Profile extends Component {
         userProfile = this.props.cafe;
       } else {
         //getCompanyById
+        // console.log("haaaaaaa");
         await this.props.getCompanyById();
         userProfile = this.props.company;
+        // console.log(userProfile);
       }
       this.setState({ userProfile });
     }
+    // let cities = [...this.state.cities];
+    // cities = constants.cities;
     this.props.getAllPaymentTypes();
     this.setState({ branches });
   };
@@ -230,8 +235,6 @@ class Profile extends Component {
   };
 
   render() {
-    console.log(this.state.userProfile);
-
     const {
       isShoppingIconHidden,
       isShoppingBagOpen,
@@ -347,6 +350,7 @@ class Profile extends Component {
             newBranchModalOpenHandle={newBranchModalOpenHandle}
           />
           <EditBranchSection
+            cities={constants.cities}
             isOpen={editBranchModalIsOpen}
             branchData={branchData}
             addressType={constants.addressType}

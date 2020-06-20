@@ -17,13 +17,15 @@ const EditBranchSection = ({
   dropdownIsOpen,
   cancelModalButtonHandle,
   saveModalButtonHandle,
-  onChange
+  onChange,
+  cities,
 }) => (
   <ModalSection
     classModifier="myModal__modalContent--password"
     isClicked={isOpen}
   >
     <EditBranchModal
+      cities={cities}
       branchData={branchData}
       addressType={addressType}
       addressPlaceholder={addressPlaceholder}
