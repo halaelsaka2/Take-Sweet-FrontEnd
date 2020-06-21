@@ -73,7 +73,7 @@ class BuyerPage extends Component {
     }
   };
 
-  componentDidMount =async () => {
+  componentDidMount = async () => {
     const id = this.props.match.params.id;
     console.log(this.props.match, "inbuyerPage");
     await this.props.getAllProductsByUserId(id);
@@ -104,10 +104,11 @@ class BuyerPage extends Component {
       // shoppingBagList,
     } = this.props;
 
-    const shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
+    const shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"))
+      ? JSON.parse(localStorage.getItem("shoppingBagList"))
+      : [];
     //console.log(this.props.productsList);
     return (
-      
       <React.Fragment>
         <Header />
         <HistoryIcon />

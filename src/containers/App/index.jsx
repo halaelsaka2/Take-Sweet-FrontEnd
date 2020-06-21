@@ -90,11 +90,12 @@ class App extends Component {
     this.setState({ isProductCardModalOpen, eyeId: id });
   };
   orderHandle = (id) => {
-    this.props.history.push("/order-details/id");
+    this.props.history.push(`/order-details/${id}`);
   };
   cancelHandle = (id) => {
     let shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
     shoppingBagList = shoppingBagList.filter((m) => m.company.id !== id);
+    // console.log()
     this.setState({});
     localStorage.setItem("shoppingBagList", JSON.stringify(shoppingBagList));
   };
@@ -111,6 +112,10 @@ class App extends Component {
       orderHandle,
       cancelHandle,
     } = this;
+
+    const shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"))
+      ? JSON.parse(localStorage.getItem("shoppingBagList"))
+      : [];
     return (
       <React.Fragment>
         <Switch>
@@ -130,9 +135,10 @@ class App extends Component {
                 openProductsCardModal={openProductsCardModal}
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
-                // shoppingOrderList={this.state.shoppingOrderList}
-                numberOfOrders={this.state.numberOfOrders}
+                shoppingOrderList={shoppingBagList}
+                numberOfOrders={shoppingBagList.length}
                 orderHandle={orderHandle}
+                cancelHandle={cancelHandle}
                 {...props}
               />
             )}

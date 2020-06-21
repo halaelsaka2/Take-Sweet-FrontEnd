@@ -12,22 +12,16 @@ import Button from "./../Button/index";
 const OrderDetaislSection = ({
   rows,
   isDeletable,
-  paymentTypes = [
-    { id: 1, name: "cash" },
-    {
-      id: 2,
-      name: "visa",
-    },
-    { id: 3, name: "credit-card" },
-  ],
+  paymentTypes,
   checkedPaymentType,
   onChange,
   recommendationsValue,
   handlePaymentTypeChange,
   confirmButtonHandle,
   cancelButtonHandle,
+  totalPrice,
 }) => {
-  console.log(rows + "orderSection");
+  // console.log(rows + "orderSection");
   return (
     <React.Fragment>
       <Header />
@@ -70,7 +64,9 @@ const OrderDetaislSection = ({
             <div className="deliverType-container__content__total">
               Total Price
             </div>
-            <div className="deliverType-container__content__price">500</div>
+            <div className="deliverType-container__content__price">
+              {totalPrice}
+            </div>
             <div className="deliverType-container__content__currency">EGP</div>
           </div>
 
