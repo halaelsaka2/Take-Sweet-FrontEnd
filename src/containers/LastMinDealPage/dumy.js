@@ -1,87 +1,88 @@
-export const products = [{
-        src: "assets/images/donut.jpg",
-        amount: 40,
-        name: "cup cake",
-        minPieces: 10,
-        price: 10
-    },
-    {
-        src: "assets/images/donut.jpg",
-        amount: 40,
-        name: "cup cake",
-        minPieces: 10,
-        price: 10
-    },
-    {
-        src: "assets/images/donut.jpg",
-        amount: 40,
-        name: "cup cake",
-        minPieces: 10,
-        price: 10
-    },
-    {
-        src: "assets/images/donut.jpg",
-        amount: 40,
-        name: "cup cake",
-        minPieces: 10,
-        price: 10
-    },
-    {
-        src: "assets/images/donut.jpg",
-        amount: 40,
-        name: "cup cake",
-        minPieces: 10,
-        price: 10
-    },
-    {
-        src: "assets/images/donut.jpg",
-        amount: 5465,
-        name: "cup cake",
-        minPieces: 10,
-        price: 10
-    },
-    {
-        src: "assets/images/donut.jpg",
-        amount: 40,
-        name: "cup cake",
-        minPieces: 10,
-        price: 10
-    },
-    {
-        src: "assets/images/donut.jpg",
-        amount: 40,
-        name: "cup cake",
-        minPieces: 10,
-        price: 10
-    },
-    {
-        src: "assets/images/donut.jpg",
-        amount: 40,
-        name: "cup cake",
-        minPieces: 10,
-        price: 10
-    },
-    {
-        src: "assets/images/donut.jpg",
-        amount: 40,
-        name: "cup cake",
-        minPieces: 10,
-        price: 10
-    },
-    {
-        src: "assets/images/donut.jpg",
-        amount: 40,
-        name: "cup cake",
-        minPieces: 10,
-        price: 10
-    },
-    {
-        src: "assets/images/donut.jpg",
-        amount: 5465,
-        name: "cup cake",
-        minPieces: 10,
-        price: 10
-    },
+export const products = [
+    // {
+    //     src: "assets/images/donut.jpg",
+    //     amount: 40,
+    //     name: "cup cake",
+    //     minPieces: 10,
+    //     price: 10
+    // },
+    // {
+    //     src: "assets/images/donut.jpg",
+    //     amount: 40,
+    //     name: "cup cake",
+    //     minPieces: 10,
+    //     price: 10
+    // },
+    // {
+    //     src: "assets/images/donut.jpg",
+    //     amount: 40,
+    //     name: "cup cake",
+    //     minPieces: 10,
+    //     price: 10
+    // },
+    // {
+    //     src: "assets/images/donut.jpg",
+    //     amount: 40,
+    //     name: "cup cake",
+    //     minPieces: 10,
+    //     price: 10
+    // },
+    // {
+    //     src: "assets/images/donut.jpg",
+    //     amount: 40,
+    //     name: "cup cake",
+    //     minPieces: 10,
+    //     price: 10
+    // },
+    // {
+    //     src: "assets/images/donut.jpg",
+    //     amount: 5465,
+    //     name: "cup cake",
+    //     minPieces: 10,
+    //     price: 10
+    // },
+    // {
+    //     src: "assets/images/donut.jpg",
+    //     amount: 40,
+    //     name: "cup cake",
+    //     minPieces: 10,
+    //     price: 10
+    // },
+    // {
+    //     src: "assets/images/donut.jpg",
+    //     amount: 40,
+    //     name: "cup cake",
+    //     minPieces: 10,
+    //     price: 10
+    // },
+    // {
+    //     src: "assets/images/donut.jpg",
+    //     amount: 40,
+    //     name: "cup cake",
+    //     minPieces: 10,
+    //     price: 10
+    // },
+    // {
+    //     src: "assets/images/donut.jpg",
+    //     amount: 40,
+    //     name: "cup cake",
+    //     minPieces: 10,
+    //     price: 10
+    // },
+    // {
+    //     src: "assets/images/donut.jpg",
+    //     amount: 40,
+    //     name: "cup cake",
+    //     minPieces: 10,
+    //     price: 10
+    // },
+    // {
+    //     src: "assets/images/donut.jpg",
+    //     amount: 5465,
+    //     name: "cup cake",
+    //     minPieces: 10,
+    //     price: 10
+    // },
 ];
 
 export const sortByList = [{

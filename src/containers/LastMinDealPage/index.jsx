@@ -108,31 +108,38 @@ class LastMinDealPage extends Component {
     return (
       <React.Fragment>
         <Header />
-        <LastMinDealSection
-          category={category}
-          sort={sort}
-          paginate={this.paginate}
-          productsPerPage={this.state.productsPerPage}
-          currentPage={this.state.currentPage}
-          productsList={products}
-          categoryList={this.props.categoryList}
-          sortList={sortByList}
-          type={"brand"}
-          description={description}
-          addToCart={addToCart}
-          plusHandler={plusHandler}
-          minusHandler={minusHandler}
-          amountHandler={amountHandler}
-          sortDropDownStatus={sortDropDownStatus}
-          categoryDropDownStatus={categoryDropDownStatus}
-          categoryDropdownIsOpenHandle={categoryDropdownIsOpenHandle}
-          sortDropdownIsOpenHandle={sortDropdownIsOpenHandle}
-          selectSortHandle={selectSortHandle}
-          selectCategoryHandle={selectCategoryHandle}
-          onSale={onSale}
-          isCompany={isCompany}
-          isDeal={isDeal}
-        />
+        {products.length>0 ? (
+          <LastMinDealSection
+            category={category}
+            sort={sort}
+            paginate={this.paginate}
+            productsPerPage={this.state.productsPerPage}
+            currentPage={this.state.currentPage}
+            productsList={products}
+            categoryList={this.props.categoryList}
+            sortList={sortByList}
+            type={"brand"}
+            description={description}
+            addToCart={addToCart}
+            plusHandler={plusHandler}
+            minusHandler={minusHandler}
+            amountHandler={amountHandler}
+            sortDropDownStatus={sortDropDownStatus}
+            categoryDropDownStatus={categoryDropDownStatus}
+            categoryDropdownIsOpenHandle={categoryDropdownIsOpenHandle}
+            sortDropdownIsOpenHandle={sortDropdownIsOpenHandle}
+            selectSortHandle={selectSortHandle}
+            selectCategoryHandle={selectCategoryHandle}
+            onSale={onSale}
+            isCompany={isCompany}
+            isDeal={isDeal}
+          />
+        ) : (
+          <div class="empty-products">
+            <span>There Is No Products</span>
+          </div>
+        )}
+
         <Footer />
       </React.Fragment>
     );
