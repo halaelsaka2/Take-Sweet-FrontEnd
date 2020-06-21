@@ -42,6 +42,7 @@ class BuyerPage extends Component {
   };
 
   addToCart = (id) => {
+    console.log("from buyer", id);
     const addedProduct = this.props.productsList.find(
       (product) => product.id === id
     );

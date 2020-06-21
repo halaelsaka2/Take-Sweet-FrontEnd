@@ -1,28 +1,25 @@
 import * as actionTypes from "./constants";
 
 const initialState = {
-  orderProducts: [],
+  orderProductsList: [],
+  orderProductsIds: [],
   orderPrdouct: {},
 };
 
 export default (state = initialState, action) => {
+  let orderProductsList;
   switch (action.type) {
     case actionTypes.ADD_ORDER_PRODUCT:
-      let newBranch = action.branch;
-      branchList = state.branchList;
-      branchList.push(newBranch);
-      let branchIds = state.branchIds;
-      branchIds.push(newBranch.id);
-      console.log("branch list after push", branchIds);
+      let newOrderPrdouct = action.payload;
+      orderProductsList = state.orderProductsList;
+      orderProductsList.push(newOrderPrdouct);
+      let orderProductsIds = state.orderProductsIds;
+      orderProductsIds.push(newOrderPrdouct.id);
+      console.log("orderPrdouct after push", orderProductsIds);
       return {
         ...state,
-        branchList,
-        branchIds,
-      };
-      // console.log("in action", action.roles)
-      return {
-        ...state,
-        roles: action.roles,
+        orderProductsList,
+        orderProductsIds,
       };
 
     default:
