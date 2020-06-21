@@ -94,11 +94,19 @@ class Header extends Component {
               {/* </Link> */}
             </li>
             {role === "Company" && (
-              <li className="nav__menu__item">
-                <NavLink to="/seller" activeClassName="activeLink">
-                  Products
-                </NavLink>
-              </li>
+              <React.Fragment>
+                <li className="nav__menu__item">
+                  <NavLink to="/deals" activeClassName="activeLink">
+                    Deals
+                  </NavLink>
+                </li>
+
+                <li className="nav__menu__item">
+                  <NavLink to="/seller" activeClassName="activeLink">
+                    Products
+                  </NavLink>
+                </li>
+              </React.Fragment>
             )}
             {role === "Cafe" && (
               <li className="nav__menu__item">

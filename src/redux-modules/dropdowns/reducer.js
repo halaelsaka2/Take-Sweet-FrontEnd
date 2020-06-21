@@ -14,9 +14,11 @@ export default (state = initialState, action) => {
         sortList: action.sortList,
       };
     case GET_CATEGORY_LIST:
+      let categoryList = [{ id: "0", name: "All" },...action.categoryList]
+    
       return {
         ...state,
-        categoryList: action.categoryList,
+        categoryList
       };
     default:
       return state;

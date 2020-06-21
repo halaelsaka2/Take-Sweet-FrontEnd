@@ -18,6 +18,8 @@ const OrderTrackSection = ({
   paginate,
   handleTabChange,
   handleCancelOrder,
+  role,
+  handleStatusChange,
 }) => {
   // console.log(productsPerPage, orders, currentProducts.length, currentPage);
 
@@ -40,6 +42,8 @@ const OrderTrackSection = ({
         <OrderListSection
           orders={currentProducts}
           handleCancelOrder={handleCancelOrder}
+          role={role}
+          handleStatusChange={handleStatusChange}
         />
       </Container>
 

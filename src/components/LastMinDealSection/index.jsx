@@ -11,7 +11,7 @@ import { Container } from "reactstrap";
 import { products } from "../../containers/BrandsPage/dumy";
 import Pagination from "../Pagination";
 
-const ProductsSection = ({
+const LastMinDealSection = ({
   paginate,
   productsPerPage,
   currentPage,
@@ -32,6 +32,9 @@ const ProductsSection = ({
   selectCategoryHandle,
   category,
   sort,
+  onSale,
+  isCompany,
+  isDeal
 }) => {
   const firstIndex = (currentPage - 1) * productsPerPage;
   const lastIndex = firstIndex + productsPerPage;
@@ -72,14 +75,13 @@ const ProductsSection = ({
           <Search></Search>
         </div>
         {type !== "Brands" ? (
-          currentProducts.length >0 ?(
           <div className="list-container">
             {currentProducts.map((item) => (
               <ProductItem
                 Key={item.id}
                 type={type}
                 name={item.name}
-                src={item.imageSrc}
+                src={"assets/images/donut.jpg"}
                 minPieces={item.minPieces}
                 addToCart={addToCart}
                 price={item.price}
@@ -88,15 +90,12 @@ const ProductsSection = ({
                 id={item.id}
                 amount={item.amount}
                 amountHandler={amountHandler}
+                onSale={onSale}
+                isCompany={isCompany}
+                isDeal={isDeal}
               ></ProductItem>
             ))}
-          </div>):(
-            <div className="empty-products">
-              <span>There Is No Products</span>
-            </div>
-          )
-
-
+          </div>
         ) : (
           <div className="list-container list-container--4">
             {currentProducts.map((item) => (
@@ -122,18 +121,18 @@ const ProductsSection = ({
     </React.Fragment>
   );
 };
-ProductsSection.defaultProps = {
+LastMinDealSection.defaultProps = {
   productsList: [],
 };
 
-ProductsSection.propTypes = {
+LastMinDealSection.propTypes = {
   products: PropTypes.array,
   sortbyList: PropTypes.array,
   category: PropTypes.array,
   type: PropTypes.string,
   description: PropTypes.object,
 };
-ProductsSection.defaultProps = {
+LastMinDealSection.defaultProps = {
   productsList: [],
 };
-export default ProductsSection;
+export default LastMinDealSection;

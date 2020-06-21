@@ -26,8 +26,8 @@ export const addNewProduct = async (product) => {
 
 const uri = "http://localhost:3000/product";
 
-export const getAllProductsByUserId = async (id) => {
-  const { data } = await axios.get(`${uri}/products/${id}`);
+export const getAllProductsByUserId = async (id,search,categoryId,sortBy) => {
+  const { data } = await axios.get(`${uri}/products/${id}?search=${search}&categoryId=${categoryId}&sortBy=${sortBy}`);
   return data;
 };
 

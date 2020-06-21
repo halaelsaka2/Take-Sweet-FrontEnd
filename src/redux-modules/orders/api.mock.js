@@ -64,6 +64,16 @@ const orders = [
     ],
     companyLogoImgSrc: "",
   },
+  {
+    id: 6,
+    status: "Cancelled",
+    date: "2/2/2020",
+    rows: [
+      ["Caramle Cheese", "120", "300", "900"],
+      ["Tart Cake", "100", "200", "700"],
+    ],
+    companyLogoImgSrc: "",
+  },
 ];
 const order = {
   id: 5,

@@ -64,10 +64,17 @@ const RegisterPersonalInfoSection = ({
               },
             }}
           />
+          <input type="file" onChange={imageUploadHandler} />
           <div className="info__photo">
-            <input type="file" onChange={imageUploadHandler} />
-            <img src={imageSrc} />
-            <i className="img-logo fa-8x far fa-image"></i>
+            {imageSrc ? (
+              <img
+                src={imageSrc}
+                className="user-image"
+                alt="user image"
+              />
+            ) : (
+              <i className="img-logo fa-8x far fa-image"></i>
+            )}
           </div>
         </div>
         <div className="button-container">

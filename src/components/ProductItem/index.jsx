@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { repeat } from "lodash";
 import { Link } from "react-router-dom";
+import Input from "../Input";
 
 const ProductItem = ({
   src,
@@ -16,7 +17,13 @@ const ProductItem = ({
   deleteHandle,
   amount,
   amountHandler,
+  onSale,
+  isCompany,
+  isDeal,
 }) => {
+  function isOnSale() {
+    return onSale === true ? "line-through" : "none";
+  }
   // console.log(id);
   return (
     <React.Fragment>
@@ -32,14 +39,29 @@ const ProductItem = ({
             }}
             // style="background-image: url('assets/images/Product-1.jpg');"
           >
+            {/* className="history-tab" */}
+            {onSale && (
+              <div className="discount">
+                <div className="discount-text">50% off</div>
+              </div>
+            )}
+
             <div className="itemm__data">
+
               <button className="itemm__btn" onClick={() => addToCart(id)}>
+
                 Order Now
               </button>
             </div>
           </div>
           <h4>{name}</h4>
-          <div className="itemm-data">{price} EGP</div>
+
+          <span style={{ textDecoration: isOnSale() }} className="itemm-data">
+            {price} EGP
+          </span>
+          {onSale && (
+            <span className="itemm-data">{Math.ceil(price / 2)} EGP</span>
+          )}
           <div className="itemm__data__amount">
             <i
               className="fas fa-minus itemm__data__amount__controls"
@@ -66,13 +88,13 @@ const ProductItem = ({
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
             }}
-            // "
-            //   background-image: url('assets/images/Product-1.jpg');
-            //   background-size: cover;
-            //   background-repeat: no-repeat;
-            //   background-position: center;
-            // "
           ></div>
+          {isCompany && (
+            <div className="onSaleCard">
+              <Input type={"checkbox"} />
+              <span>On Sale</span>
+            </div>
+          )}
           <a href="#">
             <h4>{name}</h4>
             <div className="flex-row">
@@ -81,14 +103,17 @@ const ProductItem = ({
               </div>
             </div>
           </a>
-          <div className="item-medium__crud-actions">
-            <Link to={`/edit/${id}`}>
-              <i className="fas fa-edit"></i>
-            </Link>
-            <a href="#" onClick={() => deleteHandle(id)}>
-              <i className="fas fa-trash-alt"></i>
-            </a>
-          </div>
+
+          {isDeal && (
+            <div className="item-medium__crud-actions">
+              <Link to={`/edit/${id}`}>
+                <i className="fas fa-edit"></i>
+              </Link>
+              <a href="#" onClick={() => deleteHandle(id)}>
+                <i className="fas fa-trash-alt"></i>
+              </a>
+            </div>
+
         </div>
       )}
 
@@ -131,6 +156,12 @@ const ProductItem = ({
             } */}
     </React.Fragment>
   );
+};
+
+ProductItem.defaultProps = {
+  onSale: false,
+  isCompany: false,
+  isDeal: true,
 };
 
 ProductItem.propTypes = {

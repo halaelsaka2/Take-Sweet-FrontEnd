@@ -7,12 +7,84 @@ a {
   }
 }
 
+.discount {
+  width: 100%;
+  border: 0.1rem solid $lighter-red;
+  // border-radius: 1rem;
+  background-color: $main-red;
+  // text-align: center;
+  position: absolute;
+  z-index: 1;
+  // top: 1.7rem;
+  padding: 0.5rem 0rem;
+
+}
+
+.discount-text {
+  width: 100%;
+  color: $floral-white-3;
+  text-transform: uppercase;
+  font-size: 2rem;
+  // animation-name: "discount";
+  position: relative;
+  -webkit-animation: discount 5s infinite;
+  animation: discount 5s infinite;
+  animation-timing-function: linear;
+}
+
+
+@-webkit-keyframes discount {
+  from {
+    -webkit-transform: translateX(300px);
+  }
+
+  to {
+    -webkit-transform: translateX(-1rem);
+  }
+}
+
+@keyframes discount {
+  from {
+    transform: translateX(300px);
+  }
+
+  to {
+    transform: translateX(-8rem);
+  }
+}
+
+
+.onSaleCard {
+  width: 100%;
+  margin-top: 0.2rem;
+  padding-left: 0.2rem;
+}
+
+.onSaleCard>input {
+  margin-right: 0.5rem;
+}
+
+.empty-products {
+  text-align: center;
+  display: table;
+  width: 100%;
+  height: 66.3vh;
+}
+
+.empty-products>span {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 3rem;
+  color: $main-gray;
+}
+
 .list-container {
   margin: 2rem 10rem;
   display: grid;
   position: relative;
-  grid-template-columns: auto auto auto;
-  // grid-template-rows: 40rem 40rem 40rem;
+  // grid-template-columns: auto auto auto;
+  grid-template-columns: 40rem 40rem 40rem;
+  justify-content: center;
   // column-gap: 5rem;
   // row-gap: 5rem;
   // align-content: center;
@@ -212,7 +284,8 @@ a {
   }
 
   &__data {
-    padding: 1rem 0 1rem 1rem;
+    padding: 0rem 0 0.2rem 0rem;
+    // padding: 1rem 0 1rem 1rem;
     background-color: $main-white;
     position: relative;
     transition: all 0.2s;
@@ -247,7 +320,7 @@ a {
   &__btn {
     position: absolute;
     top: -40rem;
-    left: -0.1rem;
+    // left: -0.1rem;
     width: 100%;
     border: none;
     background-color: $primary-alpine;
@@ -266,9 +339,9 @@ a {
     //   top: -7rem;
     // }
     .itemm__btn {
-      top: 1rem;
+      top: 0.1rem;
       opacity: 1;
-      z-index: 3;
+      z-index: 4;
     }
 
     .itemm__image {
