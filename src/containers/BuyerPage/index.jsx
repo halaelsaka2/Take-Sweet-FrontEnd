@@ -29,6 +29,9 @@ class BuyerPage extends Component {
     amount: 0,
     category: "Category",
     sort: "Sort with",
+    searchValue: "",
+    categoryId: "",
+    sortBy:""
   };
 
   paginate = (currentPage) => {
@@ -70,9 +73,9 @@ class BuyerPage extends Component {
   };
 
   componentDidMount = async () => {
+    const {categoryId,searchValue} =this.state
     const id = this.props.match.params.id;
-    console.log(this.props.match, "inbuyerPage");
-    await this.props.getAllProductsByUserId(id);
+    await this.props.getAllProductsByUserId(id,searchValue,categoryId);
     await this.props.getCategoryList();
     await this.props.getSortList();
   };
@@ -91,19 +94,52 @@ class BuyerPage extends Component {
   };
 
   selectSortHandle = (event, id) => {
+    const userId = this.props.match.params.id
+    let {
+      searchValue,
+      categoryId,
+    } = this.state;
+    const { value } = event.target;
+    const sortBy = value;
+    this.props.getAllProductsByUserId(userId,searchValue, categoryId, sortBy);
     let sort = this.state.sort;
     let sortDropDownStatus = this.state.sortDropDownStatus;
     sort = event.target.textContent;
     sortDropDownStatus = !sortDropDownStatus;
-    this.setState({ sort, sortDropDownStatus });
+    this.setState({ sort, sortDropDownStatus ,sortBy});
   };
 
   selectCategoryHandle = (event, id) => {
+    const userId = this.props.match.params.id
+    console.log(id);
+    let { searchValue,sortBy } = this.state;
+    let categoryId;
+    if (id === "0") {
+      categoryId = "";
+      this.props.getAllProductsByUserId(userId, searchValue, categoryId,sortBy);
+    } else {
+      categoryId = id;
+      this.props.getAllProductsByUserId(userId, searchValue, categoryId,sortBy);
+    }
     let category = this.state.category;
     let categoryDropDownStatus = this.state.categoryDropDownStatus;
     category = event.target.textContent;
     categoryDropDownStatus = !categoryDropDownStatus;
-    this.setState({ category, categoryDropDownStatus });
+    this.setState({ category, categoryDropDownStatus,categoryId });
+  };
+
+  searchHandler = (e) => {
+    console.log("search");
+    let { categoryId } = this.state;
+    const id = this.props.match.params.id;
+    let searchValue = e.target.value;
+    if (searchValue !== null || searchValue !== "") {
+      this.props.getAllProductsByUserId(id, searchValue, categoryId);
+    }
+    if (searchValue === null || searchValue === "") {
+      this.props.getAllProductsByUserId(id, searchValue, categoryId);
+    }
+    this.setState({ searchValue });
   };
 
   render() {
@@ -117,12 +153,15 @@ class BuyerPage extends Component {
       categoryDropdownIsOpenHandle,
       selectSortHandle,
       selectCategoryHandle,
+      searchHandler,
+
       state: {
         categoryDropDownStatus,
         sortDropDownStatus,
         category,
         sort,
         amount,
+        searchValue,
       },
     } = this;
     const {
@@ -189,6 +228,8 @@ class BuyerPage extends Component {
           sortDropdownIsOpenHandle={sortDropdownIsOpenHandle}
           selectSortHandle={selectSortHandle}
           selectCategoryHandle={selectCategoryHandle}
+          searchValue={searchValue}
+          searchHandler={searchHandler}
         />
         <Footer />
       </React.Fragment>
@@ -208,7 +249,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getAllProductsByUserId: (id) => dispatch(getAllProductsByUserId(id)),
+    getAllProductsByUserId: (id, search,categoryId,sortBy) =>
+      dispatch(getAllProductsByUserId(id, search,categoryId,sortBy)),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
     getProductById: (id) => dispatch(getPorductById(id)),

@@ -18,10 +18,9 @@ export const getAllProductsByUserIdRes = (productsList) => {
     productsList,
   };
 };
-export const getAllProductsByUserId = (id) => {
+export const getAllProductsByUserId = (id,search,categoryId,sortBy) => {
   return async (dispatch) => {
-    const productsList = await productsDB.getAllProductsByUserId(id);
-    // console.log(productsList, "in actioooooooooooooon");
+    const productsList = await productsDB.getAllProductsByUserId(id,search,categoryId,sortBy);
     dispatch(getAllProductsByUserIdRes(productsList));
   };
 };

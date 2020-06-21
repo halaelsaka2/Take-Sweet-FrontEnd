@@ -32,6 +32,8 @@ const ProductsSection = ({
   selectCategoryHandle,
   category,
   sort,
+  searchValue,
+  searchHandler,
 }) => {
   const firstIndex = (currentPage - 1) * productsPerPage;
   const lastIndex = firstIndex + productsPerPage;
@@ -69,26 +71,35 @@ const ProductsSection = ({
               idList={categoryList.map((category) => category.id)}
             ></DropDown>
           </div>
-          <Search></Search>
+          <Search
+            searchValue={searchValue}
+            searchHandler={searchHandler}
+          ></Search>
         </div>
         {type !== "Brands" ? (
           <div className="list-container">
-            {currentProducts.map((item) => (
-              <ProductItem
-                Key={item.id}
-                type={type}
-                name={item.name}
-                src={item.imageSrc}
-                minPieces={item.minPieces}
-                addToCart={addToCart}
-                price={item.price}
-                plusHandler={plusHandler}
-                minusHandler={minusHandler}
-                id={item.id}
-                amount={item.amount}
-                amountHandler={amountHandler}
-              ></ProductItem>
-            ))}
+            {currentProducts.length > 0 ? (
+              currentProducts.map((item) => (
+                <ProductItem
+                  key={item.id}
+                  type={type}
+                  name={item.name}
+                  src={item.imageSrc}
+                  minPieces={item.minPieces}
+                  addToCart={addToCart}
+                  price={item.price}
+                  plusHandler={plusHandler}
+                  minusHandler={minusHandler}
+                  id={item.id}
+                  amount={item.amount}
+                  amountHandler={amountHandler}
+                ></ProductItem>
+              ))
+            ) : (
+              <div className="empty-products">
+                <span> There Is No Products</span>
+              </div>
+            )}
           </div>
         ) : (
           <div className="list-container list-container--4">
