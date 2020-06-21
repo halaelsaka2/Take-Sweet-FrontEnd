@@ -94,7 +94,7 @@ class BrandsPage extends Component {
 
     return (
       <React.Fragment>
-        {/* <Header />
+        <Header />
         <HistoryIcon />
         <ShoppingCart
           number={numberOfOrders}
@@ -115,7 +115,7 @@ class BrandsPage extends Component {
             closeProductsModal={openProductsCardModal}
             handleDelete
           />
-        )} */}
+        )}
         <ProductsSection
           category={category}
           sort={sort}

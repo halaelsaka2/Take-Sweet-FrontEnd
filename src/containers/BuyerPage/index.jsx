@@ -74,9 +74,9 @@ class BuyerPage extends Component {
   };
 
   componentDidMount = async () => {
-    const {categoryId,searchValue} =this.state
+    const {categoryId,searchValue,sortBy} =this.state
     const id = this.props.match.params.id;
-    await this.props.getAllProductsByUserId(id,searchValue,categoryId);
+    await this.props.getAllProductsByUserId(id,searchValue,categoryId,sortBy);
     await this.props.getCategoryList();
     await this.props.getSortList();
   };
@@ -131,14 +131,14 @@ class BuyerPage extends Component {
 
   searchHandler = (e) => {
     console.log("search");
-    let { categoryId } = this.state;
     const id = this.props.match.params.id;
+    let { categoryId ,sortBy} = this.state;
     let searchValue = e.target.value;
     if (searchValue !== null || searchValue !== "") {
-      this.props.getAllProductsByUserId(id, searchValue, categoryId);
+      this.props.getAllProductsByUserId(id, searchValue, categoryId,sortBy);
     }
     if (searchValue === null || searchValue === "") {
-      this.props.getAllProductsByUserId(id, searchValue, categoryId);
+      this.props.getAllProductsByUserId(id, searchValue, categoryId,sortBy);
     }
     this.setState({ searchValue });
   };

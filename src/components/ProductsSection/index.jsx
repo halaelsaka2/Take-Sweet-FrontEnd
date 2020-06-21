@@ -32,6 +32,7 @@ const ProductsSection = ({
   selectCategoryHandle,
   category,
   sort,
+  searchHandler
 }) => {
   console.log(productsList, "prodct list");
 
@@ -73,7 +74,7 @@ const ProductsSection = ({
               idList={categoryList.map((category) => category.id)}
             ></DropDown>
           </div>
-          <Search></Search>
+          <Search searchHandler={searchHandler}></Search>
         </div>
         {type !== "Brands" ? (
           currentProducts.length > 0 ? (
