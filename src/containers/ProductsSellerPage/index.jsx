@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { sortByList } from "./dumy";
 
-import { getAllProductsByUserId,deleteProduct } from "../../redux-modules/products/actions";
+import {
+  getAllProductsByUserId,
+  deleteProduct,
+} from "../../redux-modules/products/actions";
 
 import {
   getSortList,
@@ -18,6 +21,7 @@ class ProductsPage extends Component {
     currentPage: 1,
     category: "Category",
     sort: "Sort with",
+    isCompany: true,
   };
   paginate = (currentPage) => {
     if (
@@ -65,19 +69,23 @@ class ProductsPage extends Component {
     categoryDropDownStatus = !categoryDropDownStatus;
     this.setState({ category, categoryDropDownStatus });
   };
-  deleteHandle = async (event,id)=>{
+  deleteHandle = async (event, id) => {
     event.preventDefault();
-    const product = await this.props.deleteHandle(id); 
-
-
-  }
+    const product = await this.props.deleteHandle(id);
+  };
   render() {
     const {
       sortDropdownIsOpenHandle,
       categoryDropdownIsOpenHandle,
       selectSortHandle,
       selectCategoryHandle,
-      state: { categoryDropDownStatus, sortDropDownStatus, category, sort },
+      state: {
+        categoryDropDownStatus,
+        sortDropDownStatus,
+        category,
+        sort,
+        isCompany,
+      },
     } = this;
     return (
       <ProductsSellerSection
@@ -100,6 +108,7 @@ class ProductsPage extends Component {
         selectSortHandle={selectSortHandle}
         selectCategoryHandle={selectCategoryHandle}
         type={"seller"}
+        isCompany={isCompany}
       ></ProductsSellerSection>
     );
   }
@@ -119,7 +128,7 @@ const mapDispatchToProps = (dispatch) => {
     getAllProductsByUserId: (id) => dispatch(getAllProductsByUserId(id)),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
-    deleteHandle:(id)=>dispatch(deleteProduct(id))
+    deleteHandle: (id) => dispatch(deleteProduct(id)),
   };
 };
 
