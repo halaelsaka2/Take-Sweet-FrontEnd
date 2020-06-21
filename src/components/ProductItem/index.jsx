@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Input from "../Input";
 
 const ProductItem = ({
+  item,
   src,
   minPieces,
   type,
@@ -17,14 +18,16 @@ const ProductItem = ({
   deleteHandle,
   amount,
   amountHandler,
-  onSale,
+  onSaleStyle,
   isCompany,
   isDeal,
+  onSale,
+  onSaleHandle,
 }) => {
   function isOnSale() {
-    return onSale === true ? "line-through" : "none";
+    return onSaleStyle === true ? "line-through" : "none";
   }
-  // console.log(id);
+  console.log(id);
   return (
     <React.Fragment>
       {type === "buyer" ? (
@@ -40,7 +43,7 @@ const ProductItem = ({
             // style="background-image: url('assets/images/Product-1.jpg');"
           >
             {/* className="history-tab" */}
-            {onSale && (
+            {onSaleStyle && (
               <div className="discount">
                 <div className="discount-text">50% off</div>
               </div>
@@ -60,7 +63,7 @@ const ProductItem = ({
           <span style={{ textDecoration: isOnSale() }} className="itemm-data">
             {price} EGP
           </span>
-          {onSale && (
+          {onSaleStyle && (
             <span className="itemm-data">{Math.ceil(price / 2)} EGP</span>
           )}
           <div className="itemm__data__amount">
@@ -92,7 +95,11 @@ const ProductItem = ({
           ></div>
           {isCompany && (
             <div className="onSaleCard">
-              <Input type={"checkbox"} />
+              <Input
+                type={"checkbox"}
+                defaultChecked={onSale}
+                onChange={(event) => onSaleHandle(event, item)}
+              />
               <span>On Sale</span>
             </div>
           )}
@@ -159,9 +166,10 @@ const ProductItem = ({
 };
 
 ProductItem.defaultProps = {
-  onSale: false,
+  onSaleStyle: false,
   isCompany: false,
   isDeal: true,
+  onSale: false,
 };
 
 ProductItem.propTypes = {

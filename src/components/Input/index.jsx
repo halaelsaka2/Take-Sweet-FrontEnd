@@ -9,21 +9,23 @@ const Input = ({
   checked,
   onChange,
   placeholder,
-  id
+  id,
+  defaultChecked,
 }) => (
-    <React.Fragment>
-      <label htmlFor={name}>{label}</label>
-      <input
-        value={value}
-        onChange={onChange}
-        className={className}
-        type={type}
-        id={id}
-        name={name}
-        placeholder={placeholder}
-        checked={checked}
-      />
-    </React.Fragment>
-  );
+  <React.Fragment>
+    <label htmlFor={name}>{label}</label>
+    <input
+      value={value}
+      onChange={onChange}
+      className={className}
+      type={type}
+      id={id}
+      name={name}
+      placeholder={placeholder}
+      checked={checked}
+      defaultChecked={defaultChecked}
+    />
+  </React.Fragment>
+);
 
 export default Input;

@@ -32,9 +32,10 @@ const LastMinDealSection = ({
   selectCategoryHandle,
   category,
   sort,
-  onSale,
+  onSaleStyle,
   isCompany,
-  isDeal
+  isDeal,
+  onSaleHandle,
 }) => {
   const firstIndex = (currentPage - 1) * productsPerPage;
   const lastIndex = firstIndex + productsPerPage;
@@ -78,10 +79,11 @@ const LastMinDealSection = ({
           <div className="list-container">
             {currentProducts.map((item) => (
               <ProductItem
+                item={item}
                 Key={item.id}
                 type={type}
                 name={item.name}
-                src={"assets/images/donut.jpg"}
+                src={item.imageSrc}
                 minPieces={item.minPieces}
                 addToCart={addToCart}
                 price={item.price}
@@ -90,9 +92,11 @@ const LastMinDealSection = ({
                 id={item.id}
                 amount={item.amount}
                 amountHandler={amountHandler}
-                onSale={onSale}
+                onSaleStyle={onSaleStyle}
                 isCompany={isCompany}
                 isDeal={isDeal}
+                onSale={item.onSale}
+                onSaleHandle={onSaleHandle}
               ></ProductItem>
             ))}
           </div>

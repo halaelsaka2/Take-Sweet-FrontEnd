@@ -3,7 +3,9 @@ import axios from "axios";
 const url = "http://localhost:3000/product/imageUpload";
 const token = JSON.parse(localStorage.getItem("token"));
 export const uploadImageFile = async (image) => {
-  const { data } = await axios.post(url, image, {
+  const {
+    data
+  } = await axios.post(url, image, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
@@ -14,8 +16,7 @@ export const uploadImageFile = async (image) => {
 export const addNewProduct = async (product) => {
   const data = await axios.post(
     "http://localhost:3000/product/addProduct",
-    product,
-    {
+    product, {
       headers: {
         Authorization: token,
       },
@@ -26,23 +27,31 @@ export const addNewProduct = async (product) => {
 
 const uri = "http://localhost:3000/product";
 
-export const getAllProductsByUserId = async (id,search,categoryId,sortBy) => {
-  const { data } = await axios.get(`${uri}/products/${id}?search=${search}&categoryId=${categoryId}&sortBy=${sortBy}`);
+export const getAllProductsByUserId = async (id, search, categoryId, sortBy) => {
+  const {
+    data
+  } = await axios.get(`${uri}/products/${id}?search=${search}&categoryId=${categoryId}&sortBy=${sortBy}`);
   return data;
 };
 
 export const getProductById = async (id) => {
-  const { data } = await axios.get(`${uri}/${id}`);
+  const {
+    data
+  } = await axios.get(`${uri}/${id}`);
   return data;
 };
 
 export const addProduct = async (product) => {
-  const { data } = await axios.post(`${uri}/addProduct`, product);
+  const {
+    data
+  } = await axios.post(`${uri}/addProduct`, product);
   return data;
 };
 
 export const deleteProduct = async (id) => {
-  const { data } = await axios.delete(`${uri}/${id}`, {
+  const {
+    data
+  } = await axios.delete(`${uri}/${id}`, {
     headers: {
       Authorization: token,
     },
@@ -52,10 +61,20 @@ export const deleteProduct = async (id) => {
 };
 
 export const updateProduct = async (id, product) => {
-  const { data } = await axios.patch(`${uri}/${id}`, product, {
+  const {
+    data
+  } = await axios.patch(`${uri}/${id}`, product, {
     headers: {
       Authorization: token,
     },
   });
+  return data;
+};
+
+
+export const getDealsProducts = async () => {
+  const {
+    data
+  } = await axios.get("http://localhost:3000/product/deals");
   return data;
 };
