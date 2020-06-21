@@ -22,6 +22,9 @@ class ProductsPage extends Component {
     category: "Category",
     sort: "Sort with",
     isCompany: true,
+    categoryId:"",
+    sortBy:"",
+    searchValue:""
   };
   paginate = (currentPage) => {
     if (
@@ -34,9 +37,10 @@ class ProductsPage extends Component {
   };
 
   componentDidMount() {
+    const {searchValue,categoryId,sortBy}=this.state
     console.log("This.props: ", this.props);
     const id = JSON.parse(localStorage.getItem("user")).id;
-    this.props.getAllProductsByUserId(id);
+    this.props.getAllProductsByUserId(id,searchValue,categoryId,sortBy);
     this.props.getSortList();
     this.props.getCategoryList();
   }
@@ -125,7 +129,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     // getAllProducts: () => dispatch(getAllProducts()),
-    getAllProductsByUserId: (id) => dispatch(getAllProductsByUserId(id)),
+    getAllProductsByUserId: (id,search,categotyId,sortBy) => dispatch(getAllProductsByUserId(id,search,categotyId,sortBy)),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
     deleteHandle: (id) => dispatch(deleteProduct(id)),

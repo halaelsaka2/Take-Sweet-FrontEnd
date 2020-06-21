@@ -33,9 +33,13 @@ const ProductsSection = ({
   category,
   sort,
 }) => {
+  console.log(productsList, "prodct list");
+
   const firstIndex = (currentPage - 1) * productsPerPage;
   const lastIndex = firstIndex + productsPerPage;
   const currentProducts = productsList.slice(firstIndex, lastIndex);
+  console.log(currentProducts, "curreeeeeent");
+
   return (
     <React.Fragment>
       <Header />
@@ -72,31 +76,30 @@ const ProductsSection = ({
           <Search></Search>
         </div>
         {type !== "Brands" ? (
-          currentProducts.length >0 ?(
-          <div className="list-container">
-            {currentProducts.map((item) => (
-              <ProductItem
-                Key={item.id}
-                type={type}
-                name={item.name}
-                src={item.imageSrc}
-                minPieces={item.minPieces}
-                addToCart={addToCart}
-                price={item.price}
-                plusHandler={plusHandler}
-                minusHandler={minusHandler}
-                id={item.id}
-                amount={item.amount}
-                amountHandler={amountHandler}
-              ></ProductItem>
-            ))}
-          </div>):(
+          currentProducts.length > 0 ? (
+            <div className="list-container">
+              {currentProducts.map((item) => (
+                <ProductItem
+                  Key={item.id}
+                  type={type}
+                  name={item.name}
+                  src={item.imageSrc}
+                  minPieces={item.minPieces}
+                  addToCart={addToCart}
+                  price={item.price}
+                  plusHandler={plusHandler}
+                  minusHandler={minusHandler}
+                  id={item.id}
+                  amount={item.amount}
+                  amountHandler={amountHandler}
+                ></ProductItem>
+              ))}
+            </div>
+          ) : (
             <div className="empty-products">
               <span>There Is No Products</span>
             </div>
           )
-
-
         ) : (
           <div className="list-container list-container--4">
             {currentProducts.map((item) => (
@@ -122,14 +125,10 @@ const ProductsSection = ({
     </React.Fragment>
   );
 };
-ProductsSection.defaultProps = {
-  productsList: [],
-};
-
 ProductsSection.propTypes = {
   products: PropTypes.array,
   sortbyList: PropTypes.array,
-  category: PropTypes.array,
+  category: PropTypes.string,
   type: PropTypes.string,
   description: PropTypes.object,
 };
