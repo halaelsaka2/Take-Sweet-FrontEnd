@@ -7,6 +7,7 @@ import { AvForm, AvField } from "availity-reactstrap-validation";
 import { Button } from "reactstrap";
 
 const RegisterPersonalInfoSection = ({
+  imageUploadHandler,
   usernameType,
   usernamePlaceholder,
   usernameValue,
@@ -20,6 +21,7 @@ const RegisterPersonalInfoSection = ({
   selectAccountTypeHandle,
   accountType,
   roles,
+  imageSrc,
 }) => (
   // console.log(roles)
   <div className="register-container">
@@ -63,6 +65,8 @@ const RegisterPersonalInfoSection = ({
             }}
           />
           <div className="info__photo">
+            <input type="file" onChange={imageUploadHandler} />
+            <img src={imageSrc} />
             <i className="img-logo fa-8x far fa-image"></i>
           </div>
         </div>

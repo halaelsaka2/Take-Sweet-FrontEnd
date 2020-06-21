@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { sortByList } from "./dumy";
 
-import { getAllProductsByUserId } from "../../redux-modules/products/actions";
+import { getAllProductsByUserId,deleteProduct } from "../../redux-modules/products/actions";
 
 import {
   getSortList,
@@ -65,7 +65,12 @@ class ProductsPage extends Component {
     categoryDropDownStatus = !categoryDropDownStatus;
     this.setState({ category, categoryDropDownStatus });
   };
+  deleteHandle = async (event,id)=>{
+    event.preventDefault();
+    const product = await this.props.deleteHandle(id); 
 
+
+  }
   render() {
     const {
       sortDropdownIsOpenHandle,
@@ -84,6 +89,7 @@ class ProductsPage extends Component {
         productsList={this.props.productsList}
         categoryList={this.props.categoryList}
         sortList={sortByList}
+        deleteHandle={this.props.deleteHandle}
         // categoryFilterHandler={this.props.categoryFilter}
         // sortByFilterHandler={this.props.sortByFilter}
         // searchHandler={this.props.searchFilter}
@@ -113,6 +119,7 @@ const mapDispatchToProps = (dispatch) => {
     getAllProductsByUserId: (id) => dispatch(getAllProductsByUserId(id)),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
+    deleteHandle:(id)=>dispatch(deleteProduct(id))
   };
 };
 

@@ -13,6 +13,7 @@ const ProductItem = ({
   minusHandler,
   plusHandler,
   id,
+  deleteHandle,
   amount,
   amountHandler,
 }) => {
@@ -32,7 +33,7 @@ const ProductItem = ({
             // style="background-image: url('assets/images/Product-1.jpg');"
           >
             <div className="itemm__data">
-              <button className="itemm__btn" onClick={() => addToCart(id)}>
+              <button className="itemm__btn" onClick={(event) => addToCart(event,id)}>
                 Order Now
               </button>
             </div>
@@ -84,7 +85,7 @@ const ProductItem = ({
             <Link to={`/edit/${id}`}>
               <i className="fas fa-edit"></i>
             </Link>
-            <a href="#">
+            <a href="#" onClick={()=>deleteHandle(id)}>
               <i className="fas fa-trash-alt"></i>
             </a>
           </div>
