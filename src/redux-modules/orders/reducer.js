@@ -32,6 +32,7 @@ export default (state = initialState, action) => {
 
     case actionTypes.ADD_TO_CART:
       const addedProduct = action.payload;
+      console.log(addedProduct);
       const companyId = addedProduct.userId.id;
       let shoppingBagList = state.shoppingBagList;
 
@@ -92,7 +93,7 @@ export default (state = initialState, action) => {
       // console.log("testttttttttting", shoppingBagList);
       return {
         ...state,
-        shoppingBagList,
+        // shoppingBagList,
       };
 
     default:

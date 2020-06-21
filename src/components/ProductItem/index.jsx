@@ -47,10 +47,9 @@ const ProductItem = ({
             )}
 
             <div className="itemm__data">
-              <button
-                className="itemm__btn"
-                onClick={(event) => addToCart(event, id)}
-              >
+
+              <button className="itemm__btn" onClick={() => addToCart(id)}>
+
                 Order Now
               </button>
             </div>
@@ -104,6 +103,7 @@ const ProductItem = ({
               </div>
             </div>
           </a>
+
           {isDeal && (
             <div className="item-medium__crud-actions">
               <Link to={`/edit/${id}`}>
@@ -113,7 +113,7 @@ const ProductItem = ({
                 <i className="fas fa-trash-alt"></i>
               </a>
             </div>
-          )}
+
         </div>
       )}
 

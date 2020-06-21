@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import OrderDetaislSection from "../../components/OrderDetailsSection";
 import { connect } from "react-redux";
 import { getAllPaymentTypes } from "../../redux-modules/paymentTypes/actions";
+import { addOrder } from "../../redux-modules/orders/actions";
 
 class OrderDetailsPage extends Component {
   state = {
@@ -79,16 +80,15 @@ class OrderDetailsPage extends Component {
   };
   handleSubmit = () => {
     const id = this.props.match.params.id;
-    console.log(this.state.order);
+    const newOrder = this.state.order;
+    console.log(newOrder);
+    this.props.addNewOrder(newOrder);
 
     let shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
-    shoppingBagList = shoppingBagList.filter(
-      (m) => m.company.id !== "5ee3bc7952d0650758ae32ab"
-    );
-    // console.log()
+    shoppingBagList = shoppingBagList.filter((m) => m.company.id !== id);
     this.setState({});
     localStorage.setItem("shoppingBagList", JSON.stringify(shoppingBagList));
-    this.props.history.push("/brands");
+    // this.props.history.push("/brands");
   };
   handleCancel = () => {
     this.props.history.push("/buyer");
@@ -134,6 +134,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getPaymentTypes: () => {
       dispatch(getAllPaymentTypes());
+    },
+    addNewOrder: (order) => {
+      dispatch(addOrder(order));
     },
   };
 };

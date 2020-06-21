@@ -1,7 +1,9 @@
 import { getAllOrders as getOrders } from "./api.mock";
 import { deleteOrder as deleteOneOrder } from "./api.mock";
 import { Add } from "./api.mock";
+import * as orderDB from "./api";
 
+import { AddOrderProduct } from "../orderProduct/api";
 import {
   GET_ALL_ORDERS,
   GET_ODER_BY_ID,
@@ -45,13 +47,29 @@ const deleteOrderRes = (id) => {
 ///////////////////////////////////////////////////
 //////////////// ADD ORDER  //////////////////////
 
-export const addOrder = (newOrder) => {
-  return async (dispatch) => {
-    const newOrderRes = await Add(newOrder);
-    if (newOrderRes) {
-      dispatch(addOrderRes(newOrderRes));
-    }
-  };
+export const addOrder = (newOrder) => async (dispatch) => {
+  // console.log("incoming user", user)
+
+  let orderProducts = newOrder.orderProducts;
+  let newOrderProductsListPromises = orderProducts.map((orderProduct) =>
+    AddOrderProduct(orderProduct)
+  );
+
+  Promise.all(newOrderProductsListPromises).then((values) => {
+    let orderProductsIds = values.map((response) => response.data.id);
+    const addedOrder = {
+      ...newOrder,
+      orderProducts: orderProductsIds,
+    };
+    console.log("added order from action ", addedOrder);
+    orderDB.AddOrder(addedOrder).then((response) => {
+      dispatch(addOrderRes(response.data));
+    });
+  });
+  // const newOrderRes = await Add(newOrder);
+  // if (newOrderRes) {
+  //   dispatch(addOrderRes(newOrderRes));
+  // }
 };
 
 const addOrderRes = (newOrderRes) => ({
