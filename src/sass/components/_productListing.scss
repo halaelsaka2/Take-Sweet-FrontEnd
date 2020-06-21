@@ -17,7 +17,6 @@ a {
   z-index: 1;
   // top: 1.7rem;
   padding: 0.5rem 0rem;
-
 }
 
 .discount-text {
@@ -31,7 +30,6 @@ a {
   animation: discount 5s infinite;
   animation-timing-function: linear;
 }
-
 
 @-webkit-keyframes discount {
   from {
@@ -53,14 +51,13 @@ a {
   }
 }
 
-
 .onSaleCard {
   width: 100%;
   margin-top: 0.2rem;
   padding-left: 0.2rem;
 }
 
-.onSaleCard>input {
+.onSaleCard > input {
   margin-right: 0.5rem;
 }
 
@@ -71,7 +68,7 @@ a {
   height: 66.3vh;
 }
 
-.empty-products>span {
+.empty-products > span {
   display: table-cell;
   vertical-align: middle;
   font-size: 3rem;
@@ -93,7 +90,7 @@ a {
   color: $main-black;
 
   &--4 {
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 25% 25% 25% 25%;
   }
 
   &--grid {
@@ -334,7 +331,6 @@ a {
   }
 
   &:hover {
-
     // .itemm__data {
     //   top: -7rem;
     // }
