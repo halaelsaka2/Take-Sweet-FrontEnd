@@ -12,12 +12,21 @@ class TrackOrder extends Component {
     currentTabe: 0,
     currentPage: 1,
     statusorders: [],
+    role: "",
   };
 
   async componentDidMount() {
     await this.props.getAllOrders();
     const statusorders = this.props.orders;
     this.setState({ statusorders });
+    let user = JSON.parse(localStorage.getItem("user"));
+    console.log(user, "mennnnnnnnnnnnnaaaaaaaaaaa");
+    if (user) {
+      this.setState({
+        userName: user.userName,
+        role: user.roleId.name,
+      });
+    }
   }
 
   handleTabChange = (currentTabe) => {
@@ -37,6 +46,16 @@ class TrackOrder extends Component {
     this.props.deleteOrder(id);
   };
 
+  handleStatusChange = (event) => {
+    const orders = this.props.orders;
+    console.log(orders, "3andi");
+    let statusorders = orders;
+    // if (currentTabe !== 0) {
+    //   statusorders = orders.filter((order) => order.status === );
+    // }
+    console.log(event.target.value, "mmmmmmmmmmmmmm");
+  };
+
   paginate = (currentPage) => {
     this.setState({ currentPage });
   };
@@ -49,10 +68,12 @@ class TrackOrder extends Component {
         ordersPerPage,
         currentPage,
         statusorders = this.props.orders,
+        role,
       },
       handleTabChange,
       handleCancelOrder,
       paginate,
+      handleStatusChange,
     } = this;
     // console.log(this.props.orders);
     const firstIndex = (currentPage - 1) * ordersPerPage;
@@ -70,6 +91,8 @@ class TrackOrder extends Component {
         paginate={paginate}
         handleTabChange={handleTabChange}
         handleCancelOrder={handleCancelOrder}
+        role={role}
+        handleStatusChange={handleStatusChange}
       />
     );
   }
@@ -81,7 +104,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 const mapStateToProps = (state) => {
-  // console.log(state.orders.allOrders);
+  // console.log(state.orders.allOrders, "popo");
   return {
     orders: state.orders.allOrders,
   };

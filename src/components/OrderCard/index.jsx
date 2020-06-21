@@ -13,8 +13,10 @@ const OrderCard = ({
   onCancel,
   companyLogoImgSrc,
   id,
+  role,
+  handleStatusChange,
 }) => {
-  // console.log(id);
+  console.log(id, status, "ordercaaard");
   return (
     <div className="order-card">
       <div className="order-card__header">
@@ -23,13 +25,54 @@ const OrderCard = ({
           <div className="order-card__header__logo__date">{date}</div>
         </div>
         <div className="status-current">
-          <div
-            className={`color-circle 
-                    ${status === "Waiting" && "color-circle--wating"} 
+          {role === "Cafe" && (
+            <React.Fragment>
+              <div
+                className={`color-circle
+                    ${status === "Waiting" && "color-circle--wating"}
                     ${status === "Arrived" && "color-circle--arrived"}
                     ${status === "Cancelled" && "color-circle--canceled"}`}
-          ></div>
-          <label>{status}</label>
+              ></div>
+              <label>{status}</label>
+            </React.Fragment>
+          )}
+          {role === "Company" && (
+            <form>
+              <input
+                type="radio"
+                id={id}
+                name="status"
+                value={status}
+                onChange={handleStatusChange}
+                checked={status === "Waiting"}
+              />
+              <label htmlFor="Waiting" className="OrderCardRadio ">
+                Waiting
+              </label>
+              <input
+                type="radio"
+                id={id}
+                name="status"
+                value={status}
+                onChange={handleStatusChange}
+                checked={status === "Arrived"}
+              />
+              <label htmlFor="Arrived" className="OrderCardRadio ">
+                Arrived
+              </label>
+              <input
+                type="radio"
+                id={id}
+                name="status"
+                value={status}
+                onChange={handleStatusChange}
+                checked={status === "Cancelled"}
+              />
+              <label htmlFor="Cancelled" className="OrderCardRadio ">
+                Cancelled
+              </label>
+            </form>
+          )}
         </div>
       </div>
       <div className="order-card__content">
@@ -37,20 +80,23 @@ const OrderCard = ({
           <Table rows={rows} />
         </div>
         <div className="order-card__content__buttons">
-          <Button
-            className="button--rounded button--rounded--s"
-            name="Reorder"
-            onClick={() => onReorder(id)}
-          />
-
-          {status === "Waiting" && (
-            <Button
-              className="button--rounded button--rounded--s button--rounded--danger"
-              name="Cancel"
-              onClick={() => onCancel(id)}
-            />
+          {role === "Cafe" && (
+            <React.Fragment>
+              <Button
+                className="button--rounded button--rounded--s"
+                name="Reorder"
+                onClick={() => onReorder(id)}
+              />
+              {status === "Waiting" && (
+                <Button
+                  className="button--rounded button--rounded--s button--rounded--danger"
+                  name="Cancel"
+                  onClick={() => onCancel(id)}
+                />
+              )}
+              <Link to="/user-history">Show more</Link>
+            </React.Fragment>
           )}
-          <Link to="/user-history">Show more</Link>
         </div>
       </div>
     </div>
