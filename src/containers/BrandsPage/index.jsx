@@ -67,6 +67,7 @@ class BrandsPage extends Component {
     this.props.getCategoryList();
     this.props.getSortList();
     this.props.getAllCompanies();
+    this.setState({})
   }
 
   render() {
@@ -93,7 +94,7 @@ class BrandsPage extends Component {
 
     return (
       <React.Fragment>
-        <Header />
+        {/* <Header />
         <HistoryIcon />
         <ShoppingCart
           number={numberOfOrders}
@@ -114,7 +115,7 @@ class BrandsPage extends Component {
             closeProductsModal={openProductsCardModal}
             handleDelete
           />
-        )}
+        )} */}
         <ProductsSection
           category={category}
           sort={sort}
@@ -134,14 +135,14 @@ class BrandsPage extends Component {
           selectCategoryHandle={selectCategoryHandle}
           addToCart={addToCart}
         />
-        <Footer />
+        {/* <Footer /> */}
       </React.Fragment>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log("state:", state.products.productsList);
+  console.log("stattttttttttttttttttttttte:", state.company.companyList);
   return {
     productsList: state.products.productsList,
     categoryList: state.dropdown.categoryList,
@@ -152,7 +153,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // getAllBrands: () => dispatch(getAllBrands()),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
     getAllCompanies: () => dispatch(getAllCompanies()),

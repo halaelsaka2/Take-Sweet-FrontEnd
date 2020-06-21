@@ -18,7 +18,8 @@ export const getAllCompaniesRes = (companies) => {
 export const getAllCompanies = () => {
   return async (dispatch) => {
     const companies = await companiesDB.getAllCompanies();
-
+    console.log(companies,"haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+    
     dispatch(getAllCompaniesRes(companies));
   };
 };
