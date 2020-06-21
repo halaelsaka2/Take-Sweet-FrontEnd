@@ -79,12 +79,13 @@ const ProductDetails = ({
           errorMessage="Pick one!"
         >
           {categories.map((category) => {
-            // console.log(category.name);
+            console.log(category.name);
             return (
               <AvRadio
                 label={category.name}
                 value={category.name}
                 onChange={onCategoryChange}
+                name={category.name}
               />
             );
           })}
