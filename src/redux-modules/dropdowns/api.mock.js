@@ -1,3 +1,6 @@
+import axios from 'axios'
+const url = "http://localhost:3000/category/";
+
 export const getSortList = () =>
   new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -21,3 +24,10 @@ export const category = [{
   id: 1,
   name: "Pastery"
 }];
+
+export const getAllCategories = async () => {
+  const {
+      data
+  } = await axios.get(`${url}`)
+  return data;
+}

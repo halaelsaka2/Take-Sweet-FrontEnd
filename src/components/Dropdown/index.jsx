@@ -30,6 +30,7 @@ const Dropdown = ({
               onClick={(event) => selectionHandle(event, idList[index])}
               key={index}
               className="dropdown__list__item"
+              value={`${index}`}
             >
               <a className="dropdown__list__item__link">{item}</a>
             </li>
