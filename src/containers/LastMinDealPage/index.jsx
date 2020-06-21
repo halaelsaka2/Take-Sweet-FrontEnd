@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
 import LastMinDealSection from "../../components/LastMinDealSection";
-import { description, sortByList, products } from "./dumy";
+import { description, sortByList, products, PageName } from "./dumy";
 import { connect } from "react-redux";
 
 import {
@@ -108,7 +108,7 @@ class LastMinDealPage extends Component {
     return (
       <React.Fragment>
         <Header />
-        {products.length>0 ? (
+        {products.length > 0 ? (
           <LastMinDealSection
             category={category}
             sort={sort}
@@ -136,7 +136,7 @@ class LastMinDealPage extends Component {
           />
         ) : (
           <div class="empty-products">
-            <span>There Is No Products</span>
+            <span>There Is No {PageName}</span>
           </div>
         )}
 

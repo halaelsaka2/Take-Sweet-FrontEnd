@@ -114,3 +114,5 @@ export const description = {
           celebration, browsing breakfast ideas on searching for catering options for large 
           meetings or celebrations; our food has something for everyone.`,
 };
+
+export const PageName = "Deals"
