@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
 import LastMinDealSection from "../../components/LastMinDealSection";
-import { description, sortByList, products } from "./dumy";
+import { description, sortByList, products, PageName } from "./dumy";
 import { connect } from "react-redux";
 
 import {
@@ -108,31 +108,38 @@ class LastMinDealPage extends Component {
     return (
       <React.Fragment>
         <Header />
-        <LastMinDealSection
-          category={category}
-          sort={sort}
-          paginate={this.paginate}
-          productsPerPage={this.state.productsPerPage}
-          currentPage={this.state.currentPage}
-          productsList={products}
-          categoryList={this.props.categoryList}
-          sortList={sortByList}
-          type={"brand"}
-          description={description}
-          addToCart={addToCart}
-          plusHandler={plusHandler}
-          minusHandler={minusHandler}
-          amountHandler={amountHandler}
-          sortDropDownStatus={sortDropDownStatus}
-          categoryDropDownStatus={categoryDropDownStatus}
-          categoryDropdownIsOpenHandle={categoryDropdownIsOpenHandle}
-          sortDropdownIsOpenHandle={sortDropdownIsOpenHandle}
-          selectSortHandle={selectSortHandle}
-          selectCategoryHandle={selectCategoryHandle}
-          onSale={onSale}
-          isCompany={isCompany}
-          isDeal={isDeal}
-        />
+        {products.length > 0 ? (
+          <LastMinDealSection
+            category={category}
+            sort={sort}
+            paginate={this.paginate}
+            productsPerPage={this.state.productsPerPage}
+            currentPage={this.state.currentPage}
+            productsList={products}
+            categoryList={this.props.categoryList}
+            sortList={sortByList}
+            type={"brand"}
+            description={description}
+            addToCart={addToCart}
+            plusHandler={plusHandler}
+            minusHandler={minusHandler}
+            amountHandler={amountHandler}
+            sortDropDownStatus={sortDropDownStatus}
+            categoryDropDownStatus={categoryDropDownStatus}
+            categoryDropdownIsOpenHandle={categoryDropdownIsOpenHandle}
+            sortDropdownIsOpenHandle={sortDropdownIsOpenHandle}
+            selectSortHandle={selectSortHandle}
+            selectCategoryHandle={selectCategoryHandle}
+            onSale={onSale}
+            isCompany={isCompany}
+            isDeal={isDeal}
+          />
+        ) : (
+          <div class="empty-products">
+            <span>There Is No {PageName}</span>
+          </div>
+        )}
+
         <Footer />
       </React.Fragment>
     );
