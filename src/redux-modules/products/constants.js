@@ -6,5 +6,6 @@ export const ADD_PRODUCT = "ADD_PRODUCT";
 
 export const UPLOAD_IMAGE = "UPLOAD_IMAGE";
 
-export const  EDIT_Amount = "EDIT_Amount"
-
+export const EDIT_Amount = "EDIT_Amount";
+export const GET_DEALS = "GET_DEALS";
+export const Edit_DEALS = "Edit_DEALS"

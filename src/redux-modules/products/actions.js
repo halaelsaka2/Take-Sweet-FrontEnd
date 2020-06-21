@@ -10,6 +10,8 @@ import {
   ADD_PRODUCT,
   UPLOAD_IMAGE,
   EDIT_Amount,
+  GET_DEALS,
+  Edit_DEALS
 } from "./constants";
 
 export const getAllProductsByUserIdRes = (productsList) => {
@@ -73,6 +75,20 @@ export const getProductByIdRes = (product) => {
   };
 };
 
+
+export const getDealsProducts = () => {
+  return async (dispatch) => {
+    const dealsProductsList = await productsDB.getDealsProducts();
+    dispatch(getDealsProductsRes(dealsProductsList));
+  };
+};
+export const getDealsProductsRes = (dealsProductsList) => {
+  return {
+    type: GET_DEALS,
+    dealsProductsList,
+  };
+};
+
 export const uploadImage = (image) => {
   return async (dispatch) => {
     const { imageUrl } = await uploadImageFile(image);
@@ -87,4 +103,16 @@ export const uploadImageRes = (imageSrc) => {
     type: UPLOAD_IMAGE,
     imageSrc,
   };
+};
+
+
+export const editDealProduct = (id, newproduct) => {
+  return async (dispatch) => {
+    const { product } = await productsDB.updateProduct(id, newproduct);
+    dispatch(editDealProductRes({ product }));
+  };
+};
+
+export const editDealProductRes = (product) => {
+  return { type: Edit_DEALS, product };
 };

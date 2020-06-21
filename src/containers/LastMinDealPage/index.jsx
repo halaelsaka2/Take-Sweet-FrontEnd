@@ -4,6 +4,10 @@ import Footer from "../../components/Layouts/Footer";
 import LastMinDealSection from "../../components/LastMinDealSection";
 import { description, sortByList, products, PageName } from "./dumy";
 import { connect } from "react-redux";
+import {
+  getDealsProducts,
+  editDealProduct,
+} from "../../redux-modules/products/actions";
 
 import {
   getSortList,
@@ -19,7 +23,7 @@ class LastMinDealPage extends Component {
     amount: 0,
     category: "Category",
     sort: "Sort with",
-    onSale: false,
+    onSaleStyle: false,
     isCompany: true,
     isDeal: false,
   };
@@ -30,6 +34,7 @@ class LastMinDealPage extends Component {
     // await this.props.getAllProductsByUserId(id);
     await this.props.getCategoryList();
     await this.props.getSortList();
+    await this.props.getDealsProducts();
   };
 
   paginate = (currentPage) => {
@@ -70,6 +75,18 @@ class LastMinDealPage extends Component {
     categoryDropDownStatus = !categoryDropDownStatus;
     this.setState({ category, categoryDropDownStatus });
   };
+
+  onSaleHandle = (event, item) => {
+    // console.log(event.target, item);
+    const { id } = item;
+    item.categoryId = item.categoryId.id;
+    item.userId = item.userId.id;
+    item.onSale = !item.onSale;
+    console.log(item);
+    console.log(item.categoryId);
+    this.props.editDealProduct(id, item);
+    // console.log(this.props.dealsProductsList);
+  };
   render() {
     const {
       plusHandler,
@@ -81,13 +98,14 @@ class LastMinDealPage extends Component {
       categoryDropdownIsOpenHandle,
       selectSortHandle,
       selectCategoryHandle,
+      onSaleHandle,
       state: {
         categoryDropDownStatus,
         sortDropDownStatus,
         category,
         sort,
         amount,
-        onSale,
+        onSaleStyle,
         isCompany,
         isDeal,
       },
@@ -103,20 +121,24 @@ class LastMinDealPage extends Component {
       numberOfOrders,
       orderHandle,
       cancelHandle,
+      dealsProductsList,
+      categoryList,
       // shoppingBagList,
     } = this.props;
+
+    console.log(dealsProductsList);
     return (
       <React.Fragment>
         <Header />
-        {products.length > 0 ? (
+        {dealsProductsList.length > 0 ? (
           <LastMinDealSection
             category={category}
             sort={sort}
             paginate={this.paginate}
             productsPerPage={this.state.productsPerPage}
             currentPage={this.state.currentPage}
-            productsList={products}
-            categoryList={this.props.categoryList}
+            productsList={dealsProductsList}
+            categoryList={categoryList}
             sortList={sortByList}
             type={"brand"}
             description={description}
@@ -130,9 +152,10 @@ class LastMinDealPage extends Component {
             sortDropdownIsOpenHandle={sortDropdownIsOpenHandle}
             selectSortHandle={selectSortHandle}
             selectCategoryHandle={selectCategoryHandle}
-            onSale={onSale}
+            onSaleStyle={onSaleStyle}
             isCompany={isCompany}
             isDeal={isDeal}
+            onSaleHandle={onSaleHandle}
           />
         ) : (
           <div class="empty-products">
@@ -154,6 +177,7 @@ const mapStateToProps = (state) => {
     sortList: state.dropdown.sortList,
     product: state.products.product,
     shoppingBagList: state.orders.shoppingBagList,
+    dealsProductsList: state.products.dealsProductsList,
   };
 };
 
@@ -162,6 +186,9 @@ const mapDispatchToProps = (dispatch) => {
     //   getAllProductsByUserId: (id) => dispatch(getAllProductsByUserId(id)),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
+    getDealsProducts: () => dispatch(getDealsProducts()),
+    editDealProduct: (id, editedProduct) =>
+      dispatch(editDealProduct(id, editedProduct)),
     //   getProductById: (id) => dispatch(getPorductById(id)),
     //   getAmout: (product) => dispatch(editAmount(product)),
     //   addToCart: (product) => dispatch({ type: ADD_TO_CART, payload: product }),

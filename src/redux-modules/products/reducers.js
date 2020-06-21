@@ -1,5 +1,7 @@
 import * as actionTypes from "./constants";
-import { uploadImage } from "./actions";
+import {
+  uploadImage
+} from "./actions";
 
 const initialState = {
   productsList: [],
@@ -8,6 +10,8 @@ const initialState = {
   imageSrc: "",
   product: {},
   editedProduct: "",
+  dealsProductsList: []
+
 };
 
 export default (state = initialState, action) => {
@@ -55,20 +59,39 @@ export default (state = initialState, action) => {
         productsList: productList,
       };
 
-    case actionTypes.UPLOAD_IMAGE:
+    case actionTypes.Edit_DEALS:
+      const oldDeal = state.dealsProductsList.find(
+        (product) => product.id === action.product.id
+      );
+      // console.log("id in reducer", oldDeal.id)
+      const dealIndex = state.dealsProductsList.indexOf(oldDeal);
+      const dealsProductsList = [...state.dealsProductsList];
+      dealsProductsList.pop(dealIndex)
       return {
         ...state,
-        imageSrc: action.imageSrc,
-      };
-    // case actionTypes.ADD_PRODUCT:
-    // const productsList = [...state.productsList];
-    // productsList.push(action.product);
-    // return {
-    //   ...state,
-    //   productsList,
-    // };
+        dealsProductsList: dealsProductsList
+      }
 
-    default:
-      return state;
+      case actionTypes.UPLOAD_IMAGE:
+        return {
+          ...state,
+          imageSrc: action.imageSrc,
+        };
+
+      case actionTypes.GET_DEALS:
+        return {
+          ...state,
+          dealsProductsList: action.dealsProductsList
+        }
+        // case actionTypes.ADD_PRODUCT:
+        // const productsList = [...state.productsList];
+        // productsList.push(action.product);
+        // return {
+        //   ...state,
+        //   productsList,
+        // };
+
+        default:
+          return state;
   }
 };
