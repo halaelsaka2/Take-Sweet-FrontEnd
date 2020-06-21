@@ -11,28 +11,8 @@ import { getRoleById } from "../../redux-modules/role/actions";
 
 class RegisterAcceptancePage extends Component {
   componentDidUpdate = () => {
-    if (this.props.user.id !== "undefind") {
-      let user = JSON.parse(localStorage.getItem("newUser"));
-
-      let userLogin = {
-        email: this.props.user.email,
-        password: user.password,
-      };
-
-      this.props.userLogin(userLogin);
-
-      localStorage.setItem("user", JSON.stringify(this.props.user));
-      localStorage.setItem("token", JSON.stringify(this.props.token));
-
-      if (this.props.user.roleId.name === "Cafe") {
-        this.props.addCafe();
-        console.log("this is cafe");
-        window.history.replaceState(null, null, "/");
-        this.props.history.push("/profile");
-      } else {
-        console.log("company");
-      }
-    }
+    window.history.replaceState(null, null, "/");
+    this.props.history.push("/profile");
   };
   state = { checked: false };
   checkHandle = (event) => {
@@ -46,43 +26,7 @@ class RegisterAcceptancePage extends Component {
 
   registerButtonHandle = async (event) => {
     let user = JSON.parse(localStorage.getItem("newUser"));
-    let branches = user.branches;
-    // branches.forEach((addedBranch) => {
-    //   this.props.addBranch(addedBranch);
-    //   user.branches = this.props.branchIds;
-    //   // console.log(user.branches);
-    //   // console.log("branches id in register", this.props.branchIds);
-    // });
-
-    // await this.props.addBranch(branches[0]);
-    // user.branches = this.props.branchIds;
-    // console.log(user.branches);
-    // console.log("branches id in register", this.props.branchIds);
-
-    // console.log("peew", user);
     this.props.userRegister(user);
-    // console.log(this.props.user, "hahahahhaahahh");
-
-    // console.log(this.props.user);
-
-    // if (await this.props.user) {
-    //   let userLogin = {
-    //     email: this.props.user.email,
-    //     password: user.password,
-    //   };
-
-    //   await this.props.userLogin(userLogin);
-
-    //   localStorage.setItem("user", JSON.stringify(this.props.user));
-    //   localStorage.setItem("token", JSON.stringify(this.props.token));
-
-    //   if ((await this.props.user.roleId.name) === "Cafe") {
-    //     await this.props.addCafe();
-    //   }
-
-    //   // window.history.replaceState(null, null, "/");
-    //   // this.props.history.push("/profile");
-    // }
   };
 
   render() {
@@ -109,7 +53,6 @@ class RegisterAcceptancePage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  // console.log(state.branches);
   return {
     user: state.user.user,
     branch: state.branches.branch,
