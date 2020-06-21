@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import { Container } from "reactstrap";
 
 import OrderCard from "../OrderCard";
-const OrderList = ({ orders, onReorder, handleCancelOrder }) => (
+const OrderList = ({
+  orders,
+  onReorder,
+  handleCancelOrder,
+  role,
+  handleStatusChange,
+}) => (
   <Container fluid="xl">
     {orders.length > 0 ? (
       <div className="order-container">
@@ -17,6 +23,8 @@ const OrderList = ({ orders, onReorder, handleCancelOrder }) => (
             onCancel={handleCancelOrder}
             companyLogoImgSrc={order.companyLogoImgSrc}
             id={order.id}
+            role={role}
+            handleStatusChange={handleStatusChange}
           />
         ))}
       </div>

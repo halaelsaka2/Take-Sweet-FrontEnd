@@ -4,30 +4,37 @@
   padding: 1.5rem;
   margin: 2rem;
   height: max-content;
+
   &__header {
     width: 100%;
     @include flex(row, space-between, center);
+
     &__logo {
       @include flex(row, space-between, center);
       width: 20%;
+
       img {
         border-radius: 5rem;
         width: 5rem;
         height: 5rem;
+
         @media (max-width: 940px) {
           width: 4rem;
           height: 4rem;
         }
+
         @media (max-width: 400px) {
           width: 3rem;
           height: 3rem;
         }
       }
+
       &__date {
         padding: 1rem;
       }
     }
   }
+
   &__content {
     &__buttons {
       @include flex(row, space-between, center);
@@ -39,10 +46,12 @@
 .order-container {
   display: grid;
   grid-template-columns: auto auto;
+
   @media (max-width: 1233px) {
     grid-template-columns: auto;
   }
 }
+
 .color-circle {
   border-radius: 5rem;
   border: 0.1rem solid #bb9230;
@@ -50,14 +59,24 @@
   height: 1rem;
   margin: 0 0.5rem;
   box-sizing: content-box;
+
   &--wating {
     background-color: blue;
   }
+
   &--arrived {
     background-color: green;
   }
+
   &--canceled {
     background-color: red;
 
   }
+}
+
+.OrderCardRadio {
+  padding: 1rem;
+  padding-left: 0.1rem;
+  margin: 1rem;
+  margin-left: 0.1rem;
 }
