@@ -22,3 +22,4 @@ $darker-gray:rgb(63, 62, 62);
 
 //red
 $main-red:#c92027;
+$lighter-red : lighten($main-red, 10%);

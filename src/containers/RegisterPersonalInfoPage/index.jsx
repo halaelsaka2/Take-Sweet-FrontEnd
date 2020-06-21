@@ -9,7 +9,6 @@ class RegisterPersonalInfoPage extends Component {
     newUserPersonalInfo: {
       accountType: "Brand/Cafe and Resturant",
       username: "",
-      userImage: "",
       imageSrc: "",
     },
     roleId: "",
@@ -31,11 +30,11 @@ class RegisterPersonalInfoPage extends Component {
 
   nextButtonHandle = (event, values) => {
     let newUser = JSON.parse(localStorage.getItem("newUser"));
-    let { username, userImage } = this.state.newUserPersonalInfo;
+    let { username, imageSrc } = this.state.newUserPersonalInfo;
     let roleId = this.state.roleId;
     newUser.roleId = roleId;
     newUser.userName = username;
-    newUser.imageSrc = userImage;
+    newUser.imageSrc = imageSrc;
     console.log(newUser);
     localStorage.setItem("newUser", JSON.stringify(newUser));
     this.props.history.push("/register-branch");
