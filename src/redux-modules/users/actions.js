@@ -9,18 +9,13 @@ import {
   AddBranch
 } from "../branches/api"
 
+import {addCafe} from "../cafes/api"
+import {addCompany} from "../company/api"
+
 export const userRegister = (user) => dispatch => {
   console.log("incoming user", user)
 
   let branches = user.branches;
-  // branches.forEach(async (addedBranch) => {
-  //   let response = await AddBranch(addedBranch).catch((err) => console.log(err.response.data));
-  //   console.log("response", response.data)
-  //   newBranchesList.push(response.data.id);
-  //   // user.branches = this.props.branchIds;
-  //   // console.log(user.branches);
-  //   // console.log("branches id in register", this.props.branchIds);
-  // });
   let newBranchesListPromises = branches.map(branch => AddBranch(branch));
   
   Promise.all(newBranchesListPromises).then(values => {
@@ -29,31 +24,51 @@ export const userRegister = (user) => dispatch => {
       ...user,
       branches: branchIds
     }
-    userDB.UserRegister(newUser).then(response => dispatch(userRegisterRes(response.data)));
+    userDB.UserRegister(newUser).then(response => {
+
+      let user = JSON.parse(localStorage.getItem("newUser"));
+      console.log(user,"newUserInLocal");
+      
+      console.log(response,"ofregester");
+      
+      let userLogin = {
+        email: response.data.email,
+        password: user.password,
+      };
+      console.log(userLogin,"userLogin");
+      
+      userDB.UserLogin(userLogin).then(async response => {
+        console.log(response,"responseOfLogin");
+        
+        localStorage.setItem("user", JSON.stringify(response.user));
+        localStorage.setItem("token", JSON.stringify(response.token));
+        console.log(response.user.roleId.name,"userafterLogin in action");
+        if (response.user.roleId.name === "Cafe") {
+         await addCafe().then(response=>console.log(response));
+          console.log("this is cafe");
+        } else {
+          console.log("this is company");
+         await addCompany().then(response=>console.log(response));
+        }
+        dispatch(userLoginRes(response.user, response.token));
+      })
+    }
+    );
     console.log(newUser)
   })
-  // console.log("new branch list", newBranchesListPromises)
-  // const newUser = {
-  //   ...user,
-  //   branches: newBranchesList
-  // }
-
-  // console.log("new user", newUser)
-
-  // console.log(userInfo, "user data in action register")
-  // return async (dispatch) => {
-  //   await userDB.UserRegister(user);
-  //   // console.log(user, "user data in action register2")
-
-  //   dispatch(userRegisterRes(user));
-  // };
 };
-const userRegisterRes = (user) => {
-  return {
-    type: USER_REGISTER,
-    user
+export const userLogin = (currentUser) => {
+  return async (dispatch) => {
+    const response = await userDB.UserLogin(currentUser)
+      dispatch(userLoginRes(response.user, response.token));  
   };
 };
+// const userRegisterRes = (user) => {
+//   return {
+//     type: USER_REGISTER,
+//     user
+//   };
+// };
 
 const userLoginRes = (user, token) => {
   return {
@@ -63,17 +78,8 @@ const userLoginRes = (user, token) => {
   };
 };
 
-export const userLogin = (currentUser) => {
-  return async (dispatch) => {
-    const userData = await userDB.UserLogin(currentUser)
-    // console.log(userData, "user data in action login")
-    dispatch(userLoginRes(userData.user, userData.token));
-  };
-};
-
 
 export const updateUser = (user) => {
-  // console.log(user, "inAction");
 
   return async (dispatch) => {
     const updateduser = await userDB.updateUser(user);
@@ -86,32 +92,3 @@ const updateUserRes = (user) => {
     user,
   };
 };
-
-
-
-// export const ordersList = (userId) => {
-//   return async (dispatch) => {
-//     const ordersList = await getAllOrders(userId);
-//     dispatch(orderslistRes(ordersList));
-//   };
-// };
-
-// const orderslistRes = (ordersList) => {
-//   return {
-//     type: GET_ALL_ORDERS,
-//     ordersList,
-//   };
-// };
-
-// export const addToShoppingCart = (product) => {
-//   return async (dispatch) => {
-//     const shoppingCartList = await addtoShoppingCart(product);
-//     dispatch(addToShoppingCartRes(shoppingCartList));
-//   };
-// };
-// const addToShoppingCartRes = (shoppingCartList) => {
-//   return {
-//     type: ADD_TO_SHOPPING_CART,
-//     shoppingCartList,
-//   };
-// };

@@ -22,3 +22,15 @@ export const getAllCompanies = async (id) => {
     } = await axios.get(`${uri}/`)
     return data;
 }
+
+export const addCompany = async () => {
+    const token = JSON.parse(localStorage.getItem("token"))
+    const {
+        data
+    } = await axios.post(`${uri}/addCompany`,{},{
+        headers: {
+            authorization: token,
+        }
+    })
+    return data;
+}

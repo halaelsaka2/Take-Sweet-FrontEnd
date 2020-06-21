@@ -23,12 +23,9 @@ export const getAllCompanies = () => {
   };
 };
 
-export const addCompany = (addedCompany) => {
+export const addCompany = () => {
   return async (dispatch) => {
-    // const company = await companiesHandler.addCompany(addedCompany);
-    const company = await axios.post(
-      "http://localhost:3000/company/addCompany",addedCompany
-    );
+    const company = await companiesDB.addCompany()
     dispatch(addCompanyRes(company));
   };
 };
@@ -41,7 +38,6 @@ export const addCompanyRes = (company) => {
 
 export const editCompany = (company) => {
   return async (dispatch) => {
-    // const editedCompany = await companiesHandler.editCompany(company);
     const editedCompany = await axios.patch(
       "http://localhost:3000/company/5ee3bdf4156a380df0236ad8"
     );
@@ -58,9 +54,6 @@ export const editCompanyRes = (company) => {
 export const deleteCompany = (company) => {
   return async (dispatch) => {
     const deletedCompany = await companiesHandler.deleteCompany(company);
-    // const company = await axios.delete(
-    //   "http://localhost:3000/company/5ee3bdf4156a380df0236ad8"
-    // );
     dispatch(deleteCompanyRes(deletedCompany));
   };
 };
@@ -74,7 +67,6 @@ export const deleteCompanyRes = (company) => {
 export const getCompanyById = () => {
   return async (dispatch) => {
     const company = await companiesDB.getCompanyById()
-    // console.log(company, "inAction")
     dispatch(getCompanyByIdRes(company));
   };
 };
