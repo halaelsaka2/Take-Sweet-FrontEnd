@@ -54,9 +54,7 @@ class AddProduct extends Component {
 
   categotyHandler = (event) => {
     const { value, name } = event.target;
-    console.log(name, value);
     const product = { ...this.state.product, category: value };
-    console.log("categoryyyyyy", product.category);
 
     switch (product.category) {
       case "pastry":

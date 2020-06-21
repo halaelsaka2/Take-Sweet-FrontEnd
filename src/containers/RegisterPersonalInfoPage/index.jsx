@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import RegisterPersonalInfoSection from "../../components/RegisterPersonalInfoSection";
 import { getAllRoles } from "../../redux-modules/role/actions";
+import { uploadImage } from "../../redux-modules/products/actions";
 import constants from "./constants";
 class RegisterPersonalInfoPage extends Component {
   state = {
@@ -9,6 +10,7 @@ class RegisterPersonalInfoPage extends Component {
       accountType: "Brand/Cafe and Resturant",
       username: "",
       userImage: "",
+      imageSrc: "",
     },
     roleId: "",
     dropdownIsOpen: false,
@@ -46,6 +48,16 @@ class RegisterPersonalInfoPage extends Component {
     this.setState({ dropdownIsOpen });
   };
 
+  imageUploadHandler = async (event) => {
+    const image = event.target.files[0];
+    const formDate = new FormData();
+    formDate.set("image", image);
+    await this.props.uploadImage(formDate);
+    const imageSrc = "http://localhost:3000/" + this.props.imageSrc;
+    const newUserPersonalInfo = { ...this.state.newUserPersonalInfo, imageSrc };
+    this.setState({ newUserPersonalInfo });
+  };
+
   selectAccountTypeHandle = (event, id) => {
     let newUserPersonalInfo = { ...this.state.newUserPersonalInfo };
     let { dropdownIsOpen, usernamePlaceholder } = this.state;
@@ -70,9 +82,10 @@ class RegisterPersonalInfoPage extends Component {
   render() {
     const {
       state: {
-        newUserPersonalInfo: { accountType, username, userImage },
+        newUserPersonalInfo: { accountType, username, userImage, imageSrc },
         dropdownIsOpen,
       },
+      imageUploadHandler,
       onChange,
       backButtonHandle,
       nextButtonHandle,
@@ -83,6 +96,8 @@ class RegisterPersonalInfoPage extends Component {
     console.log(this.props.roles);
     return (
       <RegisterPersonalInfoSection
+        imageSrc={imageSrc}
+        imageUploadHandler={imageUploadHandler}
         accountType={accountType}
         username={username}
         userImage={userImage}
@@ -105,11 +120,13 @@ class RegisterPersonalInfoPage extends Component {
 const mapStateToProps = (state) => {
   return {
     roles: state.role.roles,
+    imageSrc: state.products.imageSrc,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    uploadImage: (image) => dispatch(uploadImage(image)),
     getAllRoles: () => dispatch(getAllRoles()),
   };
 };

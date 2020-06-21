@@ -25,6 +25,7 @@ const ProductsSellerSection = ({
   selectCategoryHandle,
   category,
   sort,
+  deleteHandle,
   Type,
 }) => {
   const firstIndex = (currentPage - 1) * productsPerPage;
@@ -68,6 +69,7 @@ const ProductsSellerSection = ({
             console.log(item);
             return (
               <ProductItem
+               deleteHandle={deleteHandle}
                 id={item.id}
                 name={item.name}
                 src={item.imageSrc}
