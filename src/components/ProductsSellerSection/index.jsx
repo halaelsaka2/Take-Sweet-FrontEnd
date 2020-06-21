@@ -27,6 +27,7 @@ const ProductsSellerSection = ({
   sort,
   deleteHandle,
   Type,
+  isCompany
 }) => {
   const firstIndex = (currentPage - 1) * productsPerPage;
   const lastIndex = firstIndex + productsPerPage;
@@ -75,6 +76,7 @@ const ProductsSellerSection = ({
                 src={item.imageSrc}
                 amount={item.amount}
                 Type={"seller"}
+                isCompany
               ></ProductItem>
             );
           })}

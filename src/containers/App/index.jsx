@@ -19,6 +19,7 @@ import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
 import OrderDetailsPage from "../OrderDetailsPage";
 import { withRouter } from "react-router";
+import LastMinDealPage from "../LastMinDealPage";
 class App extends Component {
   state = {
     isShoppingIconHidden: false,
@@ -201,6 +202,7 @@ class App extends Component {
           {/* <Route path="/buyer" component={BuyerPage} /> */}
 
           <Route path="/seller" component={ProductsSellerPage} />
+          <Route path="/deals" component={LastMinDealPage} />
 
           <Route path="/login" component={LoginPage} />
           <Route path="/register-branch" component={RegisterBranchPage} />
