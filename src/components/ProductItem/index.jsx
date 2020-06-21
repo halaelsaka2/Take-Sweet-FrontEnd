@@ -47,9 +47,7 @@ const ProductItem = ({
             )}
 
             <div className="itemm__data">
-
               <button className="itemm__btn" onClick={() => addToCart(id)}>
-
                 Order Now
               </button>
             </div>
@@ -113,7 +111,7 @@ const ProductItem = ({
                 <i className="fas fa-trash-alt"></i>
               </a>
             </div>
-
+          )}
         </div>
       )}
 
