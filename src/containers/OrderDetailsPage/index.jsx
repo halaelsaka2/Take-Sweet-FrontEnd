@@ -1,21 +1,69 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import OrderDetaislSection from "../../components/OrderDetailsSection";
+import { connect } from "react-redux";
+import { getAllPaymentTypes } from "../../redux-modules/paymentTypes/actions";
 
-export default class OrderDetailsPage extends Component {
+class OrderDetailsPage extends Component {
   state = {
     order: {
-      status: "Waiting",
-      date: "20/5/2020",
-      rows: [
-        ["Choclate cake", "10", "30", "300"],
-        ["Figs Tart", "10", "20", "200"],
+      companyId: "",
+      userId: "",
+      orderProducts: [
+        {
+          amount: "",
+          categoryId: "",
+          imageSrc: "",
+          name: "",
+          price: "",
+          totalPrice: "",
+          productId: "",
+        },
       ],
-      companyLogoImgSrc: "",
-      comments: "",
+      totalPrice: "",
       paymentType: "",
+      comments: "",
     },
     paymentTypes: [],
+  };
+  componentDidMount = () => {
+    const shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"))
+      ? JSON.parse(localStorage.getItem("shoppingBagList"))
+      : [];
+    if (shoppingBagList) {
+      const id = this.props.match.params.id;
+      // console.log("paraaaaaaaaaaaams id", id);
+      const orderRecived = shoppingBagList.find(
+        (order) => order.company.id === id
+      );
+      console.log(orderRecived);
+      let m = orderRecived.shoppingBagProducts.map((product) => {
+        return {
+          productId: product.id,
+          name: product.name,
+          amount: product.amount,
+          price: product.price,
+          totalPrice: product.totalPrice,
+          imageSrc: product.imageSrc,
+          categoryId: product.categoryId.id,
+        };
+      });
+      let order = {};
+      order.companyId = orderRecived.company.id;
+      order.orderProducts = m;
+
+      const user = JSON.parse(localStorage.getItem("user"));
+      order = {
+        ...order,
+        totalPrice: orderRecived.totalPrice,
+        paymentType: "",
+        comments: "",
+        userId: user.id,
+      };
+      this.props.getPaymentTypes();
+      console.log(order);
+      this.setState({ order });
+    }
   };
   handleChange = (e) => {
     let { order } = this.state;
@@ -24,13 +72,23 @@ export default class OrderDetailsPage extends Component {
   };
   handlePaymentTypeChange = (e) => {
     const order = { ...this.state.order };
-    const paymentTypeSelected = parseInt(e.target.value);
+    const paymentTypeSelected = e.target.value;
     order.paymentType = paymentTypeSelected;
+    console.log(order);
     this.setState({ order });
   };
   handleSubmit = () => {
+    const id = this.props.match.params.id;
     console.log(this.state.order);
-    // this.props.history.push("/track-order");
+
+    let shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
+    shoppingBagList = shoppingBagList.filter(
+      (m) => m.company.id !== "5ee3bc7952d0650758ae32ab"
+    );
+    // console.log()
+    this.setState({});
+    localStorage.setItem("shoppingBagList", JSON.stringify(shoppingBagList));
+    this.props.history.push("/brands");
   };
   handleCancel = () => {
     this.props.history.push("/buyer");
@@ -43,17 +101,40 @@ export default class OrderDetailsPage extends Component {
       handleCancel,
       handleSubmit,
     } = this;
+    let { paymentTypes } = this.props;
+    paymentTypes = paymentTypes.map((payType) => ({
+      ...payType,
+      checked: "",
+    }));
+    // console.log(this.props.paymentTypes);
+
     return (
       <OrderDetaislSection
-        rows={order.rows}
-        isDeletable={true}
+        rows={order.orderProducts}
+        isDeletable={false}
         recommendationsValue={order.comments}
         checkedPaymentType={order.paymentType}
         handlePaymentTypeChange={handlePaymentTypeChange}
         onChange={handleChange}
         confirmButtonHandle={handleSubmit}
         cancelButtonHandle={handleCancel}
+        paymentTypes={paymentTypes}
+        totalPrice={order.totalPrice}
       />
     );
   }
 }
+const mapStateToProps = (state) => {
+  console.log(state.paymentTypes.paymentTypesList);
+  return {
+    paymentTypes: state.paymentTypes.paymentTypesList,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getPaymentTypes: () => {
+      dispatch(getAllPaymentTypes());
+    },
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(OrderDetailsPage);

@@ -243,6 +243,8 @@ class Profile extends Component {
       openProductsCardModal,
       shoppingOrderList,
       numberOfOrders,
+      orderHandle,
+      cancelHandle,
     } = this.props;
     const {
       state: {
@@ -324,6 +326,8 @@ class Profile extends Component {
           isOpen={isShoppingBagOpen}
           closeShoppingBag={toggleShoppingBag}
           openCardModal={openProductsCardModal}
+          orderHandle={orderHandle}
+          cancelHandle={cancelHandle}
         />
         {isProductCardModalOpen && (
           <ProductCardsSection

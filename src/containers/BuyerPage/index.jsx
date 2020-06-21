@@ -139,7 +139,9 @@ class BuyerPage extends Component {
       // shoppingBagList,
     } = this.props;
 
-    const shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
+    const shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"))
+      ? JSON.parse(localStorage.getItem("shoppingBagList"))
+      : [];
     //console.log(this.props.productsList);
     return (
       <React.Fragment>
