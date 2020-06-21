@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
 import ProductsSection from "../../components/ProductsSection";
-import { description } from "./dumy";
+import { description, sortByList } from "./dumy";
 import { connect } from "react-redux";
 import HistoryIcon from "../../components/HistoryIcon";
 import ShoppingCart from "../../components/ShoppingCart";
@@ -27,6 +27,8 @@ class BuyerPage extends Component {
     productsPerPage: 9,
     currentPage: 1,
     amount: 0,
+    category: "Category",
+    sort: "Sort with",
   };
 
   paginate = (currentPage) => {
@@ -49,12 +51,6 @@ class BuyerPage extends Component {
     this.setState({ numberOfOrders: shoppingBagList.length });
   };
 
-  dropDownHandler = (name) => {
-    this.setState({
-      [name]: !this.state[name],
-    });
-  };
-
   amountHandler = (event, id) => {
     const oldproduct = this.props.productsList.find(
       (product) => product.id === id
@@ -73,22 +69,61 @@ class BuyerPage extends Component {
     }
   };
 
-  componentDidMount =async () => {
+  componentDidMount = async () => {
     const id = this.props.match.params.id;
     console.log(this.props.match, "inbuyerPage");
     await this.props.getAllProductsByUserId(id);
     await this.props.getCategoryList();
     await this.props.getSortList();
   };
+
+  sortDropdownIsOpenHandle = (event) => {
+    let sortDropDownStatus = this.state.sortDropDownStatus;
+    sortDropDownStatus = !sortDropDownStatus;
+    this.setState({ sortDropDownStatus });
+  };
+
+  categoryDropdownIsOpenHandle = (event) => {
+    let categoryDropDownStatus = this.state.categoryDropDownStatus;
+    categoryDropDownStatus = !categoryDropDownStatus;
+    console.log("categoryyyyy");
+    this.setState({ categoryDropDownStatus });
+  };
+
+  selectSortHandle = (event, id) => {
+    let sort = this.state.sort;
+    let sortDropDownStatus = this.state.sortDropDownStatus;
+    sort = event.target.textContent;
+    sortDropDownStatus = !sortDropDownStatus;
+    this.setState({ sort, sortDropDownStatus });
+  };
+
+  selectCategoryHandle = (event, id) => {
+    let category = this.state.category;
+    let categoryDropDownStatus = this.state.categoryDropDownStatus;
+    category = event.target.textContent;
+    categoryDropDownStatus = !categoryDropDownStatus;
+    this.setState({ category, categoryDropDownStatus });
+  };
+
   render() {
     const {
-      dropDownHandler,
       plusHandler,
       minusHandler,
       amountHandler,
       addToCart,
       // cancelHandle,
-      state: { categoryDropDownStatus, sortDropDownStatus, amount },
+      sortDropdownIsOpenHandle,
+      categoryDropdownIsOpenHandle,
+      selectSortHandle,
+      selectCategoryHandle,
+      state: {
+        categoryDropDownStatus,
+        sortDropDownStatus,
+        category,
+        sort,
+        amount,
+      },
     } = this;
     const {
       isShoppingIconHidden,
@@ -107,7 +142,6 @@ class BuyerPage extends Component {
     const shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
     //console.log(this.props.productsList);
     return (
-      
       <React.Fragment>
         <Header />
         <HistoryIcon />
@@ -133,21 +167,26 @@ class BuyerPage extends Component {
           />
         )}
         <ProductsSection
+          category={category}
+          sort={sort}
           paginate={this.paginate}
           productsPerPage={this.state.productsPerPage}
           currentPage={this.state.currentPage}
           productsList={this.props.productsList}
           categoryList={this.props.categoryList}
-          sortList={this.props.sortList}
+          sortList={sortByList}
           type={"buyer"}
           description={description}
-          sortDropDownStatus={sortDropDownStatus}
-          categoryDropDownStatus={categoryDropDownStatus}
-          dropDownHandler={dropDownHandler}
           addToCart={addToCart}
           plusHandler={plusHandler}
           minusHandler={minusHandler}
           amountHandler={amountHandler}
+          sortDropDownStatus={sortDropDownStatus}
+          categoryDropDownStatus={categoryDropDownStatus}
+          categoryDropdownIsOpenHandle={categoryDropdownIsOpenHandle}
+          sortDropdownIsOpenHandle={sortDropdownIsOpenHandle}
+          selectSortHandle={selectSortHandle}
+          selectCategoryHandle={selectCategoryHandle}
         />
         <Footer />
       </React.Fragment>

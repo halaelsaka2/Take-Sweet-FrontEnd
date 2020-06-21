@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 
 import { Link, animateScroll as scroll } from "react-scroll";
 import NotificationPopOver from "./../../NotificationPopover/index";
@@ -32,11 +32,17 @@ class Header extends Component {
     this.setState({ isOpen });
   };
 
+  logoutHandle = () => {
+    localStorage.clear();
+    window.history.replaceState(null, null, "/");
+    this.props.history.push("/home");
+  };
   render() {
     const {
       state: { isCompany, isCafe, isOpen, orders, newOrders, userName, role },
       handleToggle,
       handleOpenOrder,
+      logoutHandle,
     } = this;
     return (
       <header className="header">
@@ -137,9 +143,9 @@ class Header extends Component {
           //   <i className="fas fa-user"></i> Sign in
           // </NavLink> */}
           {userName && (
-            <NavLink to="/login">
-              <i className="fas fa-sign-out-alt"></i>
-            </NavLink>
+            // <NavLink to="/login">
+            <i onClick={logoutHandle} className="fas fa-sign-out-alt"></i>
+            // </NavLink>
           )}
         </div>
       </header>
@@ -147,4 +153,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);
