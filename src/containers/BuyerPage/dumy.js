@@ -9,7 +9,8 @@ export const products = [
 
 export const sortByList = [
     {id:0,name:"name"},
-    {id:1,name:"price"},
+    {id:1,name:"Price high to low"},
+    {id:2,name:"Price low to high"},
 
   ];
 
