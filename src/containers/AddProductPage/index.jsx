@@ -54,8 +54,23 @@ class AddProduct extends Component {
 
   categotyHandler = (event) => {
     const { value, name } = event.target;
-    // console.log(name, value);
-    const product = { ...this.state.product, [name]: value };
+    console.log(name, value);
+    const product = { ...this.state.product, category: value };
+    console.log("categoryyyyyy", product.category);
+
+    switch (product.category) {
+      case "pastry":
+        console.log(product.category);
+        product.categoryId = "5ee21fba7f98cd0cd8a724d9";
+      case "bakery":
+        console.log(product.category);
+
+        product.categoryId = "5ee2322e57a2c453680237cc";
+      case "coffee":
+        console.log(product.category);
+
+        product.categoryId = "5ee2325157a2c453680237cd";
+    }
     // console.log(product);
     this.setState({ product });
   };
@@ -66,14 +81,7 @@ class AddProduct extends Component {
       this.props.history.push("/seller");
     } else if (event.target.name === "add") {
       const product = { ...this.state.product };
-      switch (product.category) {
-        case "pastry":
-          product.categoryId = "5ee21fba7f98cd0cd8a724d9";
-        case "bakery":
-          product.categoryId = "5ee2322e57a2c453680237cc";
-        case "coffee":
-          product.categoryId = "5ee2325157a2c453680237cd";
-      }
+
       console.log(product, "addddddddd");
       await this.props.addProduct(product);
       this.props.history.replace("/seller");

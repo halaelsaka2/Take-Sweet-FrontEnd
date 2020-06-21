@@ -6,8 +6,8 @@ const initialState = {
   sortList: [],
   categoryList: [],
   imageSrc: "",
-  product: {}
-
+  product: {},
+  editedProduct: "",
 };
 
 export default (state = initialState, action) => {
@@ -19,14 +19,16 @@ export default (state = initialState, action) => {
         productsList: action.productsList,
       };
     case actionTypes.ADD_PRODUCT:
-      const productsList = [...state.productsList, action.product]
+      const productsList = [...state.productsList, action.product];
       console.log(productsList, "in Addproduct Reducer");
       return {
         ...state,
-        productsList
+        productsList,
       };
     case actionTypes.DELETE_PRODUCT:
-      const newproductsList = state.productsList.filter((product) => product.id !== action.product.id)
+      const newproductsList = state.productsList.filter(
+        (product) => product.id !== action.product.id
+      );
       return {
         ...state,
         productsList: newproductsList,
@@ -34,7 +36,7 @@ export default (state = initialState, action) => {
     case actionTypes.EDIT_PRODUCT:
       return {
         ...state,
-        productsList: action.newproducts,
+        editedProduct: action.product,
       };
     case actionTypes.GET_PRODUCT_BY_ID:
       return {
@@ -42,13 +44,15 @@ export default (state = initialState, action) => {
         product: action.product,
       };
     case actionTypes.EDIT_Amount:
-      const oldproduct = state.productsList.find((product) => product.id === action.product.id)
-      const index = state.productsList.indexOf(oldproduct)
-      const productList = [...state.productsList]
-      productList[index]=action.product;
+      const oldproduct = state.productsList.find(
+        (product) => product.id === action.product.id
+      );
+      const index = state.productsList.indexOf(oldproduct);
+      const productList = [...state.productsList];
+      productList[index] = action.product;
       return {
         ...state,
-        productsList:productList
+        productsList: productList,
       };
 
     case actionTypes.UPLOAD_IMAGE:

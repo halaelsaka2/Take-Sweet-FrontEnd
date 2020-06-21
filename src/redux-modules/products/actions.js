@@ -38,15 +38,15 @@ export const addProductRes = (product) => {
   return { type: ADD_PRODUCT, product };
 };
 
-export const editProduct = (id, product) => {
+export const editProduct = (id, newproduct) => {
   return async (dispatch) => {
-    const { newproducts } = await productsDB.updateProduct(id, product);
-    dispatch(editProductRes({ newproducts }));
+    const { product } = await productsDB.updateProduct(id, newproduct);
+    dispatch(editProductRes({ product }));
   };
 };
 
-export const editProductRes = (newproducts) => {
-  return { type: EDIT_PRODUCT, newproducts };
+export const editProductRes = (product) => {
+  return { type: EDIT_PRODUCT, product };
 };
 export const editAmount = (product) => {
   return { type: EDIT_Amount, product };
