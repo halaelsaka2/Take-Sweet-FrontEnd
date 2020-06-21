@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
 import ProductsSection from "../../components/ProductsSection";
-import { description } from "./dumy";
+import { description, sortByList } from "./dumy";
 import { connect } from "react-redux";
 import HistoryIcon from "../../components/HistoryIcon";
 import ShoppingCart from "../../components/ShoppingCart";
@@ -21,6 +21,8 @@ class BrandsPage extends Component {
     sortDropDownStatus: false,
     productsPerPage: 9,
     currentPage: 1,
+    category: "Category",
+    sort: "Sort with",
   };
   paginate = (currentPage) => {
     if (
@@ -31,10 +33,33 @@ class BrandsPage extends Component {
       this.setState({ currentPage });
     }
   };
-  dropDownHandler = (name) => {
-    this.setState({
-      [name]: !this.state[name],
-    });
+  sortDropdownIsOpenHandle = (event) => {
+    let sortDropDownStatus = this.state.sortDropDownStatus;
+    sortDropDownStatus = !sortDropDownStatus;
+    this.setState({ sortDropDownStatus });
+  };
+
+  categoryDropdownIsOpenHandle = (event) => {
+    let categoryDropDownStatus = this.state.categoryDropDownStatus;
+    categoryDropDownStatus = !categoryDropDownStatus;
+    console.log("categoryyyyy");
+    this.setState({ categoryDropDownStatus });
+  };
+
+  selectSortHandle = (event, id) => {
+    let sort = this.state.sort;
+    let sortDropDownStatus = this.state.sortDropDownStatus;
+    sort = event.target.textContent;
+    sortDropDownStatus = !sortDropDownStatus;
+    this.setState({ sort, sortDropDownStatus });
+  };
+
+  selectCategoryHandle = (event, id) => {
+    let category = this.state.category;
+    let categoryDropDownStatus = this.state.categoryDropDownStatus;
+    category = event.target.textContent;
+    categoryDropDownStatus = !categoryDropDownStatus;
+    this.setState({ category, categoryDropDownStatus });
   };
 
   componentDidMount() {
@@ -46,8 +71,11 @@ class BrandsPage extends Component {
 
   render() {
     const {
-      dropDownHandler,
-      state: { categoryDropDownStatus, sortDropDownStatus },
+      sortDropdownIsOpenHandle,
+      categoryDropdownIsOpenHandle,
+      selectSortHandle,
+      selectCategoryHandle,
+      state: { categoryDropDownStatus, sortDropDownStatus, category, sort },
     } = this;
     const {
       isShoppingIconHidden,
@@ -88,17 +116,22 @@ class BrandsPage extends Component {
           />
         )}
         <ProductsSection
+          category={category}
+          sort={sort}
           paginate={this.paginate}
           productsPerPage={this.state.productsPerPage}
           currentPage={this.state.currentPage}
           productsList={this.props.companyList}
           categoryList={this.props.categoryList}
-          sortList={this.props.sortList}
+          sortList={sortByList}
           description={description}
           type={"Brands"}
           sortDropDownStatus={sortDropDownStatus}
           categoryDropDownStatus={categoryDropDownStatus}
-          dropDownHandler={dropDownHandler}
+          categoryDropdownIsOpenHandle={categoryDropdownIsOpenHandle}
+          sortDropdownIsOpenHandle={sortDropdownIsOpenHandle}
+          selectSortHandle={selectSortHandle}
+          selectCategoryHandle={selectCategoryHandle}
           addToCart={addToCart}
         />
         <Footer />

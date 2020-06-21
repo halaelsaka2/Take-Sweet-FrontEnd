@@ -14,4 +14,10 @@ export const getCategoryList = () =>
 
 export const sortByList = ["Name", "Price"];
 
-export const category = ["Bakery", "Pastery", "Coffee"];
+export const category = [{
+  id: 0,
+  name: "Bakery"
+}, {
+  id: 1,
+  name: "Pastery"
+}];

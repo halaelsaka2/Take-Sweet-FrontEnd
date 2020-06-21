@@ -20,13 +20,18 @@ const ProductsSection = ({
   categoryList,
   type,
   description,
-  dropDownHandler,
   categoryDropDownStatus,
   sortDropDownStatus,
   addToCart,
   plusHandler,
   minusHandler,
   amountHandler,
+  sortDropdownIsOpenHandle,
+  categoryDropdownIsOpenHandle,
+  selectSortHandle,
+  selectCategoryHandle,
+  category,
+  sort,
 }) => {
   const firstIndex = (currentPage - 1) * productsPerPage;
   const lastIndex = firstIndex + productsPerPage;
@@ -46,18 +51,22 @@ const ProductsSection = ({
         <div className="tabs-containera">
           <div style={{ position: "relative" }}>
             <DropDown
-              listItems={sortList}
-              Header={"sortBy"}
-              dropDownHandler={dropDownHandler}
-              status={sortDropDownStatus}
+              listItems={sortList.map((sort) => sort.name)}
+              Header={sort}
+              IsOpenHandle={sortDropdownIsOpenHandle}
+              isOpened={sortDropDownStatus}
+              selectionHandle={selectSortHandle}
+              idList={sortList.map((sort) => sort.id)}
             ></DropDown>
           </div>
           <div style={{ position: "relative" }}>
             <DropDown
-              listItems={categoryList}
-              dropDownHandler={dropDownHandler}
-              status={categoryDropDownStatus}
-              Header={"Category"}
+              listItems={categoryList.map((category) => category.name)}
+              IsOpenHandle={categoryDropdownIsOpenHandle}
+              isOpened={categoryDropDownStatus}
+              Header={category}
+              selectionHandle={selectCategoryHandle}
+              idList={categoryList.map((category) => category.id)}
             ></DropDown>
           </div>
           <Search></Search>

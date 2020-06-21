@@ -19,14 +19,7 @@ export const products = [{
 ];
 
 export const sortByList = [
-  "ahmed",
-  "ahmed",
-  "ahmed",
-  "ahmed",
-  "ahmed",
-  "ahmed",
-  "ahmed",
-  "ahmed",
+  {id:0,name:"name"},
 ];
 
 export const category = [
