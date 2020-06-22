@@ -1,33 +1,35 @@
 const constants = {
   tabs: ["Add Product"],
   currentTabe: 0,
-  countItems: [{
+  countItems: [
+    {
       label: "Avalialbe Amount",
       unit: "Pieces",
-      name: "availableAmount"
+      name: "availableAmount",
     },
     {
       label: "Minimum Pieces",
       unit: "Pieces",
-      name: "minPieces"
+      name: "minPieces",
     },
     {
       label: "Price",
       unit: "EGY/Piece",
-      name: "price"
+      name: "price",
     },
   ],
-  categories: [{
+  categories: [
+    {
       id: 1,
-      name: "pastry"
+      name: "Pastry",
     },
     {
       id: 2,
-      name: "bakery"
+      name: "Bakery",
     },
     {
       id: 3,
-      name: "coffee"
+      name: "Coffee",
     },
   ],
 };

@@ -25,7 +25,7 @@ class BuyerPage extends Component {
   state = {
     categoryDropDownStatus: false,
     sortDropDownStatus: false,
-    productsPerPage: 9,
+    productsPerPage: 6,
     currentPage: 1,
     amount: 0,
     category: "Category",
@@ -66,7 +66,7 @@ class BuyerPage extends Component {
       const newproduct = { ...oldproduct, amount };
       this.props.getAmout(newproduct);
     } else {
-      if (oldproduct.amount !== 10) {
+      if (oldproduct.amount !== oldproduct.minPieces) {
         const amount = oldproduct.amount - 1;
         const newproduct = { ...oldproduct, amount };
         this.props.getAmout(newproduct);

@@ -16,7 +16,7 @@ class ProductsPage extends Component {
   state = {
     categoryDropDownStatus: false,
     sortDropDownStatus: false,
-    productsPerPage: 9,
+    productsPerPage: 6,
     currentPage: 1,
     category: "Category",
     sort: "Sort with",

@@ -17,7 +17,7 @@ const ProductCard = ({
   return (
     <div className={`product-card ${className}`}>
       <div className="product-card__img">
-        <img className="product-card__img" src={"/" + productImg} />
+        <img className="product-card__img" src={productImg} />
       </div>
       <div className="product-card__text ">
         <div className="product-card__text__header">{productName}</div>
