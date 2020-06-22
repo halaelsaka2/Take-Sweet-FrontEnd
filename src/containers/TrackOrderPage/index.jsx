@@ -7,6 +7,7 @@ import {
   getAllOrders,
   deleteOrder,
   getAllOrdersByUserId,
+  getAllOrdersByCompanyId,
 } from "../../redux-modules/orders/actions";
 
 class TrackOrder extends Component {
@@ -21,11 +22,17 @@ class TrackOrder extends Component {
 
   async componentDidMount() {
     let user = JSON.parse(localStorage.getItem("user"));
-    console.log(this.props.orders);
-    await this.props.getAllOrdersByUserId(user.id);
-    console.log(this.props.orders);
     const statusorders = this.props.orders;
-    console.log(user, "mennnnnnnnnnnnnaaaaaaaaaaa");
+    console.log(user.roleId.name, "llllllllllllllllllllllllllllll");
+
+    if (user.roleId.name === "Cafe") {
+      console.log("cafeeeeee");
+      await this.props.getAllOrdersByUserId(user.id);
+    } else {
+      console.log("companyyyyyy");
+      await this.props.getAllOrdersByCompanyId(user.id);
+    }
+    console.log(statusorders, "mennnnnnnnnnnnnaaaaaaaaaaa");
     if (user) {
       this.setState({
         userName: user.userName,
@@ -108,6 +115,7 @@ const mapDispatchToProps = (dispatch) => {
     getAllOrders: () => dispatch(getAllOrders()),
     deleteOrder: (id) => dispatch(deleteOrder(id)),
     getAllOrdersByUserId: (id) => dispatch(getAllOrdersByUserId(id)),
+    getAllOrdersByCompanyId: (id) => dispatch(getAllOrdersByCompanyId(id)),
   };
 };
 const mapStateToProps = (state) => {

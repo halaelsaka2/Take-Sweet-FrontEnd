@@ -7,6 +7,19 @@ export async function GetAllByUserId(id) {
     .get(`${orderEndPoint}${id}`)
     .catch((err) => console.log(err.response.data));
   if (response) {
+    // console.log(response.data, "dataaaaaaaaaaaaaa");
+
+    return response.data;
+  }
+}
+
+export async function GetAllByCompanyId(id) {
+  const response = await axios
+    .get(`${orderEndPoint}orders/${id}`)
+    .catch((err) => console.log(err.response.data));
+  if (response) {
+    console.log(response.data, "dataaaaaaaaaaaaaa");
+
     return response.data;
   }
 }
