@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 const Bestcompanies = ({ companies }) => (
   <React.Fragment>
-    <div className="bestContainer__header">Our Best Sellers</div>
+    <div className="bestContainer__header">Best Brands</div>
     <div className="text-container">
       Whether you are looking for the perfect cake for a celebration, browsing
       breakfast ideas on searching for catering options for large meetings or

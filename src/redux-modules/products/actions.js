@@ -1,6 +1,9 @@
 import * as productsHandler from "./api.mock";
 
-import { uploadImageFile, addNewProduct } from "./api";
+import {
+  uploadImageFile,
+  addNewProduct
+} from "./api";
 import * as productsDB from "./api";
 import {
   GET_ALL_PRODUCTS,
@@ -11,7 +14,7 @@ import {
   UPLOAD_IMAGE,
   EDIT_Amount,
   GET_DEALS,
-  Edit_DEALS
+  EDIT_DEALS
 } from "./constants";
 
 export const getAllProductsByUserIdRes = (productsList) => {
@@ -20,9 +23,9 @@ export const getAllProductsByUserIdRes = (productsList) => {
     productsList,
   };
 };
-export const getAllProductsByUserId = (id,search,categoryId,sortBy) => {
+export const getAllProductsByUserId = (id, search, categoryId, sortBy) => {
   return async (dispatch) => {
-    const productsList = await productsDB.getAllProductsByUserId(id,search,categoryId,sortBy);
+    const productsList = await productsDB.getAllProductsByUserId(id, search, categoryId, sortBy);
     dispatch(getAllProductsByUserIdRes(productsList));
   };
 };
@@ -36,21 +39,34 @@ export const addProduct = (product) => {
 };
 
 export const addProductRes = (product) => {
-  return { type: ADD_PRODUCT, product };
+  return {
+    type: ADD_PRODUCT,
+    product
+  };
 };
 
 export const editProduct = (id, newproduct) => {
   return async (dispatch) => {
-    const { product } = await productsDB.updateProduct(id, newproduct);
-    dispatch(editProductRes({ product }));
+    const {
+      product
+    } = await productsDB.updateProduct(id, newproduct);
+    dispatch(editProductRes({
+      product
+    }));
   };
 };
 
 export const editProductRes = (product) => {
-  return { type: EDIT_PRODUCT, product };
+  return {
+    type: EDIT_PRODUCT,
+    product
+  };
 };
 export const editAmount = (product) => {
-  return { type: EDIT_Amount, product };
+  return {
+    type: EDIT_Amount,
+    product
+  };
 };
 export const deleteProduct = (id) => {
   return async (dispatch) => {
@@ -59,7 +75,10 @@ export const deleteProduct = (id) => {
   };
 };
 export const deleteProductRes = (product) => {
-  return { type: DELETE_PRODUCT, product };
+  return {
+    type: DELETE_PRODUCT,
+    product
+  };
 };
 
 export const getPorductById = (id) => {
@@ -91,7 +110,9 @@ export const getDealsProductsRes = (dealsProductsList) => {
 
 export const uploadImage = (image) => {
   return async (dispatch) => {
-    const { imageUrl } = await uploadImageFile(image);
+    const {
+      imageUrl
+    } = await uploadImageFile(image);
     // console.log(imageUrl);
     dispatch(uploadImageRes(imageUrl));
   };
@@ -108,11 +129,21 @@ export const uploadImageRes = (imageSrc) => {
 
 export const editDealProduct = (id, newproduct) => {
   return async (dispatch) => {
-    const { product } = await productsDB.updateProduct(id, newproduct);
-    dispatch(editDealProductRes({ product }));
+    console.log(id, "id from action")
+    const {
+      product
+    } = await productsDB.updateProduct(id, newproduct);
+    console.log(product, " in dispatch")
+    dispatch(editDealProductRes(
+      product
+    ));
+
   };
 };
 
 export const editDealProductRes = (product) => {
-  return { type: Edit_DEALS, product };
+  return {
+    type: EDIT_DEALS,
+    product
+  };
 };

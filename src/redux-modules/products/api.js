@@ -68,6 +68,7 @@ export const updateProduct = async (id, product) => {
       Authorization: token,
     },
   });
+  console.log(id,"id in api")
   return data;
 };
 
@@ -80,5 +81,6 @@ export const getDealsProducts = async (id) => {
       Authorization: token,
     },
   });
+  console.log(id,"id in api")
   return data;
 };

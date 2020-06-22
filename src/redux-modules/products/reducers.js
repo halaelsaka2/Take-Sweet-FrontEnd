@@ -59,13 +59,17 @@ export default (state = initialState, action) => {
         productsList: productList,
       };
 
-    case actionTypes.Edit_DEALS:
+    case actionTypes.EDIT_DEALS:
       const oldDeal = state.dealsProductsList.find(
-        (product) => product.id === action.product.id
+        product => product.id === action.product.id
       );
+      let dealsProductsList = [...state.dealsProductsList];
+      dealsProductsList.push(oldDeal)
       const dealIndex = state.dealsProductsList.indexOf(oldDeal);
-      const dealsProductsList = [...state.dealsProductsList];
-      dealsProductsList.pop(dealIndex)
+      dealsProductsList = dealsProductsList.filter(dealItem => dealItem !== dealsProductsList[dealIndex])
+
+      // console.log(dealsProductsList, "y alaah")
+      // dealsProductsList.pop(dealIndex)
 
       const oldDealproduct = state.productsList.find(
         (product) => product.id === action.product.id

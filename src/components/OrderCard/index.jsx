@@ -94,7 +94,7 @@ const OrderCard = ({
                   onClick={() => onCancel(id)}
                 />
               )}
-              <Link to="/user-history">Show more</Link>
+              {/* <Link to="/user-history">Show more</Link> */}
             </React.Fragment>
           )}
         </div>
