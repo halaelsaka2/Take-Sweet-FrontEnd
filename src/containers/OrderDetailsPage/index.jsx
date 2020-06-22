@@ -94,10 +94,10 @@ class OrderDetailsPage extends Component {
     const newOrder = this.state.order;
     console.log(newOrder);
     this.props.addNewOrder(newOrder);
+    this.props.cancelHandle(id);
     let shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
     shoppingBagList = shoppingBagList.filter((m) => m.company.id !== id);
     localStorage.setItem("shoppingBagList", JSON.stringify(shoppingBagList));
-    this.setState({});
   };
 
   handleCancel = () => {

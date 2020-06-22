@@ -32,7 +32,7 @@ export default (state = initialState, action) => {
 
     case actionTypes.ADD_ORDER:
       const addOrder = action.payload;
-      console.log(addOrder)
+      console.log(addOrder);
       return { ...state, addOrder };
 
     case actionTypes.DELETE_ORDER:
@@ -41,13 +41,13 @@ export default (state = initialState, action) => {
       console.log(allOrders);
       return { ...state, allOrders };
 
-    // case actionTypes.DELETE_ORDER_FROM_CART:
-    //   id = action.payload;
-    //   shoppingBagList = state.shoppingBagList.filter(
-    //     (order) => order.company.id !== id
-    //   );
-    //   console.log(allOrders);
-    //   return { ...state, allOrders };
+    case actionTypes.DELETE_ORDER_FROM_CART:
+      id = action.payload;
+      shoppingBagList = state.shoppingBagList.filter(
+        (order) => order.company.id !== id
+      );
+      console.log(shoppingBagList);
+      return { ...state, shoppingBagList };
 
     case actionTypes.ADD_TO_CART:
       const addedProduct = action.payload;
