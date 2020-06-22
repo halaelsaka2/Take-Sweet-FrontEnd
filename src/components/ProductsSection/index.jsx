@@ -32,7 +32,7 @@ const ProductsSection = ({
   selectCategoryHandle,
   category,
   sort,
-  searchHandler
+  searchHandler,
 }) => {
   console.log(productsList, "prodct list");
 
@@ -93,6 +93,7 @@ const ProductsSection = ({
                   id={item.id}
                   amount={item.amount}
                   amountHandler={amountHandler}
+                  onSaleStyle={item.onSale}
                 ></ProductItem>
               ))}
             </div>

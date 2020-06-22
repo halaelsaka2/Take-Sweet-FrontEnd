@@ -27,7 +27,10 @@ const ProductsSellerSection = ({
   sort,
   deleteHandle,
   Type,
-  isCompany
+  isCompany,
+  onSaleStyle,
+  isDeal,
+  onSaleHandle,
 }) => {
   const firstIndex = (currentPage - 1) * productsPerPage;
   const lastIndex = firstIndex + productsPerPage;
@@ -70,13 +73,18 @@ const ProductsSellerSection = ({
             console.log(item);
             return (
               <ProductItem
-               deleteHandle={deleteHandle}
+                item={item}
+                deleteHandle={deleteHandle}
                 id={item.id}
                 name={item.name}
                 src={item.imageSrc}
                 amount={item.amount}
                 Type={"seller"}
-                isCompany
+                isCompany={isCompany}
+                onSaleStyle={onSaleStyle}
+                isDeal={isDeal}
+                onSaleHandle={onSaleHandle}
+                onSale={item.onSale}
               ></ProductItem>
             );
           })}
