@@ -22,8 +22,8 @@ const Input = ({
       id={id}
       name={name}
       placeholder={placeholder}
-      checked={checked}
       defaultChecked={defaultChecked}
+      checked={checked}
     />
   </React.Fragment>
 );
