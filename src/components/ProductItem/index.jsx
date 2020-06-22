@@ -99,6 +99,7 @@ const ProductItem = ({
               <Input
                 type={"checkbox"}
                 defaultChecked={onSale}
+                checked={onSale}
                 onChange={(event) => onSaleHandle(event, item)}
               />
               <span>On Sale</span>

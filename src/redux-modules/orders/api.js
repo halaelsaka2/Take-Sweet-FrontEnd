@@ -26,9 +26,10 @@ export async function GetAllByCompanyId(id) {
 
 export async function AddOrder(newOrder) {
   const token = JSON.parse(localStorage.getItem("token"));
-  return axios.post(`${orderEndPoint}addOrder`, newOrder, {
+  const addOrder = await axios.post(`${orderEndPoint}addOrder`, newOrder, {
     headers: {
       authorization: token,
     },
   });
+  return addOrder;
 }

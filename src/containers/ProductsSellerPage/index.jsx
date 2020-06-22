@@ -93,6 +93,7 @@ class ProductsPage extends Component {
     console.log(item);
     console.log(item.categoryId);
     this.props.editProduct(id, item);
+    this.setState({});
     // console.log(this.props.dealsProductsList);
   };
   render() {
