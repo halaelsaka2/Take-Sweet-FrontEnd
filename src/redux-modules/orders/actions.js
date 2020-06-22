@@ -10,6 +10,7 @@ import {
   DELETE_ORDER,
   ADD_ORDER,
   GET_ALL_ORDERS_BY_USER_ID,
+  GET_ALL_ORDERS_BY_COMPANY_ID,
 } from "./../orders/constants";
 ///////////////////////////////////////////////////
 //////////////// GETALL  ////////////////////////
@@ -28,7 +29,7 @@ const getAllOrdersRes = (orders) => {
 };
 
 ///////////////////////////////////////////////////
-//////////////// GETALLOrdersByUserId  ////////////////////////
+//////////////// GETALLOrdersByUserId  ////////////
 export const getAllOrdersByUserId = (id) => {
   return async (dispatch) => {
     const data = await orderDB.GetAllByUserId(id);
@@ -39,6 +40,22 @@ export const getAllOrdersByUserId = (id) => {
 const getAllOrdersByUserIdRes = (orders) => {
   return {
     type: GET_ALL_ORDERS_BY_USER_ID,
+    payload: orders,
+  };
+};
+
+//////////////////////////////////////////////////////
+////////////////GETALLOrdersByCompanyId  //////////////
+export const getAllOrdersByCompanyId = (id) => {
+  return async (dispatch) => {
+    const data = await orderDB.GetAllByCompanyId(id);
+    dispatch(getAllOrdersByCompanyIdRes(data));
+  };
+};
+
+const getAllOrdersByCompanyIdRes = (orders) => {
+  return {
+    type: GET_ALL_ORDERS_BY_COMPANY_ID,
     payload: orders,
   };
 };

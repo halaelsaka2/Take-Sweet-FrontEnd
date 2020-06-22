@@ -14,10 +14,18 @@ export default (state = initialState, action) => {
   let id;
 
   switch (action.type) {
-    // case actionTypes.GET_ALL_ORDERS:
-    //   return { ...state, allOrders: action.payload };
-    //   break;
+    case actionTypes.GET_ALL_ORDERS:
+      return { ...state, allOrders: action.payload };
+      break;
     case actionTypes.GET_ALL_ORDERS_BY_USER_ID:
+      console.log(action.payload, "halllllllllllllllla111");
+      return {
+        ...state,
+        allOrders: action.payload,
+      };
+
+    case actionTypes.GET_ALL_ORDERS_BY_COMPANY_ID:
+      console.log(action.payload, "halllllllllllllllla222");
       return {
         ...state,
         allOrders: action.payload,
@@ -33,7 +41,7 @@ export default (state = initialState, action) => {
       console.log("errorrrrrrrrrrrrrrrrrrrrrrrrrrr", action.payload);
 
       allOrders = state.allOrders;
-      // allOrders.push(action.payload);
+      allOrders.push(action.payload);
       return { ...state, allOrders };
 
     case actionTypes.DELETE_ORDER:
