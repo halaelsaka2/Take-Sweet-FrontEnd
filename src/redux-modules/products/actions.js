@@ -76,9 +76,9 @@ export const getProductByIdRes = (product) => {
 };
 
 
-export const getDealsProducts = () => {
+export const getDealsProducts = (id) => {
   return async (dispatch) => {
-    const dealsProductsList = await productsDB.getDealsProducts();
+    const dealsProductsList = await productsDB.getDealsProducts(id);
     dispatch(getDealsProductsRes(dealsProductsList));
   };
 };

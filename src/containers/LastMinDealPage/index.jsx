@@ -32,9 +32,10 @@ class LastMinDealPage extends Component {
     // const id = this.props.match.params.id;
     // console.log(this.props.match, "inbuyerPage");
     // await this.props.getAllProductsByUserId(id);
+    const id = JSON.parse(localStorage.getItem("user")).id;
     await this.props.getCategoryList();
     await this.props.getSortList();
-    await this.props.getDealsProducts();
+    await this.props.getDealsProducts(id);
   };
 
   paginate = (currentPage) => {
@@ -82,6 +83,11 @@ class LastMinDealPage extends Component {
     item.categoryId = item.categoryId.id;
     item.userId = item.userId.id;
     item.onSale = !item.onSale;
+    if (item.onSale === true) {
+      item.price = item.price / 2;
+    } else {
+      item.price = item.price * 2;
+    }
     console.log(item);
     console.log(item.categoryId);
     this.props.editDealProduct(id, item);
@@ -186,7 +192,7 @@ const mapDispatchToProps = (dispatch) => {
     //   getAllProductsByUserId: (id) => dispatch(getAllProductsByUserId(id)),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
-    getDealsProducts: () => dispatch(getDealsProducts()),
+    getDealsProducts: (id) => dispatch(getDealsProducts(id)),
     editDealProduct: (id, editedProduct) =>
       dispatch(editDealProduct(id, editedProduct)),
     //   getProductById: (id) => dispatch(getPorductById(id)),

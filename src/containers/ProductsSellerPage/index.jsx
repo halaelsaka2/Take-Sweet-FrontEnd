@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { sortByList } from "./dumy";
-
 import {
   getAllProductsByUserId,
   deleteProduct,
+  editProduct,
 } from "../../redux-modules/products/actions";
-
 import {
   getSortList,
   getCategoryList,
@@ -21,10 +20,12 @@ class ProductsPage extends Component {
     currentPage: 1,
     category: "Category",
     sort: "Sort with",
+    categoryId: "",
+    sortBy: "",
+    searchValue: "",
+    onSaleStyle: false,
     isCompany: true,
-    categoryId:"",
-    sortBy:"",
-    searchValue:""
+    isDeal: true,
   };
   paginate = (currentPage) => {
     if (
@@ -37,10 +38,10 @@ class ProductsPage extends Component {
   };
 
   componentDidMount() {
-    const {searchValue,categoryId,sortBy}=this.state
+    const { searchValue, categoryId, sortBy } = this.state;
     console.log("This.props: ", this.props);
     const id = JSON.parse(localStorage.getItem("user")).id;
-    this.props.getAllProductsByUserId(id,searchValue,categoryId,sortBy);
+    this.props.getAllProductsByUserId(id, searchValue, categoryId, sortBy);
     this.props.getSortList();
     this.props.getCategoryList();
   }
@@ -77,18 +78,38 @@ class ProductsPage extends Component {
     event.preventDefault();
     const product = await this.props.deleteHandle(id);
   };
+
+  onSaleHandle = (event, item) => {
+    // console.log(event.target, item);
+    const { id } = item;
+    item.categoryId = item.categoryId.id;
+    item.userId = item.userId.id;
+    item.onSale = !item.onSale;
+    if (item.onSale === true) {
+      item.price = item.price / 2;
+    } else {
+      item.price = item.price * 2;
+    }
+    console.log(item);
+    console.log(item.categoryId);
+    this.props.editProduct(id, item);
+    // console.log(this.props.dealsProductsList);
+  };
   render() {
     const {
       sortDropdownIsOpenHandle,
       categoryDropdownIsOpenHandle,
       selectSortHandle,
       selectCategoryHandle,
+      onSaleHandle,
       state: {
         categoryDropDownStatus,
         sortDropDownStatus,
         category,
         sort,
+        onSaleStyle,
         isCompany,
+        isDeal,
       },
     } = this;
     return (
@@ -113,6 +134,9 @@ class ProductsPage extends Component {
         selectCategoryHandle={selectCategoryHandle}
         type={"seller"}
         isCompany={isCompany}
+        onSaleStyle={onSaleStyle}
+        isDeal={isDeal}
+        onSaleHandle={onSaleHandle}
       ></ProductsSellerSection>
     );
   }
@@ -129,10 +153,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     // getAllProducts: () => dispatch(getAllProducts()),
-    getAllProductsByUserId: (id,search,categotyId,sortBy) => dispatch(getAllProductsByUserId(id,search,categotyId,sortBy)),
+    getAllProductsByUserId: (id, search, categotyId, sortBy) =>
+      dispatch(getAllProductsByUserId(id, search, categotyId, sortBy)),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
     deleteHandle: (id) => dispatch(deleteProduct(id)),
+    editProduct: (id, editedProduct) =>
+      dispatch(editProduct(id, editedProduct)),
   };
 };
 
