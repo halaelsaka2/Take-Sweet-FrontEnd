@@ -281,6 +281,7 @@ class Profile extends Component {
       cancelPaymentTypeModal,
       openPaymentModal,
     } = this;
+    console.log(role);
     return (
       <React.Fragment>
         {isPersonalInfoModalOpen && (
@@ -391,9 +392,31 @@ class Profile extends Component {
               />
             </ModalSection>
           )}
-          <div className="project-container project-container--h">
-            <BestSection products={products} />
-          </div>
+
+          {role === "Company" && (
+            <div className="project-container project-container--h">
+              <BestSection products={products} />
+            </div>
+          )}
+
+          {role === "Cafe" && (
+            <div className="project-container project-container--h">
+              <BestSection
+                companies={[
+                  { src: "assets/images/ElAbd.jpg" },
+                  {
+                    src: "assets/images/dd.jpg",
+                  },
+                  {
+                    src: "assets/images/royal.jpg",
+                  },
+                  {
+                    src: "assets/images/logo.png",
+                  },
+                ]}
+              />
+            </div>
+          )}
         </Container>
         <Footer />
       </React.Fragment>
