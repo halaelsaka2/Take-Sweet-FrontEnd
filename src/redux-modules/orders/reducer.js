@@ -16,7 +16,9 @@ export default (state = initialState, action) => {
 
   switch (action.type) {
     case actionTypes.GET_ALL_ORDERS:
-      return { ...state, allOrders: action.payload };
+      return {
+        ...state, allOrders: action.payload
+      };
       break;
     case actionTypes.GET_ALL_ORDERS_BY_USER_ID:
       console.log(action.payload, "halllllllllllllllla111");
@@ -31,24 +33,47 @@ export default (state = initialState, action) => {
         ...state,
         allOrders: action.payload,
       };
+    case actionTypes.UPDATE_ORDER:
+      console.log(action.payload, "updated order");
+      // const allOrders=
+      console.log(action.payload,"actionpayloooood");
+      
+      const oldOrder = state.allOrders.find(order => order.id === action.payload.id);
+      console.log(oldOrder,"olllllllllld");
+      
+      const index = state.allOrders.indexOf(oldOrder);
+      console.log(index,"indexxxx");
+      
+      const newAllOrder = [...state.allOrders];
+      newAllOrder[index]=action.payload;
+      console.log(newAllOrder,"newAlloderdeerrs");
+      
+      return {
+        ...state,
+        allOrders: newAllOrder,
+      };
 
-    // case actionTypes.GET_ODER_BY_ID:
-    //   const order = state.allOrders.find(
-    //     (order) => order.id === action.payload
-    //   );
-    //   return { ...state, order };
+      // case actionTypes.GET_ODER_BY_ID:
+      //   const order = state.allOrders.find(
+      //     (order) => order.id === action.payload
+      //   );
+      //   return { ...state, order };
 
     case actionTypes.ADD_ORDER:
 
       const addOrder = action.payload;
       console.log(addOrder);
-      return { ...state, addOrder };
+      return {
+        ...state, addOrder
+      };
 
     case actionTypes.DELETE_ORDER:
       id = action.payload;
       allOrders = state.allOrders.filter((order) => order.id !== id);
       console.log(allOrders);
-      return { ...state, allOrders };
+      return {
+        ...state, allOrders
+      };
 
     case actionTypes.DELETE_ORDER_FROM_CART:
       id = action.payload;
@@ -56,7 +81,9 @@ export default (state = initialState, action) => {
         (order) => order.company.id !== id
       );
       console.log(shoppingBagList);
-      return { ...state, shoppingBagList };
+      return {
+        ...state, shoppingBagList
+      };
 
     case actionTypes.ADD_TO_CART:
       const addedProduct = action.payload;

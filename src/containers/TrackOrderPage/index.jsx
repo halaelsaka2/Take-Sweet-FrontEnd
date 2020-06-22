@@ -8,6 +8,7 @@ import {
   deleteOrder,
   getAllOrdersByUserId,
   getAllOrdersByCompanyId,
+  updateOrder,
 } from "../../redux-modules/orders/actions";
 
 class TrackOrder extends Component {
@@ -19,10 +20,25 @@ class TrackOrder extends Component {
     statusorders: [],
     role: "",
   };
-
+  componentDidUpdate = async (prevProps) => {
+    if (this.props.orders !== prevProps.orders) {
+      console.log(this.props.orders);
+      let user = JSON.parse(localStorage.getItem("user"));
+      console.log(user.roleId.name, "llllllllllllllllllllllllllllll");
+      if (user.roleId.name === "Cafe") {
+        console.log("cafeeeeee");
+        await this.props.getAllOrdersByUserId(user.id);
+      } else {
+        console.log("companyyyyyy");
+        await this.props.getAllOrdersByCompanyId(user.id);
+      }
+      
+      this.setState({ statusorders: this.props.orders });
+    }
+  };
+  
   async componentDidMount() {
     let user = JSON.parse(localStorage.getItem("user"));
-    const statusorders = this.props.orders;
     console.log(user.roleId.name, "llllllllllllllllllllllllllllll");
 
     if (user.roleId.name === "Cafe") {
@@ -32,6 +48,8 @@ class TrackOrder extends Component {
       console.log("companyyyyyy");
       await this.props.getAllOrdersByCompanyId(user.id);
     }
+    const statusorders = this.props.orders;
+
     console.log(statusorders, "mennnnnnnnnnnnnaaaaaaaaaaa");
     if (user) {
       this.setState({
@@ -59,14 +77,17 @@ class TrackOrder extends Component {
     this.props.deleteOrder(id);
   };
 
-  handleStatusChange = (event) => {
-    const orders = this.props.orders;
-    console.log(orders, "3andi");
-    let statusorders = orders;
-    // if (currentTabe !== 0) {
-    //   statusorders = orders.filter((order) => order.status === );
-    // }
-    console.log(event.target.value, "mmmmmmmmmmmmmm");
+  handleStatusChange = (event, id) => {
+    const order = this.props.orders.find((order) => order.id === id);
+    const status = event.target.name;
+    const updatedOrder = { ...order, status };
+    this.props.updateHandler(id, updatedOrder);
+    // console.log(orders, "3andi");
+    // let statusorders = orders;
+    // // if (currentTabe !== 0) {
+    // //   statusorders = orders.filter((order) => order.status === );
+    // // }
+    // console.log(event.target.value, "mmmmmmmmmmmmmm");
   };
 
   paginate = (currentPage) => {
@@ -116,6 +137,7 @@ const mapDispatchToProps = (dispatch) => {
     deleteOrder: (id) => dispatch(deleteOrder(id)),
     getAllOrdersByUserId: (id) => dispatch(getAllOrdersByUserId(id)),
     getAllOrdersByCompanyId: (id) => dispatch(getAllOrdersByCompanyId(id)),
+    updateHandler: (id, order) => dispatch(updateOrder(id, order)),
   };
 };
 const mapStateToProps = (state) => {

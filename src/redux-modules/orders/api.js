@@ -33,3 +33,16 @@ export async function AddOrder(newOrder) {
   });
   return addOrder;
 }
+
+export async function updateOrder(id,updatedOrder) {
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  const {data} = await axios.patch(`${orderEndPoint}${id}`,updatedOrder, {
+    headers: {
+      authorization: token,
+    },
+  });
+  console.log(data.order,"dataaaa response");
+  
+  return data.order;
+}

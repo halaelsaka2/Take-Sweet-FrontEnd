@@ -93,8 +93,8 @@ class OrderDetailsPage extends Component {
     const id = this.props.match.params.id;
     const newOrder = this.state.order;
     console.log(newOrder);
-    this.props.addNewOrder(newOrder);
     this.props.cancelHandle(id);
+    this.props.addNewOrder(newOrder);
     let shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
     shoppingBagList = shoppingBagList.filter((m) => m.company.id !== id);
     localStorage.setItem("shoppingBagList", JSON.stringify(shoppingBagList));
