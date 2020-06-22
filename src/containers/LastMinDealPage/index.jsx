@@ -80,6 +80,7 @@ class LastMinDealPage extends Component {
   onSaleHandle = (event, item) => {
     // console.log(event.target, item);
     const { id } = item;
+    // console.log(id, "id from last miin pag");
     item.categoryId = item.categoryId.id;
     item.userId = item.userId.id;
     item.onSale = !item.onSale;
@@ -91,7 +92,8 @@ class LastMinDealPage extends Component {
     console.log(item);
     console.log(item.categoryId);
     this.props.editDealProduct(id, item);
-    // console.log(this.props.dealsProductsList);
+    console.log(this.props.dealsProductsList);
+    this.setState({});
   };
   render() {
     const {

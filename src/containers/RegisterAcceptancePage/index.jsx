@@ -11,8 +11,10 @@ import { getRoleById } from "../../redux-modules/role/actions";
 
 class RegisterAcceptancePage extends Component {
   componentDidUpdate = () => {
-    window.history.replaceState(null, null, "/");
-    this.props.history.push("/profile");
+    if (this.props.user.id) {
+      window.history.replaceState(null, null, "/");
+      this.props.history.push("/profile");
+    }
   };
   state = { checked: false };
   checkHandle = (event) => {
