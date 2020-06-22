@@ -74,6 +74,7 @@ class BuyerPage extends Component {
   };
 
   componentDidMount = async () => {
+
     const { categoryId, searchValue, sortBy } = this.state;
     const id = this.props.match.params.id;
     await this.props.getAllProductsByUserId(

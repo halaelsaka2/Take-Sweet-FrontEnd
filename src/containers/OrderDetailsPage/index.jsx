@@ -83,12 +83,13 @@ class OrderDetailsPage extends Component {
     const newOrder = this.state.order;
     console.log(newOrder);
     this.props.addNewOrder(newOrder);
-
+    // this.props.cancelHandle(id);
     let shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
+
     shoppingBagList = shoppingBagList.filter((m) => m.company.id !== id);
-    this.setState({});
     localStorage.setItem("shoppingBagList", JSON.stringify(shoppingBagList));
-    // this.props.history.push("/brands");
+    this.setState({});
+    this.props.history.push("/track-order");
   };
   handleCancel = () => {
     this.props.history.push("/buyer");

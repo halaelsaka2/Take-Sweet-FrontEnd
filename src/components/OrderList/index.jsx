@@ -15,13 +15,13 @@ const OrderList = ({
       <div className="order-container">
         {orders.map((order, index) => (
           <OrderCard
-            rows={order.rows}
+            rows={order.orderProducts}
             status={order.status}
             key={index}
             date={order.date}
             onReorder={onReorder}
             onCancel={handleCancelOrder}
-            companyLogoImgSrc={order.companyLogoImgSrc}
+            companyLogoImgSrc={order.companyId.imageSrc}
             id={order.id}
             role={role}
             handleStatusChange={handleStatusChange}

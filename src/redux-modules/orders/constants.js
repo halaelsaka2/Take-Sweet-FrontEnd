@@ -4,3 +4,5 @@ export const ADD_ORDER = "ADD_ORDER";
 export const DELETE_ORDER = "DELETE_ORDER";
 export const EDIT_ORDER = "EDIT_ORDER";
 export const ADD_TO_CART = "ADD_TO_CART";
+export const DELETE_ORDER_FROM_CART = "DELETE_ORDER_FROM_CART";
+export const GET_ALL_ORDERS_BY_USER_ID = "GET_ALL_ORDERS_BY_USER_ID";
