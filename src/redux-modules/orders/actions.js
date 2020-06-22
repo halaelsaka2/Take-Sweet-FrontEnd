@@ -9,6 +9,7 @@ import {
   GET_ODER_BY_ID,
   DELETE_ORDER,
   ADD_ORDER,
+  GET_ALL_ORDERS_BY_USER_ID,
 } from "./../orders/constants";
 ///////////////////////////////////////////////////
 //////////////// GETALL  ////////////////////////
@@ -22,6 +23,22 @@ export const getAllOrders = () => {
 const getAllOrdersRes = (orders) => {
   return {
     type: GET_ALL_ORDERS,
+    payload: orders,
+  };
+};
+
+///////////////////////////////////////////////////
+//////////////// GETALLOrdersByUserId  ////////////////////////
+export const getAllOrdersByUserId = (id) => {
+  return async (dispatch) => {
+    const data = await orderDB.GetAllByUserId(id);
+    dispatch(getAllOrdersByUserIdRes(data));
+  };
+};
+
+const getAllOrdersByUserIdRes = (orders) => {
+  return {
+    type: GET_ALL_ORDERS_BY_USER_ID,
     payload: orders,
   };
 };
@@ -44,6 +61,7 @@ const deleteOrderRes = (id) => {
     payload: id,
   };
 };
+
 ///////////////////////////////////////////////////
 //////////////// ADD ORDER  //////////////////////
 

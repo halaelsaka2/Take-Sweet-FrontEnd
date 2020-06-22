@@ -10,31 +10,51 @@ const initialState = {
 
 export default (state = initialState, action) => {
   let allOrders;
+  let shoppingBagList;
+  let id;
 
   switch (action.type) {
-    case actionTypes.GET_ALL_ORDERS:
-      return { ...state, allOrders: action.payload };
-      break;
+    // case actionTypes.GET_ALL_ORDERS:
+    //   return { ...state, allOrders: action.payload };
+    //   break;
+    case actionTypes.GET_ALL_ORDERS_BY_USER_ID:
+      return {
+        ...state,
+        allOrders: action.payload,
+      };
 
-    case actionTypes.GET_ODER_BY_ID:
-      const order = state.orders.find((order) => order.id === action.payload);
-      return { ...state, order };
+    // case actionTypes.GET_ODER_BY_ID:
+    //   const order = state.allOrders.find(
+    //     (order) => order.id === action.payload
+    //   );
+    //   return { ...state, order };
 
     case actionTypes.ADD_ORDER:
-      allOrders = state.allOrders.push(action.payload);
+      console.log("errorrrrrrrrrrrrrrrrrrrrrrrrrrr", action.payload);
+
+      allOrders = state.allOrders;
+      // allOrders.push(action.payload);
       return { ...state, allOrders };
 
     case actionTypes.DELETE_ORDER:
-      const id = action.payload;
+      id = action.payload;
       allOrders = state.allOrders.filter((order) => order.id !== id);
       console.log(allOrders);
       return { ...state, allOrders };
+
+    // case actionTypes.DELETE_ORDER_FROM_CART:
+    //   id = action.payload;
+    //   shoppingBagList = state.shoppingBagList.filter(
+    //     (order) => order.company.id !== id
+    //   );
+    //   console.log(allOrders);
+    //   return { ...state, allOrders };
 
     case actionTypes.ADD_TO_CART:
       const addedProduct = action.payload;
       console.log(addedProduct);
       const companyId = addedProduct.userId.id;
-      let shoppingBagList = state.shoppingBagList;
+      shoppingBagList = state.shoppingBagList;
 
       /// first order
       if (shoppingBagList.length === 0) {

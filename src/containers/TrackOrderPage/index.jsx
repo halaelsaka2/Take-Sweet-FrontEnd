@@ -3,7 +3,11 @@ import { dumy } from "./dumy";
 import { constants } from "./constants";
 import TrackOrderSection from "../../components/TrackOrderSection";
 import { connect } from "react-redux";
-import { getAllOrders, deleteOrder } from "../../redux-modules/orders/actions";
+import {
+  getAllOrders,
+  deleteOrder,
+  getAllOrdersByUserId,
+} from "../../redux-modules/orders/actions";
 
 class TrackOrder extends Component {
   state = {
@@ -16,15 +20,15 @@ class TrackOrder extends Component {
   };
 
   async componentDidMount() {
-    await this.props.getAllOrders();
-    const statusorders = this.props.orders;
-    this.setState({ statusorders });
     let user = JSON.parse(localStorage.getItem("user"));
+    await this.props.getAllOrdersByUserId(user.id);
+    const statusorders = this.props.orders;
     console.log(user, "mennnnnnnnnnnnnaaaaaaaaaaa");
     if (user) {
       this.setState({
         userName: user.userName,
         role: user.roleId.name,
+        statusorders,
       });
     }
   }
@@ -67,7 +71,7 @@ class TrackOrder extends Component {
         currentTabe,
         ordersPerPage,
         currentPage,
-        statusorders = this.props.orders,
+        statusorders,
         role,
       },
       handleTabChange,
@@ -101,6 +105,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getAllOrders: () => dispatch(getAllOrders()),
     deleteOrder: (id) => dispatch(deleteOrder(id)),
+    getAllOrdersByUserId: (id) => dispatch(getAllOrdersByUserId(id)),
   };
 };
 const mapStateToProps = (state) => {

@@ -31,7 +31,7 @@ class BuyerPage extends Component {
     sort: "Sort with",
     searchValue: "",
     categoryId: "",
-    sortBy:""
+    sortBy: "",
   };
 
   paginate = (currentPage) => {
@@ -74,9 +74,9 @@ class BuyerPage extends Component {
   };
 
   componentDidMount = async () => {
-    const {categoryId,searchValue} =this.state
+    const { categoryId, searchValue } = this.state;
     const id = this.props.match.params.id;
-    await this.props.getAllProductsByUserId(id,searchValue,categoryId);
+    await this.props.getAllProductsByUserId(id, searchValue, categoryId);
     await this.props.getCategoryList();
     await this.props.getSortList();
   };
@@ -95,38 +95,45 @@ class BuyerPage extends Component {
   };
 
   selectSortHandle = (event, id) => {
-    const userId = this.props.match.params.id
-    let {
-      searchValue,
-      categoryId,
-    } = this.state;
+    const userId = this.props.match.params.id;
+    let { searchValue, categoryId } = this.state;
     const { value } = event.target;
     const sortBy = value;
-    this.props.getAllProductsByUserId(userId,searchValue, categoryId, sortBy);
+    this.props.getAllProductsByUserId(userId, searchValue, categoryId, sortBy);
     let sort = this.state.sort;
     let sortDropDownStatus = this.state.sortDropDownStatus;
     sort = event.target.textContent;
     sortDropDownStatus = !sortDropDownStatus;
-    this.setState({ sort, sortDropDownStatus ,sortBy});
+    this.setState({ sort, sortDropDownStatus, sortBy });
   };
 
   selectCategoryHandle = (event, id) => {
-    const userId = this.props.match.params.id
+    const userId = this.props.match.params.id;
     console.log(id);
-    let { searchValue,sortBy } = this.state;
+    let { searchValue, sortBy } = this.state;
     let categoryId;
     if (id === "0") {
       categoryId = "";
-      this.props.getAllProductsByUserId(userId, searchValue, categoryId,sortBy);
+      this.props.getAllProductsByUserId(
+        userId,
+        searchValue,
+        categoryId,
+        sortBy
+      );
     } else {
       categoryId = id;
-      this.props.getAllProductsByUserId(userId, searchValue, categoryId,sortBy);
+      this.props.getAllProductsByUserId(
+        userId,
+        searchValue,
+        categoryId,
+        sortBy
+      );
     }
     let category = this.state.category;
     let categoryDropDownStatus = this.state.categoryDropDownStatus;
     category = event.target.textContent;
     categoryDropDownStatus = !categoryDropDownStatus;
-    this.setState({ category, categoryDropDownStatus,categoryId });
+    this.setState({ category, categoryDropDownStatus, categoryId });
   };
 
   searchHandler = (e) => {
@@ -250,8 +257,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getAllProductsByUserId: (id, search,categoryId,sortBy) =>
-      dispatch(getAllProductsByUserId(id, search,categoryId,sortBy)),
+    getAllProductsByUserId: (id, search, categoryId, sortBy) =>
+      dispatch(getAllProductsByUserId(id, search, categoryId, sortBy)),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
     getProductById: (id) => dispatch(getPorductById(id)),

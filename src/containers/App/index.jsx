@@ -20,61 +20,17 @@ import Footer from "../../components/Layouts/Footer";
 import OrderDetailsPage from "../OrderDetailsPage";
 import { withRouter } from "react-router";
 import LastMinDealPage from "../LastMinDealPage";
+import { deleteOrder } from "../../redux-modules/orders/actions";
+import { DELETE_ORDER_FROM_CART } from "./../../redux-modules/orders/constants";
+
+import { connect } from "react-redux";
+import OrderDetaislSection from "../../components/OrderDetailsSection";
 class App extends Component {
   state = {
     isShoppingIconHidden: false,
     isShoppingBagOpen: false,
     isProductCardModalOpen: false,
     eyeId: "",
-    products: [
-      {
-        id: 1,
-        name: "Cup Cake",
-        src: "assets/images/cake6x6.jpg",
-      },
-      {
-        id: 2,
-        name: "Caramel Cake",
-        src: "assets/images/Product-1.jpg",
-      },
-      {
-        id: 3,
-        name: "Waffle",
-        src: "assets/images/waffle.jpeg",
-      },
-      {
-        id: 4,
-        name: "Tart",
-        src: "assets/images/Product-2.jpg",
-      },
-    ],
-    // shoppingOrderList: [
-    //   {
-    //     id: 1,
-    //     date: 14 / 6 / 2020,
-    //     status: "Waiting",
-    //     products: [
-    //       {
-    //         src: "assets/images/Product-1.jpg",
-    //         amount: 10,
-    //         name: "Caramel Cake",
-    //         totalPrice: 300,
-    //       },
-    //       {
-    //         src: "assets/images/Product-2.jpg",
-    //         amount: 10,
-    //         name: "Figs Tart",
-    //         totalPrice: 200,
-    //       },
-    //     ],
-    //     src: "assets/images/ElAbd.jpg",
-    //     // "companyId",
-    //     // "userId",
-    //     // "comments"
-    //     // paymentType,
-    //   },
-    // ],
-
     numberOfOrders: 0,
   };
 
@@ -97,6 +53,7 @@ class App extends Component {
     let shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
     shoppingBagList = shoppingBagList.filter((m) => m.company.id !== id);
     // console.log()
+    this.props.deleteOrderFromCart(id);
     this.setState({});
     localStorage.setItem("shoppingBagList", JSON.stringify(shoppingBagList));
   };
@@ -125,7 +82,12 @@ class App extends Component {
           <Route path="/home" component={HomePage} />
           <Route path="/edit/:id" component={AddProductPage} />
           <Route path="/add-product" component={AddProductPage} />
-          <Route path="/order-details/:id" component={OrderDetailsPage} />
+          <Route
+            path="/order-details/:id"
+            render={(props) => (
+              <OrderDetailsPage cancelHandle={cancelHandle} {...props} />
+            )}
+          />
           <Route
             path="/profile"
             render={(props) => (
@@ -232,4 +194,11 @@ class App extends Component {
     );
   }
 }
-export default withRouter(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteOrderFromCart: (id) => {
+      dispatch({ type: DELETE_ORDER_FROM_CART, payload: id });
+    },
+  };
+};
+export default connect(null, mapDispatchToProps)(withRouter(App));
