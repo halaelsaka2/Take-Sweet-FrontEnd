@@ -33,6 +33,8 @@ const ProductsSection = ({
   category,
   sort,
   searchHandler,
+  title,
+  text
 }) => {
   console.log(productsList, "prodct list");
 
@@ -48,9 +50,9 @@ const ProductsSection = ({
       <div className="project-container project-container--h">
         <DescriptionSection
           titleClassName={"text-container-h3"}
-          title={description.title}
+          title={title}
           textClassName={"text-container"}
-          text={description.text}
+          text={text}
         ></DescriptionSection>
 
         <div className="tabs-containera">

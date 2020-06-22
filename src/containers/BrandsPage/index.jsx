@@ -67,7 +67,7 @@ class BrandsPage extends Component {
     this.props.getCategoryList();
     this.props.getSortList();
     this.props.getAllCompanies();
-    this.setState({})
+    this.setState({});
   }
 
   render() {
@@ -126,6 +126,8 @@ class BrandsPage extends Component {
           categoryList={this.props.categoryList}
           sortList={sortByList}
           description={description}
+          title={description.title}
+          text={description.text}
           type={"Brands"}
           sortDropDownStatus={sortDropDownStatus}
           categoryDropDownStatus={categoryDropDownStatus}
