@@ -26,6 +26,11 @@ export default (state = initialState, action) => {
         ...state,
         user: action.user
       };
+      case actionTypes.Get_USER_BY_ID:
+      return {
+        ...state,
+        user: action.user
+      };
     default:
       return state;
   }

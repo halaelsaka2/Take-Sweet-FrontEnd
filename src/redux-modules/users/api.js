@@ -40,3 +40,13 @@ export async function updateUser(updatedUser) {
         return response.data;
     }
 }
+
+
+export async function GetUserById(id) {
+
+    const response = await axios.get(`${userEndPoint}/${id}`).catch((err) => console.log(err.response.data));
+    if (response) {
+        console.log(response.data, "userById");
+        return response.data;
+    }
+}

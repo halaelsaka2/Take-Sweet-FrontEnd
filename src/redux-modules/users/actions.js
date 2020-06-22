@@ -1,7 +1,8 @@
 import {
   USER_REGISTER,
   USER_LOGIN,
-  UPDATE_USER
+  UPDATE_USER,
+  Get_USER_BY_ID
 } from "./constants";
 import * as userDB from "./api"
 
@@ -89,6 +90,21 @@ export const updateUser = (user) => {
 const updateUserRes = (user) => {
   return {
     type: UPDATE_USER,
+    user,
+  };
+};
+
+
+export const getUserById = (id)=>{
+  return async (dispatch) => {
+    const userById = await userDB.GetUserById(id);
+    dispatch(getUserByIdRes(userById));
+  };
+}
+
+const getUserByIdRes = (user) => {
+  return {
+    type: Get_USER_BY_ID,
     user,
   };
 };

@@ -19,6 +19,7 @@ import {
   getSortList,
   getCategoryList,
 } from "../../redux-modules/dropdowns/actions";
+import { getUserById } from "../../redux-modules/users/actions";
 
 class BuyerPage extends Component {
   state = {
@@ -74,9 +75,9 @@ class BuyerPage extends Component {
   };
 
   componentDidMount = async () => {
-
     const { categoryId, searchValue, sortBy } = this.state;
     const id = this.props.match.params.id;
+    this.props.getUserById(id);
     await this.props.getAllProductsByUserId(
       id,
       searchValue,
@@ -232,6 +233,8 @@ class BuyerPage extends Component {
           sortList={sortByList}
           type={"buyer"}
           description={description}
+          title={this.props.user.userName}
+          text={description.text}
           addToCart={addToCart}
           plusHandler={plusHandler}
           minusHandler={minusHandler}
@@ -258,6 +261,7 @@ const mapStateToProps = (state) => {
     sortList: state.dropdown.sortList,
     product: state.products.product,
     shoppingBagList: state.orders.shoppingBagList,
+    user: state.user.user,
   };
 };
 
@@ -270,6 +274,7 @@ const mapDispatchToProps = (dispatch) => {
     getProductById: (id) => dispatch(getPorductById(id)),
     getAmout: (product) => dispatch(editAmount(product)),
     addToCart: (product) => dispatch({ type: ADD_TO_CART, payload: product }),
+    getUserById: (id) => dispatch(getUserById(id)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(BuyerPage);
