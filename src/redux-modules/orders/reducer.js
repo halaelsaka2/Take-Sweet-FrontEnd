@@ -6,6 +6,7 @@ const initialState = {
   order: "",
   // shoppingBagProducts: [],
   shoppingBagList: [],
+  addOrder: "",
 };
 
 export default (state = initialState, action) => {
@@ -30,11 +31,9 @@ export default (state = initialState, action) => {
     //   return { ...state, order };
 
     case actionTypes.ADD_ORDER:
-      console.log("errorrrrrrrrrrrrrrrrrrrrrrrrrrr", action.payload);
-
-      allOrders = state.allOrders;
-      // allOrders.push(action.payload);
-      return { ...state, allOrders };
+      const addOrder = action.payload;
+      console.log(addOrder)
+      return { ...state, addOrder };
 
     case actionTypes.DELETE_ORDER:
       id = action.payload;

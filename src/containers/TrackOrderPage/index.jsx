@@ -21,7 +21,9 @@ class TrackOrder extends Component {
 
   async componentDidMount() {
     let user = JSON.parse(localStorage.getItem("user"));
+    console.log(this.props.orders);
     await this.props.getAllOrdersByUserId(user.id);
+    console.log(this.props.orders);
     const statusorders = this.props.orders;
     console.log(user, "mennnnnnnnnnnnnaaaaaaaaaaa");
     if (user) {

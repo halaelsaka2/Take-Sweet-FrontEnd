@@ -73,16 +73,15 @@ export const addOrder = (newOrder) => async (dispatch) => {
     AddOrderProduct(orderProduct)
   );
 
-  Promise.all(newOrderProductsListPromises).then((values) => {
+   Promise.all(newOrderProductsListPromises).then(async (values) => {
     let orderProductsIds = values.map((response) => response.data.id);
     const addedOrder = {
       ...newOrder,
       orderProducts: orderProductsIds,
     };
-    console.log("added order from action ", addedOrder);
-    orderDB.AddOrder(addedOrder).then((response) => {
-      dispatch(addOrderRes(response.data));
-    });
+    const response = await orderDB.AddOrder(addedOrder);
+    console.log(response.data);
+    dispatch(addOrderRes(response.data));
   });
   // const newOrderRes = await Add(newOrder);
   // if (newOrderRes) {
