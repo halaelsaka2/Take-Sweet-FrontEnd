@@ -72,9 +72,13 @@ export const updateProduct = async (id, product) => {
 };
 
 
-export const getDealsProducts = async () => {
+export const getDealsProducts = async (id) => {
   const {
     data
-  } = await axios.get("http://localhost:3000/product/deals");
+  } = await axios.get(`http://localhost:3000/product/deals/${id}`, {
+    headers: {
+      Authorization: token,
+    },
+  });
   return data;
 };

@@ -35,7 +35,7 @@ const ProductItem = ({
           <div
             className="itemm__image"
             style={{
-              backgroundImage: `url(/${src})`,
+              backgroundImage: `url(${src})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
@@ -56,13 +56,17 @@ const ProductItem = ({
             </div>
           </div>
           <h4>{name}</h4>
-
-          <span style={{ textDecoration: isOnSale() }} className="itemm-data">
-            {price} EGP
-          </span>
-          {onSaleStyle && (
-            <span className="itemm-data">{Math.ceil(price / 2)} EGP</span>
+          {onSaleStyle ? (
+            <span style={{ textDecoration: isOnSale() }} className="itemm-data">
+              {price * 2} EGP
+            </span>
+          ) : (
+            <span style={{ textDecoration: isOnSale() }} className="itemm-data">
+              {price} EGP
+            </span>
           )}
+
+          {onSaleStyle && <span className="itemm-data">{price} EGP</span>}
           <div className="itemm__data__amount">
             <i
               className="fas fa-minus itemm__data__amount__controls"
