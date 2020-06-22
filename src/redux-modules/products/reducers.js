@@ -63,13 +63,20 @@ export default (state = initialState, action) => {
       const oldDeal = state.dealsProductsList.find(
         (product) => product.id === action.product.id
       );
-      // console.log("id in reducer", oldDeal.id)
       const dealIndex = state.dealsProductsList.indexOf(oldDeal);
       const dealsProductsList = [...state.dealsProductsList];
       dealsProductsList.pop(dealIndex)
+
+      const oldDealproduct = state.productsList.find(
+        (product) => product.id === action.product.id
+      );
+      const productIndex = state.productsList.indexOf(oldDealproduct);
+      const productListForDeals = [...state.productsList];
+      productListForDeals[productIndex] = action.product;
       return {
         ...state,
-        dealsProductsList: dealsProductsList
+        dealsProductsList: dealsProductsList,
+          productsList: productListForDeals
       }
 
       case actionTypes.UPLOAD_IMAGE:
