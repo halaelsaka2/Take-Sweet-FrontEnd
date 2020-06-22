@@ -27,6 +27,17 @@ class OrderDetailsPage extends Component {
     },
     paymentTypes: [],
   };
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    console.log("this.props.addOrder", this.props.addOrder);
+    console.log(" prevProps.addOrder", prevProps.addOrder);
+    if (this.props.addOrder !== prevProps.addOrder) {
+      this.navigateHandler();
+    }
+  }
+  navigateHandler = () => {
+    this.props.history.push("/track-order");
+  };
   componentDidMount = () => {
     const shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"))
       ? JSON.parse(localStorage.getItem("shoppingBagList"))
@@ -83,14 +94,12 @@ class OrderDetailsPage extends Component {
     const newOrder = this.state.order;
     console.log(newOrder);
     this.props.addNewOrder(newOrder);
-    // this.props.cancelHandle(id);
     let shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
-
     shoppingBagList = shoppingBagList.filter((m) => m.company.id !== id);
     localStorage.setItem("shoppingBagList", JSON.stringify(shoppingBagList));
     this.setState({});
-    this.props.history.push("/track-order");
   };
+
   handleCancel = () => {
     this.props.history.push("/buyer");
   };
@@ -126,11 +135,12 @@ class OrderDetailsPage extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  console.log(state.paymentTypes.paymentTypesList);
   return {
     paymentTypes: state.paymentTypes.paymentTypesList,
+    addOrder: state.orders.addOrder,
   };
 };
+
 const mapDispatchToProps = (dispatch) => {
   return {
     getPaymentTypes: () => {
