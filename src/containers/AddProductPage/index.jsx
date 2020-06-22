@@ -57,17 +57,20 @@ class AddProduct extends Component {
     const product = { ...this.state.product, category: value };
 
     switch (product.category) {
-      case "pastry":
+      case "Pastry":
         console.log(product.category);
         product.categoryId = "5ee21fba7f98cd0cd8a724d9";
-      case "bakery":
+        break;
+      case "Bakery":
         console.log(product.category);
 
         product.categoryId = "5ee2322e57a2c453680237cc";
-      case "coffee":
+        break;
+      case "Coffee":
         console.log(product.category);
 
         product.categoryId = "5ee2325157a2c453680237cd";
+        break;
     }
     // console.log(product);
     this.setState({ product });

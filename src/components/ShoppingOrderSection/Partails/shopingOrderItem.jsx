@@ -21,11 +21,7 @@ const ShoppingOrderItem = ({
     <React.Fragment>
       <div className="shoppingCart__item">
         <div className="shoppingCart__item__image">
-          <img
-            src={"/" + src}
-            alt=""
-            className="shoppingCart__item__image__logo"
-          />
+          <img src={src} alt="" className="shoppingCart__item__image__logo" />
         </div>
         <div className="shoppingCart__item__product">
           <div className="shoppingCart__item__product__text">

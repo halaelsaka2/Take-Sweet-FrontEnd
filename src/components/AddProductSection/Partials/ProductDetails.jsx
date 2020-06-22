@@ -104,7 +104,7 @@ const ProductDetails = ({
 
           <Button
             className="button--rounded--s button--rounded--danger"
-            name="Cancel"
+            name="cancel"
             onClick={onCancelButtonClicked}
             color=""
           >
