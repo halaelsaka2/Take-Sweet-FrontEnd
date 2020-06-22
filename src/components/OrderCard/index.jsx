@@ -41,9 +41,9 @@ const OrderCard = ({
               <input
                 type="radio"
                 id={id}
-                name="status"
+                name="Waiting"
                 value={status}
-                onChange={handleStatusChange}
+                onChange={(event)=>handleStatusChange(event,id)}
                 checked={status === "Waiting"}
               />
               <label htmlFor="Waiting" className="OrderCardRadio ">
@@ -52,9 +52,9 @@ const OrderCard = ({
               <input
                 type="radio"
                 id={id}
-                name="status"
+                name="Arrived"
                 value={status}
-                onChange={handleStatusChange}
+                onChange={(event)=>handleStatusChange(event,id)}
                 checked={status === "Arrived"}
               />
               <label htmlFor="Arrived" className="OrderCardRadio ">
@@ -63,9 +63,9 @@ const OrderCard = ({
               <input
                 type="radio"
                 id={id}
-                name="status"
+                name="Cancelled"
                 value={status}
-                onChange={handleStatusChange}
+                onChange={(event)=>handleStatusChange(event,id)}
                 checked={status === "Cancelled"}
               />
               <label htmlFor="Cancelled" className="OrderCardRadio ">

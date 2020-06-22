@@ -11,6 +11,7 @@ import {
   ADD_ORDER,
   GET_ALL_ORDERS_BY_USER_ID,
   GET_ALL_ORDERS_BY_COMPANY_ID,
+  UPDATE_ORDER
 } from "./../orders/constants";
 ///////////////////////////////////////////////////
 //////////////// GETALL  ////////////////////////
@@ -105,6 +106,29 @@ export const addOrder = (newOrder) => async (dispatch) => {
   //   dispatch(addOrderRes(newOrderRes));
   // }
 };
+
+
+
+
+
+export const updateOrder = (id,order) => {
+  return async (dispatch) => {
+    const updated = await orderDB.updateOrder(id,order);
+    if (updated) {
+      // console.log("from action", deleted);
+      dispatch(updateOrderRes(updated));
+    }
+  };
+};
+
+const updateOrderRes = (newOrderRes) => ({
+  type: UPDATE_ORDER,
+  payload: newOrderRes,
+  });
+
+
+
+
 
 const addOrderRes = (newOrderRes) => ({
   type: ADD_ORDER,
