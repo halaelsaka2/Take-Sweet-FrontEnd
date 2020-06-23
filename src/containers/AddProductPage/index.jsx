@@ -56,6 +56,7 @@ class AddProduct extends Component {
     const { value, name } = event.target;
     const product = { ...this.state.product, category: value };
 
+    
     switch (product.category) {
       case "Pastry":
         console.log(product.category);

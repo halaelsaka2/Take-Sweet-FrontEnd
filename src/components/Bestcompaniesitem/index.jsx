@@ -5,7 +5,7 @@ const Bestcompaniesitem = ({ src }) => (
     <div
       className="item-medium__image image"
       style={{
-        backgroundImage: "url('" + src + "')",
+        backgroundImage: `url(/${src})`,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "contain",
