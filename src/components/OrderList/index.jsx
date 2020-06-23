@@ -29,7 +29,9 @@ const OrderList = ({
         ))}
       </div>
     ) : (
-      <div className="noItem">There Is No Orders Yet</div>
+      <div className="empty-products">
+        <span>There Is No Orders Yet</span>
+      </div>
     )}
   </Container>
 );

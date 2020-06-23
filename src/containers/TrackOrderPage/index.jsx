@@ -25,13 +25,13 @@ class TrackOrder extends Component {
       console.log(this.props.orders);
       let user = JSON.parse(localStorage.getItem("user"));
       console.log(user.roleId.name, "llllllllllllllllllllllllllllll");
-      if (user.roleId.name === "Cafe") {
+      if (user.roleId.name === "Company") {
         console.log("cafeeeeee");
-        await this.props.getAllOrdersByUserId(user.id);
-      } else {
-        console.log("companyyyyyy");
         await this.props.getAllOrdersByCompanyId(user.id);
       }
+      // } else {
+      //   console.log("companyyyyyy");
+      // }
       
       this.setState({ statusorders: this.props.orders });
     }

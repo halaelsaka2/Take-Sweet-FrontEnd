@@ -47,7 +47,9 @@ class App extends Component {
     this.setState({ isProductCardModalOpen, eyeId: id });
   };
   orderHandle = (id) => {
+    this.toggleShoppingBag();
     this.props.history.push(`/order-details/${id}`);
+    
   };
   cancelHandle = (id) => {
     let shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
