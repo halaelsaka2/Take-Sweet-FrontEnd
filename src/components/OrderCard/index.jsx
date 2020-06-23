@@ -22,7 +22,9 @@ const OrderCard = ({
       <div className="order-card__header">
         <div className="order-card__header__logo">
           <img src={companyLogoImgSrc} alt="" />
-          <div className="order-card__header__logo__date">{date}</div>
+          <div className="order-card__header__logo__date">
+            {new Date(date).toLocaleString()}
+          </div>
         </div>
         <div className="status-current">
           {role === "Cafe" && (
@@ -43,7 +45,7 @@ const OrderCard = ({
                 id={id}
                 name="Waiting"
                 value={status}
-                onChange={(event)=>handleStatusChange(event,id)}
+                onChange={(event) => handleStatusChange(event, id)}
                 checked={status === "Waiting"}
               />
               <label htmlFor="Waiting" className="OrderCardRadio ">
@@ -54,7 +56,7 @@ const OrderCard = ({
                 id={id}
                 name="Arrived"
                 value={status}
-                onChange={(event)=>handleStatusChange(event,id)}
+                onChange={(event) => handleStatusChange(event, id)}
                 checked={status === "Arrived"}
               />
               <label htmlFor="Arrived" className="OrderCardRadio ">
@@ -65,7 +67,7 @@ const OrderCard = ({
                 id={id}
                 name="Cancelled"
                 value={status}
-                onChange={(event)=>handleStatusChange(event,id)}
+                onChange={(event) => handleStatusChange(event, id)}
                 checked={status === "Cancelled"}
               />
               <label htmlFor="Cancelled" className="OrderCardRadio ">
