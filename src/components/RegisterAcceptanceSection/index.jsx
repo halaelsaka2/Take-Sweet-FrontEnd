@@ -3,11 +3,8 @@ import Input from "../Input";
 import Button from "../Button";
 import Stepper from "../Stepper";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 const RegisterAcceptanceSection = ({
-  checked,
-  inputType,
   inputId,
   inputName,
   checkHandle,
@@ -29,19 +26,9 @@ const RegisterAcceptanceSection = ({
         />
 
         <div className="terms-container">
-          <span className="block-span">you have finished all the steps</span>
-          <span className="block-span">now please read the terms</span>
-          <div>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </div>
+          <span className="block-span">You have finished all the steps</span>
+          <span className="block-span">Now please read the terms</span>
+          <div style={{ height: "25rem" }}>-Allow to access your data</div>
           <div>
             <Input
               type="checkbox"
@@ -54,21 +41,17 @@ const RegisterAcceptanceSection = ({
         </div>
         <div className="button-container">
           <div className="flex-buttons-container">
-            {/* <Link to="register-branch"> */}
             <Button
               className="button--rounded button--rounded--s button--rounded--shadow"
               name="Back"
               onClick={backButtonHandle}
             />
-            {/* </Link> */}
-            {/* <!-- button--rounded--disabled --> */}
-            {/* <Link to="/profile"> */}
+
             <Button
               className="button--rounded button--rounded--s button--rounded--shadow"
               name="Register"
               onClick={registerButtonHandle}
             />
-            {/* </Link> */}
           </div>
         </div>
       </div>

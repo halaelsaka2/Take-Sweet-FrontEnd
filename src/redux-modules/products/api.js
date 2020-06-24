@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const url = "http://localhost:3000/product/imageUpload";
-const token = JSON.parse(localStorage.getItem("token"));
 export const uploadImageFile = async (image) => {
   const {
     data
@@ -14,11 +13,13 @@ export const uploadImageFile = async (image) => {
 };
 
 export const addNewProduct = async (product) => {
+  const token = JSON.parse(localStorage.getItem("token"))
+
   const data = await axios.post(
     "http://localhost:3000/product/addProduct",
     product, {
       headers: {
-        Authorization: token,
+        authorization: token,
       },
     }
   );
@@ -49,11 +50,12 @@ export const addProduct = async (product) => {
 };
 
 export const deleteProduct = async (id) => {
+  const token = JSON.parse(localStorage.getItem("token"))
   const {
     data
   } = await axios.delete(`${uri}/${id}`, {
     headers: {
-      Authorization: token,
+      authorization: token,
     },
   });
 
@@ -61,26 +63,27 @@ export const deleteProduct = async (id) => {
 };
 
 export const updateProduct = async (id, product) => {
+  const token = JSON.parse(localStorage.getItem("token"))
+
   const {
     data
   } = await axios.patch(`${uri}/${id}`, product, {
     headers: {
-      Authorization: token,
+      authorization: token,
     },
   });
-  console.log(id,"id in api")
   return data;
 };
 
-
 export const getDealsProducts = async (id) => {
+  const token = JSON.parse(localStorage.getItem("token"))
+
   const {
     data
   } = await axios.get(`http://localhost:3000/product/deals/${id}`, {
     headers: {
-      Authorization: token,
+      authorization: token,
     },
   });
-  console.log(id,"id in api")
   return data;
 };

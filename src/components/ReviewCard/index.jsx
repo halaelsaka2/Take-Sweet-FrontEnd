@@ -6,7 +6,6 @@ import Button from "../Button";
 
 const ReviewCard = () => (
   <div className="reviewCard" id="reviewCard">
-    {/* <a id="reviewCard"></a> */}
     <DescriptionSection
       titleClassName="reviewCard__title"
       title="Reviews"

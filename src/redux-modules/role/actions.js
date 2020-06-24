@@ -1,5 +1,6 @@
 import {
-    GetAllRoles, GetRoleById
+    GetAllRoles,
+    GetRoleById
 } from "./api"
 import {
     GET_ALL_ROLES,
@@ -15,7 +16,6 @@ export const getAllRolesRes = (roles) => {
 export const getAllRoles = () => {
     return async (dispatch) => {
         const roles = await GetAllRoles();
-        console.log("weeeee", roles);
         dispatch(getAllRolesRes(roles));
     };
 };
@@ -24,7 +24,6 @@ export const getAllRoles = () => {
 export const getRoleById = (id) => {
     return async (dispatch) => {
         const role = await GetRoleById(id);
-        console.log("weeeee", role);
         dispatch(getRoleByIdRes(role));
     };
 };

@@ -39,7 +39,6 @@ class ProductsPage extends Component {
 
   componentDidMount() {
     const { searchValue, categoryId, sortBy } = this.state;
-    console.log("This.props: ", this.props);
     const id = JSON.parse(localStorage.getItem("user")).id;
     this.props.getAllProductsByUserId(id, searchValue, categoryId, sortBy);
     this.props.getSortList();
@@ -55,7 +54,6 @@ class ProductsPage extends Component {
   categoryDropdownIsOpenHandle = (event) => {
     let categoryDropDownStatus = this.state.categoryDropDownStatus;
     categoryDropDownStatus = !categoryDropDownStatus;
-    console.log("categoryyyyy");
     this.setState({ categoryDropDownStatus });
   };
 
@@ -76,11 +74,10 @@ class ProductsPage extends Component {
   };
   deleteHandle = async (event, id) => {
     event.preventDefault();
-    const product = await this.props.deleteHandle(id);
+    await this.props.deleteHandle(id);
   };
 
   onSaleHandle = (event, item) => {
-    // console.log(event.target, item);
     const { id } = item;
     item.categoryId = item.categoryId.id;
     item.userId = item.userId.id;
@@ -90,11 +87,8 @@ class ProductsPage extends Component {
     } else {
       item.price = item.price * 2;
     }
-    console.log(item);
-    console.log(item.categoryId);
     this.props.editProduct(id, item);
     this.setState({});
-    // console.log(this.props.dealsProductsList);
   };
   render() {
     const {
@@ -124,9 +118,6 @@ class ProductsPage extends Component {
         categoryList={this.props.categoryList}
         sortList={sortByList}
         deleteHandle={this.props.deleteHandle}
-        // categoryFilterHandler={this.props.categoryFilter}
-        // sortByFilterHandler={this.props.sortByFilter}
-        // searchHandler={this.props.searchFilter}
         sortDropDownStatus={sortDropDownStatus}
         categoryDropDownStatus={categoryDropDownStatus}
         categoryDropdownIsOpenHandle={categoryDropdownIsOpenHandle}
@@ -153,7 +144,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // getAllProducts: () => dispatch(getAllProducts()),
     getAllProductsByUserId: (id, search, categotyId, sortBy) =>
       dispatch(getAllProductsByUserId(id, search, categotyId, sortBy)),
     getCategoryList: () => dispatch(getCategoryList()),

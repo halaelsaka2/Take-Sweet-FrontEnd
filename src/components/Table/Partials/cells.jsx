@@ -1,7 +1,6 @@
 import React from "react";
 
 const Cells = ({ data }) => (
-  // data.map((item) => (
   <React.Fragment>
     <td className="details-table__tableDetails__body__row__cell ">
       {data.name}
@@ -17,6 +16,5 @@ const Cells = ({ data }) => (
     </td>
   </React.Fragment>
 );
-// ));
 
 export default Cells;

@@ -1,10 +1,8 @@
 import * as actionTypes from "./constants";
-import ShoppingOrderList from "./../../components/ShoppingOrderSection/Partails/shopingOrderList";
 
 const initialState = {
   allOrders: [],
   order: "",
-  // shoppingBagProducts: [],
   shoppingBagList: [],
   addOrder: "",
 };
@@ -19,50 +17,30 @@ export default (state = initialState, action) => {
       return {
         ...state, allOrders: action.payload
       };
-      break;
     case actionTypes.GET_ALL_ORDERS_BY_USER_ID:
-      console.log(action.payload, "halllllllllllllllla111");
       return {
         ...state,
         allOrders: action.payload,
       };
 
     case actionTypes.GET_ALL_ORDERS_BY_COMPANY_ID:
-      console.log(action.payload, "halllllllllllllllla222");
       return {
         ...state,
         allOrders: action.payload,
       };
     case actionTypes.UPDATE_ORDER:
-      console.log(action.payload, "updated order");
-      // const allOrders=
-      console.log(action.payload,"actionpayloooood");
-      
       const oldOrder = state.allOrders.find(order => order.id === action.payload.id);
-      console.log(oldOrder,"olllllllllld");
-      
       const index = state.allOrders.indexOf(oldOrder);
-      console.log(index,"indexxxx");
-      
       const newAllOrder = [...state.allOrders];
-      newAllOrder[index]=action.payload;
-      console.log(newAllOrder,"newAlloderdeerrs");
-      
+      newAllOrder[index] = action.payload;
       return {
         ...state,
         allOrders: newAllOrder,
       };
 
-      // case actionTypes.GET_ODER_BY_ID:
-      //   const order = state.allOrders.find(
-      //     (order) => order.id === action.payload
-      //   );
-      //   return { ...state, order };
-
     case actionTypes.ADD_ORDER:
 
       const addOrder = action.payload;
-      console.log(addOrder);
       return {
         ...state, addOrder
       };
@@ -70,28 +48,23 @@ export default (state = initialState, action) => {
     case actionTypes.DELETE_ORDER:
       id = action.payload;
       allOrders = state.allOrders.filter((order) => order.id !== id);
-      console.log(allOrders);
       return {
         ...state, allOrders
       };
-
     case actionTypes.DELETE_ORDER_FROM_CART:
       id = action.payload;
       shoppingBagList = state.shoppingBagList.filter(
         (order) => order.company.id !== id
       );
-      console.log(shoppingBagList);
       return {
         ...state, shoppingBagList
       };
 
     case actionTypes.ADD_TO_CART:
       const addedProduct = action.payload;
-      console.log(addedProduct);
       const companyId = addedProduct.userId.id;
       shoppingBagList = state.shoppingBagList;
 
-      /// first order
       if (shoppingBagList.length === 0) {
         shoppingBagList.push({
           shoppingBagProducts: [addedProduct],
@@ -99,7 +72,7 @@ export default (state = initialState, action) => {
         });
       } else {
         let exist = shoppingBagList.find((order) => {
-          if (order.company.id === companyId) return order;
+          if (order.company.id === companyId) return order
         });
 
         if (exist) {
@@ -111,7 +84,6 @@ export default (state = initialState, action) => {
           if (!isDublicatedProduct) {
             shoppingBagList[index].shoppingBagProducts.push(addedProduct);
           }
-          // console.log(shoppingBagList);
         } else {
           shoppingBagList.push({
             shoppingBagProducts: [addedProduct],
@@ -132,7 +104,6 @@ export default (state = initialState, action) => {
           orderProductsPrice.push(total);
           product.totalPrice = total;
         });
-        console.log("total price of each product", orderProductsPrice);
         //total of each order
         totalPriceOfOrder = orderProductsPrice.reduce(
           (accumulator, current) => current + accumulator
@@ -142,10 +113,6 @@ export default (state = initialState, action) => {
       shoppingBagList.forEach(
         (order, index) => (order.totalPrice = totalOfOrders[index])
       );
-      // console.log("total price of each order", totalPriceOfOrder);
-      // console.log("shoppingBagList toal price added", shoppingBagList);
-      // console.log("totalOfOrders", totalOfOrders);
-      // console.log("testttttttttting", shoppingBagList);
       return {
         ...state,
         // shoppingBagList,

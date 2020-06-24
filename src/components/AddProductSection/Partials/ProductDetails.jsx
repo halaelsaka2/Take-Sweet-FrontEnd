@@ -43,14 +43,13 @@ const ProductDetails = ({
 
         <div className="countContainer">
           {countItems.map((countItem, index) => (
-            <div className="countItem">
+            <div className="countItem" key={index}>
               <AvField
                 name={countItem.name}
                 label={countItem.label}
                 type="number"
                 errorMessage="Invalid name"
                 onChange={onChange}
-                value={name}
                 validate={{
                   required: {
                     value: true,
@@ -62,7 +61,6 @@ const ProductDetails = ({
                   },
                 }}
                 className="input input--m"
-                onChange={onChange}
                 value={countItemValues[index]}
               />
               {countItem.unit}

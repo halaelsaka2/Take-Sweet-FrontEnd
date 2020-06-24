@@ -8,7 +8,6 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GET_ALL_Companies:
-      console.log(action.companies,"haaaaaaaaaaaaaaaaaaaaaaaaaaaa Reducer");
       return {
         ...state,
         companyList: action.companies,
@@ -16,8 +15,6 @@ export default (state = initialState, action) => {
 
     case actionTypes.ADD_Company:
       let companyList = [...state.companyList, action.company]
-      // console.log(companyList, "zeeeeeeft in reducer")
-
       return {
         ...state,
         companyList

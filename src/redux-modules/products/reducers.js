@@ -1,7 +1,4 @@
 import * as actionTypes from "./constants";
-import {
-  uploadImage
-} from "./actions";
 
 const initialState = {
   productsList: [],
@@ -17,14 +14,12 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GET_ALL_PRODUCTS:
-      console.log(action.productsList);
       return {
         ...state,
         productsList: action.productsList,
       };
     case actionTypes.ADD_PRODUCT:
       const productsList = [...state.productsList, action.product];
-      console.log(productsList, "in Addproduct Reducer");
       return {
         ...state,
         productsList,
@@ -67,10 +62,6 @@ export default (state = initialState, action) => {
       dealsProductsList.push(oldDeal)
       const dealIndex = state.dealsProductsList.indexOf(oldDeal);
       dealsProductsList = dealsProductsList.filter(dealItem => dealItem !== dealsProductsList[dealIndex])
-
-      // console.log(dealsProductsList, "y alaah")
-      // dealsProductsList.pop(dealIndex)
-
       const oldDealproduct = state.productsList.find(
         (product) => product.id === action.product.id
       );
@@ -94,14 +85,6 @@ export default (state = initialState, action) => {
           ...state,
           dealsProductsList: action.dealsProductsList
         }
-        // case actionTypes.ADD_PRODUCT:
-        // const productsList = [...state.productsList];
-        // productsList.push(action.product);
-        // return {
-        //   ...state,
-        //   productsList,
-        // };
-
         default:
           return state;
   }

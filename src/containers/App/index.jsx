@@ -15,16 +15,12 @@ import BrandsPage from "../BrandsPage";
 import BuyerPage from "../BuyerPage";
 import ProductsSellerPage from "../../containers/ProductsSellerPage";
 import AddProductPage from "../../containers/AddProductPage";
-import Header from "../../components/Layouts/Header";
-import Footer from "../../components/Layouts/Footer";
 import OrderDetailsPage from "../OrderDetailsPage";
 import { withRouter } from "react-router";
 import LastMinDealPage from "../LastMinDealPage";
-import { deleteOrder } from "../../redux-modules/orders/actions";
 import { DELETE_ORDER_FROM_CART } from "./../../redux-modules/orders/constants";
-
 import { connect } from "react-redux";
-import OrderDetaislSection from "../../components/OrderDetailsSection";
+
 class App extends Component {
   state = {
     isShoppingIconHidden: false,
@@ -49,12 +45,10 @@ class App extends Component {
   orderHandle = (id) => {
     this.toggleShoppingBag();
     this.props.history.push(`/order-details/${id}`);
-    
   };
   cancelHandle = (id) => {
     let shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
     shoppingBagList = shoppingBagList.filter((m) => m.company.id !== id);
-    // console.log()
     this.props.deleteOrderFromCart(id);
     this.setState({});
     localStorage.setItem("shoppingBagList", JSON.stringify(shoppingBagList));
@@ -79,7 +73,6 @@ class App extends Component {
     return (
       <React.Fragment>
         <Switch>
-          {/* <Header /> */}
           <Route path="/" exact component={HomePage} />
           <Route path="/home" component={HomePage} />
           <Route path="/edit/:id" component={AddProductPage} />
@@ -123,8 +116,6 @@ class App extends Component {
               />
             )}
           />
-          {/* <Route path="/profile" component={ProfilePage} /> */}
-          {/* <Route path="/user-history" component={HistoryFromUserPage} /> */}
           <Route path="/track-order" component={TrackOrder} />
           <Route
             path="/brands"
@@ -143,7 +134,6 @@ class App extends Component {
               />
             )}
           />
-          {/* <Route path="/brands" component={BrandsPage} /> */}
           <Route
             path="/buyer/:id"
             render={(props) => (
@@ -154,7 +144,6 @@ class App extends Component {
                 openProductsCardModal={openProductsCardModal}
                 toggleShoppingBag={toggleShoppingBag}
                 closeShoppingBag={toggleShoppingBag}
-                // // shoppingOrderList={this.state.shoppingOrderList}
                 cancelHandle={cancelHandle}
                 orderHandle={orderHandle}
                 numberOfOrders={this.state.numberOfOrders}
@@ -163,11 +152,8 @@ class App extends Component {
               />
             )}
           />
-          {/* <Route path="/buyer" component={BuyerPage} /> */}
-
           <Route path="/seller" component={ProductsSellerPage} />
           <Route path="/deals" component={LastMinDealPage} />
-
           <Route path="/login" component={LoginPage} />
           <Route path="/register-branch" component={RegisterBranchPage} />
           <Route
@@ -186,11 +172,7 @@ class App extends Component {
             path="/register-acceptance"
             component={RegisterAcceptancePage}
           />
-
-          {/* <Redirect from="/home" to="/" /> */}
           <Redirect to="/" />
-
-          {/* <Footer /> */}
         </Switch>
       </React.Fragment>
     );

@@ -12,7 +12,7 @@ const Bestsellersitem = ({ product }) => (
         backgroundRepeat: "no-repeat",
       }}
     ></div>
-    <a href="#">
+    <a>
       <h4>{product.name}</h4>
       <span className="lable">50%</span>
     </a>

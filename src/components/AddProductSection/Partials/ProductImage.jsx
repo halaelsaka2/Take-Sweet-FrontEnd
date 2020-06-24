@@ -3,9 +3,9 @@ const ImageSection = ({ imgSrc, imagehandling }) => {
   return (
     <div className="productImageContainer">
       <img
-        // src="assets/images/productImg.jpeg"
         src={imgSrc}
         className="productImageContainer__image"
+        alt=""
       />
       <input type="file" onChange={imagehandling}></input>
       <div className="productImageContainer__label">Product Image</div>

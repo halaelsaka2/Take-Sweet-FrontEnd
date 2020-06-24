@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import OrderDetaislSection from "../../components/OrderDetailsSection";
 import { connect } from "react-redux";
 import { getAllPaymentTypes } from "../../redux-modules/paymentTypes/actions";
@@ -28,9 +27,6 @@ class OrderDetailsPage extends Component {
     paymentTypes: [],
   };
   componentDidUpdate(prevProps) {
-    // Typical usage (don't forget to compare props):
-    console.log("this.props.addOrder", this.props.addOrder);
-    console.log(" prevProps.addOrder", prevProps.addOrder);
     if (this.props.addOrder !== prevProps.addOrder) {
       this.navigateHandler();
     }
@@ -44,11 +40,9 @@ class OrderDetailsPage extends Component {
       : [];
     if (shoppingBagList) {
       const id = this.props.match.params.id;
-      // console.log("paraaaaaaaaaaaams id", id);
       const orderRecived = shoppingBagList.find(
         (order) => order.company.id === id
       );
-      console.log(orderRecived);
       let m = orderRecived.shoppingBagProducts.map((product) => {
         return {
           productId: product.id,
@@ -73,7 +67,6 @@ class OrderDetailsPage extends Component {
         userId: user.id,
       };
       this.props.getPaymentTypes();
-      console.log(order);
       this.setState({ order });
     }
   };
@@ -86,13 +79,11 @@ class OrderDetailsPage extends Component {
     const order = { ...this.state.order };
     const paymentTypeSelected = e.target.value;
     order.paymentType = paymentTypeSelected;
-    console.log(order);
     this.setState({ order });
   };
   handleSubmit = () => {
     const id = this.props.match.params.id;
     const newOrder = this.state.order;
-    console.log(newOrder);
     this.props.cancelHandle(id);
     this.props.addNewOrder(newOrder);
     let shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"));
@@ -116,7 +107,6 @@ class OrderDetailsPage extends Component {
       ...payType,
       checked: "",
     }));
-    // console.log(this.props.paymentTypes);
 
     return (
       <OrderDetaislSection

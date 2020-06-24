@@ -5,8 +5,6 @@ import Button from "../Button";
 import Input from "../Input";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-// import { AvForm, AvField } from "availity-reactstrap-validation";
-// import { Button } from "reactstrap";
 
 const RegisterBranchSection = ({
   cities,
@@ -31,8 +29,6 @@ const RegisterBranchSection = ({
   <div className="register-container">
     <div className="register-form-container">
       <div className="register-form">
-        {/* <AvForm onValidSubmit={addBranchButtonHandle}> */}
-
         <div className="register-header">Register</div>
         <Stepper
           steps={[1, 2, 3]}
@@ -68,12 +64,6 @@ const RegisterBranchSection = ({
                   id={addressId}
                   value={branchInfo.address}
                   onChange={onChange}
-                  // validate={{
-                  //   required: {
-                  //     value: true,
-                  //     errorMessage: "Address can't be empty",
-                  //   },
-                  // }}
                 />
                 <i className="fas fa-2x fa-map-marker-alt map-icon "></i>
               </div>
@@ -85,29 +75,17 @@ const RegisterBranchSection = ({
                 id={phoneId}
                 value={branchInfo.phoneNumber}
                 onChange={onChange}
-                // validate={{
-                //   required: {
-                //     value: true,
-                //     errorMessage: "Phone can't be empty",
-                //   },
-                //   phone: {
-                //     value: true,
-                //     errorMessage: "Invalid phone number",
-                //   },
-                // }}
               />
               <div className="add-branch">
                 <Button
                   className="button--rounded button--rounded--s button--rounded--shadow"
                   name="Add"
                   onClick={addBranchButtonHandle}
-                  // color=""
                 />
               </div>
             </div>
           </div>
         </div>
-        {/* </AvForm> */}
         <div className="branches-link-div">
           {numberOfBranches > 0 && (
             <React.Fragment>
@@ -124,19 +102,12 @@ const RegisterBranchSection = ({
               className="button--rounded button--rounded--s button--rounded--shadow"
               name="Back"
               onClick={backButtonHandle}
-              // color=""
             />
-            {/* <Link to="/register-personal-info">Back</Link> */}
-            {/* </Button> */}
-            {/* <Link to="register-acceptance"> */}
             <Button
               className="button--rounded button--rounded--s button--rounded--shadow"
               name="Next"
               onClick={nextButtonHandle}
-              // color=""
             />
-
-            {/* </Link> */}
           </div>
         </div>
       </div>

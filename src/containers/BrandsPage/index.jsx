@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import Header from "../../components/Layouts/Header";
-import Footer from "../../components/Layouts/Footer";
 import ProductsSection from "../../components/ProductsSection";
 import { description, sortByList } from "./dumy";
 import { connect } from "react-redux";
 import HistoryIcon from "../../components/HistoryIcon";
-import ShoppingCart from "../../components/ShoppingCart";
 import ShoppingOrderContainer from "../../components/ShoppingOrderSection";
 import ProductCardsSection from "../../components/ProductCardsSection";
-import { getAllBrands } from "../../redux-modules/products/actions";
 import {
   getSortList,
   getCategoryList,
@@ -42,7 +39,6 @@ class BrandsPage extends Component {
   categoryDropdownIsOpenHandle = (event) => {
     let categoryDropDownStatus = this.state.categoryDropDownStatus;
     categoryDropDownStatus = !categoryDropDownStatus;
-    console.log("categoryyyyy");
     this.setState({ categoryDropDownStatus });
   };
 
@@ -63,7 +59,6 @@ class BrandsPage extends Component {
   };
 
   componentDidMount() {
-    // this.props.getAllBrands();
     this.props.getCategoryList();
     this.props.getSortList();
     this.props.getAllCompanies();
@@ -79,28 +74,20 @@ class BrandsPage extends Component {
       state: { categoryDropDownStatus, sortDropDownStatus, category, sort },
     } = this;
     const {
-      isShoppingIconHidden,
       isShoppingBagOpen,
       isProductCardModalOpen,
       toggleShoppingBag,
       openProductsCardModal,
-      products,
       shoppingOrderList,
       addToCart,
-      numberOfOrders,
       orderHandle,
     } = this.props;
-    console.log("this.props:", this.props.productsList);
 
     return (
       <React.Fragment>
         <Header />
         <HistoryIcon />
-        {/* <ShoppingCart
-          number={numberOfOrders}
-          openShoppingBag={toggleShoppingBag}
-          isHidden={isShoppingIconHidden}
-        /> */}
+
         <ShoppingOrderContainer
           shoppingOrderList={shoppingOrderList}
           isOpen={isShoppingBagOpen}
@@ -137,14 +124,12 @@ class BrandsPage extends Component {
           selectCategoryHandle={selectCategoryHandle}
           addToCart={addToCart}
         />
-        {/* <Footer /> */}
       </React.Fragment>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log("stattttttttttttttttttttttte:", state.company.companyList);
   return {
     productsList: state.products.productsList,
     categoryList: state.dropdown.categoryList,

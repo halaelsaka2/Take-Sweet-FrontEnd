@@ -9,7 +9,6 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.USER_LOGIN:
-      // console.log("reducer", action.user)
       return {
         ...state, user: action.user, token: action.token
       };
@@ -26,7 +25,7 @@ export default (state = initialState, action) => {
         ...state,
         user: action.user
       };
-      case actionTypes.Get_USER_BY_ID:
+    case actionTypes.Get_USER_BY_ID:
       return {
         ...state,
         user: action.user

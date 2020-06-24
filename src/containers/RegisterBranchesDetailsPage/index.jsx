@@ -6,12 +6,9 @@ class RegisterBrachesDetailsPage extends Component {
     branchData: { city: "", address: "", phoneNumber: "" },
   };
   componentDidMount = () => {
-    console.log("from here");
     let branchList = [...this.state.branchList];
     let user = JSON.parse(localStorage.getItem("newUser"));
-    console.log(user);
     branchList = user.branches;
-    console.log(branchList);
     this.setState({ branchList });
   };
   backButtonHandle = (event) => {};

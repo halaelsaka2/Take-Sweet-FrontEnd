@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { NavLink, withRouter } from "react-router-dom";
 
-import { Link, animateScroll as scroll } from "react-scroll";
 import NotificationPopOver from "./../../NotificationPopover/index";
 
 class Header extends Component {
@@ -9,7 +8,7 @@ class Header extends Component {
     isCompany: false,
     isCafe: false,
     isOpen: false,
-    orders: [] /*backednd*/,
+    orders: [] ,
     newOrders: [],
     userName: "",
     role: "",
@@ -39,7 +38,7 @@ class Header extends Component {
   };
   render() {
     const {
-      state: { isCompany, isCafe, isOpen, orders, newOrders, userName, role },
+      state: { isOpen, orders, userName, role },
       handleToggle,
       handleOpenOrder,
       logoutHandle,
@@ -56,42 +55,24 @@ class Header extends Component {
         <nav className="nav">
           <ul className="nav__menu">
             <li className="nav__menu__item">
-              <NavLink
-                to="/home"
-                activeClassName="activeLink"
-                // className="nav__menu__link"
-              >
+              <NavLink to="/home" activeClassName="activeLink">
                 Home
               </NavLink>
             </li>
             <li className="nav__menu__item">
-              {/* <Link to="about-us" 
-              className="nav__menu__link"
-              > */}
-              <NavLink
-                to="/home"
-                // className="nav__menu__link"
-                activeClassName="activeLink"
-              >
+              <NavLink to="/home" activeClassName="activeLink">
                 About us
               </NavLink>
-              {/* </Link> */}
             </li>
             <li className="nav__menu__item">
-              {/* <Link to="reviewCard"  */}
-              {/* // className="nav__menu__link" */}
-              {/* > */}
               <NavLink to="/home#reviewCard" activeClassName="activeLink">
                 Review
               </NavLink>
-              {/* </Link> */}
             </li>
             <li className="nav__menu__item">
-              {/* <Link to="footer" className="nav__menu__link"> */}
               <NavLink to="/" activeClassName="activeLink">
                 Contact
               </NavLink>
-              {/* </Link> */}
             </li>
             {role === "Company" && (
               <React.Fragment>
@@ -138,22 +119,15 @@ class Header extends Component {
           )}
 
           {userName ? (
-            <NavLink to="/profile">
-              {/* <i className="fas fa-user"></i>  */}
-              {userName}
-            </NavLink>
+            <NavLink to="/profile">{userName}</NavLink>
           ) : (
             <NavLink to="/login">
               <i className="fas fa-user"></i> Sign in
             </NavLink>
           )}
-          {/* // <NavLink to="/login">
-          //   <i className="fas fa-user"></i> Sign in
-          // </NavLink> */}
+
           {userName && (
-            // <NavLink to="/login">
             <i onClick={logoutHandle} className="fas fa-sign-out-alt"></i>
-            // </NavLink>
           )}
         </div>
       </header>

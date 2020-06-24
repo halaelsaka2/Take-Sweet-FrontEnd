@@ -38,7 +38,6 @@ class RegisterAcceptancePage extends Component {
       registerButtonHandle,
       state: { checked },
     } = this;
-    console.log(this.props.user, "hahahahhaahahh");
 
     return (
       <RegisterAcceptanceSection

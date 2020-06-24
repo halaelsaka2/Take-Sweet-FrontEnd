@@ -1,11 +1,9 @@
 import React from "react";
-import ShoppingCart from "../ShoppingCart";
 import { ShoppingOrderList } from "./Partails";
 import PropTypes from "prop-types";
 
 const ShoppingOrderContainer = ({
   shoppingOrderList,
-  number,
   closeShoppingBag,
   isOpen,
   openCardModal,
@@ -42,7 +40,7 @@ ShoppingOrderContainer.propTypes = {
   shoppingOrderList: PropTypes.arrayOf(
     PropTypes.objectOf({
       id: PropTypes.number,
-      src: PropTypes.string, //img
+      src: PropTypes.string,
       quantity: PropTypes.string,
       totalPrice: PropTypes.number,
     })

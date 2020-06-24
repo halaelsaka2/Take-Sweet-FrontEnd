@@ -24,7 +24,7 @@ const RegisterGeneralInfoSection = ({
   confirmPasswordId,
   confirmPasswordName,
   onChange,
-  nextButtonHandle
+  nextButtonHandle,
 }) => (
   <div className="register-container">
     <div className="register-form-container">
@@ -35,7 +35,7 @@ const RegisterGeneralInfoSection = ({
           stepClassNames={[
             "circle--active",
             "circle--notTouched",
-            "circle--notTouched"
+            "circle--notTouched",
           ]}
           pipeClassNames={["pipe--notTouched", "pipe--notTouched"]}
         />
@@ -50,7 +50,7 @@ const RegisterGeneralInfoSection = ({
             value={emailValue}
             validate={{
               required: { value: true, errorMessage: "Email can't be empty" },
-              email: { value: true, errorMessage: "Invalid email form" }
+              email: { value: true, errorMessage: "Invalid email form" },
             }}
           />
           <AvField
@@ -64,16 +64,16 @@ const RegisterGeneralInfoSection = ({
             validate={{
               required: {
                 value: true,
-                errorMessage: "Password can't be empty"
+                errorMessage: "Password can't be empty",
               },
               minLength: {
                 value: 5,
-                errorMessage: "Password must be at least 5 chars long"
+                errorMessage: "Password must be at least 5 chars long",
               },
               pattern: {
                 value: "^[A-Za-z](?=(.*[0-9]){1,})",
-                errorMessage: "Password must contain at least a number"
-              }
+                errorMessage: "Password must contain at least a number",
+              },
             }}
           />
 
@@ -88,17 +88,12 @@ const RegisterGeneralInfoSection = ({
             validate={{
               required: {
                 value: true,
-                errorMessage: "Confirm Password can't be empty"
-              }
-              // match: {
-              //   value: { passwordName },
-              //   errorMessage: "Passwords are not matched"
-              // }
+                errorMessage: "Confirm Password can't be empty",
+              },
             }}
           />
           <Button
             className="button--rounded button--rounded--s button--rounded--shadow"
-            // onClick={nextButtonHandle}
             type="submit"
             color=""
           >
@@ -134,7 +129,7 @@ RegisterGeneralInfoSection.propTypes = {
   confirmPasswordId: PropTypes.string,
   confirmPasswordName: PropTypes.string,
   onChange: PropTypes.func,
-  nextButtonHandle: PropTypes.func
+  nextButtonHandle: PropTypes.func,
 };
 
 export default RegisterGeneralInfoSection;

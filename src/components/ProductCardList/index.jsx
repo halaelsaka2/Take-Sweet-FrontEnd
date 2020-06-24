@@ -3,7 +3,7 @@ import ProductCard from "../ProductCard";
 
 const ProductCardList = ({ productCards, handleDelete }) => {
   console.log("productCards from Modal ", productCards);
-  return productCards.map((product, index) => (
+  return productCards.map((product) => (
     <ProductCard
       key={product.id}
       productName={product.name}

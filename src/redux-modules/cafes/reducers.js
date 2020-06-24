@@ -34,7 +34,6 @@ export default (state = initialState, action) => {
             };
         case actionTypes.ADD_CAFE:
             let cafeList = [...state.cafeList, action.cafe]
-            // console.log(cafeList, "cafe in reducer")
             return {
                 ...state,
                 cafeList

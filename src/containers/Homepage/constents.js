@@ -17,7 +17,7 @@ const constents = {
         {
             id: 4,
             name: "company",
-            src: "assets/images/lo.png",
+            src: "assets/images/ElAbd.jpg",
         },
     ],
     AboutUsContext: [{
