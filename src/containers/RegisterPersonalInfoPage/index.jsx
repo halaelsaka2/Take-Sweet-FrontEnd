@@ -16,10 +16,7 @@ class RegisterPersonalInfoPage extends Component {
   };
 
   async componentDidMount() {
-    console.log(JSON.parse(localStorage.getItem("newUser")));
-
     await this.props.getAllRoles();
-    console.log("This.props: ", this.props.roles);
   }
 
   onChange = (event) => {
@@ -35,7 +32,6 @@ class RegisterPersonalInfoPage extends Component {
     newUser.roleId = roleId;
     newUser.userName = username;
     newUser.imageSrc = imageSrc;
-    console.log(newUser);
     localStorage.setItem("newUser", JSON.stringify(newUser));
     this.props.history.push("/register-branch");
   };
@@ -63,13 +59,11 @@ class RegisterPersonalInfoPage extends Component {
     let roleId = this.state.roleId;
     let roleName = event.target.textContent;
     roleId = id;
-    console.log(event.target.textContent, id);
     newUserPersonalInfo.accountType = roleName;
     newUserPersonalInfo.accountType === "Brand"
       ? (usernamePlaceholder = "Brand Name")
       : (usernamePlaceholder = "Cafe and Resturant Name");
     dropdownIsOpen = !dropdownIsOpen;
-    console.log(roleId);
     this.setState({
       newUserPersonalInfo,
       dropdownIsOpen,
@@ -90,9 +84,7 @@ class RegisterPersonalInfoPage extends Component {
       nextButtonHandle,
       dropdownIsOpenHandle,
       selectAccountTypeHandle,
-      props: { roles },
     } = this;
-    console.log(this.props.roles);
     return (
       <RegisterPersonalInfoSection
         imageSrc={imageSrc}

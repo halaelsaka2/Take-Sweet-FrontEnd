@@ -24,11 +24,11 @@ const AddProducSection = ({
   const { imagehandling } = handlers;
   // console.log(type);
   return (
-    <div class="project-container project-container--h">
+    <div className="project-container project-container--h">
       <HistoryStates tabs={tabs} currentTabe={currentTabe} />
 
       <Container>
-        <div class="ProductContainer">
+        <div className="ProductContainer">
           <ProductImage imgSrc={imageSrc} imagehandling={imagehandling} />
           <ProductDetails
             paymentTypes={paymentTypes}
