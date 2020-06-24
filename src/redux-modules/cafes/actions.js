@@ -2,7 +2,6 @@
 import * as cafeDB from "./api";
 import {
     GET_ALL_CAFES,
-    GET_CAFE_BY_ID,
     DELETE_CAFE,
     EDIT_CAFE,
     ADD_CAFE,
@@ -44,9 +43,9 @@ export const editCafeRes = (cafe) => {
     };
 };
 
-export const editCafe = (id,cafe) => {
+export const editCafe = (id, cafe) => {
     return async (dispatch) => {
-        const editedCafe = await cafeDB.editCafe(id,cafe);
+        const editedCafe = await cafeDB.editCafe(id, cafe);
         dispatch(editCafeRes(editedCafe));
     };
 };
@@ -59,7 +58,6 @@ export const deleteCafetRes = (cafe) => {
 };
 export const deletecafe = (cafeId) => {
     return async (dispatch) => {
-        // const deletedCafe = await cafeHandler.deleteCafe(cafe);
         const cafe = await axios.post(
             `http://localhost:3000/cafe/${cafeId}`
         );
@@ -67,23 +65,6 @@ export const deletecafe = (cafeId) => {
     };
 
 };
-
-// export const getCafeByIdRes = (cafe) => {
-//     return {
-//         type: GET_CAFE_BY_ID,
-//         cafe,
-//     };
-// };
-
-// export const getCafeById = (cafeId) => {
-//     return async (dispatch) => {
-//         // const cafe = await cafeHandler.getCafeById(id);
-//         const cafe = await axios.get(
-//             `http://localhost:3000/cafe/${cafeId}`
-//         );
-//         dispatch(getCafeByIdRes(cafe));
-//     };
-// };
 
 export const getCafeByUserId = () => {
     return async (dispatch) => {

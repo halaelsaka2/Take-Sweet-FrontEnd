@@ -36,8 +36,7 @@ export const getProductById = (id) => {
 };
 
 
-export const products = [
-  {
+export const products = [{
     id: 1,
     src: "assets/images/Product-1.jpg",
     amount: 10,
@@ -107,71 +106,11 @@ export const products = [
     price: 60,
     name: "Pastry Cream",
   },
-  // {
-  //   src: "assets/images/Product-1.jpg",
-  //   amount: 10,
-  //   price: 40,
-  //   name: "Caramel Cake",
-  // },
-  // {
-  //   src: "assets/images/Product-2.jpg",
-  //   amount: 20,
-  //   price: 80,
-  //   name: "Figs Tart",
-  // },
-  // {
-  //   src: "assets/images/cake6x6.jpg",
-  //   amount: 10,
-  //   price: 40,
-  //   name: "Cup Cake",
-  // },
-  // {
-  //   src: "assets/images/Product-3.jpg",
-  //   amount: 10,
-  //   price: 20,
-  //   name: "Strawberry Cake",
-  // },
-  // {
-  //   src: "assets/images/Product-4.jpg",
-  //   amount: 10,
-  //   price: 20,
-  //   name: "Pastry Cream",
-  // },
-  // {
-  //   src: "assets/images/Product-1.jpg",
-  //   amount: 10,
-  //   price: 20,
-  //   name: "Caramel Cake",
-  // },
-  // {
-  //   src: "assets/images/Product-2.jpg",
-  //   amount: 10,
-  //   price: 20,
-  //   name: "Figs Tart",
-  // },
-  // {
-  //   src: "assets/images/cake6x6.jpg",
-  //   amount: 10,
-  //   price: 20,
-  //   name: "Cup Cake",
-  // },
-  // {
-  //   src: "assets/images/Product-3.jpg",
-  //   amount: 10,
-  //   price: 20,
-  //   name: "Strawberry Cake",
-  // },
-  // {
-  //   src: "assets/images/donut.jpg",
-  //   amount: 30,
-  //   price: 30,
-  //   name: "Dounts",
-  // },
+
 ];
 
 
-export const brands = [
-  {
+export const brands = [{
     src: "assets/images/ElAbd.jpg",
     description: "this is a brand",
     price: 20,

@@ -23,9 +23,7 @@ const Dropdown = ({
       className={`dropdown ${isOpened && `dropdown-open`} ${additionalStyle}`}
     >
       <ul className="dropdown__list">
-        {listItems.map((item, index) => {
-          // console.log(idList[index]);
-          return (
+        {listItems.map((item, index) => (
             <li
               onClick={(event) => selectionHandle(event, idList[index])}
               key={index}
@@ -34,8 +32,8 @@ const Dropdown = ({
             >
               <a className="dropdown__list__item__link">{item}</a>
             </li>
-          );
-        })}
+          )
+        )}
       </ul>
     </div>
   </div>

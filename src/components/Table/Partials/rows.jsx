@@ -4,17 +4,17 @@ const Rows = ({ rows, isDeletable }) => {
   // console.log(rows);
   return (
     <React.Fragment>
-      <tr class="details-table__tableDetails__body__row">
-        <th class="details-table__tableDetails__body__row__cell">Product</th>
-        <th class="details-table__tableDetails__body__row__cell">Quantity</th>
-        <th class="details-table__tableDetails__body__row__cell">
+      <tr className="details-table__tableDetails__body__row">
+        <th className="details-table__tableDetails__body__row__cell">Product</th>
+        <th className="details-table__tableDetails__body__row__cell">Quantity</th>
+        <th className="details-table__tableDetails__body__row__cell">
           Price Per Piece
         </th>
-        <th class="details-table__tableDetails__body__row__cell">
+        <th className="details-table__tableDetails__body__row__cell">
           Total Price
         </th>
         {isDeletable && (
-          <th class="details-table__tableDetails__body__row__cell"></th>
+          <th className="details-table__tableDetails__body__row__cell"></th>
         )}
       </tr>
 

@@ -7,7 +7,6 @@ export async function GetAllByUserId(id) {
     .get(`${orderEndPoint}${id}`)
     .catch((err) => console.log(err.response.data));
   if (response) {
-    // console.log(response.data, "dataaaaaaaaaaaaaa");
 
     return response.data;
   }
@@ -18,8 +17,6 @@ export async function GetAllByCompanyId(id) {
     .get(`${orderEndPoint}orders/${id}`)
     .catch((err) => console.log(err.response.data));
   if (response) {
-    console.log(response.data, "dataaaaaaaaaaaaaa");
-
     return response.data;
   }
 }
@@ -34,15 +31,14 @@ export async function AddOrder(newOrder) {
   return addOrder;
 }
 
-export async function updateOrder(id,updatedOrder) {
+export async function updateOrder(id, updatedOrder) {
   const token = JSON.parse(localStorage.getItem("token"));
-
-  const {data} = await axios.patch(`${orderEndPoint}${id}`,updatedOrder, {
+  const {
+    data
+  } = await axios.patch(`${orderEndPoint}${id}`, updatedOrder, {
     headers: {
       authorization: token,
     },
   });
-  console.log(data.order,"dataaaa response");
-  
   return data.order;
 }

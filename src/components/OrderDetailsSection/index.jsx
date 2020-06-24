@@ -39,9 +39,8 @@ const OrderDetaislSection = ({
               <label> Payment Types</label>
               <div className="status-current status-current--details">
                 {paymentTypes.map((paymentType) => (
-                  <div className="wrapping">
+                  <div className="wrapping" key={paymentType.id}>
                     <Input
-                      key={paymentType.id}
                       type="radio"
                       id={paymentType.id}
                       name="card-0"

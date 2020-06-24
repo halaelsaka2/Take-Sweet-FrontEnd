@@ -1,20 +1,5 @@
 import React from "react";
 
-// SCHEMA
-/**
- * 
-     <Steper
-          steps={[1, 2, 3]}
-          stepClassNames={[
-            "circle--finished",
-            "circle--finished",
-            "circle--finished"
-          ]}
-          pipeClassNames={["pipe--finished", "pipe--finished"]}
-
-        />
- */
-
 const Stepper = ({ steps, stepClassNames, pipeClassNames }) => {
   return (
     <div className="states-container">

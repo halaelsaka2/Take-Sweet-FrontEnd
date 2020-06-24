@@ -44,13 +44,11 @@ class Profile extends Component {
     role: "",
     paymentTypeStatu: "",
     branches: [],
-    // cities:[],
     updatedUser: {},
   };
 
   componentDidMount = async () => {
     let user = JSON.parse(localStorage.getItem("user"));
-    console.log(user, "user");
     let branches = [...this.state.branches];
     branches = user.branches;
     if (user) {
@@ -59,20 +57,14 @@ class Profile extends Component {
       this.setState({ role });
       let userProfile = { ...this.state.userProfile };
       if (role === "Cafe") {
-        //getCafeById
         await this.props.getCafeByUserId();
         userProfile = this.props.cafe;
       } else {
-        //getCompanyById
-        // console.log("haaaaaaa");
         await this.props.getCompanyById();
         userProfile = this.props.company;
-        // console.log(userProfile);
       }
       this.setState({ userProfile });
     }
-    // let cities = [...this.state.cities];
-    // cities = constants.cities;
     this.props.getAllPaymentTypes();
     this.setState({ branches });
   };
@@ -159,25 +151,19 @@ class Profile extends Component {
     this.togglePersonalModal();
   };
   savePersonalInfoModal = async () => {
-    console.log("save Data in Personal info modal");
     let userProfile = this.state.userProfile;
-    console.log(userProfile, "insave");
 
     await this.props.updateUser(userProfile.userId);
 
-    console.log(this.props.updatedUser);
     userProfile.userId = this.props.updatedUser;
     this.setState({ userProfile });
     this.togglePersonalModal();
   };
   cancelPersonalInfoModal = () => {
-    console.log("closed Personal info modal");
     this.togglePersonalModal();
   };
   changePersonalInfoModal = (event) => {
-    console.log("change in Personal info modal");
     let { userProfile } = this.state;
-    console.log(userProfile, "inchange");
     userProfile.userId[event.target.name] = event.target.value;
     this.setState({ userProfile });
   };
@@ -193,18 +179,14 @@ class Profile extends Component {
     this.togglePasswordModal();
   };
 
-  changePasswordModal = () => {
-    console.log("change Password modal");
-  };
+  changePasswordModal = () => {};
 
   savePasswordModal = () => {
-    console.log("save Password Modal");
     this.togglePasswordModal();
     this.togglePersonalModal();
   };
 
   cancelPasswordModal = () => {
-    console.log("Close Password Modal");
     this.togglePersonalModal();
     this.togglePasswordModal();
   };
@@ -221,16 +203,12 @@ class Profile extends Component {
   changePaymentTypeModal = (event) => {
     const id = event.target.id;
     const checked = event.target.checked;
-    console.log(checked);
-
     this.props.editPaymentType(id, checked);
   };
   savePaymentTypeModal = () => {
-    console.log("Save PaymentType Modal");
     this.togglePaymentModal();
   };
   cancelPaymentTypeModal = () => {
-    console.log("Cancel PaymentType Modal");
     this.togglePaymentModal();
   };
 
@@ -281,7 +259,6 @@ class Profile extends Component {
       cancelPaymentTypeModal,
       openPaymentModal,
     } = this;
-    console.log(role);
     return (
       <React.Fragment>
         {isPersonalInfoModalOpen && (

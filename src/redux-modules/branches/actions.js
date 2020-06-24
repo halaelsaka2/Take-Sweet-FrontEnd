@@ -22,7 +22,6 @@ export const getAllBranchesRes = (branchList) => {
 export const getAllBranches = () => {
     return async (dispatch) => {
         const branchList = await GetAllBranches();
-        console.log(branchList);
         dispatch(getAllBranchesRes(branchList));
     };
 };
@@ -51,7 +50,6 @@ export const addBranchRes = (branch) => {
 export const addBranch = (addedBranch) => {
     return async (dispatch) => {
         const branch = await AddBranch(addedBranch)
-        console.log(branch)
         dispatch(addBranchRes(branch));
     };
 };

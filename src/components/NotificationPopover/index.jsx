@@ -1,13 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NotificationPopOver = ({
-  isOpen,
-  orders,
-  handleToggle,
-  // handleOpenOrder,
-  newOrders
-}) => (
+const NotificationPopOver = ({ isOpen, handleToggle, newOrders }) => (
   <div style={{ position: "relative", cursor: "pointer" }}>
     <div onClick={handleToggle}>
       {newOrders.length ? (
@@ -17,12 +11,8 @@ const NotificationPopOver = ({
     </div>
     <div className={`popOver ${isOpen && "popOver-open"}`}>
       <ul>
-        {newOrders.map(order => (
-          <li
-            key={order.id}
-            className="notification-order"
-            // onClick={() => handleOpenOrder(order.id)}
-          >
+        {newOrders.map((order) => (
+          <li key={order.id} className="notification-order">
             <Link to={`/order-details/${order.id}`}>{order.name}</Link>
           </li>
         ))}

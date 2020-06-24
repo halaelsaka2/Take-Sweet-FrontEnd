@@ -1,5 +1,3 @@
-import * as productsHandler from "./api.mock";
-
 import {
   uploadImageFile,
   addNewProduct
@@ -113,13 +111,11 @@ export const uploadImage = (image) => {
     const {
       imageUrl
     } = await uploadImageFile(image);
-    // console.log(imageUrl);
     dispatch(uploadImageRes(imageUrl));
   };
 };
 
 export const uploadImageRes = (imageSrc) => {
-  // console.log(imageSrc);
   return {
     type: UPLOAD_IMAGE,
     imageSrc,
@@ -129,11 +125,9 @@ export const uploadImageRes = (imageSrc) => {
 
 export const editDealProduct = (id, newproduct) => {
   return async (dispatch) => {
-    console.log(id, "id from action")
     const {
       product
     } = await productsDB.updateProduct(id, newproduct);
-    console.log(product, " in dispatch")
     dispatch(editDealProductRes(
       product
     ));

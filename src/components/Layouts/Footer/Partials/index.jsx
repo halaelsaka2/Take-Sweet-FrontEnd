@@ -14,12 +14,3 @@ export {
   icons,
   usefulLinks,
 };
-
-// import {
-//   NewsItemList,
-//   UsefulLinks,
-//   Icons,
-//   Copyright,
-//   BriefSummary,
-//   newsList,
-// } from "./Partials";

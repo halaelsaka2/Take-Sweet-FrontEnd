@@ -14,8 +14,7 @@ export const uploadImageFile = async (image) => {
 
 export const addNewProduct = async (product) => {
   const token = JSON.parse(localStorage.getItem("token"))
-  console.log(token,"token in add new product");
-  
+
   const data = await axios.post(
     "http://localhost:3000/product/addProduct",
     product, {
@@ -52,7 +51,6 @@ export const addProduct = async (product) => {
 
 export const deleteProduct = async (id) => {
   const token = JSON.parse(localStorage.getItem("token"))
-
   const {
     data
   } = await axios.delete(`${uri}/${id}`, {
@@ -74,10 +72,8 @@ export const updateProduct = async (id, product) => {
       authorization: token,
     },
   });
-  console.log(id, "id in api")
   return data;
 };
-
 
 export const getDealsProducts = async (id) => {
   const token = JSON.parse(localStorage.getItem("token"))
@@ -89,6 +85,5 @@ export const getDealsProducts = async (id) => {
       authorization: token,
     },
   });
-  console.log(id, "id in api")
   return data;
 };

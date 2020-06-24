@@ -15,7 +15,6 @@ export default (state = initialState, action) => {
       orderProductsList.push(newOrderPrdouct);
       let orderProductsIds = state.orderProductsIds;
       orderProductsIds.push(newOrderPrdouct.id);
-      console.log("orderPrdouct after push", orderProductsIds);
       return {
         ...state,
         orderProductsList,

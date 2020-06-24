@@ -46,7 +46,6 @@ class BuyerPage extends Component {
   };
 
   addToCart = (id) => {
-    console.log("from buyer", id);
     const addedProduct = this.props.productsList.find(
       (product) => product.id === id
     );
@@ -60,7 +59,6 @@ class BuyerPage extends Component {
     const oldproduct = this.props.productsList.find(
       (product) => product.id === id
     );
-    console.log(event.target.id);
     if (event.target.id === "plus") {
       const amount = oldproduct.amount + 1;
       const newproduct = { ...oldproduct, amount };
@@ -97,7 +95,6 @@ class BuyerPage extends Component {
   categoryDropdownIsOpenHandle = (event) => {
     let categoryDropDownStatus = this.state.categoryDropDownStatus;
     categoryDropDownStatus = !categoryDropDownStatus;
-    console.log("categoryyyyy");
     this.setState({ categoryDropDownStatus });
   };
 
@@ -116,7 +113,6 @@ class BuyerPage extends Component {
 
   selectCategoryHandle = (event, id) => {
     const userId = this.props.match.params.id;
-    console.log(id);
     let { searchValue, sortBy } = this.state;
     let categoryId;
     if (id === "0") {
@@ -144,7 +140,6 @@ class BuyerPage extends Component {
   };
 
   searchHandler = (e) => {
-    console.log("search");
     const id = this.props.match.params.id;
     let { categoryId, sortBy } = this.state;
     let searchValue = e.target.value;
@@ -163,7 +158,6 @@ class BuyerPage extends Component {
       minusHandler,
       amountHandler,
       addToCart,
-      // cancelHandle,
       sortDropdownIsOpenHandle,
       categoryDropdownIsOpenHandle,
       selectSortHandle,
@@ -175,7 +169,6 @@ class BuyerPage extends Component {
         sortDropDownStatus,
         category,
         sort,
-        amount,
         searchValue,
       },
     } = this;
@@ -185,18 +178,13 @@ class BuyerPage extends Component {
       isProductCardModalOpen,
       toggleShoppingBag,
       openProductsCardModal,
-      products,
-      shoppingOrderList,
-      numberOfOrders,
       orderHandle,
       cancelHandle,
-      // shoppingBagList,
     } = this.props;
 
     const shoppingBagList = JSON.parse(localStorage.getItem("shoppingBagList"))
       ? JSON.parse(localStorage.getItem("shoppingBagList"))
       : [];
-    //console.log(this.props.productsList);
     return (
       <React.Fragment>
         <Header />
@@ -254,7 +242,6 @@ class BuyerPage extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  console.log(state.orders.shoppingBagList);
   return {
     productsList: state.products.productsList,
     categoryList: state.dropdown.categoryList,

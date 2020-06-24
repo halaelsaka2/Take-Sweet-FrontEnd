@@ -20,47 +20,43 @@ const OrderTrackSection = ({
   handleCancelOrder,
   role,
   handleStatusChange,
-}) => {
-  // console.log(productsPerPage, orders, currentProducts.length, currentPage);
-
-  return (
-    <React.Fragment>
-      <Header />
-      <Container>
-        <div className="project-container project-container--h">
-          <div className="userHistoryFilter ">
-            <Search />
-          </div>
+}) => (
+  <React.Fragment>
+    <Header />
+    <Container>
+      <div className="project-container project-container--h">
+        <div className="userHistoryFilter ">
+          <Search />
         </div>
-      </Container>
-      <HistoryStates
-        tabs={statusTabs}
-        currentTabe={currentTabe}
-        handleTabChange={handleTabChange}
+      </div>
+    </Container>
+    <HistoryStates
+      tabs={statusTabs}
+      currentTabe={currentTabe}
+      handleTabChange={handleTabChange}
+    />
+    <Container>
+      <OrderListSection
+        orders={currentProducts}
+        handleCancelOrder={handleCancelOrder}
+        role={role}
+        handleStatusChange={handleStatusChange}
       />
+    </Container>
+
+    {orders.length > productsPerPage && (
       <Container>
-        <OrderListSection
-          orders={currentProducts}
-          handleCancelOrder={handleCancelOrder}
-          role={role}
-          handleStatusChange={handleStatusChange}
+        <Pagination
+          productsPerPage={productsPerPage}
+          totalProducts={orders.length}
+          currentPage={currentPage}
+          paginate={paginate}
         />
       </Container>
-
-      {orders.length > productsPerPage && (
-        <Container>
-          <Pagination
-            productsPerPage={productsPerPage}
-            totalProducts={orders.length}
-            currentPage={currentPage}
-            paginate={paginate}
-          />
-        </Container>
-      )}
-      <Footer />
-    </React.Fragment>
-  );
-};
+    )}
+    <Footer />
+  </React.Fragment>
+);
 
 OrderTrackSection.defaultProps = {
   orders: [],

@@ -3,11 +3,8 @@ import Input from "../Input";
 import Button from "../Button";
 import Stepper from "../Stepper";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 const RegisterAcceptanceSection = ({
-  checked,
-  inputType,
   inputId,
   inputName,
   checkHandle,
@@ -31,9 +28,7 @@ const RegisterAcceptanceSection = ({
         <div className="terms-container">
           <span className="block-span">You have finished all the steps</span>
           <span className="block-span">Now please read the terms</span>
-          <div style={{height:'25rem'}}>
-            -Allow to access your data
-          </div>
+          <div style={{ height: "25rem" }}>-Allow to access your data</div>
           <div>
             <Input
               type="checkbox"
@@ -46,21 +41,17 @@ const RegisterAcceptanceSection = ({
         </div>
         <div className="button-container">
           <div className="flex-buttons-container">
-            {/* <Link to="register-branch"> */}
             <Button
               className="button--rounded button--rounded--s button--rounded--shadow"
               name="Back"
               onClick={backButtonHandle}
             />
-            {/* </Link> */}
-            {/* <!-- button--rounded--disabled --> */}
-            {/* <Link to="/profile"> */}
+
             <Button
               className="button--rounded button--rounded--s button--rounded--shadow"
               name="Register"
               onClick={registerButtonHandle}
             />
-            {/* </Link> */}
           </div>
         </div>
       </div>

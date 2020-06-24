@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "../../components/Layouts/Header";
 import Footer from "../../components/Layouts/Footer";
 import LastMinDealSection from "../../components/LastMinDealSection";
-import { description, sortByList, products, PageName } from "./dumy";
+import { description, sortByList, PageName } from "./dumy";
 import { connect } from "react-redux";
 import {
   getDealsProducts,
@@ -29,9 +29,6 @@ class LastMinDealPage extends Component {
   };
 
   componentDidMount = async () => {
-    // const id = this.props.match.params.id;
-    // console.log(this.props.match, "inbuyerPage");
-    // await this.props.getAllProductsByUserId(id);
     const id = JSON.parse(localStorage.getItem("user")).id;
     await this.props.getCategoryList();
     await this.props.getSortList();
@@ -57,7 +54,6 @@ class LastMinDealPage extends Component {
   categoryDropdownIsOpenHandle = (event) => {
     let categoryDropDownStatus = this.state.categoryDropDownStatus;
     categoryDropDownStatus = !categoryDropDownStatus;
-    console.log("categoryyyyy");
     this.setState({ categoryDropDownStatus });
   };
 
@@ -78,9 +74,7 @@ class LastMinDealPage extends Component {
   };
 
   onSaleHandle = (event, item) => {
-    // console.log(event.target, item);
     const { id } = item;
-    // console.log(id, "id from last miin pag");
     item.categoryId = item.categoryId.id;
     item.userId = item.userId.id;
     item.onSale = !item.onSale;
@@ -89,10 +83,7 @@ class LastMinDealPage extends Component {
     } else {
       item.price = item.price * 2;
     }
-    console.log(item);
-    console.log(item.categoryId);
     this.props.editDealProduct(id, item);
-    console.log(this.props.dealsProductsList);
     this.setState({});
   };
   render() {
@@ -101,7 +92,6 @@ class LastMinDealPage extends Component {
       minusHandler,
       amountHandler,
       addToCart,
-      // cancelHandle,
       sortDropdownIsOpenHandle,
       categoryDropdownIsOpenHandle,
       selectSortHandle,
@@ -112,29 +102,13 @@ class LastMinDealPage extends Component {
         sortDropDownStatus,
         category,
         sort,
-        amount,
         onSaleStyle,
         isCompany,
         isDeal,
       },
     } = this;
-    const {
-      isShoppingIconHidden,
-      isShoppingBagOpen,
-      isProductCardModalOpen,
-      toggleShoppingBag,
-      openProductsCardModal,
-      //   products,
-      shoppingOrderList,
-      numberOfOrders,
-      orderHandle,
-      cancelHandle,
-      dealsProductsList,
-      categoryList,
-      // shoppingBagList,
-    } = this.props;
+    const { dealsProductsList, categoryList } = this.props;
 
-    console.log(dealsProductsList);
     return (
       <React.Fragment>
         <Header />
@@ -178,7 +152,6 @@ class LastMinDealPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.orders.shoppingBagList);
   return {
     productsList: state.products.productsList,
     categoryList: state.dropdown.categoryList,
@@ -191,15 +164,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    //   getAllProductsByUserId: (id) => dispatch(getAllProductsByUserId(id)),
     getCategoryList: () => dispatch(getCategoryList()),
     getSortList: () => dispatch(getSortList()),
     getDealsProducts: (id) => dispatch(getDealsProducts(id)),
     editDealProduct: (id, editedProduct) =>
       dispatch(editDealProduct(id, editedProduct)),
-    //   getProductById: (id) => dispatch(getPorductById(id)),
-    //   getAmout: (product) => dispatch(editAmount(product)),
-    //   addToCart: (product) => dispatch({ type: ADD_TO_CART, payload: product }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(LastMinDealPage);

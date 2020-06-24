@@ -22,6 +22,7 @@ const OrderList = ({
             onReorder={onReorder}
             onCancel={handleCancelOrder}
             companyLogoImgSrc={order.companyId.imageSrc}
+            cafeLogoImgSrc={order.userId.imageSrc}
             id={order.id}
             role={role}
             handleStatusChange={handleStatusChange}

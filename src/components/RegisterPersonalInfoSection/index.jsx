@@ -67,11 +67,7 @@ const RegisterPersonalInfoSection = ({
           <input type="file" onChange={imageUploadHandler} />
           <div className="info__photo">
             {imageSrc ? (
-              <img
-                src={imageSrc}
-                className="user-image"
-                alt="user image"
-              />
+              <img src={imageSrc} className="user-image" alt="user" />
             ) : (
               <i className="img-logo fa-8x far fa-image"></i>
             )}
@@ -82,16 +78,12 @@ const RegisterPersonalInfoSection = ({
             <Button
               className="button--rounded button--rounded--s button--rounded--shadow"
               name="Back"
-              // onClick={backButtonHandle}
               color=""
             >
               <Link to="/register-general-info">Back</Link>
             </Button>
-            {/* </Link> */}
             <Button
               className="button--rounded button--rounded--s button--rounded--shadow"
-              // name="Next"
-              // onClick={nextButtonHandle}
               color=""
             >
               Next

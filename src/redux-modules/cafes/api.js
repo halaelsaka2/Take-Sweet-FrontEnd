@@ -34,7 +34,5 @@ export const getCafeByUserId = async () => {
             authorization: token,
         }
     })
-    console.log(data, "inApiCaf");
-
     return data;
 }

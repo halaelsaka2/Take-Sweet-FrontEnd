@@ -8,9 +8,6 @@ const HistoryStates = ({ tabs, isPickDate, currentTabe, handleTabChange }) => (
           Key={currentIndex}
           onClick={() => handleTabChange(currentIndex)}
           className={
-            // `tab-label ${
-            //   tabs.length > 1 && currentIndex === 0 && "tab-label--s"
-            // }` &&
             currentIndex === currentTabe ? "tab-label active-tab" : "tab-label"
           }
         >
@@ -26,16 +23,7 @@ const HistoryStates = ({ tabs, isPickDate, currentTabe, handleTabChange }) => (
     <div className="tabs-line"></div>
   </React.Fragment>
 );
-/**SCHEMA
- *
-  <HistoryStates
-          tabs={["all", "waiting", "and so on"]}
-          isActive={true} //optional theres is a default value
-          index={1} //optional theres is a default value
-          isPickDate={true}
-        />
 
- */
 HistoryStates.defaultProps = {
   index: 0,
   isActive: true,

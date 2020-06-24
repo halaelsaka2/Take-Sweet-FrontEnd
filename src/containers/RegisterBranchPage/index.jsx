@@ -9,7 +9,6 @@ class RegisterBranchPage extends Component {
   };
 
   componentDidMount = () => {
-    console.log("from here");
     let branchesInfo = [...this.state.branchesInfo];
     let user = JSON.parse(localStorage.getItem("newUser"));
     if (user.branches) {
@@ -27,12 +26,8 @@ class RegisterBranchPage extends Component {
   };
 
   nextButtonHandle = (event) => {
-    // let newUser = JSON.parse(localStorage.getItem("newUser"));
     let branchesInfo = [...this.state.branchesInfo];
     let oneBranchInfo = { ...this.state.oneBranchInfo };
-    // newUser.branches = branchesInfo;
-    // localStorage.setItem("newUser", JSON.stringify(newUser));
-    // console.log(newUser);
     this.props.history.push("/register-acceptance");
   };
   backButtonHandle = (event) => {
@@ -45,7 +40,6 @@ class RegisterBranchPage extends Component {
     oneBranchInfo = { city: "City", address: "", phoneNumber: "" };
     newUser.branches = branchesInfo;
     localStorage.setItem("newUser", JSON.stringify(newUser));
-    console.log(newUser);
     this.setState({ oneBranchInfo, branchesInfo });
   };
 

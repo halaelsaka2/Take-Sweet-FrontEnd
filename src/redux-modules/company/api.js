@@ -3,8 +3,6 @@ const uri = "http://localhost:3000/company";
 
 export const getCompanyById = async () => {
     const token = JSON.parse(localStorage.getItem("token"))
-    // console.log(token, "tokeninapi")
-
     const {
         data
     } = await axios.get(`${uri}/getByUserId`, {
@@ -12,7 +10,6 @@ export const getCompanyById = async () => {
             authorization: token,
         }
     })
-    // console.log("data", data)
     return data;
 }
 
@@ -27,7 +24,7 @@ export const addCompany = async () => {
     const token = JSON.parse(localStorage.getItem("token"))
     const {
         data
-    } = await axios.post(`${uri}/addCompany`,{},{
+    } = await axios.post(`${uri}/addCompany`, {}, {
         headers: {
             authorization: token,
         }

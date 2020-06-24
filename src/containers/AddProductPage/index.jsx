@@ -10,7 +10,6 @@ import {
   editProduct,
 } from "../../redux-modules/products/actions";
 import { connect } from "react-redux";
-import { products } from "../../redux-modules/products/api.mock";
 
 class AddProduct extends Component {
   state = {
@@ -39,7 +38,6 @@ class AddProduct extends Component {
       const imageSrc = this.props.imageSrc;
       const product = { ...this.state.product, imageSrc };
       const token = JSON.parse(localStorage.token);
-      // console.log(localStorage.token);
       const type = "add";
 
       this.setState({ product, token, type });
@@ -53,27 +51,22 @@ class AddProduct extends Component {
   };
 
   categotyHandler = (event) => {
-    const { value, name } = event.target;
+    const { value} = event.target;
     const product = { ...this.state.product, category: value };
-
-    
+  
     switch (product.category) {
       case "Pastry":
-        console.log(product.category);
         product.categoryId = "5ee21fba7f98cd0cd8a724d9";
         break;
       case "Bakery":
-        console.log(product.category);
-
         product.categoryId = "5ee2322e57a2c453680237cc";
         break;
       case "Coffee":
-        console.log(product.category);
-
         product.categoryId = "5ee2325157a2c453680237cd";
         break;
+        default:
+          break;
     }
-    // console.log(product);
     this.setState({ product });
   };
 
@@ -84,7 +77,6 @@ class AddProduct extends Component {
     } else if (event.target.name === "add") {
       const product = { ...this.state.product };
 
-      console.log(product, "addddddddd");
       await this.props.addProduct(product);
       this.props.history.replace("/seller");
     } else {
@@ -109,7 +101,6 @@ class AddProduct extends Component {
     const {
       state: { product, isAddButtonClicked, type },
     } = this;
-    console.log(this.state);
     const handlers = {
       onChange: this.inputHandler,
       onCancelButtonClicked: this.buttonHandler,

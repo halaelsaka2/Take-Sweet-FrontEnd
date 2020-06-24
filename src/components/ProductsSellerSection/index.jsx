@@ -69,25 +69,23 @@ const ProductsSellerSection = ({
         </div>
 
         <div className="list-container">
-          {currentProducts.map((item) => {
-            console.log(item);
-            return (
-              <ProductItem
-                item={item}
-                deleteHandle={deleteHandle}
-                id={item.id}
-                name={item.name}
-                src={item.imageSrc}
-                amount={item.amount}
-                Type={"seller"}
-                isCompany={isCompany}
-                onSaleStyle={onSaleStyle}
-                isDeal={isDeal}
-                onSaleHandle={onSaleHandle}
-                onSale={item.onSale}
-              ></ProductItem>
-            );
-          })}
+          {currentProducts.map((item) => (
+            <ProductItem
+              key={item.id}
+              item={item}
+              deleteHandle={deleteHandle}
+              id={item.id}
+              name={item.name}
+              src={item.imageSrc}
+              amount={item.amount}
+              Type={"seller"}
+              isCompany={isCompany}
+              onSaleStyle={onSaleStyle}
+              isDeal={isDeal}
+              onSaleHandle={onSaleHandle}
+              onSale={item.onSale}
+            ></ProductItem>
+          ))}
         </div>
         {productsList.length > productsPerPage && (
           <Container>

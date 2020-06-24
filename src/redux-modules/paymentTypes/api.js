@@ -14,8 +14,6 @@ export const getPaymentTypeById = async (id) => {
     return data;
 }
 export const updatePaymentType = async (id,checked) => {
-    console.log(checked,"inaxios");
-    
     const {
         data
     } = await axios.patch(`http://localhost:3000/payment/${id}`,{checked})
